@@ -1,0 +1,3137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AbastosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Administrativo">
+          <Key>
+            <PropertyRef Name="Trabajador" />
+          </Key>
+          <Property Name="Trabajador" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="Departamento" Type="varchar" MaxLength="10" />
+          <Property Name="Funcion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Alumno">
+          <Key>
+            <PropertyRef Name="Persona" />
+          </Key>
+          <Property Name="Persona" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="NumExpediente" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="Tutor" Type="varchar" MaxLength="9" />
+          <Property Name="FechaMatriculacion" Type="datetime" Nullable="false" />
+          <Property Name="CursoCod" Type="varchar" MaxLength="10" />
+          <Property Name="CursoNombre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Asignatura">
+          <Key>
+            <PropertyRef Name="Cod" />
+          </Key>
+          <Property Name="Cod" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rama" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="AsistenciaDiaAsignatura">
+          <Key>
+            <PropertyRef Name="Persona" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="CodAsignatura" />
+            <PropertyRef Name="ConvocatoriaNum" />
+            <PropertyRef Name="EvaluacionNum" />
+            <PropertyRef Name="DiaNombre" />
+          </Key>
+          <Property Name="Persona" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="CursoCod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CursoNombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodAsignatura" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="ConvocatoriaNum" Type="int" Nullable="false" />
+          <Property Name="EvaluacionNum" Type="int" Nullable="false" />
+          <Property Name="SemanaNombre" Type="int" Nullable="false" />
+          <Property Name="DiaNombre" Type="int" Nullable="false" />
+          <Property Name="FaltasAsistencia" Type="int" />
+          <Property Name="FaltasAsistenciaJustificadas" Type="int" />
+        </EntityType>
+        <EntityType Name="AsistenciaSemanaAsignatura">
+          <Key>
+            <PropertyRef Name="Persona" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="CodAsignatura" />
+            <PropertyRef Name="ConvocatoriaNum" />
+            <PropertyRef Name="EvaluacionNum" />
+            <PropertyRef Name="SemanaNum" />
+          </Key>
+          <Property Name="Persona" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="CursoCod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CursoNombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodAsignatura" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="ConvocatoriaNum" Type="int" Nullable="false" />
+          <Property Name="EvaluacionNum" Type="int" Nullable="false" />
+          <Property Name="SemanaNum" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Aula">
+          <Key>
+            <PropertyRef Name="Num" />
+            <PropertyRef Name="Piso" />
+          </Key>
+          <Property Name="Num" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Piso" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Estado" Type="text" />
+        </EntityType>
+        <EntityType Name="Bachiller">
+          <Key>
+            <PropertyRef Name="Cod" />
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Cod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Especializacion" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Baja">
+          <Key>
+            <PropertyRef Name="Trabajador" />
+            <PropertyRef Name="FechaInicio" />
+          </Key>
+          <Property Name="Trabajador" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="FechaInicio" Type="datetime" Nullable="false" />
+          <Property Name="FechaFinal" Type="datetime" />
+          <Property Name="Causa" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Certificado">
+          <Key>
+            <PropertyRef Name="Alumno" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="FechaSolicitud" />
+          </Key>
+          <Property Name="Alumno" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="CursoCod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CursoNombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaSolicitud" Type="datetime" Nullable="false" />
+          <Property Name="FechaDisponible" Type="datetime" />
+          <Property Name="FechaRecogido" Type="datetime" />
+          <Property Name="Pagado" Type="bit" />
+          <Property Name="EnTramite" Type="bit" />
+          <Property Name="Importe" Type="float" />
+        </EntityType>
+        <EntityType Name="CertificadoMatricula">
+          <Key>
+            <PropertyRef Name="Alumno" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="FechaSolicitud" />
+          </Key>
+          <Property Name="Alumno" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="CursoCod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CursoNombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaSolicitud" Type="datetime" Nullable="false" />
+          <Property Name="NumRegistro" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CertificadoNotas">
+          <Key>
+            <PropertyRef Name="Alumno" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="FechaSolicitud" />
+          </Key>
+          <Property Name="Alumno" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="CursoCod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CursoNombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaSolicitud" Type="datetime" Nullable="false" />
+          <Property Name="NotaMeDia" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CertificadoTitulo">
+          <Key>
+            <PropertyRef Name="Alumno" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="FechaSolicitud" />
+          </Key>
+          <Property Name="Alumno" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="CursoCod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CursoNombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaSolicitud" Type="datetime" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ciclo">
+          <Key>
+            <PropertyRef Name="Cod" />
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Cod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Basica" Type="bit" Nullable="false" />
+          <Property Name="HorasPractica" Type="int" Nullable="false" />
+          <Property Name="Rama" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Convocatoria">
+          <Key>
+            <PropertyRef Name="Alumno" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="CodAsignatura" />
+            <PropertyRef Name="Num" />
+          </Key>
+          <Property Name="Alumno" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="CursoCod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CursoNombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodAsignatura" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="Num" Type="int" Nullable="false" />
+          <Property Name="Renunciada" Type="bit" />
+        </EntityType>
+        <EntityType Name="Curso">
+          <Key>
+            <PropertyRef Name="Cod" />
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Cod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tutor" Type="varchar" MaxLength="9" />
+          <Property Name="FechaMatriculacion" Type="datetime" />
+          <Property Name="TurnoTarde" Type="bit" />
+        </EntityType>
+        <EntityType Name="Departamento">
+          <Key>
+            <PropertyRef Name="Cod" />
+          </Key>
+          <Property Name="Cod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Nombre" Type="text" Nullable="false" />
+          <Property Name="Num" Type="varchar" MaxLength="2" />
+          <Property Name="Piso" Type="varchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="Eso">
+          <Key>
+            <PropertyRef Name="Cod" />
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Cod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Especial">
+          <Key>
+            <PropertyRef Name="Trabajador" />
+          </Key>
+          <Property Name="Trabajador" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="Funcion" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Evaluacion">
+          <Key>
+            <PropertyRef Name="Alumno" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="CodAsignatura" />
+            <PropertyRef Name="ConvocatoriaNum" />
+            <PropertyRef Name="EvaluacionNum" />
+          </Key>
+          <Property Name="Alumno" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="CursoCod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CursoNombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodAsignatura" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="ConvocatoriaNum" Type="int" Nullable="false" />
+          <Property Name="EvaluacionNum" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Horario">
+          <Key>
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="CodAsignatura" />
+            <PropertyRef Name="HoraInicio" />
+            <PropertyRef Name="Dia" />
+            <PropertyRef Name="Anyo" />
+            <PropertyRef Name="HoraFinal" />
+          </Key>
+          <Property Name="CursoCod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CursoNombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodAsignatura" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="HoraInicio" Type="date" Nullable="false" />
+          <Property Name="Dia" Type="int" Nullable="false" />
+          <Property Name="Anyo" Type="int" Nullable="false" />
+          <Property Name="HoraFinal" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Impartimiento">
+          <Key>
+            <PropertyRef Name="Profesor" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="CodAsignatura" />
+            <PropertyRef Name="HoraInicio" />
+            <PropertyRef Name="Dia" />
+            <PropertyRef Name="Anyo" />
+            <PropertyRef Name="HoraFinal" />
+            <PropertyRef Name="AulaNum" />
+            <PropertyRef Name="AulaPiso" />
+          </Key>
+          <Property Name="Profesor" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="CursoCod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CursoNombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodAsignatura" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="HoraInicio" Type="date" Nullable="false" />
+          <Property Name="Dia" Type="int" Nullable="false" />
+          <Property Name="Anyo" Type="int" Nullable="false" />
+          <Property Name="HoraFinal" Type="int" Nullable="false" />
+          <Property Name="AulaNum" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="AulaPiso" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mantenimiento">
+          <Key>
+            <PropertyRef Name="Trabajador" />
+          </Key>
+          <Property Name="Trabajador" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="Horario" Type="text" />
+          <Property Name="Funcion" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Nota">
+          <Key>
+            <PropertyRef Name="Alumno" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="CodAsignatura" />
+            <PropertyRef Name="ConvocatoriaNum" />
+            <PropertyRef Name="EvaluacionNum" />
+          </Key>
+          <Property Name="Alumno" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="CursoCod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CursoNombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodAsignatura" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="ConvocatoriaNum" Type="int" Nullable="false" />
+          <Property Name="EvaluacionNum" Type="int" Nullable="false" />
+          <Property Name="Valoracion" Type="float" Nullable="false" />
+          <Property Name="Observaciones" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Ordenador">
+          <Key>
+            <PropertyRef Name="Num" />
+            <PropertyRef Name="Piso" />
+            <PropertyRef Name="CodOrdenadorAula" />
+          </Key>
+          <Property Name="Num" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Piso" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Estado" Type="text" />
+          <Property Name="CodOrdenadorAula" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Ip" Type="varchar" MaxLength="40" />
+          <Property Name="SistemaOperativo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PermisosUsuario">
+          <Key>
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="PermisoAdministrativo" />
+            <PropertyRef Name="PermisoAdmin" />
+            <PropertyRef Name="PermisProfesor" />
+            <PropertyRef Name="PermisoAlumno" />
+          </Key>
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+          <Property Name="PermisoAdministrativo" Type="bit" Nullable="false" />
+          <Property Name="PermisoAdmin" Type="bit" Nullable="false" />
+          <Property Name="PermisProfesor" Type="bit" Nullable="false" />
+          <Property Name="PermisoAlumno" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Persona">
+          <Key>
+            <PropertyRef Name="Dni" />
+          </Key>
+          <Property Name="Dni" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="Nif" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="Calle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CodigoPostal" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Patio" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Piso" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Puerta" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="datetime" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Profesor">
+          <Key>
+            <PropertyRef Name="Trabajador" />
+          </Key>
+          <Property Name="Trabajador" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="FechaIncorporacion" Type="datetime" Nullable="false" />
+          <Property Name="Departamento" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProfesorSustituto">
+          <Key>
+            <PropertyRef Name="Sustituido" />
+          </Key>
+          <Property Name="Sustituido" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="FechaFinalizacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Proyecto">
+          <Key>
+            <PropertyRef Name="Alumno" />
+            <PropertyRef Name="SuperiorCod" />
+            <PropertyRef Name="SuperiorNombre" />
+            <PropertyRef Name="FechaInicio" />
+          </Key>
+          <Property Name="Alumno" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="SuperiorCod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SuperiorNombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaInicio" Type="datetime" Nullable="false" />
+          <Property Name="FechaEntrega" Type="datetime" />
+          <Property Name="Memoria" Type="varchar" MaxLength="100" />
+          <Property Name="Contenido" Type="varchar" MaxLength="100" />
+          <Property Name="Tutor" Type="varchar" MaxLength="9" />
+          <Property Name="Nota" Type="float" />
+        </EntityType>
+        <EntityType Name="Reclamacion">
+          <Key>
+            <PropertyRef Name="Alumno" />
+            <PropertyRef Name="NumParte" />
+          </Key>
+          <Property Name="Alumno" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="NumParte" Type="int" Nullable="false" />
+          <Property Name="Asunto" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contenido" Type="text" Nullable="false" />
+          <Property Name="DirigidoA" Type="varchar" MaxLength="9" />
+          <Property Name="FechaEnvio" Type="datetime" />
+          <Property Name="FechaRevision" Type="datetime" />
+          <Property Name="Respuesta" Type="text" />
+          <Property Name="Revisor" Type="varchar" MaxLength="9" />
+          <Property Name="EnTramite" Type="bit" />
+        </EntityType>
+        <EntityType Name="Superior">
+          <Key>
+            <PropertyRef Name="Cod" />
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Cod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ReglasProyecto" Type="text" />
+        </EntityType>
+        <EntityType Name="Telefono">
+          <Key>
+            <PropertyRef Name="Persona" />
+            <PropertyRef Name="Telefono" />
+          </Key>
+          <Property Name="Persona" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="Comentario" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Titulo">
+          <Key>
+            <PropertyRef Name="Alumno" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="FechaSolicitud" />
+          </Key>
+          <Property Name="Alumno" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="CursoCod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CursoNombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaSolicitud" Type="datetime" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Firmado" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Trabajador">
+          <Key>
+            <PropertyRef Name="Persona" />
+          </Key>
+          <Property Name="Persona" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="Sueldo" Type="float" Nullable="false" />
+          <Property Name="FechaIncorporacion" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Persona" />
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="PermisoAdministrativo" />
+            <PropertyRef Name="PermisoAdmin" />
+            <PropertyRef Name="PermisProfesor" />
+            <PropertyRef Name="PermisoAlumno" />
+          </Key>
+          <Property Name="Persona" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Contrasenya" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PermisoAdministrativo" Type="bit" Nullable="false" />
+          <Property Name="PermisoAdmin" Type="bit" Nullable="false" />
+          <Property Name="PermisProfesor" Type="bit" Nullable="false" />
+          <Property Name="PermisoAlumno" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="AdministrativoDepartamento">
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Administrativo" Type="Self.Administrativo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="Cod" />
+            </Principal>
+            <Dependent Role="Administrativo">
+              <PropertyRef Name="Departamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AdministrativoTrabajador">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Administrativo" Type="Self.Administrativo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="Persona" />
+            </Principal>
+            <Dependent Role="Administrativo">
+              <PropertyRef Name="Trabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AlumnoPersona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="Dni" />
+            </Principal>
+            <Dependent Role="Alumno">
+              <PropertyRef Name="Persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AsistenciaDiaAsignaturaAsistenciaSemanaAsignatura">
+          <End Role="AsistenciaSemanaAsignatura" Type="Self.AsistenciaSemanaAsignatura" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AsistenciaDiaAsignatura" Type="Self.AsistenciaDiaAsignatura" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AsistenciaSemanaAsignatura">
+              <PropertyRef Name="Persona" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="CodAsignatura" />
+              <PropertyRef Name="ConvocatoriaNum" />
+              <PropertyRef Name="EvaluacionNum" />
+              <PropertyRef Name="SemanaNum" />
+            </Principal>
+            <Dependent Role="AsistenciaDiaAsignatura">
+              <PropertyRef Name="Persona" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="CodAsignatura" />
+              <PropertyRef Name="ConvocatoriaNum" />
+              <PropertyRef Name="EvaluacionNum" />
+              <PropertyRef Name="DiaNombre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AsistenciaSemanaAsignaturaEvaluacion">
+          <End Role="Evaluacion" Type="Self.Evaluacion" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AsistenciaSemanaAsignatura" Type="Self.AsistenciaSemanaAsignatura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Evaluacion">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="CodAsignatura" />
+              <PropertyRef Name="ConvocatoriaNum" />
+              <PropertyRef Name="EvaluacionNum" />
+            </Principal>
+            <Dependent Role="AsistenciaSemanaAsignatura">
+              <PropertyRef Name="Persona" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="CodAsignatura" />
+              <PropertyRef Name="ConvocatoriaNum" />
+              <PropertyRef Name="EvaluacionNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AulaImpartimiento">
+          <End Role="Aula" Type="Self.Aula" Multiplicity="1" />
+          <End Role="Impartimiento" Type="Self.Impartimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aula">
+              <PropertyRef Name="Num" />
+              <PropertyRef Name="Piso" />
+            </Principal>
+            <Dependent Role="Impartimiento">
+              <PropertyRef Name="AulaNum" />
+              <PropertyRef Name="AulaPiso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BachillerCurso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bachiller" Type="Self.Bachiller" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Principal>
+            <Dependent Role="Bachiller">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BajaTrabajador">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Baja" Type="Self.Baja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="Persona" />
+            </Principal>
+            <Dependent Role="Baja">
+              <PropertyRef Name="Trabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CertificadoAlumno">
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Certificado" Type="Self.Certificado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alumno">
+              <PropertyRef Name="Persona" />
+            </Principal>
+            <Dependent Role="Certificado">
+              <PropertyRef Name="Alumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CertificadoCurso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Certificado" Type="Self.Certificado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Principal>
+            <Dependent Role="Certificado">
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CertificadoMatriculaCertificado">
+          <End Role="Certificado" Type="Self.Certificado" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CertificadoMatricula" Type="Self.CertificadoMatricula" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Certificado">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="FechaSolicitud" />
+            </Principal>
+            <Dependent Role="CertificadoMatricula">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="FechaSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CertificadoNotasCertificado">
+          <End Role="Certificado" Type="Self.Certificado" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CertificadoNotas" Type="Self.CertificadoNotas" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Certificado">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="FechaSolicitud" />
+            </Principal>
+            <Dependent Role="CertificadoNotas">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="FechaSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CertificadoTituloCertificado">
+          <End Role="Certificado" Type="Self.Certificado" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CertificadoTitulo" Type="Self.CertificadoTitulo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Certificado">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="FechaSolicitud" />
+            </Principal>
+            <Dependent Role="CertificadoTitulo">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="FechaSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CicloCurso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ciclo" Type="Self.Ciclo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Principal>
+            <Dependent Role="Ciclo">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ConvocatoriaAlumno">
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Convocatoria" Type="Self.Convocatoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alumno">
+              <PropertyRef Name="Persona" />
+            </Principal>
+            <Dependent Role="Convocatoria">
+              <PropertyRef Name="Alumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ConvocatoriaAsignatura">
+          <End Role="Asignatura" Type="Self.Asignatura" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Convocatoria" Type="Self.Convocatoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignatura">
+              <PropertyRef Name="Cod" />
+            </Principal>
+            <Dependent Role="Convocatoria">
+              <PropertyRef Name="CodAsignatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ConvocatoriaCurso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Convocatoria" Type="Self.Convocatoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Principal>
+            <Dependent Role="Convocatoria">
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DepartamentoAula">
+          <End Role="Aula" Type="Self.Aula" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aula">
+              <PropertyRef Name="Num" />
+              <PropertyRef Name="Piso" />
+            </Principal>
+            <Dependent Role="Departamento">
+              <PropertyRef Name="Num" />
+              <PropertyRef Name="Piso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EsoCurso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Eso" Type="Self.Eso" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Principal>
+            <Dependent Role="Eso">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EspecialTrabajador">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Especial" Type="Self.Especial" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="Persona" />
+            </Principal>
+            <Dependent Role="Especial">
+              <PropertyRef Name="Trabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EvaluacionConvocatoria">
+          <End Role="Convocatoria" Type="Self.Convocatoria" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Evaluacion" Type="Self.Evaluacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Convocatoria">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="CodAsignatura" />
+              <PropertyRef Name="Num" />
+            </Principal>
+            <Dependent Role="Evaluacion">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="CodAsignatura" />
+              <PropertyRef Name="ConvocatoriaNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HorarioAsignatura">
+          <End Role="Asignatura" Type="Self.Asignatura" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Horario" Type="Self.Horario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignatura">
+              <PropertyRef Name="Cod" />
+            </Principal>
+            <Dependent Role="Horario">
+              <PropertyRef Name="CodAsignatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HorarioCurso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Horario" Type="Self.Horario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Principal>
+            <Dependent Role="Horario">
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MantenimientoTrabajador">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Mantenimiento" Type="Self.Mantenimiento" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="Persona" />
+            </Principal>
+            <Dependent Role="Mantenimiento">
+              <PropertyRef Name="Trabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotaEvaluacion">
+          <End Role="Evaluacion" Type="Self.Evaluacion" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Nota" Type="Self.Nota" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Evaluacion">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="CodAsignatura" />
+              <PropertyRef Name="ConvocatoriaNum" />
+              <PropertyRef Name="EvaluacionNum" />
+            </Principal>
+            <Dependent Role="Nota">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="CodAsignatura" />
+              <PropertyRef Name="ConvocatoriaNum" />
+              <PropertyRef Name="EvaluacionNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrdenadorAula">
+          <End Role="Aula" Type="Self.Aula" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ordenador" Type="Self.Ordenador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aula">
+              <PropertyRef Name="Num" />
+              <PropertyRef Name="Piso" />
+            </Principal>
+            <Dependent Role="Ordenador">
+              <PropertyRef Name="Num" />
+              <PropertyRef Name="Piso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProfesorDepartamento">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Profesor" Type="Self.Profesor" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="Persona" />
+            </Principal>
+            <Dependent Role="Profesor">
+              <PropertyRef Name="Trabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProfesorHorarioHorario">
+          <End Role="Horario" Type="Self.Horario" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Impartimiento" Type="Self.Impartimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horario">
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="CodAsignatura" />
+              <PropertyRef Name="HoraInicio" />
+              <PropertyRef Name="Dia" />
+              <PropertyRef Name="Anyo" />
+              <PropertyRef Name="HoraFinal" />
+            </Principal>
+            <Dependent Role="Impartimiento">
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="CodAsignatura" />
+              <PropertyRef Name="HoraInicio" />
+              <PropertyRef Name="Dia" />
+              <PropertyRef Name="Anyo" />
+              <PropertyRef Name="HoraFinal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProfesorHorarioProfesor">
+          <End Role="Profesor" Type="Self.Profesor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Impartimiento" Type="Self.Impartimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesor">
+              <PropertyRef Name="Trabajador" />
+            </Principal>
+            <Dependent Role="Impartimiento">
+              <PropertyRef Name="Profesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProfesorTrabajador">
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Profesor" Type="Self.Profesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="Cod" />
+            </Principal>
+            <Dependent Role="Profesor">
+              <PropertyRef Name="Departamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProyectoAlumno">
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alumno">
+              <PropertyRef Name="Persona" />
+            </Principal>
+            <Dependent Role="Proyecto">
+              <PropertyRef Name="Alumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProyectoSuperior">
+          <End Role="Superior" Type="Self.Superior" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Superior">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Principal>
+            <Dependent Role="Proyecto">
+              <PropertyRef Name="SuperiorCod" />
+              <PropertyRef Name="SuperiorNombre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ReclamacionAlumno">
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Reclamacion" Type="Self.Reclamacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alumno">
+              <PropertyRef Name="Persona" />
+            </Principal>
+            <Dependent Role="Reclamacion">
+              <PropertyRef Name="Alumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SuperiorCiclo">
+          <End Role="Ciclo" Type="Self.Ciclo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Superior" Type="Self.Superior" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Ciclo">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Principal>
+            <Dependent Role="Superior">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SustitutoProfesor">
+          <End Role="Profesor" Type="Self.Profesor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProfesorSustituto" Type="Self.ProfesorSustituto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Profesor">
+              <PropertyRef Name="Trabajador" />
+            </Principal>
+            <Dependent Role="ProfesorSustituto">
+              <PropertyRef Name="Sustituido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TelefonosPersona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Telefono" Type="Self.Telefono" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="Dni" />
+            </Principal>
+            <Dependent Role="Telefono">
+              <PropertyRef Name="Persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TituloCertificado">
+          <End Role="Certificado" Type="Self.Certificado" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Titulo" Type="Self.Titulo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Certificado">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="FechaSolicitud" />
+            </Principal>
+            <Dependent Role="Titulo">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="FechaSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TrabajadorPersona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="Dni" />
+            </Principal>
+            <Dependent Role="Trabajador">
+              <PropertyRef Name="Persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UsuarioPermisosUsuario">
+          <End Role="PermisosUsuario" Type="Self.PermisosUsuario" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PermisosUsuario">
+              <PropertyRef Name="Nombre" />
+              <PropertyRef Name="PermisoAdministrativo" />
+              <PropertyRef Name="PermisoAdmin" />
+              <PropertyRef Name="PermisProfesor" />
+              <PropertyRef Name="PermisoAlumno" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Nombre" />
+              <PropertyRef Name="PermisoAdministrativo" />
+              <PropertyRef Name="PermisoAdmin" />
+              <PropertyRef Name="PermisProfesor" />
+              <PropertyRef Name="PermisoAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UsuarioPersona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="Dni" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AbastosModelStoreContainer">
+          <EntitySet Name="Administrativo" EntityType="Self.Administrativo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Asignatura" EntityType="Self.Asignatura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AsistenciaDiaAsignatura" EntityType="Self.AsistenciaDiaAsignatura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AsistenciaSemanaAsignatura" EntityType="Self.AsistenciaSemanaAsignatura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Aula" EntityType="Self.Aula" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bachiller" EntityType="Self.Bachiller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Baja" EntityType="Self.Baja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Certificado" EntityType="Self.Certificado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CertificadoMatricula" EntityType="Self.CertificadoMatricula" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CertificadoNotas" EntityType="Self.CertificadoNotas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CertificadoTitulo" EntityType="Self.CertificadoTitulo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ciclo" EntityType="Self.Ciclo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Convocatoria" EntityType="Self.Convocatoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Curso" EntityType="Self.Curso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Eso" EntityType="Self.Eso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Especial" EntityType="Self.Especial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Evaluacion" EntityType="Self.Evaluacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Horario" EntityType="Self.Horario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Impartimiento" EntityType="Self.Impartimiento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mantenimiento" EntityType="Self.Mantenimiento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nota" EntityType="Self.Nota" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ordenador" EntityType="Self.Ordenador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PermisosUsuario" EntityType="Self.PermisosUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profesor" EntityType="Self.Profesor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfesorSustituto" EntityType="Self.ProfesorSustituto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proyecto" EntityType="Self.Proyecto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reclamacion" EntityType="Self.Reclamacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Superior" EntityType="Self.Superior" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Telefono" EntityType="Self.Telefono" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Titulo" EntityType="Self.Titulo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trabajador" EntityType="Self.Trabajador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="AdministrativoDepartamento" Association="Self.AdministrativoDepartamento">
+            <End Role="Departamento" EntitySet="Departamento" />
+            <End Role="Administrativo" EntitySet="Administrativo" />
+          </AssociationSet>
+          <AssociationSet Name="AdministrativoTrabajador" Association="Self.AdministrativoTrabajador">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Administrativo" EntitySet="Administrativo" />
+          </AssociationSet>
+          <AssociationSet Name="AlumnoPersona" Association="Self.AlumnoPersona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Alumno" EntitySet="Alumno" />
+          </AssociationSet>
+          <AssociationSet Name="AsistenciaDiaAsignaturaAsistenciaSemanaAsignatura" Association="Self.AsistenciaDiaAsignaturaAsistenciaSemanaAsignatura">
+            <End Role="AsistenciaSemanaAsignatura" EntitySet="AsistenciaSemanaAsignatura" />
+            <End Role="AsistenciaDiaAsignatura" EntitySet="AsistenciaDiaAsignatura" />
+          </AssociationSet>
+          <AssociationSet Name="AsistenciaSemanaAsignaturaEvaluacion" Association="Self.AsistenciaSemanaAsignaturaEvaluacion">
+            <End Role="Evaluacion" EntitySet="Evaluacion" />
+            <End Role="AsistenciaSemanaAsignatura" EntitySet="AsistenciaSemanaAsignatura" />
+          </AssociationSet>
+          <AssociationSet Name="AulaImpartimiento" Association="Self.AulaImpartimiento">
+            <End Role="Aula" EntitySet="Aula" />
+            <End Role="Impartimiento" EntitySet="Impartimiento" />
+          </AssociationSet>
+          <AssociationSet Name="BachillerCurso" Association="Self.BachillerCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Bachiller" EntitySet="Bachiller" />
+          </AssociationSet>
+          <AssociationSet Name="BajaTrabajador" Association="Self.BajaTrabajador">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Baja" EntitySet="Baja" />
+          </AssociationSet>
+          <AssociationSet Name="CertificadoAlumno" Association="Self.CertificadoAlumno">
+            <End Role="Alumno" EntitySet="Alumno" />
+            <End Role="Certificado" EntitySet="Certificado" />
+          </AssociationSet>
+          <AssociationSet Name="CertificadoCurso" Association="Self.CertificadoCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Certificado" EntitySet="Certificado" />
+          </AssociationSet>
+          <AssociationSet Name="CertificadoMatriculaCertificado" Association="Self.CertificadoMatriculaCertificado">
+            <End Role="Certificado" EntitySet="Certificado" />
+            <End Role="CertificadoMatricula" EntitySet="CertificadoMatricula" />
+          </AssociationSet>
+          <AssociationSet Name="CertificadoNotasCertificado" Association="Self.CertificadoNotasCertificado">
+            <End Role="Certificado" EntitySet="Certificado" />
+            <End Role="CertificadoNotas" EntitySet="CertificadoNotas" />
+          </AssociationSet>
+          <AssociationSet Name="CertificadoTituloCertificado" Association="Self.CertificadoTituloCertificado">
+            <End Role="Certificado" EntitySet="Certificado" />
+            <End Role="CertificadoTitulo" EntitySet="CertificadoTitulo" />
+          </AssociationSet>
+          <AssociationSet Name="CicloCurso" Association="Self.CicloCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Ciclo" EntitySet="Ciclo" />
+          </AssociationSet>
+          <AssociationSet Name="ConvocatoriaAlumno" Association="Self.ConvocatoriaAlumno">
+            <End Role="Alumno" EntitySet="Alumno" />
+            <End Role="Convocatoria" EntitySet="Convocatoria" />
+          </AssociationSet>
+          <AssociationSet Name="ConvocatoriaAsignatura" Association="Self.ConvocatoriaAsignatura">
+            <End Role="Asignatura" EntitySet="Asignatura" />
+            <End Role="Convocatoria" EntitySet="Convocatoria" />
+          </AssociationSet>
+          <AssociationSet Name="ConvocatoriaCurso" Association="Self.ConvocatoriaCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Convocatoria" EntitySet="Convocatoria" />
+          </AssociationSet>
+          <AssociationSet Name="DepartamentoAula" Association="Self.DepartamentoAula">
+            <End Role="Aula" EntitySet="Aula" />
+            <End Role="Departamento" EntitySet="Departamento" />
+          </AssociationSet>
+          <AssociationSet Name="EsoCurso" Association="Self.EsoCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Eso" EntitySet="Eso" />
+          </AssociationSet>
+          <AssociationSet Name="EspecialTrabajador" Association="Self.EspecialTrabajador">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Especial" EntitySet="Especial" />
+          </AssociationSet>
+          <AssociationSet Name="EvaluacionConvocatoria" Association="Self.EvaluacionConvocatoria">
+            <End Role="Convocatoria" EntitySet="Convocatoria" />
+            <End Role="Evaluacion" EntitySet="Evaluacion" />
+          </AssociationSet>
+          <AssociationSet Name="HorarioAsignatura" Association="Self.HorarioAsignatura">
+            <End Role="Asignatura" EntitySet="Asignatura" />
+            <End Role="Horario" EntitySet="Horario" />
+          </AssociationSet>
+          <AssociationSet Name="HorarioCurso" Association="Self.HorarioCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Horario" EntitySet="Horario" />
+          </AssociationSet>
+          <AssociationSet Name="MantenimientoTrabajador" Association="Self.MantenimientoTrabajador">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Mantenimiento" EntitySet="Mantenimiento" />
+          </AssociationSet>
+          <AssociationSet Name="NotaEvaluacion" Association="Self.NotaEvaluacion">
+            <End Role="Evaluacion" EntitySet="Evaluacion" />
+            <End Role="Nota" EntitySet="Nota" />
+          </AssociationSet>
+          <AssociationSet Name="OrdenadorAula" Association="Self.OrdenadorAula">
+            <End Role="Aula" EntitySet="Aula" />
+            <End Role="Ordenador" EntitySet="Ordenador" />
+          </AssociationSet>
+          <AssociationSet Name="ProfesorDepartamento" Association="Self.ProfesorDepartamento">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Profesor" EntitySet="Profesor" />
+          </AssociationSet>
+          <AssociationSet Name="ProfesorHorarioHorario" Association="Self.ProfesorHorarioHorario">
+            <End Role="Horario" EntitySet="Horario" />
+            <End Role="Impartimiento" EntitySet="Impartimiento" />
+          </AssociationSet>
+          <AssociationSet Name="ProfesorHorarioProfesor" Association="Self.ProfesorHorarioProfesor">
+            <End Role="Profesor" EntitySet="Profesor" />
+            <End Role="Impartimiento" EntitySet="Impartimiento" />
+          </AssociationSet>
+          <AssociationSet Name="ProfesorTrabajador" Association="Self.ProfesorTrabajador">
+            <End Role="Departamento" EntitySet="Departamento" />
+            <End Role="Profesor" EntitySet="Profesor" />
+          </AssociationSet>
+          <AssociationSet Name="ProyectoAlumno" Association="Self.ProyectoAlumno">
+            <End Role="Alumno" EntitySet="Alumno" />
+            <End Role="Proyecto" EntitySet="Proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="ProyectoSuperior" Association="Self.ProyectoSuperior">
+            <End Role="Superior" EntitySet="Superior" />
+            <End Role="Proyecto" EntitySet="Proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="ReclamacionAlumno" Association="Self.ReclamacionAlumno">
+            <End Role="Alumno" EntitySet="Alumno" />
+            <End Role="Reclamacion" EntitySet="Reclamacion" />
+          </AssociationSet>
+          <AssociationSet Name="SuperiorCiclo" Association="Self.SuperiorCiclo">
+            <End Role="Ciclo" EntitySet="Ciclo" />
+            <End Role="Superior" EntitySet="Superior" />
+          </AssociationSet>
+          <AssociationSet Name="SustitutoProfesor" Association="Self.SustitutoProfesor">
+            <End Role="Profesor" EntitySet="Profesor" />
+            <End Role="ProfesorSustituto" EntitySet="ProfesorSustituto" />
+          </AssociationSet>
+          <AssociationSet Name="TelefonosPersona" Association="Self.TelefonosPersona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Telefono" EntitySet="Telefono" />
+          </AssociationSet>
+          <AssociationSet Name="TituloCertificado" Association="Self.TituloCertificado">
+            <End Role="Certificado" EntitySet="Certificado" />
+            <End Role="Titulo" EntitySet="Titulo" />
+          </AssociationSet>
+          <AssociationSet Name="TrabajadorPersona" Association="Self.TrabajadorPersona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Trabajador" EntitySet="Trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="UsuarioPermisosUsuario" Association="Self.UsuarioPermisosUsuario">
+            <End Role="PermisosUsuario" EntitySet="PermisosUsuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="UsuarioPersona" Association="Self.UsuarioPersona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AbastosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Administrativo">
+          <Key>
+            <PropertyRef Name="Trabajador" />
+          </Key>
+          <Property Name="Trabajador" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Departamento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Funcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Departamento1" Relationship="Self.AdministrativoDepartamento" FromRole="Administrativo" ToRole="Departamento" />
+          <NavigationProperty Name="Trabajador1" Relationship="Self.AdministrativoTrabajador" FromRole="Administrativo" ToRole="Trabajador" />
+        </EntityType>
+        <EntityType Name="Alumno">
+          <Key>
+            <PropertyRef Name="Persona" />
+          </Key>
+          <Property Name="Persona" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumExpediente" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tutor" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="FechaMatriculacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CursoCod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CursoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Persona1" Relationship="Self.AlumnoPersona" FromRole="Alumno" ToRole="Persona" />
+          <NavigationProperty Name="Certificado" Relationship="Self.CertificadoAlumno" FromRole="Alumno" ToRole="Certificado" />
+          <NavigationProperty Name="Convocatoria" Relationship="Self.ConvocatoriaAlumno" FromRole="Alumno" ToRole="Convocatoria" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.ProyectoAlumno" FromRole="Alumno" ToRole="Proyecto" />
+          <NavigationProperty Name="Reclamacion" Relationship="Self.ReclamacionAlumno" FromRole="Alumno" ToRole="Reclamacion" />
+        </EntityType>
+        <EntityType Name="Asignatura">
+          <Key>
+            <PropertyRef Name="Cod" />
+          </Key>
+          <Property Name="Cod" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rama" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Convocatoria" Relationship="Self.ConvocatoriaAsignatura" FromRole="Asignatura" ToRole="Convocatoria" />
+          <NavigationProperty Name="Horario" Relationship="Self.HorarioAsignatura" FromRole="Asignatura" ToRole="Horario" />
+        </EntityType>
+        <EntityType Name="AsistenciaDiaAsignatura">
+          <Key>
+            <PropertyRef Name="Persona" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="CodAsignatura" />
+            <PropertyRef Name="ConvocatoriaNum" />
+            <PropertyRef Name="EvaluacionNum" />
+            <PropertyRef Name="DiaNombre" />
+          </Key>
+          <Property Name="Persona" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoCod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodAsignatura" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ConvocatoriaNum" Type="Int32" Nullable="false" />
+          <Property Name="EvaluacionNum" Type="Int32" Nullable="false" />
+          <Property Name="SemanaNombre" Type="Int32" Nullable="false" />
+          <Property Name="DiaNombre" Type="Int32" Nullable="false" />
+          <Property Name="FaltasAsistencia" Type="Int32" />
+          <Property Name="FaltasAsistenciaJustificadas" Type="Int32" />
+          <NavigationProperty Name="AsistenciaSemanaAsignatura" Relationship="Self.AsistenciaDiaAsignaturaAsistenciaSemanaAsignatura" FromRole="AsistenciaDiaAsignatura" ToRole="AsistenciaSemanaAsignatura" />
+        </EntityType>
+        <EntityType Name="AsistenciaSemanaAsignatura">
+          <Key>
+            <PropertyRef Name="Persona" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="CodAsignatura" />
+            <PropertyRef Name="ConvocatoriaNum" />
+            <PropertyRef Name="EvaluacionNum" />
+            <PropertyRef Name="SemanaNum" />
+          </Key>
+          <Property Name="Persona" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoCod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodAsignatura" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ConvocatoriaNum" Type="Int32" Nullable="false" />
+          <Property Name="EvaluacionNum" Type="Int32" Nullable="false" />
+          <Property Name="SemanaNum" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AsistenciaDiaAsignatura" Relationship="Self.AsistenciaDiaAsignaturaAsistenciaSemanaAsignatura" FromRole="AsistenciaSemanaAsignatura" ToRole="AsistenciaDiaAsignatura" />
+          <NavigationProperty Name="Evaluacion" Relationship="Self.AsistenciaSemanaAsignaturaEvaluacion" FromRole="AsistenciaSemanaAsignatura" ToRole="Evaluacion" />
+        </EntityType>
+        <EntityType Name="Aula">
+          <Key>
+            <PropertyRef Name="Num" />
+            <PropertyRef Name="Piso" />
+          </Key>
+          <Property Name="Num" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Piso" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Impartimiento" Relationship="Self.AulaImpartimiento" FromRole="Aula" ToRole="Impartimiento" />
+          <NavigationProperty Name="Departamento" Relationship="Self.DepartamentoAula" FromRole="Aula" ToRole="Departamento" />
+          <NavigationProperty Name="Ordenador" Relationship="Self.OrdenadorAula" FromRole="Aula" ToRole="Ordenador" />
+        </EntityType>
+        <EntityType Name="Bachiller">
+          <Key>
+            <PropertyRef Name="Cod" />
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Cod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Especializacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Curso" Relationship="Self.BachillerCurso" FromRole="Bachiller" ToRole="Curso" />
+        </EntityType>
+        <EntityType Name="Baja">
+          <Key>
+            <PropertyRef Name="Trabajador" />
+            <PropertyRef Name="FechaInicio" />
+          </Key>
+          <Property Name="Trabajador" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaFinal" Type="DateTime" Precision="3" />
+          <Property Name="Causa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Trabajador1" Relationship="Self.BajaTrabajador" FromRole="Baja" ToRole="Trabajador" />
+        </EntityType>
+        <EntityType Name="Certificado">
+          <Key>
+            <PropertyRef Name="Alumno" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="FechaSolicitud" />
+          </Key>
+          <Property Name="Alumno" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoCod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaSolicitud" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaDisponible" Type="DateTime" Precision="3" />
+          <Property Name="FechaRecogido" Type="DateTime" Precision="3" />
+          <Property Name="Pagado" Type="Boolean" />
+          <Property Name="EnTramite" Type="Boolean" />
+          <Property Name="Importe" Type="Double" />
+          <NavigationProperty Name="Alumno1" Relationship="Self.CertificadoAlumno" FromRole="Certificado" ToRole="Alumno" />
+          <NavigationProperty Name="Curso" Relationship="Self.CertificadoCurso" FromRole="Certificado" ToRole="Curso" />
+          <NavigationProperty Name="CertificadoMatricula" Relationship="Self.CertificadoMatriculaCertificado" FromRole="Certificado" ToRole="CertificadoMatricula" />
+          <NavigationProperty Name="CertificadoNotas" Relationship="Self.CertificadoNotasCertificado" FromRole="Certificado" ToRole="CertificadoNotas" />
+          <NavigationProperty Name="CertificadoTitulo" Relationship="Self.CertificadoTituloCertificado" FromRole="Certificado" ToRole="CertificadoTitulo" />
+          <NavigationProperty Name="Titulo" Relationship="Self.TituloCertificado" FromRole="Certificado" ToRole="Titulo" />
+        </EntityType>
+        <EntityType Name="CertificadoMatricula">
+          <Key>
+            <PropertyRef Name="Alumno" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="FechaSolicitud" />
+          </Key>
+          <Property Name="Alumno" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoCod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaSolicitud" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NumRegistro" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Certificado" Relationship="Self.CertificadoMatriculaCertificado" FromRole="CertificadoMatricula" ToRole="Certificado" />
+        </EntityType>
+        <EntityType Name="CertificadoNotas">
+          <Key>
+            <PropertyRef Name="Alumno" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="FechaSolicitud" />
+          </Key>
+          <Property Name="Alumno" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoCod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaSolicitud" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NotaMeDia" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Certificado" Relationship="Self.CertificadoNotasCertificado" FromRole="CertificadoNotas" ToRole="Certificado" />
+        </EntityType>
+        <EntityType Name="CertificadoTitulo">
+          <Key>
+            <PropertyRef Name="Alumno" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="FechaSolicitud" />
+          </Key>
+          <Property Name="Alumno" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoCod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaSolicitud" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Certificado" Relationship="Self.CertificadoTituloCertificado" FromRole="CertificadoTitulo" ToRole="Certificado" />
+        </EntityType>
+        <EntityType Name="Ciclo">
+          <Key>
+            <PropertyRef Name="Cod" />
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Cod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Basica" Type="Boolean" Nullable="false" />
+          <Property Name="HorasPractica" Type="Int32" Nullable="false" />
+          <Property Name="Rama" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Curso" Relationship="Self.CicloCurso" FromRole="Ciclo" ToRole="Curso" />
+          <NavigationProperty Name="Superior" Relationship="Self.SuperiorCiclo" FromRole="Ciclo" ToRole="Superior" />
+        </EntityType>
+        <EntityType Name="Convocatoria">
+          <Key>
+            <PropertyRef Name="Alumno" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="CodAsignatura" />
+            <PropertyRef Name="Num" />
+          </Key>
+          <Property Name="Alumno" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoCod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodAsignatura" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Num" Type="Int32" Nullable="false" />
+          <Property Name="Renunciada" Type="Boolean" />
+          <NavigationProperty Name="Alumno1" Relationship="Self.ConvocatoriaAlumno" FromRole="Convocatoria" ToRole="Alumno" />
+          <NavigationProperty Name="Asignatura" Relationship="Self.ConvocatoriaAsignatura" FromRole="Convocatoria" ToRole="Asignatura" />
+          <NavigationProperty Name="Curso" Relationship="Self.ConvocatoriaCurso" FromRole="Convocatoria" ToRole="Curso" />
+          <NavigationProperty Name="Evaluacion" Relationship="Self.EvaluacionConvocatoria" FromRole="Convocatoria" ToRole="Evaluacion" />
+        </EntityType>
+        <EntityType Name="Curso">
+          <Key>
+            <PropertyRef Name="Cod" />
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Cod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tutor" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="FechaMatriculacion" Type="DateTime" Precision="3" />
+          <Property Name="TurnoTarde" Type="Boolean" />
+          <NavigationProperty Name="Bachiller" Relationship="Self.BachillerCurso" FromRole="Curso" ToRole="Bachiller" />
+          <NavigationProperty Name="Certificado" Relationship="Self.CertificadoCurso" FromRole="Curso" ToRole="Certificado" />
+          <NavigationProperty Name="Ciclo" Relationship="Self.CicloCurso" FromRole="Curso" ToRole="Ciclo" />
+          <NavigationProperty Name="Convocatoria" Relationship="Self.ConvocatoriaCurso" FromRole="Curso" ToRole="Convocatoria" />
+          <NavigationProperty Name="Eso" Relationship="Self.EsoCurso" FromRole="Curso" ToRole="Eso" />
+          <NavigationProperty Name="Horario" Relationship="Self.HorarioCurso" FromRole="Curso" ToRole="Horario" />
+        </EntityType>
+        <EntityType Name="Departamento">
+          <Key>
+            <PropertyRef Name="Cod" />
+          </Key>
+          <Property Name="Cod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Num" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Piso" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Administrativo" Relationship="Self.AdministrativoDepartamento" FromRole="Departamento" ToRole="Administrativo" />
+          <NavigationProperty Name="Aula" Relationship="Self.DepartamentoAula" FromRole="Departamento" ToRole="Aula" />
+          <NavigationProperty Name="Profesor" Relationship="Self.ProfesorTrabajador" FromRole="Departamento" ToRole="Profesor" />
+        </EntityType>
+        <EntityType Name="Eso">
+          <Key>
+            <PropertyRef Name="Cod" />
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Cod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Curso" Relationship="Self.EsoCurso" FromRole="Eso" ToRole="Curso" />
+        </EntityType>
+        <EntityType Name="Especial">
+          <Key>
+            <PropertyRef Name="Trabajador" />
+          </Key>
+          <Property Name="Trabajador" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Funcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Trabajador1" Relationship="Self.EspecialTrabajador" FromRole="Especial" ToRole="Trabajador" />
+        </EntityType>
+        <EntityType Name="Evaluacion">
+          <Key>
+            <PropertyRef Name="Alumno" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="CodAsignatura" />
+            <PropertyRef Name="ConvocatoriaNum" />
+            <PropertyRef Name="EvaluacionNum" />
+          </Key>
+          <Property Name="Alumno" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoCod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodAsignatura" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ConvocatoriaNum" Type="Int32" Nullable="false" />
+          <Property Name="EvaluacionNum" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AsistenciaSemanaAsignatura" Relationship="Self.AsistenciaSemanaAsignaturaEvaluacion" FromRole="Evaluacion" ToRole="AsistenciaSemanaAsignatura" />
+          <NavigationProperty Name="Convocatoria" Relationship="Self.EvaluacionConvocatoria" FromRole="Evaluacion" ToRole="Convocatoria" />
+          <NavigationProperty Name="Nota" Relationship="Self.NotaEvaluacion" FromRole="Evaluacion" ToRole="Nota" />
+        </EntityType>
+        <EntityType Name="Horario">
+          <Key>
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="CodAsignatura" />
+            <PropertyRef Name="HoraInicio" />
+            <PropertyRef Name="Dia" />
+            <PropertyRef Name="Anyo" />
+            <PropertyRef Name="HoraFinal" />
+          </Key>
+          <Property Name="CursoCod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodAsignatura" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HoraInicio" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Dia" Type="Int32" Nullable="false" />
+          <Property Name="Anyo" Type="Int32" Nullable="false" />
+          <Property Name="HoraFinal" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Asignatura" Relationship="Self.HorarioAsignatura" FromRole="Horario" ToRole="Asignatura" />
+          <NavigationProperty Name="Curso" Relationship="Self.HorarioCurso" FromRole="Horario" ToRole="Curso" />
+          <NavigationProperty Name="Impartimiento" Relationship="Self.ProfesorHorarioHorario" FromRole="Horario" ToRole="Impartimiento" />
+        </EntityType>
+        <EntityType Name="Impartimiento">
+          <Key>
+            <PropertyRef Name="Profesor" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="CodAsignatura" />
+            <PropertyRef Name="HoraInicio" />
+            <PropertyRef Name="Dia" />
+            <PropertyRef Name="Anyo" />
+            <PropertyRef Name="HoraFinal" />
+            <PropertyRef Name="AulaNum" />
+            <PropertyRef Name="AulaPiso" />
+          </Key>
+          <Property Name="Profesor" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoCod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodAsignatura" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HoraInicio" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Dia" Type="Int32" Nullable="false" />
+          <Property Name="Anyo" Type="Int32" Nullable="false" />
+          <Property Name="HoraFinal" Type="Int32" Nullable="false" />
+          <Property Name="AulaNum" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AulaPiso" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Aula" Relationship="Self.AulaImpartimiento" FromRole="Impartimiento" ToRole="Aula" />
+          <NavigationProperty Name="Horario" Relationship="Self.ProfesorHorarioHorario" FromRole="Impartimiento" ToRole="Horario" />
+          <NavigationProperty Name="Profesor1" Relationship="Self.ProfesorHorarioProfesor" FromRole="Impartimiento" ToRole="Profesor" />
+        </EntityType>
+        <EntityType Name="Mantenimiento">
+          <Key>
+            <PropertyRef Name="Trabajador" />
+          </Key>
+          <Property Name="Trabajador" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Horario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Funcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Trabajador1" Relationship="Self.MantenimientoTrabajador" FromRole="Mantenimiento" ToRole="Trabajador" />
+        </EntityType>
+        <EntityType Name="Nota">
+          <Key>
+            <PropertyRef Name="Alumno" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="CodAsignatura" />
+            <PropertyRef Name="ConvocatoriaNum" />
+            <PropertyRef Name="EvaluacionNum" />
+          </Key>
+          <Property Name="Alumno" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoCod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodAsignatura" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ConvocatoriaNum" Type="Int32" Nullable="false" />
+          <Property Name="EvaluacionNum" Type="Int32" Nullable="false" />
+          <Property Name="Valoracion" Type="Double" Nullable="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Evaluacion" Relationship="Self.NotaEvaluacion" FromRole="Nota" ToRole="Evaluacion" />
+        </EntityType>
+        <EntityType Name="Ordenador">
+          <Key>
+            <PropertyRef Name="Num" />
+            <PropertyRef Name="Piso" />
+            <PropertyRef Name="CodOrdenadorAula" />
+          </Key>
+          <Property Name="Num" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Piso" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CodOrdenadorAula" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ip" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="SistemaOperativo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Aula" Relationship="Self.OrdenadorAula" FromRole="Ordenador" ToRole="Aula" />
+        </EntityType>
+        <EntityType Name="PermisosUsuario">
+          <Key>
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="PermisoAdministrativo" />
+            <PropertyRef Name="PermisoAdmin" />
+            <PropertyRef Name="PermisProfesor" />
+            <PropertyRef Name="PermisoAlumno" />
+          </Key>
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PermisoAdministrativo" Type="Boolean" Nullable="false" />
+          <Property Name="PermisoAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="PermisProfesor" Type="Boolean" Nullable="false" />
+          <Property Name="PermisoAlumno" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.UsuarioPermisosUsuario" FromRole="PermisosUsuario" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Persona">
+          <Key>
+            <PropertyRef Name="Dni" />
+          </Key>
+          <Property Name="Dni" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nif" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Calle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodigoPostal" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Patio" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Piso" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Puerta" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Alumno" Relationship="Self.AlumnoPersona" FromRole="Persona" ToRole="Alumno" />
+          <NavigationProperty Name="Telefono" Relationship="Self.TelefonosPersona" FromRole="Persona" ToRole="Telefono" />
+          <NavigationProperty Name="Trabajador" Relationship="Self.TrabajadorPersona" FromRole="Persona" ToRole="Trabajador" />
+          <NavigationProperty Name="Usuario" Relationship="Self.UsuarioPersona" FromRole="Persona" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Profesor">
+          <Key>
+            <PropertyRef Name="Trabajador" />
+          </Key>
+          <Property Name="Trabajador" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaIncorporacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Departamento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Departamento1" Relationship="Self.ProfesorTrabajador" FromRole="Profesor" ToRole="Departamento" />
+          <NavigationProperty Name="Impartimiento" Relationship="Self.ProfesorHorarioProfesor" FromRole="Profesor" ToRole="Impartimiento" />
+          <NavigationProperty Name="Trabajador1" Relationship="Self.ProfesorDepartamento" FromRole="Profesor" ToRole="Trabajador" />
+          <NavigationProperty Name="ProfesorSustituto" Relationship="Self.SustitutoProfesor" FromRole="Profesor" ToRole="ProfesorSustituto" />
+        </EntityType>
+        <EntityType Name="ProfesorSustituto">
+          <Key>
+            <PropertyRef Name="Sustituido" />
+          </Key>
+          <Property Name="Sustituido" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaFinalizacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Profesor" Relationship="Self.SustitutoProfesor" FromRole="ProfesorSustituto" ToRole="Profesor" />
+        </EntityType>
+        <EntityType Name="Proyecto">
+          <Key>
+            <PropertyRef Name="Alumno" />
+            <PropertyRef Name="SuperiorCod" />
+            <PropertyRef Name="SuperiorNombre" />
+            <PropertyRef Name="FechaInicio" />
+          </Key>
+          <Property Name="Alumno" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SuperiorCod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SuperiorNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaEntrega" Type="DateTime" Precision="3" />
+          <Property Name="Memoria" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contenido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Tutor" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="Nota" Type="Double" />
+          <NavigationProperty Name="Alumno1" Relationship="Self.ProyectoAlumno" FromRole="Proyecto" ToRole="Alumno" />
+          <NavigationProperty Name="Superior" Relationship="Self.ProyectoSuperior" FromRole="Proyecto" ToRole="Superior" />
+        </EntityType>
+        <EntityType Name="Reclamacion">
+          <Key>
+            <PropertyRef Name="Alumno" />
+            <PropertyRef Name="NumParte" />
+          </Key>
+          <Property Name="Alumno" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumParte" Type="Int32" Nullable="false" />
+          <Property Name="Asunto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contenido" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DirigidoA" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="FechaEnvio" Type="DateTime" Precision="3" />
+          <Property Name="FechaRevision" Type="DateTime" Precision="3" />
+          <Property Name="Respuesta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Revisor" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="EnTramite" Type="Boolean" />
+          <NavigationProperty Name="Alumno1" Relationship="Self.ReclamacionAlumno" FromRole="Reclamacion" ToRole="Alumno" />
+        </EntityType>
+        <EntityType Name="Superior">
+          <Key>
+            <PropertyRef Name="Cod" />
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Cod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ReglasProyecto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ciclo" Relationship="Self.SuperiorCiclo" FromRole="Superior" ToRole="Ciclo" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.ProyectoSuperior" FromRole="Superior" ToRole="Proyecto" />
+        </EntityType>
+        <EntityType Name="Telefono">
+          <Key>
+            <PropertyRef Name="Persona" />
+            <PropertyRef Name="Telefono1" />
+          </Key>
+          <Property Name="Persona" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono1" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Comentario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Persona1" Relationship="Self.TelefonosPersona" FromRole="Telefono" ToRole="Persona" />
+        </EntityType>
+        <EntityType Name="Titulo">
+          <Key>
+            <PropertyRef Name="Alumno" />
+            <PropertyRef Name="CursoCod" />
+            <PropertyRef Name="CursoNombre" />
+            <PropertyRef Name="FechaSolicitud" />
+          </Key>
+          <Property Name="Alumno" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoCod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CursoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaSolicitud" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Firmado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Certificado" Relationship="Self.TituloCertificado" FromRole="Titulo" ToRole="Certificado" />
+        </EntityType>
+        <EntityType Name="Trabajador">
+          <Key>
+            <PropertyRef Name="Persona" />
+          </Key>
+          <Property Name="Persona" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sueldo" Type="Double" Nullable="false" />
+          <Property Name="FechaIncorporacion" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Administrativo" Relationship="Self.AdministrativoTrabajador" FromRole="Trabajador" ToRole="Administrativo" />
+          <NavigationProperty Name="Baja" Relationship="Self.BajaTrabajador" FromRole="Trabajador" ToRole="Baja" />
+          <NavigationProperty Name="Especial" Relationship="Self.EspecialTrabajador" FromRole="Trabajador" ToRole="Especial" />
+          <NavigationProperty Name="Mantenimiento" Relationship="Self.MantenimientoTrabajador" FromRole="Trabajador" ToRole="Mantenimiento" />
+          <NavigationProperty Name="Persona1" Relationship="Self.TrabajadorPersona" FromRole="Trabajador" ToRole="Persona" />
+          <NavigationProperty Name="Profesor" Relationship="Self.ProfesorDepartamento" FromRole="Trabajador" ToRole="Profesor" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Persona" />
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="PermisoAdministrativo" />
+            <PropertyRef Name="PermisoAdmin" />
+            <PropertyRef Name="PermisProfesor" />
+            <PropertyRef Name="PermisoAlumno" />
+          </Key>
+          <Property Name="Persona" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contrasenya" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PermisoAdministrativo" Type="Boolean" Nullable="false" />
+          <Property Name="PermisoAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="PermisProfesor" Type="Boolean" Nullable="false" />
+          <Property Name="PermisoAlumno" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PermisosUsuario" Relationship="Self.UsuarioPermisosUsuario" FromRole="Usuario" ToRole="PermisosUsuario" />
+          <NavigationProperty Name="Persona1" Relationship="Self.UsuarioPersona" FromRole="Usuario" ToRole="Persona" />
+        </EntityType>
+        <Association Name="AdministrativoDepartamento">
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Administrativo" Type="Self.Administrativo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="Cod" />
+            </Principal>
+            <Dependent Role="Administrativo">
+              <PropertyRef Name="Departamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AdministrativoTrabajador">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Administrativo" Type="Self.Administrativo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="Persona" />
+            </Principal>
+            <Dependent Role="Administrativo">
+              <PropertyRef Name="Trabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AlumnoPersona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="Dni" />
+            </Principal>
+            <Dependent Role="Alumno">
+              <PropertyRef Name="Persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CertificadoAlumno">
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Certificado" Type="Self.Certificado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alumno">
+              <PropertyRef Name="Persona" />
+            </Principal>
+            <Dependent Role="Certificado">
+              <PropertyRef Name="Alumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ConvocatoriaAlumno">
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Convocatoria" Type="Self.Convocatoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alumno">
+              <PropertyRef Name="Persona" />
+            </Principal>
+            <Dependent Role="Convocatoria">
+              <PropertyRef Name="Alumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProyectoAlumno">
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alumno">
+              <PropertyRef Name="Persona" />
+            </Principal>
+            <Dependent Role="Proyecto">
+              <PropertyRef Name="Alumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ReclamacionAlumno">
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Reclamacion" Type="Self.Reclamacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alumno">
+              <PropertyRef Name="Persona" />
+            </Principal>
+            <Dependent Role="Reclamacion">
+              <PropertyRef Name="Alumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ConvocatoriaAsignatura">
+          <End Role="Asignatura" Type="Self.Asignatura" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Convocatoria" Type="Self.Convocatoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignatura">
+              <PropertyRef Name="Cod" />
+            </Principal>
+            <Dependent Role="Convocatoria">
+              <PropertyRef Name="CodAsignatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HorarioAsignatura">
+          <End Role="Asignatura" Type="Self.Asignatura" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Horario" Type="Self.Horario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignatura">
+              <PropertyRef Name="Cod" />
+            </Principal>
+            <Dependent Role="Horario">
+              <PropertyRef Name="CodAsignatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AsistenciaDiaAsignaturaAsistenciaSemanaAsignatura">
+          <End Role="AsistenciaSemanaAsignatura" Type="Self.AsistenciaSemanaAsignatura" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AsistenciaDiaAsignatura" Type="Self.AsistenciaDiaAsignatura" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AsistenciaSemanaAsignatura">
+              <PropertyRef Name="Persona" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="CodAsignatura" />
+              <PropertyRef Name="ConvocatoriaNum" />
+              <PropertyRef Name="EvaluacionNum" />
+              <PropertyRef Name="SemanaNum" />
+            </Principal>
+            <Dependent Role="AsistenciaDiaAsignatura">
+              <PropertyRef Name="Persona" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="CodAsignatura" />
+              <PropertyRef Name="ConvocatoriaNum" />
+              <PropertyRef Name="EvaluacionNum" />
+              <PropertyRef Name="DiaNombre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AsistenciaSemanaAsignaturaEvaluacion">
+          <End Role="Evaluacion" Type="Self.Evaluacion" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AsistenciaSemanaAsignatura" Type="Self.AsistenciaSemanaAsignatura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Evaluacion">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="CodAsignatura" />
+              <PropertyRef Name="ConvocatoriaNum" />
+              <PropertyRef Name="EvaluacionNum" />
+            </Principal>
+            <Dependent Role="AsistenciaSemanaAsignatura">
+              <PropertyRef Name="Persona" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="CodAsignatura" />
+              <PropertyRef Name="ConvocatoriaNum" />
+              <PropertyRef Name="EvaluacionNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AulaImpartimiento">
+          <End Role="Aula" Type="Self.Aula" Multiplicity="1" />
+          <End Role="Impartimiento" Type="Self.Impartimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aula">
+              <PropertyRef Name="Num" />
+              <PropertyRef Name="Piso" />
+            </Principal>
+            <Dependent Role="Impartimiento">
+              <PropertyRef Name="AulaNum" />
+              <PropertyRef Name="AulaPiso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DepartamentoAula">
+          <End Role="Aula" Type="Self.Aula" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aula">
+              <PropertyRef Name="Num" />
+              <PropertyRef Name="Piso" />
+            </Principal>
+            <Dependent Role="Departamento">
+              <PropertyRef Name="Num" />
+              <PropertyRef Name="Piso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrdenadorAula">
+          <End Role="Aula" Type="Self.Aula" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ordenador" Type="Self.Ordenador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aula">
+              <PropertyRef Name="Num" />
+              <PropertyRef Name="Piso" />
+            </Principal>
+            <Dependent Role="Ordenador">
+              <PropertyRef Name="Num" />
+              <PropertyRef Name="Piso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BachillerCurso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bachiller" Type="Self.Bachiller" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Principal>
+            <Dependent Role="Bachiller">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BajaTrabajador">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Baja" Type="Self.Baja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="Persona" />
+            </Principal>
+            <Dependent Role="Baja">
+              <PropertyRef Name="Trabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CertificadoCurso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Certificado" Type="Self.Certificado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Principal>
+            <Dependent Role="Certificado">
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CertificadoMatriculaCertificado">
+          <End Role="Certificado" Type="Self.Certificado" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CertificadoMatricula" Type="Self.CertificadoMatricula" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Certificado">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="FechaSolicitud" />
+            </Principal>
+            <Dependent Role="CertificadoMatricula">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="FechaSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CertificadoNotasCertificado">
+          <End Role="Certificado" Type="Self.Certificado" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CertificadoNotas" Type="Self.CertificadoNotas" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Certificado">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="FechaSolicitud" />
+            </Principal>
+            <Dependent Role="CertificadoNotas">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="FechaSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CertificadoTituloCertificado">
+          <End Role="Certificado" Type="Self.Certificado" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CertificadoTitulo" Type="Self.CertificadoTitulo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Certificado">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="FechaSolicitud" />
+            </Principal>
+            <Dependent Role="CertificadoTitulo">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="FechaSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TituloCertificado">
+          <End Role="Certificado" Type="Self.Certificado" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Titulo" Type="Self.Titulo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Certificado">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="FechaSolicitud" />
+            </Principal>
+            <Dependent Role="Titulo">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="FechaSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CicloCurso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ciclo" Type="Self.Ciclo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Principal>
+            <Dependent Role="Ciclo">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SuperiorCiclo">
+          <End Role="Ciclo" Type="Self.Ciclo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Superior" Type="Self.Superior" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Ciclo">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Principal>
+            <Dependent Role="Superior">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ConvocatoriaCurso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Convocatoria" Type="Self.Convocatoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Principal>
+            <Dependent Role="Convocatoria">
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EvaluacionConvocatoria">
+          <End Role="Convocatoria" Type="Self.Convocatoria" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Evaluacion" Type="Self.Evaluacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Convocatoria">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="CodAsignatura" />
+              <PropertyRef Name="Num" />
+            </Principal>
+            <Dependent Role="Evaluacion">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="CodAsignatura" />
+              <PropertyRef Name="ConvocatoriaNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EsoCurso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Eso" Type="Self.Eso" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Principal>
+            <Dependent Role="Eso">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HorarioCurso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Horario" Type="Self.Horario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Principal>
+            <Dependent Role="Horario">
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProfesorTrabajador">
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Profesor" Type="Self.Profesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="Cod" />
+            </Principal>
+            <Dependent Role="Profesor">
+              <PropertyRef Name="Departamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EspecialTrabajador">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Especial" Type="Self.Especial" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="Persona" />
+            </Principal>
+            <Dependent Role="Especial">
+              <PropertyRef Name="Trabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotaEvaluacion">
+          <End Role="Evaluacion" Type="Self.Evaluacion" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Nota" Type="Self.Nota" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Evaluacion">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="CodAsignatura" />
+              <PropertyRef Name="ConvocatoriaNum" />
+              <PropertyRef Name="EvaluacionNum" />
+            </Principal>
+            <Dependent Role="Nota">
+              <PropertyRef Name="Alumno" />
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="CodAsignatura" />
+              <PropertyRef Name="ConvocatoriaNum" />
+              <PropertyRef Name="EvaluacionNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProfesorHorarioHorario">
+          <End Role="Horario" Type="Self.Horario" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Impartimiento" Type="Self.Impartimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horario">
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="CodAsignatura" />
+              <PropertyRef Name="HoraInicio" />
+              <PropertyRef Name="Dia" />
+              <PropertyRef Name="Anyo" />
+              <PropertyRef Name="HoraFinal" />
+            </Principal>
+            <Dependent Role="Impartimiento">
+              <PropertyRef Name="CursoCod" />
+              <PropertyRef Name="CursoNombre" />
+              <PropertyRef Name="CodAsignatura" />
+              <PropertyRef Name="HoraInicio" />
+              <PropertyRef Name="Dia" />
+              <PropertyRef Name="Anyo" />
+              <PropertyRef Name="HoraFinal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProfesorHorarioProfesor">
+          <End Role="Profesor" Type="Self.Profesor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Impartimiento" Type="Self.Impartimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesor">
+              <PropertyRef Name="Trabajador" />
+            </Principal>
+            <Dependent Role="Impartimiento">
+              <PropertyRef Name="Profesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MantenimientoTrabajador">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Mantenimiento" Type="Self.Mantenimiento" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="Persona" />
+            </Principal>
+            <Dependent Role="Mantenimiento">
+              <PropertyRef Name="Trabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UsuarioPermisosUsuario">
+          <End Role="PermisosUsuario" Type="Self.PermisosUsuario" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PermisosUsuario">
+              <PropertyRef Name="Nombre" />
+              <PropertyRef Name="PermisoAdministrativo" />
+              <PropertyRef Name="PermisoAdmin" />
+              <PropertyRef Name="PermisProfesor" />
+              <PropertyRef Name="PermisoAlumno" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Nombre" />
+              <PropertyRef Name="PermisoAdministrativo" />
+              <PropertyRef Name="PermisoAdmin" />
+              <PropertyRef Name="PermisProfesor" />
+              <PropertyRef Name="PermisoAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TelefonosPersona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Telefono" Type="Self.Telefono" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="Dni" />
+            </Principal>
+            <Dependent Role="Telefono">
+              <PropertyRef Name="Persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TrabajadorPersona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="Dni" />
+            </Principal>
+            <Dependent Role="Trabajador">
+              <PropertyRef Name="Persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UsuarioPersona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="Dni" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProfesorDepartamento">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Profesor" Type="Self.Profesor" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="Persona" />
+            </Principal>
+            <Dependent Role="Profesor">
+              <PropertyRef Name="Trabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SustitutoProfesor">
+          <End Role="Profesor" Type="Self.Profesor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProfesorSustituto" Type="Self.ProfesorSustituto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Profesor">
+              <PropertyRef Name="Trabajador" />
+            </Principal>
+            <Dependent Role="ProfesorSustituto">
+              <PropertyRef Name="Sustituido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProyectoSuperior">
+          <End Role="Superior" Type="Self.Superior" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Superior">
+              <PropertyRef Name="Cod" />
+              <PropertyRef Name="Nombre" />
+            </Principal>
+            <Dependent Role="Proyecto">
+              <PropertyRef Name="SuperiorCod" />
+              <PropertyRef Name="SuperiorNombre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AbastosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administrativo" EntityType="Self.Administrativo" />
+          <EntitySet Name="Alumno" EntityType="Self.Alumno" />
+          <EntitySet Name="Asignatura" EntityType="Self.Asignatura" />
+          <EntitySet Name="AsistenciaDiaAsignatura" EntityType="Self.AsistenciaDiaAsignatura" />
+          <EntitySet Name="AsistenciaSemanaAsignatura" EntityType="Self.AsistenciaSemanaAsignatura" />
+          <EntitySet Name="Aula" EntityType="Self.Aula" />
+          <EntitySet Name="Bachiller" EntityType="Self.Bachiller" />
+          <EntitySet Name="Baja" EntityType="Self.Baja" />
+          <EntitySet Name="Certificado" EntityType="Self.Certificado" />
+          <EntitySet Name="CertificadoMatricula" EntityType="Self.CertificadoMatricula" />
+          <EntitySet Name="CertificadoNotas" EntityType="Self.CertificadoNotas" />
+          <EntitySet Name="CertificadoTitulo" EntityType="Self.CertificadoTitulo" />
+          <EntitySet Name="Ciclo" EntityType="Self.Ciclo" />
+          <EntitySet Name="Convocatoria" EntityType="Self.Convocatoria" />
+          <EntitySet Name="Curso" EntityType="Self.Curso" />
+          <EntitySet Name="Departamento" EntityType="Self.Departamento" />
+          <EntitySet Name="Eso" EntityType="Self.Eso" />
+          <EntitySet Name="Especial" EntityType="Self.Especial" />
+          <EntitySet Name="Evaluacion" EntityType="Self.Evaluacion" />
+          <EntitySet Name="Horario" EntityType="Self.Horario" />
+          <EntitySet Name="Impartimiento" EntityType="Self.Impartimiento" />
+          <EntitySet Name="Mantenimiento" EntityType="Self.Mantenimiento" />
+          <EntitySet Name="Nota" EntityType="Self.Nota" />
+          <EntitySet Name="Ordenador" EntityType="Self.Ordenador" />
+          <EntitySet Name="PermisosUsuario" EntityType="Self.PermisosUsuario" />
+          <EntitySet Name="Persona" EntityType="Self.Persona" />
+          <EntitySet Name="Profesor" EntityType="Self.Profesor" />
+          <EntitySet Name="ProfesorSustituto" EntityType="Self.ProfesorSustituto" />
+          <EntitySet Name="Proyecto" EntityType="Self.Proyecto" />
+          <EntitySet Name="Reclamacion" EntityType="Self.Reclamacion" />
+          <EntitySet Name="Superior" EntityType="Self.Superior" />
+          <EntitySet Name="Telefono" EntityType="Self.Telefono" />
+          <EntitySet Name="Titulo" EntityType="Self.Titulo" />
+          <EntitySet Name="Trabajador" EntityType="Self.Trabajador" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="AdministrativoDepartamento" Association="Self.AdministrativoDepartamento">
+            <End Role="Departamento" EntitySet="Departamento" />
+            <End Role="Administrativo" EntitySet="Administrativo" />
+          </AssociationSet>
+          <AssociationSet Name="AdministrativoTrabajador" Association="Self.AdministrativoTrabajador">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Administrativo" EntitySet="Administrativo" />
+          </AssociationSet>
+          <AssociationSet Name="AlumnoPersona" Association="Self.AlumnoPersona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Alumno" EntitySet="Alumno" />
+          </AssociationSet>
+          <AssociationSet Name="CertificadoAlumno" Association="Self.CertificadoAlumno">
+            <End Role="Alumno" EntitySet="Alumno" />
+            <End Role="Certificado" EntitySet="Certificado" />
+          </AssociationSet>
+          <AssociationSet Name="ConvocatoriaAlumno" Association="Self.ConvocatoriaAlumno">
+            <End Role="Alumno" EntitySet="Alumno" />
+            <End Role="Convocatoria" EntitySet="Convocatoria" />
+          </AssociationSet>
+          <AssociationSet Name="ProyectoAlumno" Association="Self.ProyectoAlumno">
+            <End Role="Alumno" EntitySet="Alumno" />
+            <End Role="Proyecto" EntitySet="Proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="ReclamacionAlumno" Association="Self.ReclamacionAlumno">
+            <End Role="Alumno" EntitySet="Alumno" />
+            <End Role="Reclamacion" EntitySet="Reclamacion" />
+          </AssociationSet>
+          <AssociationSet Name="ConvocatoriaAsignatura" Association="Self.ConvocatoriaAsignatura">
+            <End Role="Asignatura" EntitySet="Asignatura" />
+            <End Role="Convocatoria" EntitySet="Convocatoria" />
+          </AssociationSet>
+          <AssociationSet Name="HorarioAsignatura" Association="Self.HorarioAsignatura">
+            <End Role="Asignatura" EntitySet="Asignatura" />
+            <End Role="Horario" EntitySet="Horario" />
+          </AssociationSet>
+          <AssociationSet Name="AsistenciaDiaAsignaturaAsistenciaSemanaAsignatura" Association="Self.AsistenciaDiaAsignaturaAsistenciaSemanaAsignatura">
+            <End Role="AsistenciaSemanaAsignatura" EntitySet="AsistenciaSemanaAsignatura" />
+            <End Role="AsistenciaDiaAsignatura" EntitySet="AsistenciaDiaAsignatura" />
+          </AssociationSet>
+          <AssociationSet Name="AsistenciaSemanaAsignaturaEvaluacion" Association="Self.AsistenciaSemanaAsignaturaEvaluacion">
+            <End Role="Evaluacion" EntitySet="Evaluacion" />
+            <End Role="AsistenciaSemanaAsignatura" EntitySet="AsistenciaSemanaAsignatura" />
+          </AssociationSet>
+          <AssociationSet Name="AulaImpartimiento" Association="Self.AulaImpartimiento">
+            <End Role="Aula" EntitySet="Aula" />
+            <End Role="Impartimiento" EntitySet="Impartimiento" />
+          </AssociationSet>
+          <AssociationSet Name="DepartamentoAula" Association="Self.DepartamentoAula">
+            <End Role="Aula" EntitySet="Aula" />
+            <End Role="Departamento" EntitySet="Departamento" />
+          </AssociationSet>
+          <AssociationSet Name="OrdenadorAula" Association="Self.OrdenadorAula">
+            <End Role="Aula" EntitySet="Aula" />
+            <End Role="Ordenador" EntitySet="Ordenador" />
+          </AssociationSet>
+          <AssociationSet Name="BachillerCurso" Association="Self.BachillerCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Bachiller" EntitySet="Bachiller" />
+          </AssociationSet>
+          <AssociationSet Name="BajaTrabajador" Association="Self.BajaTrabajador">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Baja" EntitySet="Baja" />
+          </AssociationSet>
+          <AssociationSet Name="CertificadoCurso" Association="Self.CertificadoCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Certificado" EntitySet="Certificado" />
+          </AssociationSet>
+          <AssociationSet Name="CertificadoMatriculaCertificado" Association="Self.CertificadoMatriculaCertificado">
+            <End Role="Certificado" EntitySet="Certificado" />
+            <End Role="CertificadoMatricula" EntitySet="CertificadoMatricula" />
+          </AssociationSet>
+          <AssociationSet Name="CertificadoNotasCertificado" Association="Self.CertificadoNotasCertificado">
+            <End Role="Certificado" EntitySet="Certificado" />
+            <End Role="CertificadoNotas" EntitySet="CertificadoNotas" />
+          </AssociationSet>
+          <AssociationSet Name="CertificadoTituloCertificado" Association="Self.CertificadoTituloCertificado">
+            <End Role="Certificado" EntitySet="Certificado" />
+            <End Role="CertificadoTitulo" EntitySet="CertificadoTitulo" />
+          </AssociationSet>
+          <AssociationSet Name="TituloCertificado" Association="Self.TituloCertificado">
+            <End Role="Certificado" EntitySet="Certificado" />
+            <End Role="Titulo" EntitySet="Titulo" />
+          </AssociationSet>
+          <AssociationSet Name="CicloCurso" Association="Self.CicloCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Ciclo" EntitySet="Ciclo" />
+          </AssociationSet>
+          <AssociationSet Name="SuperiorCiclo" Association="Self.SuperiorCiclo">
+            <End Role="Ciclo" EntitySet="Ciclo" />
+            <End Role="Superior" EntitySet="Superior" />
+          </AssociationSet>
+          <AssociationSet Name="ConvocatoriaCurso" Association="Self.ConvocatoriaCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Convocatoria" EntitySet="Convocatoria" />
+          </AssociationSet>
+          <AssociationSet Name="EvaluacionConvocatoria" Association="Self.EvaluacionConvocatoria">
+            <End Role="Convocatoria" EntitySet="Convocatoria" />
+            <End Role="Evaluacion" EntitySet="Evaluacion" />
+          </AssociationSet>
+          <AssociationSet Name="EsoCurso" Association="Self.EsoCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Eso" EntitySet="Eso" />
+          </AssociationSet>
+          <AssociationSet Name="HorarioCurso" Association="Self.HorarioCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Horario" EntitySet="Horario" />
+          </AssociationSet>
+          <AssociationSet Name="ProfesorTrabajador" Association="Self.ProfesorTrabajador">
+            <End Role="Departamento" EntitySet="Departamento" />
+            <End Role="Profesor" EntitySet="Profesor" />
+          </AssociationSet>
+          <AssociationSet Name="EspecialTrabajador" Association="Self.EspecialTrabajador">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Especial" EntitySet="Especial" />
+          </AssociationSet>
+          <AssociationSet Name="NotaEvaluacion" Association="Self.NotaEvaluacion">
+            <End Role="Evaluacion" EntitySet="Evaluacion" />
+            <End Role="Nota" EntitySet="Nota" />
+          </AssociationSet>
+          <AssociationSet Name="ProfesorHorarioHorario" Association="Self.ProfesorHorarioHorario">
+            <End Role="Horario" EntitySet="Horario" />
+            <End Role="Impartimiento" EntitySet="Impartimiento" />
+          </AssociationSet>
+          <AssociationSet Name="ProfesorHorarioProfesor" Association="Self.ProfesorHorarioProfesor">
+            <End Role="Profesor" EntitySet="Profesor" />
+            <End Role="Impartimiento" EntitySet="Impartimiento" />
+          </AssociationSet>
+          <AssociationSet Name="MantenimientoTrabajador" Association="Self.MantenimientoTrabajador">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Mantenimiento" EntitySet="Mantenimiento" />
+          </AssociationSet>
+          <AssociationSet Name="UsuarioPermisosUsuario" Association="Self.UsuarioPermisosUsuario">
+            <End Role="PermisosUsuario" EntitySet="PermisosUsuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="TelefonosPersona" Association="Self.TelefonosPersona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Telefono" EntitySet="Telefono" />
+          </AssociationSet>
+          <AssociationSet Name="TrabajadorPersona" Association="Self.TrabajadorPersona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Trabajador" EntitySet="Trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="UsuarioPersona" Association="Self.UsuarioPersona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="ProfesorDepartamento" Association="Self.ProfesorDepartamento">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Profesor" EntitySet="Profesor" />
+          </AssociationSet>
+          <AssociationSet Name="SustitutoProfesor" Association="Self.SustitutoProfesor">
+            <End Role="Profesor" EntitySet="Profesor" />
+            <End Role="ProfesorSustituto" EntitySet="ProfesorSustituto" />
+          </AssociationSet>
+          <AssociationSet Name="ProyectoSuperior" Association="Self.ProyectoSuperior">
+            <End Role="Superior" EntitySet="Superior" />
+            <End Role="Proyecto" EntitySet="Proyecto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AbastosModelStoreContainer" CdmEntityContainer="AbastosEntities">
+          <EntitySetMapping Name="Administrativo">
+            <EntityTypeMapping TypeName="AbastosModel.Administrativo">
+              <MappingFragment StoreEntitySet="Administrativo">
+                <ScalarProperty Name="Trabajador" ColumnName="Trabajador" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Funcion" ColumnName="Funcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Alumno">
+            <EntityTypeMapping TypeName="AbastosModel.Alumno">
+              <MappingFragment StoreEntitySet="Alumno">
+                <ScalarProperty Name="Persona" ColumnName="Persona" />
+                <ScalarProperty Name="NumExpediente" ColumnName="NumExpediente" />
+                <ScalarProperty Name="Tutor" ColumnName="Tutor" />
+                <ScalarProperty Name="FechaMatriculacion" ColumnName="FechaMatriculacion" />
+                <ScalarProperty Name="CursoCod" ColumnName="CursoCod" />
+                <ScalarProperty Name="CursoNombre" ColumnName="CursoNombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Asignatura">
+            <EntityTypeMapping TypeName="AbastosModel.Asignatura">
+              <MappingFragment StoreEntitySet="Asignatura">
+                <ScalarProperty Name="Cod" ColumnName="Cod" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Rama" ColumnName="Rama" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AsistenciaDiaAsignatura">
+            <EntityTypeMapping TypeName="AbastosModel.AsistenciaDiaAsignatura">
+              <MappingFragment StoreEntitySet="AsistenciaDiaAsignatura">
+                <ScalarProperty Name="Persona" ColumnName="Persona" />
+                <ScalarProperty Name="CursoCod" ColumnName="CursoCod" />
+                <ScalarProperty Name="CursoNombre" ColumnName="CursoNombre" />
+                <ScalarProperty Name="CodAsignatura" ColumnName="CodAsignatura" />
+                <ScalarProperty Name="ConvocatoriaNum" ColumnName="ConvocatoriaNum" />
+                <ScalarProperty Name="EvaluacionNum" ColumnName="EvaluacionNum" />
+                <ScalarProperty Name="SemanaNombre" ColumnName="SemanaNombre" />
+                <ScalarProperty Name="DiaNombre" ColumnName="DiaNombre" />
+                <ScalarProperty Name="FaltasAsistencia" ColumnName="FaltasAsistencia" />
+                <ScalarProperty Name="FaltasAsistenciaJustificadas" ColumnName="FaltasAsistenciaJustificadas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AsistenciaSemanaAsignatura">
+            <EntityTypeMapping TypeName="AbastosModel.AsistenciaSemanaAsignatura">
+              <MappingFragment StoreEntitySet="AsistenciaSemanaAsignatura">
+                <ScalarProperty Name="Persona" ColumnName="Persona" />
+                <ScalarProperty Name="CursoCod" ColumnName="CursoCod" />
+                <ScalarProperty Name="CursoNombre" ColumnName="CursoNombre" />
+                <ScalarProperty Name="CodAsignatura" ColumnName="CodAsignatura" />
+                <ScalarProperty Name="ConvocatoriaNum" ColumnName="ConvocatoriaNum" />
+                <ScalarProperty Name="EvaluacionNum" ColumnName="EvaluacionNum" />
+                <ScalarProperty Name="SemanaNum" ColumnName="SemanaNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Aula">
+            <EntityTypeMapping TypeName="AbastosModel.Aula">
+              <MappingFragment StoreEntitySet="Aula">
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="Piso" ColumnName="Piso" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bachiller">
+            <EntityTypeMapping TypeName="AbastosModel.Bachiller">
+              <MappingFragment StoreEntitySet="Bachiller">
+                <ScalarProperty Name="Cod" ColumnName="Cod" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Especializacion" ColumnName="Especializacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Baja">
+            <EntityTypeMapping TypeName="AbastosModel.Baja">
+              <MappingFragment StoreEntitySet="Baja">
+                <ScalarProperty Name="Trabajador" ColumnName="Trabajador" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="FechaFinal" ColumnName="FechaFinal" />
+                <ScalarProperty Name="Causa" ColumnName="Causa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Certificado">
+            <EntityTypeMapping TypeName="AbastosModel.Certificado">
+              <MappingFragment StoreEntitySet="Certificado">
+                <ScalarProperty Name="Alumno" ColumnName="Alumno" />
+                <ScalarProperty Name="CursoCod" ColumnName="CursoCod" />
+                <ScalarProperty Name="CursoNombre" ColumnName="CursoNombre" />
+                <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+                <ScalarProperty Name="FechaDisponible" ColumnName="FechaDisponible" />
+                <ScalarProperty Name="FechaRecogido" ColumnName="FechaRecogido" />
+                <ScalarProperty Name="Pagado" ColumnName="Pagado" />
+                <ScalarProperty Name="EnTramite" ColumnName="EnTramite" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CertificadoMatricula">
+            <EntityTypeMapping TypeName="AbastosModel.CertificadoMatricula">
+              <MappingFragment StoreEntitySet="CertificadoMatricula">
+                <ScalarProperty Name="Alumno" ColumnName="Alumno" />
+                <ScalarProperty Name="CursoCod" ColumnName="CursoCod" />
+                <ScalarProperty Name="CursoNombre" ColumnName="CursoNombre" />
+                <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+                <ScalarProperty Name="NumRegistro" ColumnName="NumRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CertificadoNotas">
+            <EntityTypeMapping TypeName="AbastosModel.CertificadoNotas">
+              <MappingFragment StoreEntitySet="CertificadoNotas">
+                <ScalarProperty Name="Alumno" ColumnName="Alumno" />
+                <ScalarProperty Name="CursoCod" ColumnName="CursoCod" />
+                <ScalarProperty Name="CursoNombre" ColumnName="CursoNombre" />
+                <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+                <ScalarProperty Name="NotaMeDia" ColumnName="NotaMeDia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CertificadoTitulo">
+            <EntityTypeMapping TypeName="AbastosModel.CertificadoTitulo">
+              <MappingFragment StoreEntitySet="CertificadoTitulo">
+                <ScalarProperty Name="Alumno" ColumnName="Alumno" />
+                <ScalarProperty Name="CursoCod" ColumnName="CursoCod" />
+                <ScalarProperty Name="CursoNombre" ColumnName="CursoNombre" />
+                <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ciclo">
+            <EntityTypeMapping TypeName="AbastosModel.Ciclo">
+              <MappingFragment StoreEntitySet="Ciclo">
+                <ScalarProperty Name="Cod" ColumnName="Cod" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Basica" ColumnName="Basica" />
+                <ScalarProperty Name="HorasPractica" ColumnName="HorasPractica" />
+                <ScalarProperty Name="Rama" ColumnName="Rama" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Convocatoria">
+            <EntityTypeMapping TypeName="AbastosModel.Convocatoria">
+              <MappingFragment StoreEntitySet="Convocatoria">
+                <ScalarProperty Name="Alumno" ColumnName="Alumno" />
+                <ScalarProperty Name="CursoCod" ColumnName="CursoCod" />
+                <ScalarProperty Name="CursoNombre" ColumnName="CursoNombre" />
+                <ScalarProperty Name="CodAsignatura" ColumnName="CodAsignatura" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="Renunciada" ColumnName="Renunciada" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Curso">
+            <EntityTypeMapping TypeName="AbastosModel.Curso">
+              <MappingFragment StoreEntitySet="Curso">
+                <ScalarProperty Name="Cod" ColumnName="Cod" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Tutor" ColumnName="Tutor" />
+                <ScalarProperty Name="FechaMatriculacion" ColumnName="FechaMatriculacion" />
+                <ScalarProperty Name="TurnoTarde" ColumnName="TurnoTarde" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departamento">
+            <EntityTypeMapping TypeName="AbastosModel.Departamento">
+              <MappingFragment StoreEntitySet="Departamento">
+                <ScalarProperty Name="Cod" ColumnName="Cod" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="Piso" ColumnName="Piso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Eso">
+            <EntityTypeMapping TypeName="AbastosModel.Eso">
+              <MappingFragment StoreEntitySet="Eso">
+                <ScalarProperty Name="Cod" ColumnName="Cod" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Especial">
+            <EntityTypeMapping TypeName="AbastosModel.Especial">
+              <MappingFragment StoreEntitySet="Especial">
+                <ScalarProperty Name="Trabajador" ColumnName="Trabajador" />
+                <ScalarProperty Name="Funcion" ColumnName="Funcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Evaluacion">
+            <EntityTypeMapping TypeName="AbastosModel.Evaluacion">
+              <MappingFragment StoreEntitySet="Evaluacion">
+                <ScalarProperty Name="Alumno" ColumnName="Alumno" />
+                <ScalarProperty Name="CursoCod" ColumnName="CursoCod" />
+                <ScalarProperty Name="CursoNombre" ColumnName="CursoNombre" />
+                <ScalarProperty Name="CodAsignatura" ColumnName="CodAsignatura" />
+                <ScalarProperty Name="ConvocatoriaNum" ColumnName="ConvocatoriaNum" />
+                <ScalarProperty Name="EvaluacionNum" ColumnName="EvaluacionNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Horario">
+            <EntityTypeMapping TypeName="AbastosModel.Horario">
+              <MappingFragment StoreEntitySet="Horario">
+                <ScalarProperty Name="CursoCod" ColumnName="CursoCod" />
+                <ScalarProperty Name="CursoNombre" ColumnName="CursoNombre" />
+                <ScalarProperty Name="CodAsignatura" ColumnName="CodAsignatura" />
+                <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+                <ScalarProperty Name="Dia" ColumnName="Dia" />
+                <ScalarProperty Name="Anyo" ColumnName="Anyo" />
+                <ScalarProperty Name="HoraFinal" ColumnName="HoraFinal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Impartimiento">
+            <EntityTypeMapping TypeName="AbastosModel.Impartimiento">
+              <MappingFragment StoreEntitySet="Impartimiento">
+                <ScalarProperty Name="Profesor" ColumnName="Profesor" />
+                <ScalarProperty Name="CursoCod" ColumnName="CursoCod" />
+                <ScalarProperty Name="CursoNombre" ColumnName="CursoNombre" />
+                <ScalarProperty Name="CodAsignatura" ColumnName="CodAsignatura" />
+                <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+                <ScalarProperty Name="Dia" ColumnName="Dia" />
+                <ScalarProperty Name="Anyo" ColumnName="Anyo" />
+                <ScalarProperty Name="HoraFinal" ColumnName="HoraFinal" />
+                <ScalarProperty Name="AulaNum" ColumnName="AulaNum" />
+                <ScalarProperty Name="AulaPiso" ColumnName="AulaPiso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mantenimiento">
+            <EntityTypeMapping TypeName="AbastosModel.Mantenimiento">
+              <MappingFragment StoreEntitySet="Mantenimiento">
+                <ScalarProperty Name="Trabajador" ColumnName="Trabajador" />
+                <ScalarProperty Name="Horario" ColumnName="Horario" />
+                <ScalarProperty Name="Funcion" ColumnName="Funcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nota">
+            <EntityTypeMapping TypeName="AbastosModel.Nota">
+              <MappingFragment StoreEntitySet="Nota">
+                <ScalarProperty Name="Alumno" ColumnName="Alumno" />
+                <ScalarProperty Name="CursoCod" ColumnName="CursoCod" />
+                <ScalarProperty Name="CursoNombre" ColumnName="CursoNombre" />
+                <ScalarProperty Name="CodAsignatura" ColumnName="CodAsignatura" />
+                <ScalarProperty Name="ConvocatoriaNum" ColumnName="ConvocatoriaNum" />
+                <ScalarProperty Name="EvaluacionNum" ColumnName="EvaluacionNum" />
+                <ScalarProperty Name="Valoracion" ColumnName="Valoracion" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ordenador">
+            <EntityTypeMapping TypeName="AbastosModel.Ordenador">
+              <MappingFragment StoreEntitySet="Ordenador">
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="Piso" ColumnName="Piso" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="CodOrdenadorAula" ColumnName="CodOrdenadorAula" />
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
+                <ScalarProperty Name="SistemaOperativo" ColumnName="SistemaOperativo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PermisosUsuario">
+            <EntityTypeMapping TypeName="AbastosModel.PermisosUsuario">
+              <MappingFragment StoreEntitySet="PermisosUsuario">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="PermisoAdministrativo" ColumnName="PermisoAdministrativo" />
+                <ScalarProperty Name="PermisoAdmin" ColumnName="PermisoAdmin" />
+                <ScalarProperty Name="PermisProfesor" ColumnName="PermisProfesor" />
+                <ScalarProperty Name="PermisoAlumno" ColumnName="PermisoAlumno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Persona">
+            <EntityTypeMapping TypeName="AbastosModel.Persona">
+              <MappingFragment StoreEntitySet="Persona">
+                <ScalarProperty Name="Dni" ColumnName="Dni" />
+                <ScalarProperty Name="Nif" ColumnName="Nif" />
+                <ScalarProperty Name="Calle" ColumnName="Calle" />
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+                <ScalarProperty Name="Patio" ColumnName="Patio" />
+                <ScalarProperty Name="Piso" ColumnName="Piso" />
+                <ScalarProperty Name="Puerta" ColumnName="Puerta" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profesor">
+            <EntityTypeMapping TypeName="AbastosModel.Profesor">
+              <MappingFragment StoreEntitySet="Profesor">
+                <ScalarProperty Name="Trabajador" ColumnName="Trabajador" />
+                <ScalarProperty Name="FechaIncorporacion" ColumnName="FechaIncorporacion" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfesorSustituto">
+            <EntityTypeMapping TypeName="AbastosModel.ProfesorSustituto">
+              <MappingFragment StoreEntitySet="ProfesorSustituto">
+                <ScalarProperty Name="Sustituido" ColumnName="Sustituido" />
+                <ScalarProperty Name="FechaFinalizacion" ColumnName="FechaFinalizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proyecto">
+            <EntityTypeMapping TypeName="AbastosModel.Proyecto">
+              <MappingFragment StoreEntitySet="Proyecto">
+                <ScalarProperty Name="Alumno" ColumnName="Alumno" />
+                <ScalarProperty Name="SuperiorCod" ColumnName="SuperiorCod" />
+                <ScalarProperty Name="SuperiorNombre" ColumnName="SuperiorNombre" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="FechaEntrega" ColumnName="FechaEntrega" />
+                <ScalarProperty Name="Memoria" ColumnName="Memoria" />
+                <ScalarProperty Name="Contenido" ColumnName="Contenido" />
+                <ScalarProperty Name="Tutor" ColumnName="Tutor" />
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reclamacion">
+            <EntityTypeMapping TypeName="AbastosModel.Reclamacion">
+              <MappingFragment StoreEntitySet="Reclamacion">
+                <ScalarProperty Name="Alumno" ColumnName="Alumno" />
+                <ScalarProperty Name="NumParte" ColumnName="NumParte" />
+                <ScalarProperty Name="Asunto" ColumnName="Asunto" />
+                <ScalarProperty Name="Contenido" ColumnName="Contenido" />
+                <ScalarProperty Name="DirigidoA" ColumnName="DirigidoA" />
+                <ScalarProperty Name="FechaEnvio" ColumnName="FechaEnvio" />
+                <ScalarProperty Name="FechaRevision" ColumnName="FechaRevision" />
+                <ScalarProperty Name="Respuesta" ColumnName="Respuesta" />
+                <ScalarProperty Name="Revisor" ColumnName="Revisor" />
+                <ScalarProperty Name="EnTramite" ColumnName="EnTramite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Superior">
+            <EntityTypeMapping TypeName="AbastosModel.Superior">
+              <MappingFragment StoreEntitySet="Superior">
+                <ScalarProperty Name="Cod" ColumnName="Cod" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ReglasProyecto" ColumnName="ReglasProyecto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Telefono">
+            <EntityTypeMapping TypeName="AbastosModel.Telefono">
+              <MappingFragment StoreEntitySet="Telefono">
+                <ScalarProperty Name="Persona" ColumnName="Persona" />
+                <ScalarProperty Name="Telefono1" ColumnName="Telefono" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Titulo">
+            <EntityTypeMapping TypeName="AbastosModel.Titulo">
+              <MappingFragment StoreEntitySet="Titulo">
+                <ScalarProperty Name="Alumno" ColumnName="Alumno" />
+                <ScalarProperty Name="CursoCod" ColumnName="CursoCod" />
+                <ScalarProperty Name="CursoNombre" ColumnName="CursoNombre" />
+                <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Firmado" ColumnName="Firmado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trabajador">
+            <EntityTypeMapping TypeName="AbastosModel.Trabajador">
+              <MappingFragment StoreEntitySet="Trabajador">
+                <ScalarProperty Name="Persona" ColumnName="Persona" />
+                <ScalarProperty Name="Sueldo" ColumnName="Sueldo" />
+                <ScalarProperty Name="FechaIncorporacion" ColumnName="FechaIncorporacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="AbastosModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Persona" ColumnName="Persona" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Contrasenya" ColumnName="Contrasenya" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="PermisoAdministrativo" ColumnName="PermisoAdministrativo" />
+                <ScalarProperty Name="PermisoAdmin" ColumnName="PermisoAdmin" />
+                <ScalarProperty Name="PermisProfesor" ColumnName="PermisProfesor" />
+                <ScalarProperty Name="PermisoAlumno" ColumnName="PermisoAlumno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

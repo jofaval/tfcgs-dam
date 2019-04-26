@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0DE7FFD1-E5CC-4D10-B72D-D41171517913}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EntityFrameworkModel</RootNamespace>
+    <AssemblyName>EntityFrameworkModel</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbastosDbContext.cs" />
+    <Compile Include="Model\Administrativo.cs" />
+    <Compile Include="Model\Alumno.cs" />
+    <Compile Include="Model\Asignatura.cs" />
+    <Compile Include="Model\AsistenciaDiaAsignatura.cs" />
+    <Compile Include="Model\AsistenciaSemanaAsignatura.cs" />
+    <Compile Include="Model\Aula.cs" />
+    <Compile Include="Model\Bachiller.cs" />
+    <Compile Include="Model\Baja.cs" />
+    <Compile Include="Model\Certificado.cs" />
+    <Compile Include="Model\CertificadoMatricula.cs" />
+    <Compile Include="Model\CertificadoNotas.cs" />
+    <Compile Include="Model\CertificadoTitulo.cs" />
+    <Compile Include="Model\Ciclo.cs" />
+    <Compile Include="Model\Convocatoria.cs" />
+    <Compile Include="Model\Curso.cs" />
+    <Compile Include="Model\Departamento.cs" />
+    <Compile Include="Model\Eso.cs" />
+    <Compile Include="Model\Especial.cs" />
+    <Compile Include="Model\Evaluacion.cs" />
+    <Compile Include="Model\Horario.cs" />
+    <Compile Include="Model\Impartimiento.cs" />
+    <Compile Include="Model\Mantenimiento.cs" />
+    <Compile Include="Model\Nota.cs" />
+    <Compile Include="Model\Ordenador.cs" />
+    <Compile Include="Model\PermisosUsuario.cs" />
+    <Compile Include="Model\Persona.cs" />
+    <Compile Include="Model\Profesor.cs" />
+    <Compile Include="Model\ProfesorSustituto.cs" />
+    <Compile Include="Model\Proyecto.cs" />
+    <Compile Include="Model\Reclamacion.cs" />
+    <Compile Include="Model\Superior.cs" />
+    <Compile Include="Model\Telefono.cs" />
+    <Compile Include="Model\Titulo.cs" />
+    <Compile Include="Model\Trabajador.cs" />
+    <Compile Include="Model\Usuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

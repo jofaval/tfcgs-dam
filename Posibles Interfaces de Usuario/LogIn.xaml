@@ -1,0 +1,139 @@
+﻿<Window x:Class="Posibles_Interfaces_de_Usuario.LogIn" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Posibles_Interfaces_de_Usuario" mc:Ignorable="d" Title="LogIn" Height="900" Width="1600" WindowStyle="None" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="basicButton">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
+            <Setter Property="FontFamily" Value="Ubuntu" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderThickness" Value="200" />
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="Background" Value="#19000000" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="#ac2925" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <RadialGradientBrush Center="0.5,0.8" GradientOrigin="0.5,4.5">
+                                <GradientStop Color="#7FFFFFFF" />
+                                <GradientStop Offset="1" />
+                            </RadialGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="BorderThickness" Value="200" />
+                    <Setter Property="BorderBrush" Value="Black" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <RadialGradientBrush Center="0.5,0.1" GradientOrigin="2,-3.5">
+                                <GradientStop Color="#33FFFFFF" />
+                                <GradientStop Offset="1" />
+                            </RadialGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="ToggleButton.IsChecked" Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <RadialGradientBrush Center="0.5,0.8" GradientOrigin="0.5,4.5">
+                                <GradientStop Color="#7FFFFFFF" />
+                                <GradientStop Offset="1" />
+                            </RadialGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource basicButton}" />
+        <Style x:Key="MenuButton" TargetType="Button" BasedOn="{StaticResource basicButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" BorderThickness="0" BorderBrush="#FF5A70FF">
+                            <Grid Background="{TemplateBinding Background}">
+                                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#FF5A70FF" />
+                                <Setter TargetName="border" Property="BorderThickness" Value="15,0,0,0" />
+                                <!--Setter TargetName="border" Property="Margin" Value="15,0,0,0" /-->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="TestGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid x:Name="LogInMainGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF69E655" Offset="0" />
+                    <GradientStop Color="#FF006CC5" Offset="1" />
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30*" />
+                <ColumnDefinition Width="40*" />
+                <ColumnDefinition Width="30*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*" />
+                <RowDefinition Height="60*" />
+                <RowDefinition Height="20*" />
+            </Grid.RowDefinitions>
+            <Grid x:Name="LogInContent" Grid.Row="1" Grid.Column="1">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF2A2D34" />
+                        <GradientStop Color="#FF15171B" Offset="1" />
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*" />
+                    <ColumnDefinition Width="70*" />
+                    <ColumnDefinition Width="15*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="5*" />
+                </Grid.RowDefinitions>
+                <Label Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Content="usuario" FontFamily="Ubuntu" Background="{x:Null}" Foreground="White" FontSize="12"></Label>
+                <TextBox VerticalContentAlignment="Center" x:Name="UsernameField" Grid.Column="1" Grid.Row="2"></TextBox>
+                <Label Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" Content="contraseña" FontFamily="Ubuntu" Background="{x:Null}" Foreground="White" FontSize="12"></Label>
+                <PasswordBox VerticalContentAlignment="Center" x:Name="PasswordeField" Grid.Column="1" Grid.Row="5" FontFamily="ms-appx:///Assets/PassDot.ttf#PassDot" />
+                <Button x:Name="LogInButton" Content="Iniciar sesión" Grid.Column="1" Grid.Row="7" Click="LogInButton_Click" />
+                <Button x:Name="UrlLinker" Grid.Column="1" Grid.Row="8" Click="UrlLinker_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Clicame Gordo cabron!" FontFamily="Ubuntu" Foreground="White" FontSize="12">
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <ContentPresenter />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="74e21de037654b86bd5393fd01681fc3" Name="Diagram1" ZoomLevel="42">
+        <EntityTypeShape EntityType="AbastosModel.Administrativo" Width="1.5" PointX="40.875" PointY="32.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Alumno" Width="1.5" PointX="24.75" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Asignatura" Width="1.5" PointX="16.75" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.AsistenciaDiaAsignatura" Width="1.5" PointX="13" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.AsistenciaSemanaAsignatura" Width="1.5" PointX="15.75" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Aula" Width="1.5" PointX="27.125" PointY="41.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Bachiller" Width="1.5" PointX="9.125" PointY="34.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Baja" Width="1.5" PointX="37" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Certificado" Width="1.5" PointX="12.625" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.CertificadoMatricula" Width="1.5" PointX="11.375" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.CertificadoNotas" Width="1.5" PointX="15.625" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.CertificadoTitulo" Width="1.5" PointX="9.625" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Ciclo" Width="1.5" PointX="15.875" PointY="42.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Convocatoria" Width="1.5" PointX="19.625" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Curso" Width="1.5" PointX="15.25" PointY="37.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Departamento" Width="1.5" PointX="40.875" PointY="40.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Eso" Width="1.5" PointX="9.5" PointY="39.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Especial" Width="1.5" PointX="37" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Evaluacion" Width="1.5" PointX="18.25" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Horario" Width="1.5" PointX="20.75" PointY="34.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Impartimiento" Width="1.5" PointX="26.5" PointY="36.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Mantenimiento" Width="1.5" PointX="28.625" PointY="32" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Nota" Width="1.5" PointX="19.125" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Ordenador" Width="1.5" PointX="30.75" PointY="38.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.PermisosUsuario" Width="1.5" PointX="38.5" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Persona" Width="1.5" PointX="31.25" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Profesor" Width="1.5" PointX="30.75" PointY="35.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.ProfesorSustituto" Width="1.5" PointX="28.25" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Proyecto" Width="1.5" PointX="24.125" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Reclamacion" Width="1.5" PointX="22.625" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Superior" Width="1.5" PointX="20" PointY="42" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Telefono" Width="1.5" PointX="28.375" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Titulo" Width="1.5" PointX="15.125" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Trabajador" Width="1.5" PointX="33.125" PointY="30.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbastosModel.Usuario" Width="1.5" PointX="35.75" PointY="22.625" IsExpanded="true" />
+        <AssociationConnector Association="AbastosModel.AdministrativoDepartamento" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.AdministrativoTrabajador" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.AlumnoPersona" ManuallyRouted="false" ></AssociationConnector>
+        <AssociationConnector Association="AbastosModel.CertificadoAlumno" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.ConvocatoriaAlumno" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.ProyectoAlumno" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.ReclamacionAlumno" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.ConvocatoriaAsignatura" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.HorarioAsignatura" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="AbastosModel.AsistenciaDiaAsignaturaAsistenciaSemanaAsignatura" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.AsistenciaSemanaAsignaturaEvaluacion" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.AulaImpartimiento" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.DepartamentoAula" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.OrdenadorAula" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.BachillerCurso" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.BajaTrabajador" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.CertificadoCurso" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.CertificadoMatriculaCertificado" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.CertificadoNotasCertificado" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.CertificadoTituloCertificado" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.TituloCertificado" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.CicloCurso" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.SuperiorCiclo" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.ConvocatoriaCurso" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.EvaluacionConvocatoria" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.EsoCurso" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.HorarioCurso" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="AbastosModel.ProfesorTrabajador" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="AbastosModel.EspecialTrabajador" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.NotaEvaluacion" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.ProfesorHorarioHorario" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.ProfesorHorarioProfesor" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="AbastosModel.MantenimientoTrabajador" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.UsuarioPermisosUsuario" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.TelefonosPersona" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.TrabajadorPersona" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.UsuarioPersona" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.ProfesorDepartamento" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.SustitutoProfesor" ManuallyRouted="false" />
+        <AssociationConnector Association="AbastosModel.ProyectoSuperior" ManuallyRouted="false" >
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
