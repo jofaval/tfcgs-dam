@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controller;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -28,7 +29,16 @@ namespace Posibles_Interfaces_de_Usuario
 
         private void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
+            //if (sender is TextBox txtBox)
+            //{
+            //    Console.WriteLine(txtBox.Text);
+            //}
+        }
 
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            var result = AlumnoFunciones.GetProfesores(TxtSearch.Text);
+            Console.WriteLine(result.Count());
         }
     }
 }

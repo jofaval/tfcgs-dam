@@ -393,10 +393,10 @@ namespace Controller
             return newDate;
         }
 
-        public int RandomNumberBetween(int end)
+        public int RandomNumberBetween(int end, int start = 0)
         {
             RandomGenerator = new Random(DateTime.Now.Millisecond);
-            return RandomGenerator.Next(end);
+            return RandomGenerator.Next(start, end);
         }
     }
 }

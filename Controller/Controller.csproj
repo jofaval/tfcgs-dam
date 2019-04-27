@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Alumno.cs" />
+    <Compile Include="AlumnoFunciones.cs" />
     <Compile Include="ComponentGenerator.cs" />
     <Compile Include="DataGenerator.cs" />
     <Compile Include="DataIntegrityChecker.cs" />

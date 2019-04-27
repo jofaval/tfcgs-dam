@@ -136,5 +136,40 @@ namespace Controller
             }
             return false;
         }
+
+        public static bool FullyCheckIfContainsString(string maybeContains, string toBeContained, bool ignoreMayus = true)
+        {
+            if (ignoreMayus)
+            {
+                maybeContains = maybeContains.ToLower();
+                toBeContained = toBeContained.ToLower();
+            }
+
+            var maybeContainsCharArray = maybeContains.ToCharArray();
+            var maybeContainsLen = maybeContains.Length;
+
+            var toBeContainedCharArray = toBeContained.ToCharArray();
+            var toBeContainedLen = toBeContained.Length;
+
+            bool[] hits = new bool[toBeContainedLen];
+
+            for (int maybeContainsCharIterator = 0; maybeContainsCharIterator < maybeContainsLen; maybeContainsCharIterator++)
+            {
+                var currentMaybeContainsChar = maybeContainsCharArray[maybeContainsCharIterator];
+                if (hits.Any(b => !b))
+                {
+                    for (int toBeContainedCharIterator = 0; toBeContainedCharIterator < toBeContainedLen; toBeContainedCharIterator++)
+                    {
+                        if (currentMaybeContainsChar.Equals(toBeContained[toBeContainedCharIterator]))
+                        {
+                            hits[toBeContainedCharIterator] = true;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return hits.All(b => b);
+        }
     }
 }

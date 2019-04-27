@@ -26,12 +26,62 @@ namespace AlgorithmTester
             Generator = DataGenerator.GetInstance();
             RandomGenerator = new Random(DateTime.Now.Millisecond);
             //LoadPersonal();
-            LoadUsuarios();
+            //LoadUsuarios();
+            LoadProfesores();
             Context.SaveChanges();
         }
 
-        //Dni	Nif	Calle	CodigoPostal	Patio	Piso	Puerta	Nombre	Apellidos	FechaNacimiento	Email
-        //%08d%c K%07d%c Noemy Village	2392	698	700	210	Steven Drinks Kennebeck	1900-01-01 00:00:00.000	Steven.Drinks.Kennebeck @yahoo.es
+        static private void LoadProfesores()
+        {
+            var personas = Context.PersonaDbSet;
+            var personasLen = personas.Count();
+            var trabajadores = Context.TrabajadorDbSet;
+            var profesores = Context.ProfesorDbSet;
+
+            var departamento = new Departamento()
+            {
+                Cod = "INF",
+                Nombre = "Test"
+            };
+
+            var numProfesores = 150;
+
+            for (int profesorIterator = 0; profesorIterator < numProfesores; profesorIterator++)
+            {
+                var persona = personas.OrderBy(p => p.Dni).Skip(Generator.RandomNumberBetween(personasLen)).Take(1).First();
+
+                if (!trabajadores.Any(t => t.Persona.Equals(persona.Dni)))
+                {
+                    var randomDate = Generator.RandomDate(1990);
+                    var trabjador = new Trabajador()
+                    {
+                        Persona = persona.Dni,
+                        Persona1 = persona,
+                        FechaIncorporacion = randomDate,
+                        Sueldo = Generator.RandomNumberBetween(2200, 1600),
+                    };
+                    trabajadores.Add(trabjador);
+
+                    var profesor = new Profesor()
+                    {
+                        Trabajador = persona.Dni,
+                        Trabajador1 = trabjador,
+                        FechaIncorporacion = randomDate,
+                        Departamento = departamento.Cod,
+                        Departamento1 = departamento,
+                    };
+                    profesores.Add(profesor);
+                    Context.SaveChanges();
+                }
+                else
+                {
+                    profesorIterator--;
+                }
+            }
+        }
+
+        //Dni	  Nif	   Calle	        CodigoPostal  Patio	 Piso  Puerta Nombre  Apellidos	        FechaNacimiento	        Email
+        //%08d%c  K%07d%c  Noemy Village	2392	      698    700   210	  Steven  Drinks Kennebeck  1900-01-01 00:00:00.000	Steven.Drinks.Kennebeck @yahoo.es
         static private void LoadPersonal()
         {
             var personas = Context.PersonaDbSet;
@@ -221,7 +271,7 @@ namespace AlgorithmTester
             db.SaveChanges();*/
 
             //CARGAR DATOS EN LA BASE DE DATOS
-            //LoadData();
+            LoadData();
 
             /*string solutiondir = Directory.GetParent(
     Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\Controller";
@@ -230,19 +280,25 @@ namespace AlgorithmTester
             Console.ReadLine();*/
             //Console.ReadLine();
 
+            //SendEmail();
+
+        }
+
+        private static void SendEmail()
+        {
             var fromAddress = new MailAddress("r4pepearts@gmail.com");
-            var fromPassword = "vegeto77";
+            var fromPassword = "pass";
             var toAddress = new MailAddress("r4pepearts@gmail.com");
 
             string subject = "subject";
             string body = "body";
 
-            System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
+            SmtpClient smtp = new SmtpClient
             {
                 Host = "smtp.gmail.com",
                 Port = 587,
                 EnableSsl = true,
-                DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
 

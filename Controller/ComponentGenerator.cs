@@ -10,9 +10,9 @@ namespace Controller
 {
     public class ComponentGenerator
     {
-        public AlumnoFunciones CreateAlumno(Persona Persona, string NumExpediente, Profesor Tutor)
+        public Alumno CreateAlumno(Persona Persona, string NumExpediente, Profesor Tutor)
         {
-            return new AlumnoFunciones()
+            return new Alumno()
             {
                 Persona = Persona.Dni,
                 NumExpediente = NumExpediente,
