@@ -40,25 +40,26 @@ namespace Posibles_Interfaces_de_Usuario
             radialGradientBrush.GradientStops.Add(gradientStopTop);
             radialGradientBrush.GradientStops.Add(gradientStopBottom);
             InitializeComponent();
+
             /*var screenSize = Screen.PrimaryScreen.Bounds.Size;
             WindowVar.Width = screenSize.Width;
             WindowVar.Height = screenSize.Height;*/
-            //DESCOMENTAR
-            //var loginWindow = new LogIn();
-            ////loginWindow.Visibility = Visibility.Visible;
 
-            //var mainGridContentChildrens = BackgroundGrid.Children;
-            //XamlBridge.BackgroundGrid = this.BackgroundGrid;
-            //XamlBridge.BackUpMainGridContent = MainGridContent;
-            //mainGridContentChildrens.Remove(MainGridContent);
-            //var loginWindowMainGrid = loginWindow.LogInMainGrid;
-            //XamlBridge.BackUpLoginGridContent = loginWindowMainGrid;
-            //loginWindow.TestGrid.Children.Remove(loginWindowMainGrid);
-            //mainGridContentChildrens.Add(loginWindowMainGrid);
-            //Grid.SetRow(loginWindowMainGrid, 1);
-            //loginWindow.Close();
-            //ControladorWPF.MaximizeNormalize(this, TopBar);
-            //BackgroundGrid.Margin = new Thickness(10);
+            var loginWindow = new LogIn();
+            loginWindow.Visibility = Visibility.Visible;
+
+            var mainGridContentChildrens = BackgroundGrid.Children;
+            XamlBridge.BackgroundGrid = this.BackgroundGrid;
+            XamlBridge.BackUpMainGridContent = MainGridContent;
+            mainGridContentChildrens.Remove(MainGridContent);
+            var loginWindowMainGrid = loginWindow.LogInMainGrid;
+            XamlBridge.BackUpLoginGridContent = loginWindowMainGrid;
+            loginWindow.TestGrid.Children.Remove(loginWindowMainGrid);
+            mainGridContentChildrens.Add(loginWindowMainGrid);
+            Grid.SetRow(loginWindowMainGrid, 1);
+            loginWindow.Close();
+            ControladorWPF.MaximizeNormalize(this, TopBar);
+            BackgroundGrid.Margin = new Thickness(10);
         }
 
         private void TopBar_MouseDown(object sender, MouseButtonEventArgs e)

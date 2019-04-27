@@ -84,6 +84,12 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style TargetType="CheckBox">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
     </Window.Resources>
     <Window.Effect>
         <DropShadowEffect BlurRadius="10" ShadowDepth="0" Direction="-45" RenderingBias="Quality" Opacity="0.35" />
