@@ -210,7 +210,7 @@
                             </Grid.ColumnDefinitions>
                             <TextBox x:Name="TxtSearch" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextChanged="TxtSearch_TextChanged"/>
                             <Button x:Name="BtnSearch" Grid.Column="1" Content="Buscar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="BtnSearch_Click"/>
-                            <CheckBox Grid.Column="2" Content="IgnorarMayusculas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" />
+                            <CheckBox x:Name="IgnoreMayus" Grid.Column="2" Content="IgnorarMayusculas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" />
                             <CheckBox Grid.Column="3" Content="Coincidencia Exacta" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" />
                         </Grid>
                         <Label Grid.Row="2" Content="Ordenar" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="12" />
@@ -238,14 +238,14 @@
                         <Grid Grid.Row="5">
                             <Button Content="Tutor"></Button>
                         </Grid>
-                        <DataGrid Grid.Row="6">
-                            <DataGrid.Columns>
+                        <DataGrid x:Name="DataGridResult" Grid.Row="6" AutoGenerateColumns="True">
+                            <!--DataGrid.Columns>
                                 <DataGridTextColumn Header="Nombre" Width="15*" Binding="{Binding Path=Nombre}" />
                                 <DataGridTextColumn Header="Apellidos" Width="25*" Binding="{Binding Path=Apellidos}" />
                                 <DataGridTextColumn Header="Departamento" Width="20*" Binding="{Binding Path=Departamento}" />
                                 <DataGridTextColumn Header="Tutoria/Funcion" Width="20*" Binding="{Binding Path=Tutoria}" />
                                 <DataGridTextColumn Header="Correlo electrónico" Width="20*" Binding="{Binding Path=Email}" />
-                            </DataGrid.Columns>
+                            </DataGrid.Columns-->
                         </DataGrid>
                     </Grid>
                 </Grid>

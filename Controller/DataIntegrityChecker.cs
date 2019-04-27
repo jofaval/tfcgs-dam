@@ -137,9 +137,9 @@ namespace Controller
             return false;
         }
 
-        public static bool FullyCheckIfContainsString(string maybeContains, string toBeContained, bool ignoreMayus = true)
+        public static bool FullyCheckIfContainsString(string maybeContains, string toBeContained, bool? ignoreMayus = true, bool? exactMatch = true)
         {
-            if (ignoreMayus)
+            if (ignoreMayus.Value)
             {
                 maybeContains = maybeContains.ToLower();
                 toBeContained = toBeContained.ToLower();

@@ -1,6 +1,8 @@
 ﻿using Controller;
+using EntityFrameworkModel.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -21,10 +23,10 @@ namespace Posibles_Interfaces_de_Usuario
     /// </summary>
     public partial class Buscador : Window
     {
-
         public Buscador()
         {
             InitializeComponent();
+            //DataGridResult.DataContext = this.Profesores;
         }
 
         private void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
@@ -37,8 +39,16 @@ namespace Posibles_Interfaces_de_Usuario
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            var result = AlumnoFunciones.GetProfesores(TxtSearch.Text);
-            Console.WriteLine(result.Count());
+            var profesoresResultList = AlumnoFunciones.GetProfesores(TxtSearch.Text, IgnoreMayus.IsChecked);
+            var selectedFilesFromProfesoresResult = from prof in profesoresResultList
+                                   select new {
+                                       prof.Trabajador1.Persona1.Nombre,
+                                       prof.Trabajador1.Persona1.Apellidos,
+                                       prof.Departamento,
+                                       prof.Trabajador1.Persona1.Email,
+                                   };
+
+            DataGridResult.ItemsSource = selectedFilesFromProfesoresResult;
         }
     }
 }
