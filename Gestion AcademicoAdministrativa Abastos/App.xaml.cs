@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Posibles_Interfaces_de_Usuario
+namespace Gestion_AcademicoAdministrativa_Abastos
 {
     /// <summary>
     /// Lógica de interacción para App.xaml

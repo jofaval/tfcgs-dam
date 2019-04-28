@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Posibles_Interfaces_de_Usuario
+namespace Gestion_AcademicoAdministrativa_Abastos
 {
     public class ControladorWPF
     {

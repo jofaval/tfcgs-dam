@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Posibles_Interfaces_de_Usuario.Properties
+namespace Gestion_AcademicoAdministrativa_Abastos.Properties
 {
 
 

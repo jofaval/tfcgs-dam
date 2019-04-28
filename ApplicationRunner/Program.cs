@@ -1,4 +1,4 @@
-﻿using Posibles_Interfaces_de_Usuario;
+﻿using Gestion_AcademicoAdministrativa_Abastos;
 using System.Windows;
 using System;
 using System.Collections.Generic;

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace Posibles_Interfaces_de_Usuario
+namespace Gestion_AcademicoAdministrativa_Abastos
 {
     static public class XamlBridge
     {

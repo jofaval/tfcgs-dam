@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Posibles_Interfaces_de_Usuario
+namespace Gestion_AcademicoAdministrativa_Abastos
 {
     internal class ProcessFileNameFinderClass
     {
