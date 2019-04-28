@@ -139,6 +139,15 @@ namespace Controller
 
         public static bool FullyCheckIfContainsString(string maybeContains, string toBeContained, bool? ignoreMayus = true, bool? exactMatch = true)
         {
+            if (exactMatch.Value)
+            {
+                StringComparison compare = StringComparison.InvariantCulture;
+                if (ignoreMayus.Value)
+                {
+                    compare = StringComparison.InvariantCultureIgnoreCase;
+                }
+                return maybeContains.Equals(toBeContained, compare);
+            }
             if (ignoreMayus.Value)
             {
                 maybeContains = maybeContains.ToLower();
@@ -156,11 +165,11 @@ namespace Controller
             for (int maybeContainsCharIterator = 0; maybeContainsCharIterator < maybeContainsLen; maybeContainsCharIterator++)
             {
                 var currentMaybeContainsChar = maybeContainsCharArray[maybeContainsCharIterator];
-                if (hits.Any(b => !b))
+                if (hits.Any(b => b == false))
                 {
                     for (int toBeContainedCharIterator = 0; toBeContainedCharIterator < toBeContainedLen; toBeContainedCharIterator++)
                     {
-                        if (currentMaybeContainsChar.Equals(toBeContained[toBeContainedCharIterator]))
+                        if (!hits[toBeContainedCharIterator] && currentMaybeContainsChar.Equals(toBeContained[toBeContainedCharIterator]))
                         {
                             hits[toBeContainedCharIterator] = true;
                             break;
@@ -169,7 +178,7 @@ namespace Controller
                 }
             }
 
-            return hits.All(b => b);
+            return hits.All(b => b == true);
         }
     }
 }

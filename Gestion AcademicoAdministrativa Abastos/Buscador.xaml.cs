@@ -39,16 +39,27 @@ namespace Posibles_Interfaces_de_Usuario
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            var profesoresResultList = AlumnoFunciones.GetProfesores(TxtSearch.Text, IgnoreMayus.IsChecked);
+            var profesoresResultList = AlumnoFunciones.GetProfesores(TxtSearch.Text, IgnoreMayus.IsChecked, ExactMatch.IsChecked);
             var selectedFilesFromProfesoresResult = from prof in profesoresResultList
                                    select new {
                                        prof.Trabajador1.Persona1.Nombre,
                                        prof.Trabajador1.Persona1.Apellidos,
                                        prof.Departamento,
                                        prof.Trabajador1.Persona1.Email,
+                                       prof.Trabajador1.Sueldo,
                                    };
 
             DataGridResult.ItemsSource = selectedFilesFromProfesoresResult;
+
+            var dataGridCols = DataGridResult.Columns;
+
+            var dataGridColsLen = dataGridCols.Count;
+            for (int colIterator = 0; colIterator < dataGridColsLen; colIterator++)
+            {
+                var dataGridCol = dataGridCols[colIterator];
+                dataGridCol.MinWidth = dataGridCol.ActualWidth;
+                dataGridCol.Width = new DataGridLength(0.95, DataGridLengthUnitType.Star);
+            }
         }
     }
 }
