@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="AlumnoFunctionality.cs" />
     <Compile Include="ComponentGenerator.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="DataGenerator.cs" />
     <Compile Include="DataIntegrityChecker.cs" />
     <Compile Include="DataRetriever.cs" />
