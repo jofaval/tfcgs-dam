@@ -105,6 +105,9 @@
     <Compile Include="Buscador.xaml.cs">
       <DependentUpon>Buscador.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Buttons.xaml.cs">
+      <DependentUpon>Buttons.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Horario.xaml.cs">
       <DependentUpon>Horario.xaml</DependentUpon>
     </Compile>
@@ -114,6 +117,10 @@
     <Compile Include="XamlBridge.cs" />
     <Compile Include="XamlFunctionality.cs" />
     <Page Include="Buscador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Buttons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
