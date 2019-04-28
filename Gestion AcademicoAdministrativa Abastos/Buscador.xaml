@@ -88,6 +88,7 @@
         <SolidColorBrush x:Key="LostFocusColor" Color="Transparent" />
         <Style TargetType="{x:Type DataGridRow}">
             <Setter Property="Foreground" Value="#FFB3B3B3" />
+            <Setter Property="Background" Value="Red" />
             <Setter Property="Height" Value="25" />
             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
             <Style.Triggers>

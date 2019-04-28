@@ -4,5 +4,34 @@
              xmlns:local="clr-namespace:Posibles_Interfaces_de_Usuario"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <Style TargetType="{x:Type DataGridRow}">
+            <Setter Property="Foreground" Value="#FFB3B3B3" />
+            <Setter Property="Background" Value="#33000000" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        </Style>
+        <Style TargetType="{x:Type ScrollBar}">
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+        <Style TargetType="{x:Type DataGrid}">
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="Background" Value="#FF262626" />
+        </Style>
+        <Style TargetType="{x:Type DataGridCell}">
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="Background" Value="#FF262626" />
+        </Style>
+        <Style TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="BorderBrush" Value="Wheat" />
+            <Setter Property="Background" Value="#33FFFFFF" />
+            <Setter Property="Foreground" Value="#FFFFFFFF" />
+        </Style>
+        <Style TargetType="{x:Type DataGridRowHeader}">
+            <Setter Property="Visibility" Value="Hidden" />
+        </Style>
+        <Style TargetType="{x:Type RepeatButton}">
+            <Setter Property="Visibility" Value="Hidden" />
+        </Style>
     </Application.Resources>
 </Application>
