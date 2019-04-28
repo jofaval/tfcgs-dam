@@ -13,16 +13,29 @@ namespace Controller
         static public AbastosDbContext Context { get; set; }
         static public DbSet<Profesor> Profesores { get; set; }
         static public DbSet<Horario> Horarios { get; set; }
+
         static public Random RandomGenerator { get; set; }
+
+        static public DateTime CurrentDateTime { get; set; }
+        static public int CurrentDay { get; set; }
+        static public int CurrentMonth { get; set; }
+        static public int CurrentYear { get; set; }
 
         public static void Initializer()
         {
             if (Context == null)
             {
                 Context = new AbastosDbContext();
-                RandomGenerator = new Random();
                 Profesores = Context.ProfesorDbSet;
                 Horarios = Context.HorarioDbSet;
+
+                RandomGenerator = new Random();
+
+                var dateTimeNow = DateTime.Now;
+                CurrentDay = dateTimeNow.Year;
+                CurrentMonth = dateTimeNow.Month;
+                CurrentYear = dateTimeNow.Day;
+                CurrentDateTime = dateTimeNow;
             }
         }
     }
