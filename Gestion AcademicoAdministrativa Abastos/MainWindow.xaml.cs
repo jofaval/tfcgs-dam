@@ -99,27 +99,33 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             }
         }
 
-        private void BtnMinimize_Click_1(object sender, RoutedEventArgs e)
+        private void BtnMinimize_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = ControladorWPF.WinowMMinimizedState;
         }
 
-        private void FirstButton_Click(object sender, RoutedEventArgs e)
+        private void MenuButtons_Click(object sender, RoutedEventArgs e)
         {
-            var mainGridContent = this.MainGridContent;
-            var mainGridContentParent = mainGridContent.Parent;
-            var mainGridContentParentChildrens = ((Grid) mainGridContentParent).Children;
-            mainGridContentParentChildrens.Remove(mainGridContent);
+            if (sender is System.Windows.Controls.Button btnSender)
+            {
+                if (btnSender == FirstButton)
+                {
+                    var mainGridContent = this.MainGridContent;
+                    var mainGridContentParent = mainGridContent.Parent;
+                    var mainGridContentParentChildrens = ((Grid)mainGridContentParent).Children;
+                    mainGridContentParentChildrens.Remove(mainGridContent);
 
-            var buscador = new Buscador();
+                    var buscador = new Buscador();
 
-            var buscadorMainGridContent = buscador.MainGridContent;
+                    var buscadorMainGridContent = buscador.MainGridContent;
 
-            var parent = (Grid)(buscadorMainGridContent.Parent);
-            parent.Children.Remove(buscadorMainGridContent);
+                    var parent = (Grid)(buscadorMainGridContent.Parent);
+                    parent.Children.Remove(buscadorMainGridContent);
 
-            mainGridContentParentChildrens.Add(buscadorMainGridContent);
-            buscador.Close();
+                    mainGridContentParentChildrens.Add(buscadorMainGridContent);
+                    buscador.Close();
+                }
+            }
         }
     }
 }

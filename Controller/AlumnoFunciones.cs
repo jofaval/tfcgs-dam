@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Controller
 {
-    public class AlumnoFunciones
+    public class AlumnoFunctionality
     {
         public static object GetProfesores(string name, bool? ignoreMayus = true, bool? exactMatch = true)
         {
@@ -24,9 +24,9 @@ namespace Controller
                        prof.Trabajador1.Persona1.Nombre,
                        prof.Trabajador1.Persona1.Apellidos,
                        prof.Departamento,
+                       prof.Trabajador1.Especial?.Funcion,
                        prof.Trabajador1.Persona1.Email,
                        prof.Trabajador1.Sueldo,
-                       prof.Trabajador1.Especial?.Funcion,
                    };
         }
     }

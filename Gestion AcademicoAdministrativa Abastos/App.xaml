@@ -4,53 +4,13 @@
              xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style TargetType="{x:Type DataGridRow}">
-            <Setter Property="Foreground" Value="#FFB3B3B3" />
-            <Setter Property="Background" Value="#33000000" />
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="Height" Value="25" />
-            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-            <Style.Triggers>
-                <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Foreground" Value="Wheat"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-        <Style TargetType="{x:Type ScrollBar}">
-            <Setter Property="BorderBrush" Value="{x:Null}" />
-            <Setter Property="Background" Value="Transparent" />
-        </Style>
-        <Style TargetType="{x:Type DataGrid}">
-            <Setter Property="BorderBrush" Value="{x:Null}" />
-            <Setter Property="Background" Value="#FF262626" />
-        </Style>
-        <Style TargetType="{x:Type DataGridCell}">
-            <Setter Property="BorderBrush" Value="{x:Null}" />
-            <Setter Property="Background" Value="#FF262626" />
-            <Style.Triggers>
-                <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Foreground" Value="Wheat"/>
-                    <Setter Property="FontWeight" Value="Bold" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-        <Style TargetType="{x:Type DataGridCellsPresenter}">
-            <Setter Property="BorderBrush" Value="{x:Null}" />
-            <Setter Property="Background" Value="Transparent" />
-        </Style>
-        <Style TargetType="{x:Type DataGridColumnHeader}">
-            <Setter Property="BorderBrush" Value="Wheat" />
-            <Setter Property="BorderBrush" Value="{x:Null}" />
-            <Setter Property="Background" Value="#33FFFFFF" />
-            <Setter Property="Foreground" Value="#FFFFFFFF" />
-        </Style>
-        <Style TargetType="{x:Type DataGridRowHeader}">
-            <Setter Property="Visibility" Value="Hidden" />
-            <Setter Property="Background" Value="Transparent" />
-        </Style>
-        <Style TargetType="{x:Type RepeatButton}">
-            <Setter Property="Visibility" Value="Hidden" />
-            <Setter Property="Background" Value="Transparent" />
-        </Style>
+        <ResourceDictionary >
+            <ResourceDictionary.MergedDictionaries >
+                <ResourceDictionary Source="styles/DataGrid.xaml"/>
+                <ResourceDictionary Source="styles/ScrollBar.xaml"/>
+                <ResourceDictionary Source="styles/Button.xaml"/>
+                <ResourceDictionary Source="styles/Text.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
