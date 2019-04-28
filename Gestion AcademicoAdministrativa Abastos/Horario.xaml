@@ -6,8 +6,6 @@
         xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos"
         mc:Ignorable="d"
         Title="Horario" Height="720" Width="1280">
-    <Window.Resources>
-    </Window.Resources>
     <Grid x:Name="Container" Grid.Row="1" Background="#FF15171B" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid x:Name="MainGridContent" Grid.Row="1" Background="#FF15171B" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid x:Name="MainPanel" Grid.Column="1" Panel.ZIndex="-2">
