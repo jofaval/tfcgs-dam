@@ -24,17 +24,18 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             }
         }
 
-        public static void ChangeWindowContent(Grid mainGridContent, Window newWindow)
+        public static void ChangeWindowContent(Grid mainGrid, Window newWindow)
         {
-            var mainGridContentParentChildrens = RemoveGridFromParent(mainGridContent);
+            newWindow.Close();
 
             var newWindowMainGridContent = GetMainGridPanelFromWindow(newWindow);
+            RemoveGridFromParent(newWindowMainGridContent);
 
-            var parent = (Grid) (newWindowMainGridContent.Parent);
-            parent.Children.Remove(newWindowMainGridContent);
+            var mainGridParentChildrens = RemoveGridFromParent(mainGrid);
+            mainGridParentChildrens.Add(newWindowMainGridContent);
 
-            mainGridContentParentChildrens.Add(newWindowMainGridContent);
-            newWindow.Close();
+            Grid.SetColumn(newWindowMainGridContent, 1);
+            XamlBridge.MainPanelInstance = newWindowMainGridContent;
         }
 
         private static UIElementCollection RemoveGridFromParent(Grid grid)
@@ -53,11 +54,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             }
             else if (window is Horario horario)
             {
-                return horario.MainGridContent;
+                return horario.MainPanel;
             }
             else if (window is MainWindow mainWindow)
             {
-                return mainWindow.MainGridContent;
+                return mainWindow.MainPanel;
             }
             else if (window is Buttons buttons)
             {

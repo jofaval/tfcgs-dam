@@ -38,7 +38,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             XamlBridge.MainWinowInstance = this;
             XamlBridge.BackgroundGrid = BackgroundGrid;
-            XamlBridge.BackUpMainPanel = MainPanel;
+            XamlBridge.MainPanelInstance = MainPanel;
 
             var buttons = new Buttons();
             buttons.Close();

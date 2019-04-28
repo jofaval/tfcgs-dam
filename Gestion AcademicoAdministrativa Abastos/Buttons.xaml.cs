@@ -18,7 +18,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             if (sender is Button btnSender)
             {
-                var mainWindowPanel = XamlBridge.BackUpMainPanel;
+                var mainWindowPanel = XamlBridge.MainPanelInstance;
                 if (btnSender == FirstButton)
                 {
                     XamlFunctionality.ChangeWindowContent(mainWindowPanel, new Buscador());
@@ -26,6 +26,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 else if (btnSender == SecondButton)
                 {
                     XamlFunctionality.ChangeWindowContent(mainWindowPanel, new Horario());
+                }
+                else if (btnSender == HomeButton)
+                {
+                    XamlFunctionality.ChangeWindowContent(mainWindowPanel, new MainWindow());
                 }
             }
         }
