@@ -39,9 +39,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            var profesoresResultList = AlumnoFunctionality.GetProfesores(TxtSearch.Text, IgnoreMayus.IsChecked, ExactMatch.IsChecked);
-            
-            DataGridResult.ItemsSource = profesoresResultList as IEnumerable<object>;
+            DataGridResult.ItemsSource = AlumnoFunctionality.GetProfesores(TxtSearch.Text, IgnoreMayus.IsChecked, ExactMatch.IsChecked);
 
             var dataGridCols = DataGridResult.Columns;
 

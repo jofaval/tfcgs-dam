@@ -6,7 +6,7 @@ namespace Controller
 {
     public class AlumnoFunctionality
     {
-        public static object GetProfesores(string name, bool? ignoreMayus = true, bool? exactMatch = true)
+        public static IEnumerable<object> GetProfesores(string name, bool? ignoreMayus = true, bool? exactMatch = true)
         {
             name = name.ToLower();
             StaticReferences.Initializer();
@@ -29,5 +29,7 @@ namespace Controller
                        prof.Trabajador1.Sueldo,
                    };
         }
+
+        public static IEnumerable<object>
     }
 }

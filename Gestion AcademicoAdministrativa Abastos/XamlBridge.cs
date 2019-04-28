@@ -8,7 +8,7 @@ using System.Windows.Controls;
 
 namespace Gestion_AcademicoAdministrativa_Abastos
 {
-    static public class XamlBridge
+    public class XamlBridge
     {
         static public Grid BackUpMainGridContent { get; set; }
 

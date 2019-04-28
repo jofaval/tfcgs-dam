@@ -64,7 +64,9 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var password = PasswordeField.Password;
             //if (DataIntegrityChecker.CheckUsernamePassword(username, PasswordeField.Password))
             //{
-                if (DataRetriever.GetInstance().GetUser(username, password) != null)
+            var user = DataRetriever.GetInstance().GetUser(username, password);
+            XamlBridge.CurrentUser = user;
+                if (user != null)
                 {
                     var bgGrid = XamlBridge.BackgroundGrid;
                     bgGrid.Children.Remove(XamlBridge.BackUpLoginGridContent);
