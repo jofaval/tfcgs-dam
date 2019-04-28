@@ -39,17 +39,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            DataGridResult.ItemsSource = AlumnoFunctionality.GetProfesores(TxtSearch.Text, IgnoreMayus.IsChecked, ExactMatch.IsChecked);
-
-            var dataGridCols = DataGridResult.Columns;
-
-            var dataGridColsLen = dataGridCols.Count;
-            for (int colIterator = 0; colIterator < dataGridColsLen; colIterator++)
-            {
-                var dataGridCol = dataGridCols[colIterator];
-                dataGridCol.MinWidth = dataGridCol.ActualWidth;
-                dataGridCol.Width = new DataGridLength(0.95, DataGridLengthUnitType.Star);
-            }
+            XamlFunctionality.FillDataGrid(DataGridResult, AlumnoFunctionality.GetProfesores(TxtSearch.Text, IgnoreMayus.IsChecked, ExactMatch.IsChecked));
         }
     }
 }

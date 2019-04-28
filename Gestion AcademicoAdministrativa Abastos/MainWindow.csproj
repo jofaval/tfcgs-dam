@@ -112,6 +112,7 @@
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="XamlBridge.cs" />
+    <Compile Include="XamlFunctionality.cs" />
     <Page Include="Buscador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

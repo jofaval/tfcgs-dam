@@ -65,14 +65,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             //if (DataIntegrityChecker.CheckUsernamePassword(username, PasswordeField.Password))
             //{
             var user = DataRetriever.GetInstance().GetUser(username, password);
-            XamlBridge.CurrentUser = user;
-                if (user != null)
-                {
-                    var bgGrid = XamlBridge.BackgroundGrid;
-                    bgGrid.Children.Remove(XamlBridge.BackUpLoginGridContent);
-                    bgGrid.Children.Add(XamlBridge.BackUpMainGridContent);
-                    this.Close();
-                }
+            if (user != null)
+            {
+                XamlBridge.CurrentUser = user;
+                var bgGrid = XamlBridge.BackgroundGrid;
+                bgGrid.Children.Remove(XamlBridge.BackUpLoginGridContent);
+                bgGrid.Children.Add(XamlBridge.BackUpMainGridContent);
+                this.Close();
+            }
             //}
         }
     }

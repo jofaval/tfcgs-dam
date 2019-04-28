@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public Horario()
         {
             InitializeComponent();
+            var collection = AlumnoFunctionality.GetHorarios(XamlBridge.CurrentUser);
+            XamlFunctionality.FillDataGrid(DataGridResult, collection);
+            Console.WriteLine(collection.Count());
         }
+
     }
 }

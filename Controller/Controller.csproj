@@ -69,7 +69,6 @@
     <Compile Include="DataIntegrityChecker.cs" />
     <Compile Include="DataRetriever.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\XamlFunctionality.cs" />
     <Compile Include="StaticReferences.cs" />
   </ItemGroup>
   <ItemGroup>

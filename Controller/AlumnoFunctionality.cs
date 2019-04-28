@@ -1,4 +1,5 @@
 ﻿using EntityFrameworkModel.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,26 +11,44 @@ namespace Controller
         {
             name = name.ToLower();
             StaticReferences.Initializer();
-            var profesores = StaticReferences.Profesores;
+            var profesores = StaticReferences.Profesores.AsEnumerable();
 
             //return profesores.AsEnumerable()
             //    .Where(p => DataIntegrityChecker.FullyCheckIfContainsString(p.Trabajador1.Persona1.Nombre, name, ignoreMayus, exactMatch))
             //    .ToList();
 
-            return from prof in profesores.AsEnumerable()
-                .Where(p => DataIntegrityChecker.FullyCheckIfContainsString(p.Trabajador1.Persona1.Nombre, name, ignoreMayus, exactMatch))
+            return from profesor in profesores
+                .Where(p => DataIntegrityChecker.FullyCheckIfContainsString(p.Trabajador1.Persona1.Nombre, name, ignoreMayus, exactMatch))?
                 .ToList()
                    select new
                    {
-                       prof.Trabajador1.Persona1.Nombre,
-                       prof.Trabajador1.Persona1.Apellidos,
-                       prof.Departamento,
-                       prof.Trabajador1.Especial?.Funcion,
-                       prof.Trabajador1.Persona1.Email,
-                       prof.Trabajador1.Sueldo,
+                       profesor.Trabajador1.Persona1.Nombre,
+                       profesor.Trabajador1.Persona1.Apellidos,
+                       profesor.Departamento,
+                       profesor.Trabajador1.Especial?.Funcion,
+                       profesor.Trabajador1.Persona1.Email,
+                       profesor.Trabajador1.Sueldo,
                    };
         }
 
-        public static IEnumerable<object>
+        public static IEnumerable<object> GetHorarios(Usuario currentUser)
+        {
+            var alumno = currentUser.Persona1.Alumno;
+            var curso = alumno.CursoCod;
+            StaticReferences.Initializer();
+            var horarios = StaticReferences.Horarios.AsEnumerable();
+            var currentYear = DateTime.Now.Year;
+
+            return from horario in horarios
+                   .Where(h => h.CursoCod == curso && h.Anyo == currentYear)
+                   .ToList()
+                   select new
+                   {
+                       horario.Dia,
+                       horario.HoraInicio,
+                       horario.HoraFinal,
+                       horario.Asignatura
+                   };
+        }
     }
 }
