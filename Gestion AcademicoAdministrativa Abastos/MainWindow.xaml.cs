@@ -125,6 +125,23 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                     mainGridContentParentChildrens.Add(buscadorMainGridContent);
                     buscador.Close();
                 }
+                else if (btnSender == SecondButton)
+                {
+                    var mainGridContent = this.MainGridContent;
+                    var mainGridContentParent = mainGridContent.Parent;
+                    var mainGridContentParentChildrens = ((Grid)mainGridContentParent).Children;
+                    mainGridContentParentChildrens.Remove(mainGridContent);
+
+                    var horario = new Horario();
+
+                    var buscadorMainGridContent = horario.MainGridContent;
+
+                    var parent = (Grid)(buscadorMainGridContent.Parent);
+                    parent.Children.Remove(buscadorMainGridContent);
+
+                    mainGridContentParentChildrens.Add(buscadorMainGridContent);
+                    horario.Close();
+                }
             }
         }
     }
