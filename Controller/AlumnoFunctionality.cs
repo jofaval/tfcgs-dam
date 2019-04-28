@@ -27,7 +27,6 @@ namespace Controller
                        profesor.Departamento,
                        profesor.Trabajador1.Especial?.Funcion,
                        profesor.Trabajador1.Persona1.Email,
-                       profesor.Trabajador1.Sueldo,
                    };
         }
 

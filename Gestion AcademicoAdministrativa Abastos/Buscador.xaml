@@ -31,12 +31,6 @@
                         <RowDefinition Height="5*" />
                     </Grid.RowDefinitions>
                     <Grid HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Panel.ZIndex="-1">
-                        <!--Grid.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#00000000" Offset="1" />
-                            <GradientStop Color="#0CFFFFFF" />
-                        </LinearGradientBrush>
-                    </Grid.Background-->
                         <Grid.RowDefinitions>
                             <RowDefinition Height="5*" />
                             <RowDefinition Height="7*" />
@@ -85,13 +79,14 @@
                             <Button Content="Tutor"></Button>
                         </Grid>
                         <DataGrid x:Name="DataGridResult" Grid.Row="6" AutoGenerateColumns="True" ColumnWidth="Auto">
-                            <!--DataGrid.Columns>
+                            <DataGrid.Columns>
                                 <DataGridTextColumn Header="Nombre" Width="15*" Binding="{Binding Path=Nombre}" />
                                 <DataGridTextColumn Header="Apellidos" Width="25*" Binding="{Binding Path=Apellidos}" />
                                 <DataGridTextColumn Header="Departamento" Width="20*" Binding="{Binding Path=Departamento}" />
-                                <DataGridTextColumn Header="Tutoria/Funcion" Width="20*" Binding="{Binding Path=Tutoria}" />
+                                <!--DataGridTextColumn Header="Tutor" Width="20*" Binding="{Binding Path=Tutoria}" /-->
+                                <DataGridTextColumn Header="Funcion" Width="20*" Binding="{Binding Path=Funcion}" />
                                 <DataGridTextColumn Header="Correlo electrónico" Width="20*" Binding="{Binding Path=Email}" />
-                            </DataGrid.Columns-->
+                            </DataGrid.Columns>
                         </DataGrid>
                     </Grid>
                 </Grid>
