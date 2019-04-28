@@ -70,7 +70,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 XamlBridge.CurrentUser = user;
                 var bgGrid = XamlBridge.BackgroundGrid;
                 bgGrid.Children.Remove(XamlBridge.BackUpLoginGridContent);
-                bgGrid.Children.Add(XamlBridge.BackUpMainGridContent);
+                bgGrid.Children.Add(XamlBridge.BackUpMainPanel);
                 this.Close();
             }
             //}

@@ -47,17 +47,15 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             XamlBridge.MainWinowInstance = this;
             XamlBridge.BackgroundGrid = BackgroundGrid;
-            XamlBridge.BackUpMainGridContent = MainGridContent;
+            XamlBridge.BackUpMainPanel = MainPanel;
 
-            var buttons = new Buttons
-            {
-                Visibility = Visibility.Visible
-            };
-            var mainGridContentChildrens = BackgroundGrid.Children;
-            mainGridContentChildrens.Remove(MainGridContent);
+            var buttons = new Buttons();
+
+            var mainGridContentChildrens = MainGridContent.Children;
+
             var mainGridContent = buttons.MainGridContent;
-            XamlBridge.BackUpLoginGridContent = mainGridContent;
             ((Grid)buttons.MainGridContent.Parent).Children.Remove(mainGridContent);
+
             mainGridContentChildrens.Add(mainGridContent);
             Grid.SetRow(mainGridContent, 0);
 
