@@ -10,6 +10,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 {
     public class XamlBridge
     {
+        static public MainWindow MainWinowInstance { get; set; }
         static public Grid BackUpMainGridContent { get; set; }
 
         public static Grid BackUpLoginGridContent { get; set; }

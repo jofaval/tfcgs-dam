@@ -45,24 +45,40 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             WindowVar.Width = screenSize.Width;
             WindowVar.Height = screenSize.Height;
 
-            //DESCOMENTAR
-            var loginWindow = new LogIn
+            XamlBridge.MainWinowInstance = this;
+            XamlBridge.BackgroundGrid = BackgroundGrid;
+            XamlBridge.BackUpMainGridContent = MainGridContent;
+
+            var buttons = new Buttons
             {
                 Visibility = Visibility.Visible
             };
-
             var mainGridContentChildrens = BackgroundGrid.Children;
-            XamlBridge.BackgroundGrid = this.BackgroundGrid;
-            XamlBridge.BackUpMainGridContent = MainGridContent;
             mainGridContentChildrens.Remove(MainGridContent);
-            var loginWindowMainGrid = loginWindow.LogInMainGrid;
-            XamlBridge.BackUpLoginGridContent = loginWindowMainGrid;
-            loginWindow.TestGrid.Children.Remove(loginWindowMainGrid);
-            mainGridContentChildrens.Add(loginWindowMainGrid);
-            Grid.SetRow(loginWindowMainGrid, 1);
-            loginWindow.Close();
+            var mainGridContent = buttons.MainGridContent;
+            XamlBridge.BackUpLoginGridContent = mainGridContent;
+            ((Grid)buttons.MainGridContent.Parent).Children.Remove(mainGridContent);
+            mainGridContentChildrens.Add(mainGridContent);
+            Grid.SetRow(mainGridContent, 0);
+
+            ////DESCOMENTAR
+            //var loginWindow = new LogIn
+            //{
+            //    Visibility = Visibility.Visible
+            //};
+
+            //var mainGridContentChildrens = BackgroundGrid.Children;
+            //mainGridContentChildrens.Remove(MainGridContent);
+            //var loginWindowMainGrid = loginWindow.LogInMainGrid;
+            //XamlBridge.BackUpLoginGridContent = loginWindowMainGrid;
+            //loginWindow.TestGrid.Children.Remove(loginWindowMainGrid);
+            //mainGridContentChildrens.Add(loginWindowMainGrid);
+            //Grid.SetRow(loginWindowMainGrid, 1);
+            //loginWindow.Close();
+
             ControladorWPF.MaximizeNormalize(this, TopBar);
             BackgroundGrid.Margin = new Thickness(10);
+            //XamlFunctionality.ChangeWindowContent(MainGridContent, buttons);
         }
 
         private void TopBar_MouseDown(object sender, MouseButtonEventArgs e)
@@ -102,47 +118,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         private void BtnMinimize_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = ControladorWPF.WinowMMinimizedState;
-        }
-
-        private void MenuButtons_Click(object sender, RoutedEventArgs e)
-        {
-            if (sender is System.Windows.Controls.Button btnSender)
-            {
-                if (btnSender == FirstButton)
-                {
-                    var mainGridContent = this.MainGridContent;
-                    var mainGridContentParent = mainGridContent.Parent;
-                    var mainGridContentParentChildrens = ((Grid)mainGridContentParent).Children;
-                    mainGridContentParentChildrens.Remove(mainGridContent);
-
-                    var buscador = new Buscador();
-
-                    var buscadorMainGridContent = buscador.MainGridContent;
-
-                    var parent = (Grid)(buscadorMainGridContent.Parent);
-                    parent.Children.Remove(buscadorMainGridContent);
-
-                    mainGridContentParentChildrens.Add(buscadorMainGridContent);
-                    buscador.Close();
-                }
-                else if (btnSender == SecondButton)
-                {
-                    var mainGridContent = this.MainGridContent;
-                    var mainGridContentParent = mainGridContent.Parent;
-                    var mainGridContentParentChildrens = ((Grid)mainGridContentParent).Children;
-                    mainGridContentParentChildrens.Remove(mainGridContent);
-
-                    var horario = new Horario();
-
-                    var buscadorMainGridContent = horario.MainGridContent;
-
-                    var parent = (Grid)(buscadorMainGridContent.Parent);
-                    parent.Children.Remove(buscadorMainGridContent);
-
-                    mainGridContentParentChildrens.Add(buscadorMainGridContent);
-                    horario.Close();
-                }
-            }
         }
     }
 }
