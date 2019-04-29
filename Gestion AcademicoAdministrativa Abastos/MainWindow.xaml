@@ -16,8 +16,8 @@
             </RadialGradientBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="6*" />
-            <RowDefinition Height="92*" />
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="96*" />
         </Grid.RowDefinitions>
         <Grid x:Name="TopBar" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" MouseDown="TopBar_MouseDown" PreviewMouseLeftButtonDown="TopBar_PreviewMouseLeftButtonDown">
             <!--Grid.ColumnDefinitions>

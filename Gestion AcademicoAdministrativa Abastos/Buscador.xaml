@@ -80,8 +80,8 @@
                         </Grid>
                         <DataGrid x:Name="DataGridResult" Grid.Row="6" AutoGenerateColumns="True" ColumnWidth="Auto">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Nombre" Width="15*" Binding="{Binding Path=Nombre}" />
-                                <DataGridTextColumn Header="Apellidos" Width="25*" Binding="{Binding Path=Apellidos}" />
+                                <DataGridTextColumn Header="Nombre" Width="10*" Binding="{Binding Path=Nombre}" />
+                                <DataGridTextColumn Header="Apellidos" Width="20*" Binding="{Binding Path=Apellidos}" />
                                 <DataGridTextColumn Header="Departamento" Width="20*" Binding="{Binding Path=Departamento}" />
                                 <!--DataGridTextColumn Header="Tutor" Width="20*" Binding="{Binding Path=Tutoria}" /-->
                                 <DataGridTextColumn Header="Funcion" Width="20*" Binding="{Binding Path=Funcion}" />

@@ -64,6 +64,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             {
                 return buttons.MainGridContent;
             }
+            else if (window is LogIn login)
+            {
+                return login.MainPanel;
+            }
 
             return null;
         }

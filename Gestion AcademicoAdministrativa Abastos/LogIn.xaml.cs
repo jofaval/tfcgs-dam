@@ -68,9 +68,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             if (user != null)
             {
                 XamlBridge.CurrentUser = user;
-                var bgGrid = XamlBridge.BackgroundGrid;
-                bgGrid.Children.Remove(XamlBridge.BackUpLoginGridContent);
-                bgGrid.Children.Add(XamlBridge.MainPanelInstance);
+                //var bgGrid = XamlBridge.BackgroundGrid;
+                //bgGrid.Children.Remove(XamlBridge.BackUpLoginGridContent);
+                //bgGrid.Children.Add(XamlBridge.MainPanelInstance);
+                var instance = XamlBridge.MainWinowInstance;
+                XamlFunctionality.ChangeWindowContent(XamlBridge.MainPanelInstance, new MainWindow());
+                instance.AddButtonPanel();
                 this.Close();
             }
             //}

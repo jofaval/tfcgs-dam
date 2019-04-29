@@ -80,7 +80,7 @@
         </Style>
     </Window.Resources>
     <Grid x:Name="TestGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Grid x:Name="LogInMainGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid x:Name="MainPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF69E655" Offset="0" />

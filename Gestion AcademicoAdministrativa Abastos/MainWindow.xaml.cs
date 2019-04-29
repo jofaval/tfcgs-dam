@@ -25,11 +25,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         public MainWindow()
         {
-            DataContext = this;
-            ApplicationTitle = Constants.ApplicationTitle;
-            HeightRows = 100;
-            radialGradientBrush.GradientStops.Add(gradientStopTop);
-            radialGradientBrush.GradientStops.Add(gradientStopBottom);
+            PreLoadedContent();
+
             InitializeComponent();
 
             var screenSize = Screen.PrimaryScreen.Bounds.Size;
@@ -39,7 +36,25 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             XamlBridge.MainWinowInstance = this;
             XamlBridge.BackgroundGrid = BackgroundGrid;
             XamlBridge.MainPanelInstance = MainPanel;
+            //UIElementCollection mainGridContentChildrens = AddButtonPanel();
 
+            ControladorWPF.MaximizeNormalize(this, TopBar);
+            BackgroundGrid.Margin = new Thickness(10);
+        }
+
+        private void PreLoadedContent()
+        {
+            DataContext = this;
+            ApplicationTitle = Constants.ApplicationTitle;
+
+            HeightRows = 100;
+
+            radialGradientBrush.GradientStops.Add(gradientStopTop);
+            radialGradientBrush.GradientStops.Add(gradientStopBottom);
+        }
+
+        public UIElementCollection AddButtonPanel()
+        {
             var buttons = new Buttons();
             buttons.Close();
 
@@ -51,24 +66,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             mainGridContentChildrens.Add(mainGridContent);
             Grid.SetRow(mainGridContent, 0);
 
-            ////DESCOMENTAR
-            //var loginWindow = new LogIn
-            //{
-            //    Visibility = Visibility.Visible
-            //};
-
-            //var mainGridContentChildrens = BackgroundGrid.Children;
-            //mainGridContentChildrens.Remove(MainGridContent);
-            //var loginWindowMainGrid = loginWindow.LogInMainGrid;
-            //XamlBridge.BackUpLoginGridContent = loginWindowMainGrid;
-            //loginWindow.TestGrid.Children.Remove(loginWindowMainGrid);
-            //mainGridContentChildrens.Add(loginWindowMainGrid);
-            //Grid.SetRow(loginWindowMainGrid, 1);
-            //loginWindow.Close();
-
-            ControladorWPF.MaximizeNormalize(this, TopBar);
-            BackgroundGrid.Margin = new Thickness(10);
-            //XamlFunctionality.ChangeWindowContent(MainGridContent, buttons);
+            return mainGridContentChildrens;
         }
 
         private void TopBar_MouseDown(object sender, MouseButtonEventArgs e)
