@@ -40,7 +40,7 @@
                             <RowDefinition Height="7*" />
                             <RowDefinition Height="67*" />
                         </Grid.RowDefinitions>
-                        <Label Grid.Row="0" Content="Criterios de Búsqueda" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="12" />
+                        <Label Grid.Row="0" Content="Criterios de Búsqueda" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
                         <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="50*" />
@@ -53,7 +53,7 @@
                             <CheckBox x:Name="IgnoreMayus" Grid.Column="2" Content="IgnorarMayusculas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" />
                             <CheckBox x:Name="ExactMatch" Grid.Column="3" Content="Coincidencia Exacta" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" />
                         </Grid>
-                        <Label Grid.Row="2" Content="Ordenar" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="12" />
+                        <Label Grid.Row="2" Content="Ordenar" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
                         <Grid Grid.Row="3">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="10*" />
@@ -74,7 +74,7 @@
                                 <ComboBoxItem Content="Descendente" />
                             </ComboBox>
                         </Grid>
-                        <Label Grid.Row="4" Content="Operaciones" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="12" />
+                        <Label Grid.Row="4" Content="Operaciones" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
                         <Grid Grid.Row="5">
                             <Button Content="Tutor"></Button>
                         </Grid>
