@@ -42,6 +42,18 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             BackgroundGrid.Margin = new Thickness(10);
         }
 
+        public void FillMainData()
+        {
+            var user = XamlBridge.CurrentUser;
+            var person = user.Persona1;
+
+            TxtDni.Text = person.Dni;
+            TxtNif.Text = person.Nif;
+            TxtNombre.Text = person.Nombre;
+            TxtApellidos.Text = person.Apellidos;
+            TxtEmail.Text = person.Email;
+        }
+
         private void PreLoadedContent()
         {
             DataContext = this;
