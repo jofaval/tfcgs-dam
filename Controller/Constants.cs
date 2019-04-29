@@ -8,6 +8,7 @@ namespace Controller
 {
     public class Constants
     {
-        public const string ApplicationTitle = "Gestión Académico-Administrativa Abastos";
+        public static readonly string ApplicationTitle = "Gestión Académico-Administrativa Abastos";
+        public static readonly string UrlHelper = "http://mestreacasa.gva.es/web/guest/inicio";
     }
 }

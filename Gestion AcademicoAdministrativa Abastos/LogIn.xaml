@@ -97,6 +97,7 @@
                 <RowDefinition Height="60*" />
                 <RowDefinition Height="20*" />
             </Grid.RowDefinitions>
+            <Border Grid.Row="1" Grid.Column="1" BorderThickness="20" CornerRadius="10,0,10,0">
             <Grid x:Name="LogInContent" Grid.Row="1" Grid.Column="1">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -134,6 +135,7 @@
                     </Button.Template>
                 </Button>
             </Grid>
+            </Border>
         </Grid>
     </Grid>
 </Window>

@@ -44,7 +44,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 Console.WriteLine("firefox is running");
                 process = "firefox.exe";
             }
-            System.Diagnostics.Process.Start(process, "http://www.google.com");
+            System.Diagnostics.Process.Start(process, Constants.UrlHelper);
         }
 
         private void LogInButton_Click(object sender, RoutedEventArgs e)
