@@ -40,9 +40,9 @@
                     <ColumnDefinition Width="33*" />
                     <ColumnDefinition Width="33*" />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="-" Click="BtnMinimize_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-                <Button Grid.Column="1" Content="□" Click="BtnMaximize_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-                <Button Grid.Column="2" Content="×" Click="BtnCerrar_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <Button Grid.Column="0" Content="-" Click="BtnMinimize_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource MenuButton}" />
+                <Button Grid.Column="1" Content="□" Click="BtnMaximize_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource MenuButton}" />
+                <Button Grid.Column="2" Content="×" Click="BtnCerrar_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource MenuButton}" />
             </Grid>
         </Grid>
         <Grid Grid.Row="1" x:Name="WindowContent">
