@@ -45,13 +45,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public void FillMainData()
         {
             var user = XamlBridge.CurrentUser;
-            var person = user.Persona1;
+            var persona = user.Persona1;
+            Console.WriteLine(persona.Nombre);
 
-            TxtDni.Text = person.Dni;
-            TxtNif.Text = person.Nif;
-            TxtNombre.Text = person.Nombre;
-            TxtApellidos.Text = person.Apellidos;
-            TxtEmail.Text = person.Email;
+            XamlFunctionality.FillDataOfReadOnlyText(TxtDni, persona.Dni);
+            XamlFunctionality.FillDataOfReadOnlyText(TxtNif, persona.Nif);
+            XamlFunctionality.FillDataOfReadOnlyText(TxtNombre, persona.Nombre);
+            XamlFunctionality.FillDataOfReadOnlyText(TxtApellidos, persona.Apellidos);
+            XamlFunctionality.FillDataOfReadOnlyText(TxtEmail, persona.Email);
         }
 
         private void PreLoadedContent()

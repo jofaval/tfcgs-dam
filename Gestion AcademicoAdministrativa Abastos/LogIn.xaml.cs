@@ -74,6 +74,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 var instance = XamlBridge.MainWinowInstance;
                 XamlFunctionality.ChangeWindowContent(XamlBridge.MainPanelInstance, new MainWindow());
                 instance.AddButtonPanel();
+                instance.FillMainData();
                 this.Close();
             }
             else

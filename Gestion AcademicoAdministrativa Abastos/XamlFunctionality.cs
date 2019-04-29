@@ -71,5 +71,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             return null;
         }
+
+        public static void FillDataOfReadOnlyText(TextBox textBox, string content)
+        {
+            textBox.IsReadOnly = false;
+            textBox.Text = content;
+            textBox.IsReadOnly = true;
+        }
     }
 }
