@@ -10,5 +10,7 @@ namespace Controller
     {
         public static readonly string ApplicationTitle = "Gestión Académico-Administrativa Abastos";
         public static readonly string UrlHelper = "http://mestreacasa.gva.es/web/guest/inicio";
+        public static readonly string UnsuccesfulLogIn = "No se ha podido acceder. ¡Lo sentimos!" +
+                    "\nLa combinación usuario/contraseña no era la correcta.";
     }
 }

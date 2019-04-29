@@ -79,8 +79,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             }
             else
             {
-                MessageBox.Show("No se ha podido acceder. ¡Lo sentimos!" +
-                    "\nLa combinación usuario/contraseña no era la correcta.");
+                MessageBox.Show(Constants.UnsuccesfulLogIn);
             }
             //}
         }
