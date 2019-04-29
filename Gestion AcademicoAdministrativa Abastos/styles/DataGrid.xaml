@@ -7,6 +7,9 @@
         <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="CanUserResizeColumns" Value="False" />
         <Setter Property="CanUserResizeRows" Value="False" />
+        <Setter Property="AutoGenerateColumns" Value="True"/>
+        <Setter Property="CanUserResizeColumns" Value="False" /> 
+        <Setter Property="CanUserResizeRows" Value="False" />
     </Style>
     <Style TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="BorderBrush" Value="Wheat" />
