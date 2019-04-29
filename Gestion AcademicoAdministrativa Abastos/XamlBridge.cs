@@ -18,5 +18,22 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         static public Grid BackUpMainPanel { get; set; }
 
         public static Usuario CurrentUser { get; set; }
+
+        public static void CloseEverything()
+        {
+            MainPanelInstance = null;
+            BackUpLoginGridContent = null;
+            BackgroundGrid = null;
+            BackUpMainPanel = null;
+            CurrentUser = null;
+
+            MainWinowInstance.Close();
+            MainWinowInstance = null;
+
+            new SplashScreen()
+            {
+                Visibility = System.Windows.Visibility.Visible
+            };
+        }
     }
 }

@@ -40,7 +40,7 @@
                     <Button x:Name="FirstButton" Grid.Row="1" Content="Buscador Profesorado" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
                     <Button x:Name="SecondButton" Grid.Row="2" Content="Horario" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
                     <Button Grid.Row="3" Content="Button" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
-                    <Button Grid.Row="4" Content="Button" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
+                    <Button x:Name="LogOutButton" Grid.Row="4" Content="Salir" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
                 </Grid>
             </DockPanel>
         </Grid>
