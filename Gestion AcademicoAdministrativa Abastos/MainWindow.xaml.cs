@@ -40,19 +40,24 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             ControladorWPF.MaximizeNormalize(this, TopBar);
             BackgroundGrid.Margin = new Thickness(10);
+            FillMainData();
         }
 
         public void FillMainData()
         {
             var user = XamlBridge.CurrentUser;
-            var persona = user.Persona1;
-            Console.WriteLine(persona.Nombre);
+            if (user != null)
+            {
+                var persona = user.Persona1;
+                Console.WriteLine(persona.Nombre);
 
-            XamlFunctionality.FillDataOfReadOnlyText(TxtDni, persona.Dni);
-            XamlFunctionality.FillDataOfReadOnlyText(TxtNif, persona.Nif);
-            XamlFunctionality.FillDataOfReadOnlyText(TxtNombre, persona.Nombre);
-            XamlFunctionality.FillDataOfReadOnlyText(TxtApellidos, persona.Apellidos);
-            XamlFunctionality.FillDataOfReadOnlyText(TxtEmail, persona.Email);
+                XamlFunctionality.FillDataOfReadOnlyText(TxtDni, persona.Dni);
+                XamlFunctionality.FillDataOfReadOnlyText(TxtNif, persona.Nif);
+                XamlFunctionality.FillDataOfReadOnlyText(TxtNombre, persona.Nombre);
+                XamlFunctionality.FillDataOfReadOnlyText(TxtApellidos, persona.Apellidos);
+                XamlFunctionality.FillDataOfReadOnlyText(TxtEmail, persona.Email);
+                DataGridTelefono.ItemsSource = persona.Telefono;
+            }
         }
 
         private void PreLoadedContent()
