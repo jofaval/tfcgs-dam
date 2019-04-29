@@ -8,15 +8,19 @@
         <Setter Property="Foreground" Value="White" />
         <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
         <Setter Property="FontFamily" Value="Ubuntu" />
-        <!--Setter Property="BorderThickness" Value="0" /-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Grid Background="{TemplateBinding Background}">
-                        <Border x:Name="border" CornerRadius="0,15,0,15" BorderBrush="Transparent" BorderThickness="2" Background="{TemplateBinding Background}">
+                        <Border x:Name="border" CornerRadius="0,15,0,15" BorderBrush="{TemplateBinding Foreground}" BorderThickness="0" Background="{TemplateBinding Background}">
                             <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
                     </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="Wheat"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -35,6 +39,8 @@
                         </RadialGradientBrush>
                     </Setter.Value>
                 </Setter>
+                <Setter Property="BorderBrush" Value="Black" />
+                <Setter Property="Foreground" Value="#FF15171B" />
                 <Setter Property="Cursor" Value="Hand" />
                 <Setter Property="BorderThickness" Value="200" />
                 <Setter Property="BorderBrush" Value="Black" />
