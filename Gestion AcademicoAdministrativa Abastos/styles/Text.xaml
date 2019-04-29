@@ -9,7 +9,7 @@
     </Style>
     <ControlTemplate x:Key="TextBoxBaseControlTemplate" TargetType="{x:Type TextBoxBase}">
         <Border Background="{TemplateBinding Background}" 
-                x:Name="Bd" BorderBrush="Black"
+                x:Name="Bd" BorderBrush="Transparent"
                 BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="15,0,15,0">
             <ScrollViewer x:Name="PART_ContentHost"/>
         </Border>
