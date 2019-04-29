@@ -39,8 +39,10 @@
                     <Button x:Name="HomeButton" Grid.Row="0" Content="Home" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
                     <Button x:Name="FirstButton" Grid.Row="1" Content="Buscador Profesorado" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
                     <Button x:Name="SecondButton" Grid.Row="2" Content="Horario" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
-                    <Button Grid.Row="3" Content="Button" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
-                    <Button x:Name="LogOutButton" Grid.Row="4" Content="Salir" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
+                    <Button Grid.Row="3" Content="Editar Informacion" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
+                    <Button Grid.Row="4" Content="Reclamaciones" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
+                    <Button Grid.Row="5" Content="Solicitudes" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
+                    <Button x:Name="LogOutButton" Grid.Row="6" Content="Salir" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
                 </Grid>
             </DockPanel>
         </Grid>
