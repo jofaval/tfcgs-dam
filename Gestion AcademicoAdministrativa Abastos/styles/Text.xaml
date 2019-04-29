@@ -4,6 +4,17 @@
     <Style TargetType="Label" BasedOn="{StaticResource SpecialTextControl}">
         <Setter Property="Foreground" Value="White" />
     </Style>
+    <Style TargetType="ComboBox" BasedOn="{StaticResource SpecialTextControl}">
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush>
+                    <GradientStop Color="#7FFFFFFF" />
+                    <GradientStop Offset="1" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <Style TargetType="CheckBox" BasedOn="{StaticResource SpecialTextControl}">
         <Setter Property="Foreground" Value="White" />
     </Style>
@@ -28,6 +39,7 @@
     </ControlTemplate>
     <Style TargetType="TextBox" BasedOn="{StaticResource SpecialTextControl}">
         <Setter Property="Template" Value="{StaticResource TextBoxBaseControlTemplate}" />
+        <Setter Property="TextWrapping" Value="Wrap" />
     </Style>
     <ControlTemplate x:Key="passwordbox" TargetType="{x:Type PasswordBox}">
         <Border Background="{TemplateBinding Background}" 

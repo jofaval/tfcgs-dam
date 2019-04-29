@@ -6,5 +6,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="FontFamily" Value="Ubuntu" />
         <Setter Property="FontSize" Value="15" />
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FontStretch" Value="Normal" />
     </Style>
 </ResourceDictionary>
