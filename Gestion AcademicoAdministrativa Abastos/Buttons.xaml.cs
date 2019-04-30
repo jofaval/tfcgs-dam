@@ -27,6 +27,18 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 {
                     XamlFunctionality.ChangeWindowContent(mainWindowPanel, new Horario());
                 }
+                else if (btnSender == ThirdButton)
+                {
+                    MessageBox.Show("No implementado.");
+                }
+                else if (btnSender == ForthButton)
+                {
+                    XamlFunctionality.ChangeWindowContent(mainWindowPanel, new Reclamaciones());
+                }
+                else if (btnSender == FifthButton)
+                {
+                    MessageBox.Show("No implementado.");
+                }
                 else if (btnSender == HomeButton)
                 {
                     XamlFunctionality.ChangeWindowContent(mainWindowPanel, new MainWindow());

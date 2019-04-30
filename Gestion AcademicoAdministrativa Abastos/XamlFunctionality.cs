@@ -68,6 +68,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             {
                 return login.MainPanel;
             }
+            else if (window is Reclamaciones reclamaciones)
+            {
+                return reclamaciones.MainPanel;
+            }
 
             return null;
         }
