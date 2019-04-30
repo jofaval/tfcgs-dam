@@ -30,10 +30,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             MainWinowInstance.Close();
             MainWinowInstance = null;
 
-            new SplashScreen()
-            {
-                Visibility = System.Windows.Visibility.Visible
-            };
+            //new SplashScreen()
+            //{
+            //    Visibility = System.Windows.Visibility.Visible
+            //};
         }
     }
 }
