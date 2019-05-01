@@ -17,9 +17,19 @@ namespace Controller
             //    .Where(p => DataIntegrityChecker.FullyCheckIfContainsString(p.Trabajador1.Persona1.Nombre, name, ignoreMayus, exactMatch))
             //    .ToList();
 
-            return from profesor in profesores
+            List<Profesor> resultList;
+            if (name.Equals(string.Empty))
+            {
+                resultList = profesores
                 .Where(p => DataIntegrityChecker.FullyCheckIfContainsString(p.Trabajador1.Persona1.Nombre, name, ignoreMayus, exactMatch))?
-                .ToList()
+                .ToList();
+            }
+            else
+            {
+                resultList = profesores.ToList();
+            }
+
+            return from profesor in resultList
                    select new
                    {
                        profesor.Trabajador1.Persona1.Nombre,
