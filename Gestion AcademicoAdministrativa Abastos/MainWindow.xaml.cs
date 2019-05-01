@@ -27,6 +27,15 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
 
+        internal void RestartApp()
+        {
+            CloseApp();
+            var splashScreen = new SplashScreen
+            {
+                Visibility = Visibility.Visible,
+            };
+        }
+
         public int HeightRows { get; set; }
 
         public MainWindow()
