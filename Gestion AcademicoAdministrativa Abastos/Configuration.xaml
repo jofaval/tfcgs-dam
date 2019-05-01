@@ -6,17 +6,26 @@
         xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos"
         mc:Ignorable="d"
         Title="Configuration" Height="800" Width="600">
-    <Grid>
+    <Grid Background="DarkGray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="5*" />
             <RowDefinition Height="5*" />
+            <RowDefinition Height="20*" />
             <RowDefinition Height="5*" />
+            <RowDefinition Height="20*" />
             <RowDefinition Height="5*" />
-            <RowDefinition Height="5*" />
-            <RowDefinition Height="5*" />
+            <RowDefinition Height="20*" />
             <RowDefinition Height="5*" />
         </Grid.RowDefinitions>
-        <Slider HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
-
+        <Label Content="Tamaño de la fuente" Grid.Column="1" Grid.Row="1" />
+        <Slider x:Name="SliderFontSize" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="Familia de la fuente" Grid.Column="1" Grid.Row="3" />
+        <ComboBox x:Name="ComboBoxFontFamily" Grid.Column="1" Grid.Row="4" />
+        <Button x:Name="BtnSaveConfiguration" Content="Guardar Configuración" Grid.Column="1" Grid.Row="6"/>
     </Grid>
 </Window>
