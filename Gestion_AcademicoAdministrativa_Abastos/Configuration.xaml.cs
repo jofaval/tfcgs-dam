@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Posibles_Interfaces_de_Usuario
+namespace Gestion_AcademicoAdministrativa_Abastos
 {
     /// <summary>
     /// Lógica de interacción para Configuration.xaml
@@ -22,6 +22,8 @@ namespace Posibles_Interfaces_de_Usuario
         public Configuration()
         {
             InitializeComponent();
+
+
         }
     }
 }

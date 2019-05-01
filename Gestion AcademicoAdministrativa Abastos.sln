@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainWindow", "Gestion AcademicoAdministrativa Abastos\MainWindow.csproj", "{9D30ABD0-41D5-4702-95BF-051837DD4FFF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainWindow", "Gestion_AcademicoAdministrativa_Abastos\MainWindow.csproj", "{9D30ABD0-41D5-4702-95BF-051837DD4FFF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructure", "ApplicationRunner\DataStructure.csproj", "{59997B9E-00EF-42FD-9D5D-918931D4C6C3}"
 EndProject

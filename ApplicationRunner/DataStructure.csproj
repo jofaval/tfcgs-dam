@@ -76,7 +76,7 @@
       <Project>{C543CB2E-C11B-44C8-B998-BA1D9B2C2865}</Project>
       <Name>Controller</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Gestion AcademicoAdministrativa Abastos\MainWindow.csproj">
+    <ProjectReference Include="..\Gestion_AcademicoAdministrativa_Abastos\MainWindow.csproj">
       <Project>{9d30abd0-41d5-4702-95bf-051837dd4fff}</Project>
       <Name>MainWindow</Name>
     </ProjectReference>

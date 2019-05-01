@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{9D30ABD0-41D5-4702-95BF-051837DD4FFF}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Posibles_Interfaces_de_Usuario</RootNamespace>
-    <AssemblyName>Gestion AcademicoAdministrativa Abastos</AssemblyName>
+    <RootNamespace>Gestion_AcademicoAdministrativa_Abastos</RootNamespace>
+    <AssemblyName>Gestion_AcademicoAdministrativa_Abastos</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
