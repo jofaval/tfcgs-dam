@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,23 +23,27 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public Configuration()
         {
             InitializeComponent();
+            LoadComboBoxWithFontFamilies();
+        }
 
+        private void LoadComboBoxWithFontFamilies()
+        {
             var fontFamilies = Fonts.SystemFontFamilies;
             var comboBoxFontFamilyitems = ComboBoxFontFamily.Items;
             foreach (FontFamily fontFamily in fontFamilies)
             {
                 comboBoxFontFamilyitems.Add(fontFamily);
             }
-            UpdateConfiguration();
         }
 
-        public void UpdateConfiguration()
+        private void SliderFontSize_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            var myStyle = (Style)Application.Current.Resources["SpecialTextControl"];
-            var setters = myStyle.Setters;
-            //setters.Add(new Setter(FontSizeProperty, 50));
-            Application.Current.Resources["SpecialTextControl"] = myStyle;
-            Application.Current.Resources["StandardFontSize"] = 40.0;
+            Application.Current.Resources["StandardFontSize"] = (sender as Slider).Value;
+        }
+
+        private void ComboBoxFontFamily_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Application.Current.Resources["StandardFontFamily"] = new FontFamily((sender as ComboBox).SelectedValue.ToString());
         }
     }
 }
