@@ -96,8 +96,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             if (File.Exists(file))
             {
                 var lines = File.ReadAllLines(file);
-                logIn.UsernameField.Text = lines[0];
-                logIn.PasswordeField.Password = lines[1];
+                logIn.UsernameField.Text =
+                        Cryptography.Decrypt(
+                            lines[0],
+                            Constants.ApplicationTitle
+                        );
+                logIn.PasswordeField.Password =
+                        Cryptography.Decrypt(
+                            lines[1],
+                            Constants.ApplicationTitle
+                        );
             }
         }
 
@@ -108,8 +116,19 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             {
                 using (StreamWriter w = File.AppendText(file))
                 {
-                    w.WriteLine(logIn.UsernameField.Text);
-                    w.WriteLine(logIn.PasswordeField.Password);
+                    w.WriteLine(
+                        Cryptography.Encrypt(
+                            logIn.UsernameField.Text,
+                            Constants.ApplicationTitle
+                        )
+                        );
+
+                    w.WriteLine(
+                        Cryptography.Encrypt(
+                            logIn.PasswordeField.Password.ToString(),
+                            Constants.ApplicationTitle
+                        )
+                    );
                 }
             }
             var lines = File.ReadAllLines(file);
