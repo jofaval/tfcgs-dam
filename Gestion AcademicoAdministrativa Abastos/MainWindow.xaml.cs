@@ -21,6 +21,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public GradientStop gradientStopTop = new GradientStop((Color)ColorConverter.ConvertFromString("#FFA2FF00"), 0);
         public GradientStop gradientStopBottom = new GradientStop((Color)ColorConverter.ConvertFromString("#FFA2FF00"), 0);
 
+        internal void CloseApp()
+        {
+            this.Close();
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+        }
+
         public int HeightRows { get; set; }
 
         public MainWindow()

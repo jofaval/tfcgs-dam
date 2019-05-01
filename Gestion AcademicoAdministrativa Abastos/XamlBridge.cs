@@ -27,7 +27,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             BackUpMainPanel = null;
             CurrentUser = null;
 
-            MainWinowInstance.Close();
+            MainWinowInstance.CloseApp();
             MainWinowInstance = null;
 
             //new SplashScreen()
