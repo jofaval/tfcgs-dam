@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using System.Net.Http;
 using Controller;
 
-namespace Gestion_AcademicoAdministrativa_Abastos
+namespace Gestion AcademicoAdministrativa Abastos
 {
     /// <summary>
     /// Lógica de interacción para LogIn.xaml

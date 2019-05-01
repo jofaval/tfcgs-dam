@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Gestion_AcademicoAdministrativa_Abastos
+namespace Gestion AcademicoAdministrativa Abastos
 {
     /// <summary>
     /// Lógica de interacción para App.xaml

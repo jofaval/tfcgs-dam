@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Gestion_AcademicoAdministrativa_Abastos.Properties
+namespace Gestion AcademicoAdministrativa Abastos.Properties
 {
 
 
@@ -44,7 +44,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Gestion_AcademicoAdministrativa_Abastos.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Gestion AcademicoAdministrativa Abastos.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

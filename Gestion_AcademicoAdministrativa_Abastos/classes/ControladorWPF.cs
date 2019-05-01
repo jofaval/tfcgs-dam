@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Gestion_AcademicoAdministrativa_Abastos
+namespace Gestion AcademicoAdministrativa Abastos
 {
     public class ControladorWPF
     {
