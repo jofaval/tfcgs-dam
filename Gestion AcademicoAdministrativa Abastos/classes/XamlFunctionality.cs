@@ -5,7 +5,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Gestion_AcademicoAdministrativa_Abastos
+namespace Gestion AcademicoAdministrativa Abastos
 {
     public class XamlFunctionality
     {
@@ -132,6 +132,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 }
             }
             var lines = File.ReadAllLines(file);
+        }
+
+        public static void ChangeFont(Configuration conf)
+        {
+
         }
     }
 }

@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Posibles_Interfaces_de_Usuario
+namespace Gestion AcademicoAdministrativa Abastos
 {
     /// <summary>
     /// Lógica de interacción para Configuration.xaml
@@ -22,6 +22,23 @@ namespace Posibles_Interfaces_de_Usuario
         public Configuration()
         {
             InitializeComponent();
+
+            var fontFamilies = Fonts.SystemFontFamilies;
+            foreach (var fontFamily in fontFamilies) {
+                ComboBoxFontFamily.Items.Add(fontFamily);
+            }
         }
+
+        private void SliderFontSize_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
+        private void ComboBoxFontFamily_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+
     }
 }

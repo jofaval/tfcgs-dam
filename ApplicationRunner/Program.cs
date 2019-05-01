@@ -1,4 +1,4 @@
-﻿using Gestion_AcademicoAdministrativa_Abastos;
+﻿using Gestion AcademicoAdministrativa Abastos;
 using System.Windows;
 using System;
 using System.Collections.Generic;
