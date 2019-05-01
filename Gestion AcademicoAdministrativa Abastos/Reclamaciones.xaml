@@ -41,23 +41,27 @@
                             <ColumnDefinition Width="100*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="10*" />
                             <RowDefinition Height="5*" />
-                            <RowDefinition Height="28*" />
+                            <RowDefinition Height="25*" />
                             <RowDefinition Height="5*" />
-                            <RowDefinition Height="28*" />
+                            <RowDefinition Height="25*" />
                             <RowDefinition Height="5*" />
-                            <RowDefinition Height="28*" />
+                            <RowDefinition Height="25*" />
                         </Grid.RowDefinitions>
-                        <Label Grid.Row="0" Content="Todas"/>
-                        <Grid Grid.Row="1" >
+                        <WrapPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <Button Content="Crear Reclamacion" />
+                        </WrapPanel>
+                        <Label Grid.Row="1" Content="Todas"/>
+                        <Grid Grid.Row="2" >
 
                         </Grid>
-                        <Label Grid.Row="2" Content="En trámite"/>
-                        <Grid Grid.Row="3" >
+                        <Label Grid.Row="3" Content="En trámite"/>
+                        <Grid Grid.Row="4" >
 
                         </Grid>
-                        <Label Grid.Row="4" Content="Tramitadas"/>
-                        <Grid Grid.Row="5" >
+                        <Label Grid.Row="5" Content="Tramitadas"/>
+                        <Grid Grid.Row="6" >
 
                         </Grid>
                     </Grid>
