@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 
 
-namespace Gestion AcademicoAdministrativa Abastos
+namespace Gestion_AcademicoAdministrativa_Abastos
 {
     /// <summary>
     /// Lógica de interacción para Buttons.xaml

@@ -1,7 +1,7 @@
-﻿<Application x:Class="Gestion AcademicoAdministrativa Abastos.App"
+﻿<Application x:Class="Gestion_AcademicoAdministrativa_Abastos.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Gestion AcademicoAdministrativa Abastos"
+             xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos"
              StartupUri="Configuration.xaml">
     <Application.Resources>
         <ResourceDictionary >

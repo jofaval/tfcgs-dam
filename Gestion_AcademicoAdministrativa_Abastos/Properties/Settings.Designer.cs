@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Gestion AcademicoAdministrativa Abastos.Properties
+namespace Gestion_AcademicoAdministrativa_Abastos.Properties
 {
 
 
