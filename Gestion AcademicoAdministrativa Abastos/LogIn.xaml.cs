@@ -67,7 +67,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 var instance = XamlBridge.MainWinowInstance;
                 XamlFunctionality.ChangeWindowContent(XamlBridge.MainPanelInstance, new MainWindow());
 
-                XamlFunctionality.WriteSaveUsernamePassword(this);
+                if (CheckSaveInformation.IsChecked.Value)
+                {
+                    XamlFunctionality.WriteSaveUsernamePassword(this);
+                }
 
                 instance.AddButtonPanel();
                 instance.FillMainData();
