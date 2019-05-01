@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Controller;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -81,6 +83,36 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             textBox.IsReadOnly = false;
             textBox.Text = content;
             textBox.IsReadOnly = true;
+        }
+
+        public static void ReadConfigurationFile()
+        {
+
+        }
+
+        public static void ReadSavedUsernamePassword(LogIn logIn)
+        {
+            var file = Constants.UsernameFile;
+            if (File.Exists(file))
+            {
+                var lines = File.ReadAllLines(file);
+                logIn.UsernameField.Text = lines[0];
+                logIn.PasswordeField.Password = lines[1];
+            }
+        }
+
+        public static void WriteSaveUsernamePassword(LogIn logIn)
+        {
+            var file = Constants.UsernameFile;
+            if (!File.Exists(file))
+            {
+                using (StreamWriter w = File.AppendText(file))
+                {
+                    w.WriteLine(logIn.UsernameField.Text);
+                    w.WriteLine(logIn.PasswordeField.Password);
+                }
+            }
+            var lines = File.ReadAllLines(file);
         }
     }
 }

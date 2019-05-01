@@ -24,6 +24,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public LogIn()
         {
             InitializeComponent();
+            XamlFunctionality.ReadSavedUsernamePassword(this);
         }
 
         private void UrlLinker_Click(object sender, RoutedEventArgs e)
@@ -65,6 +66,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
                 var instance = XamlBridge.MainWinowInstance;
                 XamlFunctionality.ChangeWindowContent(XamlBridge.MainPanelInstance, new MainWindow());
+
+                XamlFunctionality.WriteSaveUsernamePassword(this);
 
                 instance.AddButtonPanel();
                 instance.FillMainData();
