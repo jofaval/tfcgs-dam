@@ -29,6 +29,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             {
                 comboBoxFontFamilyitems.Add(fontFamily);
             }
+            UpdateConfiguration();
+        }
+
+        public void UpdateConfiguration()
+        {
+            var myStyle = (Style)Application.Current.Resources["SpecialTextControl"];
+            var setters = myStyle.Setters;
+            //setters.Add(new Setter(FontSizeProperty, 50));
+            Application.Current.Resources["SpecialTextControl"] = myStyle;
+            Application.Current.Resources["StandardFontSize"] = 40.0;
         }
     }
 }
