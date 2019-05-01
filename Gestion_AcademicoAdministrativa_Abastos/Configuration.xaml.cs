@@ -23,7 +23,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             InitializeComponent();
 
-
+            var fontFamilies = Fonts.SystemFontFamilies;
+            var comboBoxFontFamilyitems = ComboBoxFontFamily.Items;
+            foreach (FontFamily fontFamily in fontFamilies)
+            {
+                comboBoxFontFamilyitems.Add(fontFamily);
+            }
         }
     }
 }
