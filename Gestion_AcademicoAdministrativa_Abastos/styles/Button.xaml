@@ -68,6 +68,7 @@
         </Style.Triggers>
     </Style>
     <Style TargetType="Button" BasedOn="{StaticResource basicButton}" />
+
     <Style x:Key="MenuButton" TargetType="Button" BasedOn="{StaticResource basicButton}">
         <Setter Property="Template">
             <Setter.Value>
@@ -87,5 +88,11 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="Wheat" />
+                <Setter Property="FontWeight" Value="DemiBold" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>
