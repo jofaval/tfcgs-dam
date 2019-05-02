@@ -20,6 +20,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
     {
         public App()
         {
+            LoadSettings();
+        }
+
+        private static void LoadSettings()
+        {
             if (!File.Exists(Constants.SettingsFile))
             {
                 var xmlCreator = new XDocument(
@@ -36,6 +41,15 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             xmlReader.LoadXml(File.ReadAllText(Constants.SettingsFile));
             Application.Current.Resources[Constants.ResourceFontSize] = int.Parse(xmlReader.GetElementsByTagName(Constants.XmlFontSize)[0].InnerText);
             Application.Current.Resources[Constants.ResourceFontFamily] = new FontFamily(xmlReader.GetElementsByTagName(Constants.XmlFontFamily)[0].InnerText);
+        }
+
+        public static void SaveNewSettings()
+        {
+            var xmlReader = new XmlDocument();
+            xmlReader.LoadXml(File.ReadAllText(Constants.SettingsFile));
+            xmlReader.GetElementsByTagName(Constants.XmlFontSize)[0].InnerText = Application.Current.Resources[Constants.ResourceFontSize].ToString();
+            xmlReader.GetElementsByTagName(Constants.XmlFontFamily)[0].InnerText = ((FontFamily)Application.Current.Resources[Constants.ResourceFontFamily]).ToString();
+            xmlReader.Save(Constants.SettingsFile);
         }
     }
 }
