@@ -19,16 +19,13 @@
             <RowDefinition Height="5*" />
             <RowDefinition Height="20*" />
             <RowDefinition Height="5*" />
-            <RowDefinition Height="20*" />
-            <RowDefinition Height="5*" />
         </Grid.RowDefinitions>
-        <Label Content="Tamaño de la fuente" Grid.Column="1" Grid.Row="1" />
+        <Label Content="Tamaño de la fuente" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
         <Slider x:Name="SliderFontSize" Grid.Column="1" Grid.Row="2"
                 Minimum="8" Maximum="32"
                 HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Center"
                 ValueChanged="SliderFontSize_ValueChanged"/>
-        <Label Content="Familia de la fuente" Grid.Column="1" Grid.Row="3" />
+        <Label Content="Familia de la fuente" Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" VerticalAlignment="Center" />
         <ComboBox x:Name="ComboBoxFontFamily" Grid.Column="1" Grid.Row="4" SelectionChanged="ComboBoxFontFamily_SelectionChanged"/>
-        <Button x:Name="BtnSaveConfiguration" Content="Guardar Configuración" Grid.Column="1" Grid.Row="6"/>
     </Grid>
 </Window>
