@@ -23,7 +23,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             LoadSettings();
         }
 
-        private static void LoadSettings()
+        public static void LoadSettings()
         {
             if (!File.Exists(Constants.SettingsFile))
             {
@@ -39,16 +39,22 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             var xmlReader = new XmlDocument();
             xmlReader.LoadXml(File.ReadAllText(Constants.SettingsFile));
-            Application.Current.Resources[Constants.ResourceFontSize] = int.Parse(xmlReader.GetElementsByTagName(Constants.XmlFontSize)[0].InnerText);
-            Application.Current.Resources[Constants.ResourceFontFamily] = new FontFamily(xmlReader.GetElementsByTagName(Constants.XmlFontFamily)[0].InnerText);
+
+            var fontSize = xmlReader.GetElementsByTagName(Constants.XmlFontSize)[0].InnerText;
+            Console.WriteLine(fontSize);
+            Current.Resources[Constants.ResourceFontSize] = double.Parse(fontSize);
+
+            var fontFamily = xmlReader.GetElementsByTagName(Constants.XmlFontFamily)[0].InnerText;
+            Console.WriteLine(fontFamily);
+            Current.Resources[Constants.ResourceFontFamily] = new FontFamily(fontFamily);
         }
 
         public static void SaveNewSettings()
         {
             var xmlReader = new XmlDocument();
             xmlReader.LoadXml(File.ReadAllText(Constants.SettingsFile));
-            xmlReader.GetElementsByTagName(Constants.XmlFontSize)[0].InnerText = Application.Current.Resources[Constants.ResourceFontSize].ToString();
-            xmlReader.GetElementsByTagName(Constants.XmlFontFamily)[0].InnerText = ((FontFamily)Application.Current.Resources[Constants.ResourceFontFamily]).ToString();
+            xmlReader.GetElementsByTagName(Constants.XmlFontSize)[0].InnerText = Current.Resources[Constants.ResourceFontSize].ToString();
+            xmlReader.GetElementsByTagName(Constants.XmlFontFamily)[0].InnerText = ((FontFamily)Current.Resources[Constants.ResourceFontFamily]).ToString();
             xmlReader.Save(Constants.SettingsFile);
         }
     }

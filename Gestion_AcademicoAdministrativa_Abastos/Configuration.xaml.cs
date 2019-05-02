@@ -22,9 +22,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos
     {
         public Configuration()
         {
+            App.LoadSettings();
+            var fontSize = (double)Application.Current.Resources[Constants.ResourceFontSize];
+            var fontFamily = new FontFamily(Application.Current.Resources[Constants.ResourceFontFamily].ToString());
             InitializeComponent();
             LoadComboBoxWithFontFamilies();
-            SliderFontSize.Value = (double)Application.Current.Resources[Constants.ResourceFontSize];
+            SliderFontSize.Value = fontSize;
+            Application.Current.Resources[Constants.ResourceFontSize] = fontSize;
+            Application.Current.Resources[Constants.ResourceFontFamily] = fontFamily;
         }
 
         private void LoadComboBoxWithFontFamilies()
@@ -48,11 +53,19 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         private void SliderFontSize_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             Application.Current.Resources[Constants.ResourceFontSize] = (sender as Slider).Value;
+            App.SaveNewSettings();
         }
 
         private void ComboBoxFontFamily_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Application.Current.Resources[Constants.ResourceFontFamily] = new FontFamily((sender as ComboBox).SelectedValue.ToString());
+            Console.WriteLine(sender.GetType());
+            if (sender is ComboBox senderAsComboBox)
+            {
+                var fontFamilyName = ((ComboBoxItem)senderAsComboBox.SelectedItem).Content.ToString();
+                Console.WriteLine(fontFamilyName);
+                Application.Current.Resources[Constants.ResourceFontFamily] = new FontFamily(fontFamilyName);
+            }
+            App.SaveNewSettings();
         }
     }
 }

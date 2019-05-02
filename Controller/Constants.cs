@@ -23,7 +23,7 @@ namespace Controller
         public static readonly string ResourceFontFamily = "StandardFontFamily";
         public static readonly string ResourceFontSize = "StandardFontSize";
 
-        public static readonly string XmlFontFamily = "fontfamily";
+        public static readonly string XmlFontFamily = "fontFamily";
         public static readonly string XmlFontSize = "fontSize";
     }
 }
