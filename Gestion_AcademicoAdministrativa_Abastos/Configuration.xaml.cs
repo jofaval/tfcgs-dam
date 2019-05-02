@@ -24,6 +24,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             InitializeComponent();
             LoadComboBoxWithFontFamilies();
+            SliderFontSize.Value = (double)(Application.Current.Resources["StandardFontSize"]);
         }
 
         private void LoadComboBoxWithFontFamilies()

@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
         <Label Content="Tamaño de la fuente" Grid.Column="1" Grid.Row="1" />
         <Slider x:Name="SliderFontSize" Grid.Column="1" Grid.Row="2"
-                Minimum="8" Value="15" Maximum="32"
+                Minimum="8" Maximum="32"
                 HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Center"
                 ValueChanged="SliderFontSize_ValueChanged"/>
         <Label Content="Familia de la fuente" Grid.Column="1" Grid.Row="3" />
