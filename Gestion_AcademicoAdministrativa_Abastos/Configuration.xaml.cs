@@ -67,5 +67,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             }
             App.SaveNewSettings();
         }
+
+        private void ScreenSize_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            this.Width = SliderWidthSize.Value;
+            this.Height = SliderHeightSize.Value;
+        }
     }
 }
