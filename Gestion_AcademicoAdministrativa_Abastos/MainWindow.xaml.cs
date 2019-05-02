@@ -36,6 +36,28 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             };
         }
 
+        public void MakeDataEditable()
+        {
+            var isNotEditable = TxtNombre.IsReadOnly;
+
+            if (!isNotEditable)
+            {
+                var currentUserPerson = XamlBridge.CurrentUser.Persona1;
+                currentUserPerson.Nombre = TxtNombre.Text;
+                currentUserPerson.Apellidos = TxtApellidos.Text;
+                currentUserPerson.Email = TxtEmail.Text;
+
+                StaticReferences.Initializer();
+                var context = StaticReferences.Context;
+                //StaticReferences.Context.Entry(XamlBridge.CurrentUser.Persona1).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+            }
+
+            TxtNombre.IsReadOnly = !TxtNombre.IsReadOnly;
+            TxtApellidos.IsReadOnly = !TxtApellidos.IsReadOnly;
+            TxtEmail.IsReadOnly = !TxtEmail.IsReadOnly;
+        }
+
         public int HeightRows { get; set; }
 
         public MainWindow()

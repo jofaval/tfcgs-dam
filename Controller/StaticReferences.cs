@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Controller
 {
-    class StaticReferences
+    public class StaticReferences
     {
         static public AbastosDbContext Context { get; set; }
         static public DbSet<Profesor> Profesores { get; set; }
@@ -30,6 +30,24 @@ namespace Controller
                 Horarios = Context.HorarioDbSet;
 
                 RandomGenerator = new Random();
+
+                var dateTimeNow = DateTime.Now;
+                CurrentDay = dateTimeNow.Year;
+                CurrentMonth = dateTimeNow.Month;
+                CurrentYear = dateTimeNow.Day;
+                CurrentDateTime = dateTimeNow;
+            }
+        }
+
+        public static void Closer()
+        {
+            if (Context != null)
+            {
+                Context = null;
+                Profesores = null;
+                Horarios = null;
+
+                RandomGenerator = null;
 
                 var dateTimeNow = DateTime.Now;
                 CurrentDay = dateTimeNow.Year;

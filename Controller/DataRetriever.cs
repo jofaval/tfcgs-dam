@@ -16,7 +16,8 @@ namespace Controller
 
         public Usuario GetUser(string username, string password)
         {
-            var usuarios = Context.UsuarioDbSet;
+            StaticReferences.Initializer();
+            var usuarios = StaticReferences.Context.UsuarioDbSet;
             var usuario = usuarios.Where((x) => x.Username == username && x.Contrasenya == password).FirstOrDefault();
             return usuario;
         }
@@ -26,7 +27,7 @@ namespace Controller
             if (Instance == null)
             {
                 Instance = new DataRetriever();
-                Context = new AbastosDbContext();
+                //Context = new AbastosDbContext();
             }
 
             return Instance;
@@ -34,7 +35,7 @@ namespace Controller
 
         public List<Horario> GetHorariosOfAlumno(Alumno alumno, int anyo = 2019)
         {
-            var horarios = Context.HorarioDbSet;
+            var horarios = StaticReferences.Context.HorarioDbSet;
             var horariosDelAlumno = horarios.Where(h => h.Anyo.Equals(anyo) && h.CursoCod.Equals(alumno.CursoCod));
 
             return horariosDelAlumno.ToList();
@@ -42,7 +43,7 @@ namespace Controller
 
         public List<Horario> GetHorariosOfProfesor(Profesor profesor)
         {
-            var horarios = Context.HorarioDbSet;
+            var horarios = StaticReferences.Context.HorarioDbSet;
             var horariosDelProfesor = horarios.Where(h => profesor.Impartimiento.Any(i => i.CodAsignatura.Equals(h.CodAsignatura)));
 
             return horariosDelProfesor.ToList();

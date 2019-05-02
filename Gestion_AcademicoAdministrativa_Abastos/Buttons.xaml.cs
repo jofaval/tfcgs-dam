@@ -29,7 +29,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 }
                 else if (btnSender == ThirdButton)
                 {
-                    MessageBox.Show("No implementado.");
+                    XamlBridge.MainWinowInstance.MakeDataEditable();
                 }
                 else if (btnSender == ForthButton)
                 {
