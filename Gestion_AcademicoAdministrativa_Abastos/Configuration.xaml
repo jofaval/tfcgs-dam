@@ -41,12 +41,12 @@
             </Grid.RowDefinitions>
             <Label Content="Horizontal" Grid.Column="0" Grid.Row="0" VerticalContentAlignment="Center" VerticalAlignment="Center" />
             <Slider x:Name="SliderWidthSize" Grid.Column="0" Grid.Row="2"
-                Minimum="800" Maximum="3840"
+                Minimum="800" Maximum="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}}"
                 HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Center"
                 ValueChanged="ScreenSize_ValueChanged"/>
             <Label Content="Vertical" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" VerticalAlignment="Center" />
             <Slider x:Name="SliderHeightSize" Grid.Column="1" Grid.Row="2"
-                Minimum="600" Maximum="2160"
+                Minimum="600" Maximum="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}}"
                 HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Center"
                 ValueChanged="ScreenSize_ValueChanged"/>
         </Grid>

@@ -70,8 +70,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void ScreenSize_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            this.Width = SliderWidthSize.Value;
-            this.Height = SliderHeightSize.Value;
+            if (SliderWidthSize != null && SliderHeightSize != null)
+            {
+                this.Width = SliderWidthSize.Value;
+                this.Height = SliderHeightSize.Value;
+            }
         }
     }
 }
