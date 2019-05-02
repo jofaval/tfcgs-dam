@@ -32,6 +32,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         public SplashScreen()
         {
+            App.LoadSettings();
             ProgressValue = 0;
             InitializeComponent();
             this.WindowState = WindowState.Maximized;
