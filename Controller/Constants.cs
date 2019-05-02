@@ -16,8 +16,14 @@ namespace Controller
                     "\nLa combinación usuario/contraseña no era la correcta.";
 
         public static readonly string UsernameFile = "user.sav";
-        public static readonly string SettingsFile = ".settings";
+        public static readonly string SettingsFile = "user.stgs";
 
         public static readonly string ConfigurationStyle = "SpecialTextControl";
+
+        public static readonly string ResourceFontFamily = "StandardFontFamily";
+        public static readonly string ResourceFontSize = "StandardFontSize";
+
+        public static readonly string XmlFontFamily = "fontfamily";
+        public static readonly string XmlFontSize = "fontSize";
     }
 }
