@@ -18,16 +18,11 @@ namespace Controller
             //    .ToList();
 
             List<Profesor> resultList;
-            if (name.Equals(string.Empty))
-            {
-                resultList = profesores
+                resultList = name.Equals(string.Empty) ?
+                profesores.ToList() :
+                profesores
                 .Where(p => DataIntegrityChecker.FullyCheckIfContainsString(p.Trabajador1.Persona1.Nombre, name, ignoreMayus, exactMatch))?
                 .ToList();
-            }
-            else
-            {
-                resultList = profesores.ToList();
-            }
 
             return from profesor in resultList
                    select new
