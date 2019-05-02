@@ -76,6 +76,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             if (SliderWidthSize != null && SliderHeightSize != null)
             {
+                if (sender == SliderWidthSize)
+                {
+                    SliderHeightSize.Value *= Constants.AspectRatio;
+                }
+                else
+                {
+                    SliderWidthSize.Value *= Constants.AspectRatio;
+                }
                 this.Width = SliderWidthSize.Value;
                 this.Height = SliderHeightSize.Value;
             }

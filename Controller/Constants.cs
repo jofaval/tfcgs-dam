@@ -29,5 +29,7 @@ namespace Controller
         public static readonly string XmlFontSize = "fontSize";
         public static readonly string XmlWindowWidth = "windowWidth";
         public static readonly string XmlWindowHeight = "windowHeight";
+
+        public static readonly double AspectRatio = 1920 / 1080;
     }
 }
