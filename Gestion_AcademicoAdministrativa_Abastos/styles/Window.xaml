@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:Double x:Key="WindowWidth">1920</sys:Double>
+    <sys:Double x:Key="WindowHeight">1080</sys:Double>
+    
+    <Style TargetType="{x:Type Window}">
+        <Setter Property="Width" Value="{DynamicResource WindowWidth}" />
+        <Setter Property="Height" Value="{DynamicResource WindowHeight}" />
+    </Style>
+</ResourceDictionary>

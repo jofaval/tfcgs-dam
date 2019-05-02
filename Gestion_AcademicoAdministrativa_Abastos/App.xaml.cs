@@ -30,7 +30,9 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 var xmlCreator = new XDocument(
                     new XElement("settings",
                         new XElement(Constants.XmlFontFamily, "Ubuntu"),
-                        new XElement(Constants.XmlFontSize, "15")
+                        new XElement(Constants.XmlFontSize, "15"),
+                        new XElement(Constants.XmlWindowWidth, "1920"),
+                        new XElement(Constants.XmlWindowHeight, "1080")
                     )
                 );
 
@@ -41,12 +43,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             xmlReader.LoadXml(File.ReadAllText(Constants.SettingsFile));
 
             var fontSize = xmlReader.GetElementsByTagName(Constants.XmlFontSize)[0].InnerText;
-            Console.WriteLine(fontSize);
             Current.Resources[Constants.ResourceFontSize] = double.Parse(fontSize);
 
             var fontFamily = xmlReader.GetElementsByTagName(Constants.XmlFontFamily)[0].InnerText;
-            Console.WriteLine(fontFamily);
             Current.Resources[Constants.ResourceFontFamily] = new FontFamily(fontFamily);
+
+            var windowWidth = xmlReader.GetElementsByTagName(Constants.XmlWindowWidth)[0].InnerText;
+            Current.Resources[Constants.ResourceWindowWidth] = double.Parse(windowWidth);
+
+            var windowHeight = xmlReader.GetElementsByTagName(Constants.XmlWindowHeight)[0].InnerText;
+            Current.Resources[Constants.ResourceWindowHeight] = double.Parse(windowHeight);
         }
 
         public static void SaveNewSettings()
@@ -55,6 +61,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             xmlReader.LoadXml(File.ReadAllText(Constants.SettingsFile));
             xmlReader.GetElementsByTagName(Constants.XmlFontSize)[0].InnerText = Current.Resources[Constants.ResourceFontSize].ToString();
             xmlReader.GetElementsByTagName(Constants.XmlFontFamily)[0].InnerText = ((FontFamily)Current.Resources[Constants.ResourceFontFamily]).ToString();
+            xmlReader.GetElementsByTagName(Constants.XmlWindowWidth)[0].InnerText = Current.Resources[Constants.ResourceWindowWidth].ToString();
+            xmlReader.GetElementsByTagName(Constants.XmlWindowHeight)[0].InnerText = Current.Resources[Constants.ResourceWindowHeight].ToString();
             xmlReader.Save(Constants.SettingsFile);
         }
     }

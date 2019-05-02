@@ -22,8 +22,12 @@ namespace Controller
 
         public static readonly string ResourceFontFamily = "StandardFontFamily";
         public static readonly string ResourceFontSize = "StandardFontSize";
+        public static readonly string ResourceWindowWidth = "WindowWidth";
+        public static readonly string ResourceWindowHeight = "WindowHeight";
 
         public static readonly string XmlFontFamily = "fontFamily";
         public static readonly string XmlFontSize = "fontSize";
+        public static readonly string XmlWindowWidth = "windowWidth";
+        public static readonly string XmlWindowHeight = "windowHeight";
     }
 }

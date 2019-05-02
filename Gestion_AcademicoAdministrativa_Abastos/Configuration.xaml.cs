@@ -25,11 +25,15 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             App.LoadSettings();
             var fontSize = (double)Application.Current.Resources[Constants.ResourceFontSize];
             var fontFamily = new FontFamily(Application.Current.Resources[Constants.ResourceFontFamily].ToString());
+            var windowWidth = (double)Application.Current.Resources[Constants.ResourceWindowWidth];
+            var windowHeight = (double)Application.Current.Resources[Constants.ResourceWindowHeight];
             InitializeComponent();
             LoadComboBoxWithFontFamilies();
             SliderFontSize.Value = fontSize;
             Application.Current.Resources[Constants.ResourceFontSize] = fontSize;
             Application.Current.Resources[Constants.ResourceFontFamily] = fontFamily;
+            Application.Current.Resources[Constants.ResourceWindowWidth] = windowWidth;
+            Application.Current.Resources[Constants.ResourceWindowHeight] = windowHeight;
         }
 
         private void LoadComboBoxWithFontFamilies()
