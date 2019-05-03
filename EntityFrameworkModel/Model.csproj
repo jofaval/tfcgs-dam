@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="AbastosDbContext.cs" />
     <Compile Include="DataStructure\ViewsEnum.cs" />
+    <Compile Include="DataStructure\WindowSizeConversor.cs" />
     <Compile Include="DataStructure\WindowSizeEnum.cs" />
     <Compile Include="EntityFramework\Administrativo.cs" />
     <Compile Include="EntityFramework\Alumno.cs" />
