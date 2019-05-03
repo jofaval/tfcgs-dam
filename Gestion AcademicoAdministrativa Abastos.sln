@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester\Tester.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgorithmTester", "AlgorithmTester\AlgorithmTester.csproj", "{28018C45-9262-4BAF-8B5B-6F5C08E9EE94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkModel", "EntityFrameworkModel\EntityFrameworkModel.csproj", "{0DE7FFD1-E5CC-4D10-B72D-D41171517913}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "EntityFrameworkModel\Model.csproj", "{0DE7FFD1-E5CC-4D10-B72D-D41171517913}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagramEF", "DiagramEF\DiagramEF.csproj", "{C28BF8A9-AAE2-4338-9D5F-A0218D818A04}"
 EndProject

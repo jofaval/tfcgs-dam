@@ -5,6 +5,9 @@ using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Linq;
+using Model;
+using System.Collections.Generic;
 
 namespace Gestion_AcademicoAdministrativa_Abastos
 {
@@ -14,6 +17,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
     public partial class MainWindow : Window
     {
         public string ApplicationTitle { get; set; }
+        public List<object> Telefonos { get; set; }
         public const double TopBarHeight = 25;
 
         public RadialGradientBrush radialGradientBrush = new RadialGradientBrush();
@@ -63,8 +67,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public MainWindow()
         {
             PreLoadedContent();
-
             InitializeComponent();
+            DataGridTelefono.ItemsSource = Telefonos;
 
             var screenSize = Screen.PrimaryScreen.Bounds.Size;
             WindowVar.Width = screenSize.Width;
@@ -93,7 +97,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 XamlFunctionality.FillDataOfReadOnlyText(TxtNombre, persona.Nombre);
                 XamlFunctionality.FillDataOfReadOnlyText(TxtApellidos, persona.Apellidos);
                 XamlFunctionality.FillDataOfReadOnlyText(TxtEmail, persona.Email);
-                DataGridTelefono.ItemsSource = persona.Telefono;
+                var test = from telefono in persona.Telefono
+                select new
+                {
+                    Telefono = telefono.Telefono1,
+                };
+                Telefonos = ();
             }
         }
 
@@ -101,6 +110,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             DataContext = this;
             ApplicationTitle = Constants.ApplicationTitle;
+            Telefonos = new List<object>();
 
             HeightRows = 100;
 

@@ -89,9 +89,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EntityFrameworkModel\EntityFrameworkModel.csproj">
+    <ProjectReference Include="..\EntityFrameworkModel\Model.csproj">
       <Project>{0de7ffd1-e5cc-4d10-b72d-d41171517913}</Project>
-      <Name>EntityFrameworkModel</Name>
+      <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

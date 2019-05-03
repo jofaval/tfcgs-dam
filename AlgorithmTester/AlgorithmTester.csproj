@@ -92,9 +92,9 @@
       <Project>{c543cb2e-c11b-44c8-b998-ba1d9b2c2865}</Project>
       <Name>Controller</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EntityFrameworkModel\EntityFrameworkModel.csproj">
+    <ProjectReference Include="..\EntityFrameworkModel\Model.csproj">
       <Project>{0de7ffd1-e5cc-4d10-b72d-d41171517913}</Project>
-      <Name>EntityFrameworkModel</Name>
+      <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

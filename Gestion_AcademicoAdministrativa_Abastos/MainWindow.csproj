@@ -266,9 +266,9 @@
       <Project>{c543cb2e-c11b-44c8-b998-ba1d9b2c2865}</Project>
       <Name>Controller</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EntityFrameworkModel\EntityFrameworkModel.csproj">
+    <ProjectReference Include="..\EntityFrameworkModel\Model.csproj">
       <Project>{0DE7FFD1-E5CC-4D10-B72D-D41171517913}</Project>
-      <Name>EntityFrameworkModel</Name>
+      <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
