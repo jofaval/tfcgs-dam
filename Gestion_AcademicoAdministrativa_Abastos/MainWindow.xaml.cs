@@ -126,8 +126,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             double windowWidth = Width;
             double windowHeight = Height;
             Left = (screenWidth / 2) - (windowWidth / 2);
-            Console.WriteLine(Width);
-            Console.WriteLine((screenWidth / 2) - (windowWidth / 2));
             Top = (screenHeight / 2) - (windowHeight / 2);
         }
 
