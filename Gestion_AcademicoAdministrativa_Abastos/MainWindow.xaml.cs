@@ -182,10 +182,13 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         private void BtnMaximize_Click(object sender, RoutedEventArgs e)
         {
             //ControladorWPF.MaximizeNormalize(this, TopBar);
-            var config = new Configuration()
+            if (!XamlFunctionality.IsWindowOpen<Configuration>(nameof(Configuration)))
             {
-                Visibility = Visibility.Visible
-            };
+                var config = new Configuration()
+                {
+                    Visibility = Visibility.Visible
+                };
+            }
         }
 
         private void TopBar_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)

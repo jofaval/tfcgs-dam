@@ -136,9 +136,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var lines = File.ReadAllLines(file);
         }
 
-        public static void ChangeFont(Configuration conf)
+        public static bool IsWindowOpen<T>(string name = "") where T : Window
         {
-
+            return string.IsNullOrEmpty(name)
+               ? Application.Current.Windows.OfType<Window>().Any()
+               : Application.Current.Windows.OfType<Window>().Any(w => w is T);
         }
     }
 }
