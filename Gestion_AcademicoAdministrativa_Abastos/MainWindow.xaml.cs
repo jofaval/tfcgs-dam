@@ -77,7 +77,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             XamlBridge.MainPanelInstance = MainPanel;
             //UIElementCollection mainGridContentChildrens = AddButtonPanel();
 
-            //ControladorWPF.MaximizeNormalize(this, TopBar);
             Left = 0;
             Top = 0;
 
@@ -106,6 +105,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 
                 XamlFunctionality.FillDataGrid(DataGridTelefono, telefonos);
             }
+        }
+
+        internal void MaximizeMinimize()
+        {
+            ControladorWPF.MaximizeNormalize(this, TopBar);
         }
 
         internal void SetSize(int[] windowSizeArray)

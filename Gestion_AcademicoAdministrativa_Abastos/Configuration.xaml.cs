@@ -78,5 +78,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var size = WindowSizeConversor.FromWindowSizeEnumToWindowSizeArray((WindowSizeEnum)value);
             mainWindow.SetSize(size);
         }
+
+        private void BtnMaximize_Click(object sender, RoutedEventArgs e)
+        {
+            XamlBridge.MainWindowInstance.MaximizeMinimize();
+        }
+
+        private void Window_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            Window window = (Window)sender;
+            window.Topmost = true;
+        }
     }
 }

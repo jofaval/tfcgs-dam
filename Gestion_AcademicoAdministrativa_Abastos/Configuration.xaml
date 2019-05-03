@@ -4,9 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos"
+        WindowStartupLocation="CenterScreen"
+        PreviewLostKeyboardFocus="Window_PreviewLostKeyboardFocus"
         mc:Ignorable="d"
         Title="Configuration" Height="800" Width="600">
-    <Grid Background="DarkGray">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF1E233E" Offset="0"/>
+                <GradientStop Color="#FFE00065" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="90*"/>
@@ -15,13 +24,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="5*" />
             <RowDefinition Height="5*" />
-            <RowDefinition Height="20*" />
+            <RowDefinition Height="10*" />
             <RowDefinition Height="5*" />
-            <RowDefinition Height="20*" />
+            <RowDefinition Height="10*" />
             <RowDefinition Height="5*" />
-            <RowDefinition Height="20*" />
+            <RowDefinition Height="10*" />
             <RowDefinition Height="5*" />
-            <RowDefinition Height="5*" />
+            <RowDefinition Height="35*" />
         </Grid.RowDefinitions>
         <Label Content="Tamaño de la fuente" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
         <Slider x:Name="SliderFontSize" Grid.Column="1" Grid.Row="2"
@@ -35,7 +44,8 @@
                 Minimum="0" Maximum="5"
                 TickFrequency="1" IsSnapToTickEnabled="True"
                 HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Center"
-                ValueChanged="ScreenSize_ValueChanged"/>
-        <CheckBox Grid.Column="1" Grid.Row="7" Content="Mantener relacion de aspecto" />
+                ValueChanged="ScreenSize_ValueChanged"
+                AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0"/>
+        <Button x:Name="BtnMaximize" Grid.Column="1" Grid.Row="7" Content="Maximizar/Minimizar" Click="BtnMaximize_Click"/>
     </Grid>
 </Window>
