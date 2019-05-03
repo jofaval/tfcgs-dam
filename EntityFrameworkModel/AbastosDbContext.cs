@@ -1,4 +1,4 @@
-namespace EntityFrameworkModel.Model
+namespace Model
 {
     using System;
     using System.Data.Entity;
