@@ -39,7 +39,13 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            XamlFunctionality.FillDataGrid(DataGridResult, AlumnoFunctionality.GetProfesores(TxtSearch.Text, IgnoreMayus.IsChecked, ExactMatch.IsChecked));
+            var currentUserPerson = XamlBridge.CurrentUser.Persona1;
+            XamlFunctionality.FillDataGrid(DataGridResult,
+                currentUserPerson.Alumno != null ?
+                AlumnoFunctionality.GetProfesores(TxtSearch.Text, IgnoreMayus.IsChecked, ExactMatch.IsChecked)
+                :
+                ProfesorFunctionality.GetAlumnos(TxtSearch.Text, currentUserPerson.Trabajador.Profesor, IgnoreMayus.IsChecked, ExactMatch.IsChecked)
+                );
         }
     }
 }
