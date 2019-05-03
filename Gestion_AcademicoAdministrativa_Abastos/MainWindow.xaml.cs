@@ -98,10 +98,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                            select new
                            {
                                Telefono = telefono.Telefono1,
+                               telefono.Comentario,
                            };
                 
                 XamlFunctionality.FillDataGrid(DataGridTelefono, telefonos);
-                Console.WriteLine(persona.Telefono.ToList().Count);
             }
         }
 

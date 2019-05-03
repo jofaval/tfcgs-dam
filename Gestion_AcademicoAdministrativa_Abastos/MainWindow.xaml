@@ -136,8 +136,11 @@
                             <Label Grid.Column="0" Content="Email"/>
                             <TextBox x:Name="TxtEmail" Grid.Column="0" Grid.Row="1" Text="Lorem ipsum" IsReadOnly="True" Margin="15"/>
                             <Label Grid.Column="2" Content="Teléfono/s"/>
-                            <DataGrid x:Name="DataGridTelefono" Grid.Column="2" Grid.Row="1" IsReadOnly="True" Margin="15" HeadersVisibility="All" AutoGenerateColumns="True">
-                                <!--DataGridTextColumn Header="Test" Width="100*" Binding="{Binding Path=Telefono}"/-->
+                            <DataGrid x:Name="DataGridTelefono" Grid.Column="2" Grid.Row="1"
+                                      IsReadOnly="True" Margin="15" HeadersVisibility="None"
+                                      AutoGenerateColumns="True" CanUserResizeColumns="True"
+                                      ColumnWidth="*" Height="Auto">
+                                <DataGridTextColumn Header="Test" Width="*" Binding="{Binding Telefono}"/>
                             </DataGrid>
                         </Grid>
                         <Label Grid.Column="1" Grid.Row="6" Content="Datos especiales del Rol"/>
