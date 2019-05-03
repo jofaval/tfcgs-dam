@@ -8,8 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Controller;
-using EntityFrameworkModel;
-using EntityFrameworkModel.Model;
+using Model;
 
 namespace AlgorithmTester
 {

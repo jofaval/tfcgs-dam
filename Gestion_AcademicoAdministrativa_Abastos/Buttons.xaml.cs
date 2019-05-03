@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Diagnostics;
+using System.Windows;
 using System.Windows.Controls;
 
 
@@ -14,7 +15,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             InitializeComponent();
         }
 
-        private void MenuButtons_Click(object sender, RoutedEventArgs e)
+        private void MenuButtons_Click(object sender, RoutedEventArgs eventArgs)
         {
             if (sender is Button btnSender)
             {
@@ -46,6 +47,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 else if (btnSender == LogOutButton)
                 {
                     XamlBridge.CloseEverything();
+                    Application.Current.Exit += (s, e) =>
+                    {
+                        Process.Start(Application.ResourceAssembly.Location);
+                    };
+
+                    Application.Current.Shutdown();
                 }
             }
         }
