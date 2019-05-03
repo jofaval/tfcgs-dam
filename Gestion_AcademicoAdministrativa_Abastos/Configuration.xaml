@@ -31,26 +31,11 @@
         <Label Content="Familia de la fuente" Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" VerticalAlignment="Center" />
         <ComboBox x:Name="ComboBoxFontFamily" Grid.Column="1" Grid.Row="4" SelectionChanged="ComboBoxFontFamily_SelectionChanged"/>
         <Label Content="Tamaño de la Ventana" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" VerticalAlignment="Center" />
-        <Grid Grid.Column="1" Grid.Row="6">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50*"/>
-                <ColumnDefinition Width="50*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="20*" />
-                <RowDefinition Height="80*" />
-            </Grid.RowDefinitions>
-            <Label Content="Horizontal" Grid.Column="0" Grid.Row="0" VerticalContentAlignment="Center" VerticalAlignment="Center" />
-            <Slider x:Name="SliderWidthSize" Grid.Column="0" Grid.Row="2"
-                Minimum="800" Maximum="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}}"
+        <Slider x:Name="SliderHeightSize" Grid.Column="1" Grid.Row="6"
+                Minimum="0" Maximum="5"
+                TickFrequency="1" IsSnapToTickEnabled="True"
                 HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Center"
                 ValueChanged="ScreenSize_ValueChanged"/>
-            <Label Content="Vertical" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" VerticalAlignment="Center" />
-            <Slider x:Name="SliderHeightSize" Grid.Column="1" Grid.Row="2"
-                Minimum="600" Maximum="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}}"
-                HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Center"
-                ValueChanged="ScreenSize_ValueChanged"/>
-        </Grid>
         <CheckBox Grid.Column="1" Grid.Row="7" Content="Mantener relacion de aspecto" />
     </Grid>
 </Window>
