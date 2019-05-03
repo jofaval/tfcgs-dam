@@ -62,11 +62,9 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void ComboBoxFontFamily_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Console.WriteLine(sender.GetType());
             if (sender is ComboBox senderAsComboBox)
             {
                 var fontFamilyName = ((ComboBoxItem)senderAsComboBox.SelectedItem).Content.ToString();
-                Console.WriteLine(fontFamilyName);
                 Application.Current.Resources[Constants.ResourceFontFamily] = new FontFamily(fontFamilyName);
             }
             App.SaveNewSettings();

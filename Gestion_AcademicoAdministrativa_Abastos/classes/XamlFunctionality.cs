@@ -13,6 +13,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             if (collection != null)
             {
+                grid.Items.Clear();
                 grid.ItemsSource = collection;
                 var dataGridCols = grid.Columns;
 
@@ -22,6 +23,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                     var dataGridCol = dataGridCols[colIterator];
                     dataGridCol.MinWidth = dataGridCol.ActualWidth;
                     dataGridCol.Width = new DataGridLength(0.95, DataGridLengthUnitType.Star);
+                    dataGridCol.Width = DataGridLength.Auto;
                 }
             }
         }

@@ -17,7 +17,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos
     public partial class MainWindow : Window
     {
         public string ApplicationTitle { get; set; }
-        public List<object> Telefonos { get; set; }
         public const double TopBarHeight = 25;
 
         public RadialGradientBrush radialGradientBrush = new RadialGradientBrush();
@@ -68,7 +67,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             PreLoadedContent();
             InitializeComponent();
-            DataGridTelefono.ItemsSource = Telefonos;
 
             var screenSize = Screen.PrimaryScreen.Bounds.Size;
             WindowVar.Width = screenSize.Width;
@@ -90,19 +88,20 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             if (user != null)
             {
                 var persona = user.Persona1;
-                Console.WriteLine(persona.Nombre);
 
                 XamlFunctionality.FillDataOfReadOnlyText(TxtDni, persona.Dni);
                 XamlFunctionality.FillDataOfReadOnlyText(TxtNif, persona.Nif);
                 XamlFunctionality.FillDataOfReadOnlyText(TxtNombre, persona.Nombre);
                 XamlFunctionality.FillDataOfReadOnlyText(TxtApellidos, persona.Apellidos);
                 XamlFunctionality.FillDataOfReadOnlyText(TxtEmail, persona.Email);
-                var test = from telefono in persona.Telefono
-                select new
-                {
-                    Telefono = telefono.Telefono1,
-                };
-                Telefonos = ();
+                var telefonos = from telefono in persona.Telefono.ToList()
+                           select new
+                           {
+                               Telefono = telefono.Telefono1,
+                           };
+                
+                XamlFunctionality.FillDataGrid(DataGridTelefono, telefonos);
+                Console.WriteLine(persona.Telefono.ToList().Count);
             }
         }
 
@@ -110,7 +109,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             DataContext = this;
             ApplicationTitle = Constants.ApplicationTitle;
-            Telefonos = new List<object>();
 
             HeightRows = 100;
 
