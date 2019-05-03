@@ -57,27 +57,6 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <Style TargetType="Button" BasedOn="{StaticResource basicButton}" />
-        <Style x:Key="MenuButton" TargetType="Button" BasedOn="{StaticResource basicButton}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border x:Name="border" Background="{TemplateBinding Background}" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" BorderThickness="0" BorderBrush="#FF5A70FF">
-                            <Grid Background="{TemplateBinding Background}">
-                                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            </Grid>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="BorderBrush" Value="#FF5A70FF" />
-                                <Setter TargetName="border" Property="BorderThickness" Value="15,0,0,0" />
-                                <!--Setter TargetName="border" Property="Margin" Value="15,0,0,0" /-->
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
     </Window.Resources>
     <Grid x:Name="TestGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid x:Name="MainPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -129,10 +108,10 @@
                 <PasswordBox VerticalContentAlignment="Center" x:Name="PasswordeField" Grid.Column="1" Grid.Row="5" FontFamily="ms-appx:///Assets/PassDot.ttf#PassDot" />
                 <Button x:Name="LogInButton" Content="Iniciar sesión" Grid.Column="1" Grid.Row="7" Click="LogInButton_Click"/>
                     <CheckBox Grid.Column="1" Grid.Row="8" x:Name="CheckSaveInformation" Content="Guardar combinación de Usuario/Contraseña" HorizontalAlignment="Center"/>
-                    <Button x:Name="UrlLinker" Grid.Column="1" Grid.Row="9" Click="UrlLinker_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Consultar Información" Style="{StaticResource basicButton}">
+                    <Button x:Name="UrlLinker" Grid.Column="1" Grid.Row="9" Click="UrlLinker_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Consultar Información">
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
-                            <ContentPresenter />
+                            <ContentPresenter/>
                         </ControlTemplate>
                     </Button.Template>
                 </Button>

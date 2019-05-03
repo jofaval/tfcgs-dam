@@ -47,12 +47,9 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 else if (btnSender == LogOutButton)
                 {
                     XamlBridge.CloseEverything();
-                    Application.Current.Exit += (s, e) =>
-                    {
-                        Process.Start(Application.ResourceAssembly.Location);
-                    };
 
-                    Application.Current.Shutdown();
+                    //Application.Current.Shutdown();
+                    System.Windows.Forms.Application.Restart();
                 }
             }
         }
