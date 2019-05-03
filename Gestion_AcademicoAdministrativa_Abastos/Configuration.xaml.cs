@@ -88,6 +88,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             Window window = (Window)sender;
             window.Topmost = true;
+
+            //double screenWidth = SystemParameters.PrimaryScreenWidth;
+            //double screenHeight = SystemParameters.PrimaryScreenHeight;
+            //double windowWidth = Width;
+            //double windowHeight = Height;
+            //var control = new Control();
+            //var x = (int)screenWidth / 2;
+            //var y = (int)screenHeight / 2;
+            //var coordinate = new System.Drawing.Point(x, y);
+            //System.Windows.Forms.Cursor.Position = coordinate;
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
