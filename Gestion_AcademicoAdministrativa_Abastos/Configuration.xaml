@@ -31,7 +31,7 @@
         <Label Content="Familia de la fuente" Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" VerticalAlignment="Center" />
         <ComboBox x:Name="ComboBoxFontFamily" Grid.Column="1" Grid.Row="4" SelectionChanged="ComboBoxFontFamily_SelectionChanged"/>
         <Label Content="Tamaño de la Ventana" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" VerticalAlignment="Center" />
-        <Slider x:Name="SliderHeightSize" Grid.Column="1" Grid.Row="6"
+        <Slider x:Name="SliderWindowSize" Grid.Column="1" Grid.Row="6"
                 Minimum="0" Maximum="5"
                 TickFrequency="1" IsSnapToTickEnabled="True"
                 HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Center"

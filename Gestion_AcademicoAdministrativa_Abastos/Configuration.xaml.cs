@@ -1,4 +1,5 @@
 ﻿using Controller;
+using Model.DataStructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,9 +35,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             Application.Current.Resources[Constants.ResourceFontFamily] = fontFamily;
             Application.Current.Resources[Constants.ResourceWindowWidth] = windowWidth;
             Application.Current.Resources[Constants.ResourceWindowHeight] = windowHeight;
-            var mainWindow = XamlBridge.MainWindowInstance;
-            SliderWidthSize.Value = mainWindow.Width;
-            SliderHeightSize.Value = mainWindow.Height;
         }
 
         private void LoadComboBoxWithFontFamilies()
@@ -75,22 +73,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void ScreenSize_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (SliderWidthSize != null && SliderHeightSize != null)
-            {
-                if (sender == SliderWidthSize)
-                {
-                    SliderHeightSize.Value *= Constants.AspectRatio;
-                }
-                else
-                {
-                    SliderWidthSize.Value *= Constants.AspectRatio;
-                }
-                var mainWindow = XamlBridge.MainWindowInstance;
-
-                var width = SliderWidthSize.Value;
-                var height = SliderHeightSize.Value;
-                mainWindow.SetSize(width, height);
-            }
+            var mainWindow = XamlBridge.MainWindowInstance;
+            var value = SliderWindowSize.Value;
+            var size = WindowSizeConversor.FromWindowSizeEnumToWindowSizeArray((WindowSizeEnum)value);
+            mainWindow.SetSize(size);
         }
     }
 }

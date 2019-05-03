@@ -106,10 +106,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             }
         }
 
-        internal void SetSize(double width, double height)
+        internal void SetSize(int[] windowSizeArray)
         {
-            Width = Width;
-            Height = height;
+            Width = windowSizeArray[0];
+            Height = windowSizeArray[1];
         }
 
         private void PreLoadedContent()

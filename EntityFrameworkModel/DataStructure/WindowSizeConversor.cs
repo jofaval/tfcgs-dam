@@ -15,7 +15,7 @@ namespace Model.DataStructure
                 case WindowSizeEnum.WIDTH_1920_X_HEIGHT_1080:
                     return new int[] { 1920, 1080 };
                 case WindowSizeEnum.WIDTH_1600_X_HEIGHT_900:
-                    return new int[] { 0600, 900 };
+                    return new int[] { 1600, 900 };
                 case WindowSizeEnum.WIDTH_1440_X_HEIGHT_900:
                     return new int[] { 1440, 900 };
                 case WindowSizeEnum.WIDTH_1280_X_HEIGHT_720:
