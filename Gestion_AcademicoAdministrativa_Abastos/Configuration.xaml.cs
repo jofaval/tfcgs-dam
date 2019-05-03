@@ -34,6 +34,9 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             Application.Current.Resources[Constants.ResourceFontFamily] = fontFamily;
             Application.Current.Resources[Constants.ResourceWindowWidth] = windowWidth;
             Application.Current.Resources[Constants.ResourceWindowHeight] = windowHeight;
+            var mainWindow = XamlBridge.MainWindowInstance;
+            SliderWidthSize.Value = mainWindow.Width;
+            SliderHeightSize.Value = mainWindow.Height;
         }
 
         private void LoadComboBoxWithFontFamilies()
@@ -82,8 +85,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 {
                     SliderWidthSize.Value *= Constants.AspectRatio;
                 }
-                this.Width = SliderWidthSize.Value;
-                this.Height = SliderHeightSize.Value;
+                var mainWindow = XamlBridge.MainWindowInstance;
+
+                var width = SliderWidthSize.Value;
+                var height = SliderHeightSize.Value;
+                mainWindow.SetSize(width, height);
             }
         }
     }

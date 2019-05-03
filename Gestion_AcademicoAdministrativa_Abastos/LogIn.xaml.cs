@@ -64,7 +64,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             {
                 XamlBridge.CurrentUser = user;
 
-                var instance = XamlBridge.MainWinowInstance;
+                var instance = XamlBridge.MainWindowInstance;
                 XamlFunctionality.ChangeWindowContent(XamlBridge.MainPanelInstance, new MainWindow());
 
                 if (CheckSaveInformation.IsChecked.Value)

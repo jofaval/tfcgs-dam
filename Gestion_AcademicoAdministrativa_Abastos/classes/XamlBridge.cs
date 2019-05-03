@@ -10,7 +10,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 {
     public class XamlBridge
     {
-        static public MainWindow MainWinowInstance { get; set; }
+        static public MainWindow MainWindowInstance { get; set; }
         static public Grid MainPanelInstance { get; set; }
 
         public static Grid BackUpLoginGridContent { get; set; }
@@ -27,8 +27,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             BackUpMainPanel = null;
             CurrentUser = null;
 
-            MainWinowInstance.CloseApp();
-            MainWinowInstance = null;
+            MainWindowInstance.CloseApp();
+            MainWindowInstance = null;
 
             //new SplashScreen()
             //{

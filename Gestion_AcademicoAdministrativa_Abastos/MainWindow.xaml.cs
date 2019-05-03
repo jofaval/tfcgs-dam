@@ -72,12 +72,13 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             WindowVar.Width = screenSize.Width;
             WindowVar.Height = screenSize.Height;
 
-            XamlBridge.MainWinowInstance = this;
+            XamlBridge.MainWindowInstance = this;
             XamlBridge.BackgroundGrid = BackgroundGrid;
             XamlBridge.MainPanelInstance = MainPanel;
             //UIElementCollection mainGridContentChildrens = AddButtonPanel();
 
-            ControladorWPF.MaximizeNormalize(this, TopBar);
+            //ControladorWPF.MaximizeNormalize(this, TopBar);
+
             BackgroundGrid.Margin = new Thickness(10);
             FillMainData();
         }
@@ -103,6 +104,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 
                 XamlFunctionality.FillDataGrid(DataGridTelefono, telefonos);
             }
+        }
+
+        internal void SetSize(double width, double height)
+        {
+            Width = Width;
+            Height = height;
         }
 
         private void PreLoadedContent()
@@ -155,7 +162,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void BtnMaximize_Click(object sender, RoutedEventArgs e)
         {
-            ControladorWPF.MaximizeNormalize(this, TopBar);
+            //ControladorWPF.MaximizeNormalize(this, TopBar);
+            var config = new Configuration()
+            {
+                Visibility = Visibility.Visible
+            };
         }
 
         private void TopBar_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)

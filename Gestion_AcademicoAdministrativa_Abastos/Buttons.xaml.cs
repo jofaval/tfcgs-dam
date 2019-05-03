@@ -30,7 +30,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 }
                 else if (btnSender == ThirdButton)
                 {
-                    XamlBridge.MainWinowInstance.MakeDataEditable();
+                    XamlBridge.MainWindowInstance.MakeDataEditable();
                 }
                 else if (btnSender == ForthButton)
                 {
