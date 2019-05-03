@@ -78,6 +78,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             //UIElementCollection mainGridContentChildrens = AddButtonPanel();
 
             //ControladorWPF.MaximizeNormalize(this, TopBar);
+            Left = 0;
+            Top = 0;
 
             BackgroundGrid.Margin = new Thickness(10);
             FillMainData();
@@ -110,6 +112,19 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             Width = windowSizeArray[0];
             Height = windowSizeArray[1];
+            CenterScreen();
+        }
+
+        private void CenterScreen()
+        {
+            double screenWidth = SystemParameters.PrimaryScreenWidth;
+            double screenHeight = SystemParameters.PrimaryScreenHeight;
+            double windowWidth = Width;
+            double windowHeight = Height;
+            Left = (screenWidth / 2) - (windowWidth / 2);
+            Console.WriteLine(Width);
+            Console.WriteLine((screenWidth / 2) - (windowWidth / 2));
+            Top = (screenHeight / 2) - (windowHeight / 2);
         }
 
         private void PreLoadedContent()
