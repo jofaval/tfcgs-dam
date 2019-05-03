@@ -12,6 +12,7 @@ namespace Controller
     {
         static public AbastosDbContext Context { get; set; }
         static public DbSet<Profesor> Profesores { get; set; }
+        static public DbSet<Alumno> Alumnos { get; set; }
         static public DbSet<Horario> Horarios { get; set; }
 
         static public Random RandomGenerator { get; set; }
@@ -27,6 +28,7 @@ namespace Controller
             {
                 Context = new AbastosDbContext();
                 Profesores = Context.ProfesorDbSet;
+                Alumnos = Context.AlumnoDbSet;
                 Horarios = Context.HorarioDbSet;
 
                 RandomGenerator = new Random();

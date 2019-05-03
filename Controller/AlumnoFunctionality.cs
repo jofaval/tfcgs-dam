@@ -17,8 +17,7 @@ namespace Controller
             //    .Where(p => DataIntegrityChecker.FullyCheckIfContainsString(p.Trabajador1.Persona1.Nombre, name, ignoreMayus, exactMatch))
             //    .ToList();
 
-            List<Profesor> resultList;
-                resultList = name.Equals(string.Empty) ?
+            var resultList = name.Equals(string.Empty) ?
                 profesores.ToList() :
                 profesores
                 .Where(p => DataIntegrityChecker.FullyCheckIfContainsString(p.Trabajador1.Persona1.Nombre, name, ignoreMayus, exactMatch))?
@@ -39,7 +38,6 @@ namespace Controller
         {
             var alumno = currentUser.Persona1.Alumno;
             var curso = alumno.CursoCod;
-            StaticReferences.Initializer();
             var horarios = StaticReferences.Horarios.AsEnumerable();
             var currentYear = DateTime.Now.Year;
 
@@ -53,6 +51,14 @@ namespace Controller
                        horario.HoraFinal,
                        horario.Asignatura
                    };
+        }
+
+        public static List<Horario> GetHorariosOfAlumno(Alumno alumno, int anyo = 2019)
+        {
+            var horarios = StaticReferences.Context.HorarioDbSet;
+            var horariosDelAlumno = horarios.Where(h => h.Anyo.Equals(anyo) && h.CursoCod.Equals(alumno.CursoCod));
+
+            return horariosDelAlumno.ToList();
         }
     }
 }

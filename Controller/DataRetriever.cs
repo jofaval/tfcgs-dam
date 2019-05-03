@@ -32,21 +32,5 @@ namespace Controller
 
             return Instance;
         }
-
-        public List<Horario> GetHorariosOfAlumno(Alumno alumno, int anyo = 2019)
-        {
-            var horarios = StaticReferences.Context.HorarioDbSet;
-            var horariosDelAlumno = horarios.Where(h => h.Anyo.Equals(anyo) && h.CursoCod.Equals(alumno.CursoCod));
-
-            return horariosDelAlumno.ToList();
-        }
-
-        public List<Horario> GetHorariosOfProfesor(Profesor profesor)
-        {
-            var horarios = StaticReferences.Context.HorarioDbSet;
-            var horariosDelProfesor = horarios.Where(h => profesor.Impartimiento.Any(i => i.CodAsignatura.Equals(h.CodAsignatura)));
-
-            return horariosDelProfesor.ToList();
-        }
     }
 }
