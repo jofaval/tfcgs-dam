@@ -89,5 +89,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             Window window = (Window)sender;
             window.Topmost = true;
         }
+
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
