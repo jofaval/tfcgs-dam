@@ -120,8 +120,8 @@
     <Compile Include="SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="classes\XamlBridge.cs" />
-    <Compile Include="classes\XamlFunctionality.cs" />
+    <Compile Include="Classes\XamlBridge.cs" />
+    <Compile Include="Classes\XamlFunctionality.cs" />
     <Page Include="Buscador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,7 +150,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="classes\ControladorWPF.cs" />
+    <Compile Include="Classes\ControladorWPF.cs" />
     <Compile Include="LogIn.xaml.cs">
       <DependentUpon>LogIn.xaml</DependentUpon>
     </Compile>
@@ -166,45 +166,45 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="styles\Button.xaml">
+    <Page Include="Styles\Button.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="styles\ContextMenu.xaml">
+    <Page Include="Styles\ContextMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="styles\DataGrid.xaml">
+    <Page Include="Styles\DataGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="styles\Overall.xaml">
+    <Page Include="Styles\Overall.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="styles\Reclamacion.xaml">
+    <Page Include="Styles\Reclamacion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="styles\Resources.xaml">
+    <Page Include="Styles\Resources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="styles\ScrollBar.xaml">
+    <Page Include="Styles\ScrollBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="styles\Text.xaml">
+    <Page Include="Styles\Text.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="styles\Window.xaml">
+    <Page Include="Styles\Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="classes\ProcessFileNameFinderClass.cs" />
+    <Compile Include="Classes\ProcessFileNameFinderClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -259,6 +259,8 @@
   <ItemGroup>
     <Resource Include="SplashScreen-12-04-2019.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Buttons\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -36,10 +36,10 @@ namespace Controller
             return from alumno in resultList
                    select new
                    {
+                       alumno.NumExpediente,
+                       alumno.CursoNombre,
                        alumno.Persona1.Nombre,
                        alumno.Persona1.Apellidos,
-                       alumno.CursoNombre,
-                       alumno.NumExpediente,
                        alumno.Persona1.Email,
                    };
         }
