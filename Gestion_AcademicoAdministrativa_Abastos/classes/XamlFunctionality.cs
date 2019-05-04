@@ -141,5 +141,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                ? Application.Current.Windows.OfType<Window>().Any()
                : Application.Current.Windows.OfType<Window>().Any(w => w is T);
         }
+
+        public static void CloseWindowInstancesOf<T>(string name = "") where T : Window
+        {
+            var openWindowsOfType = Application.Current.Windows.OfType<Window>().Where(w => w is T);
+            foreach (var window in openWindowsOfType)
+            {
+                window.Close();
+            }
+        }
     }
 }

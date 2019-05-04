@@ -79,13 +79,17 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         public static void CreateNotificaion(string msg, string title = "Notificacion", long dissappearAfter = 3000)
         {
+            if (XamlFunctionality.IsWindowOpen<Notification>())
+            {
+                XamlFunctionality.CloseWindowInstancesOf<Notification>();
+            }
             var notification = new Notification()
             {
                 NotificationTitle = title,
                 NotificationContent = msg,
                 DissappearAfter = dissappearAfter,
                 Visibility = Visibility.Visible,
-        };
+            };
             notification.StartTimer();
 
             notification.InitializeComponent();
