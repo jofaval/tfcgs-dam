@@ -9,7 +9,7 @@
         <Setter Property="CanUserResizeColumns" Value="False" />
         <Setter Property="CanUserResizeRows" Value="False" />
         <Setter Property="AutoGenerateColumns" Value="True"/>
-        <Setter Property="CanUserResizeColumns" Value="False" /> 
+        <Setter Property="CanUserResizeColumns" Value="True" /> 
         <Setter Property="CanUserResizeRows" Value="False" />
     </Style>
     <Style TargetType="{x:Type DataGridColumnHeader}">
