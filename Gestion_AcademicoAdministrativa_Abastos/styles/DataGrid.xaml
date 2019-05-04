@@ -13,7 +13,7 @@
         <Setter Property="CanUserResizeRows" Value="False" />
     </Style>
     <Style TargetType="{x:Type DataGridColumnHeader}">
-        <Setter Property="BorderBrush" Value="Wheat" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SelectionColorSolid}" />
         <Setter Property="BorderBrush" Value="{x:Null}" />
         <Setter Property="Background" Value="{DynamicResource GradientStartColor}" />
         <Setter Property="Foreground" Value="{DynamicResource StandOutColorSolid}" />
@@ -31,7 +31,7 @@
         <!--Setter Property="Height" Value="40" /-->
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Foreground" Value="Wheat"/>
+                <Setter Property="Foreground" Value="{DynamicResource SelectionColorSolid}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -42,7 +42,7 @@
         <!--Setter Property="TextBlock.VerticalAlignment" Value="Center" /-->
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Foreground" Value="Wheat"/>
+                <Setter Property="Foreground" Value="{DynamicResource SelectionColorSolid}"/>
                 <Setter Property="FontWeight" Value="DemiBold" />
             </Trigger>
         </Style.Triggers>
