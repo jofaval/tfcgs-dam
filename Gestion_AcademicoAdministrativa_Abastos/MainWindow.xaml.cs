@@ -127,6 +127,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void PreLoadedContent()
         {
+            DataContext = this;
             ApplicationTitle = Constants.ApplicationTitle;
         }
 
