@@ -77,7 +77,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             }
         }
 
-        public static void CreateNotificaion(string msg, string title = "Notification", long dissappearAfter = 3000)
+        public static void CreateNotificaion(string msg, string title = "Notificacion", long dissappearAfter = 3000)
         {
             var notification = new Notification()
             {
