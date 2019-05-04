@@ -1,4 +1,5 @@
 ﻿using Model;
+using Model.DataStructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         static public Grid BackUpMainPanel { get; set; }
 
         public static Usuario CurrentUser { get; set; }
+        public static WindowSizeEnum SizeEnum { get; set; }
 
         public static void CloseEverything()
         {

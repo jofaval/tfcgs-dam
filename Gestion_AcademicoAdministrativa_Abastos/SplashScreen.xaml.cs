@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.DataStructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -76,6 +77,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             if (LoadingProgress.Value >= 100)
             {
                 mainWindow.Visibility = Visibility.Visible;
+                XamlBridge.SizeEnum = WindowSizeEnum.WIDTH_1920_X_HEIGHT_1080;
                 XamlBridge.MainWindowInstance = mainWindow;
 
                 XamlFunctionality.ChangeWindowContent(mainWindow.MainPanel, new LogIn());
