@@ -13,17 +13,11 @@
             <RowDefinition Height="4*" />
             <RowDefinition Height="96*" />
         </Grid.RowDefinitions>
-        <Grid x:Name="TopBar" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" MouseDown="TopBar_MouseDown" PreviewMouseLeftButtonDown="TopBar_PreviewMouseLeftButtonDown">
+        <Grid x:Name="TopBar" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" MouseDown="TopBar_MouseDown" PreviewMouseLeftButtonDown="TopBar_PreviewMouseLeftButtonDown" Background="{DynamicResource TopBarGradient}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="95*" />
             </Grid.RowDefinitions>
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,1">
-                    <GradientStop Color="#FF16161B" Offset="0" />
-                    <GradientStop Color="#FF202023" Offset="1" />
-                </LinearGradientBrush>
-            </Grid.Background>
-            <Label x:Name="WindowTitle" Grid.Column="0" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding ApplicationTitle}" FontSize="10" />
+            <Label x:Name="WindowTitle" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding ApplicationTitle}" FontSize="10" />
             <Grid Grid.Column="1" HorizontalAlignment="Right" Width="75" VerticalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="33*" />

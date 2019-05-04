@@ -2,32 +2,32 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos.styles">
     <Style TargetType="Label" BasedOn="{StaticResource SpecialTextControl}">
-        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Foreground" Value="{DynamicResource StandOutColorSolid}" />
     </Style>
     <Style TargetType="ComboBox" BasedOn="{StaticResource SpecialTextControl}">
-        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Foreground" Value="{DynamicResource MainColorSolid}" />
         <Setter Property="Background">
             <Setter.Value>
                 <LinearGradientBrush>
-                    <GradientStop Color="#7FFFFFFF" />
+                    <GradientStop Color="{DynamicResource GradientStopColor}" />
                     <GradientStop Offset="1" />
                 </LinearGradientBrush>
             </Setter.Value>
         </Setter>
     </Style>
     <Style TargetType="CheckBox" BasedOn="{StaticResource SpecialTextControl}">
-        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Foreground" Value="{DynamicResource StandOutColorSolid}" />
         <Setter Property="SnapsToDevicePixels"
           Value="true" />
         <Setter Property="FocusVisualStyle"
           Value="{DynamicResource CheckBoxFocusVisual}" />
         <Setter Property="Background" Value="{x:Null}"></Setter>
         <Setter Property="BorderThickness" Value="5"></Setter>
-        <Setter Property="Background" Value="White" />
+        <Setter Property="Background" Value="{DynamicResource StandOutColorSolid}" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="White" />
-                <Setter Property="Background" Value="Black" />
+                <Setter Property="Foreground" Value="{DynamicResource StandOutColorSolid}" />
+                <Setter Property="Background" Value="{DynamicResource MainColorSolid}" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -54,11 +54,13 @@
     <Style TargetType="TextBox" BasedOn="{StaticResource SpecialTextControl}">
         <Setter Property="Template" Value="{StaticResource TextBoxBaseControlTemplate}" />
         <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="Foreground" Value="{DynamicResource StandOutColorSolid}" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundContainerGradient}" />
     </Style>
 
     <ControlTemplate x:Key="passwordbox" TargetType="{x:Type PasswordBox}">
         <Border Background="{TemplateBinding Background}" 
-        x:Name="Bd" BorderBrush="#FFE6DDDD"
+        x:Name="Bd" BorderBrush="Transparent"
         BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="15,0,15,0">
             <ScrollViewer Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
         </Border>
@@ -77,6 +79,8 @@
     </ControlTemplate>
     <Style TargetType="PasswordBox" BasedOn="{StaticResource SpecialTextControl}">
         <Setter Property="Template" Value="{StaticResource passwordbox}" />
+        <Setter Property="Foreground" Value="{DynamicResource StandOutColorSolid}" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundContainerGradient}" />
     </Style>
 
 </ResourceDictionary>

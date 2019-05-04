@@ -5,7 +5,7 @@
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
-        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Foreground" Value="{DynamicResource StandOutColorSolid}" />
         <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
         <Setter Property="FontFamily" Value="{DynamicResource StandardFontFamily}" />
         <Setter Property="Template">
@@ -18,38 +18,36 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="Wheat"/>
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource Sele}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Setter Property="BorderThickness" Value="200" />
-        <Setter Property="BorderBrush" Value="Black" />
-        <Setter Property="Background" Value="#19000000" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MainColorSolid}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="#ac2925" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background">
                     <Setter.Value>
                         <RadialGradientBrush Center="0.5,0.8" GradientOrigin="0.5,4.5">
-                            <GradientStop Color="#7FFFFFFF" />
+                            <GradientStop Color="{DynamicResource GradientStopColor}" />
                             <GradientStop Offset="1" />
                         </RadialGradientBrush>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="BorderBrush" Value="Black" />
-                <Setter Property="Foreground" Value="#FF15171B" />
+                <Setter Property="BorderBrush" Value="{DynamicResource MainColorSolid}" />
+                <Setter Property="Foreground" Value="{DynamicResource MainColorSolid}" />
                 <Setter Property="Cursor" Value="Hand" />
                 <Setter Property="BorderThickness" Value="200" />
-                <Setter Property="BorderBrush" Value="Black" />
+                <Setter Property="BorderBrush" Value="{DynamicResource MainColorSolid}" />
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background">
                     <Setter.Value>
                         <RadialGradientBrush Center="0.5,0.1" GradientOrigin="2,-3.5">
-                            <GradientStop Color="#33FFFFFF" />
+                            <GradientStop Color="{DynamicResource GradientStartColor}"/>
                             <GradientStop Offset="1" />
                         </RadialGradientBrush>
                     </Setter.Value>
@@ -59,7 +57,7 @@
                 <Setter Property="Background">
                     <Setter.Value>
                         <RadialGradientBrush Center="0.5,0.8" GradientOrigin="0.5,4.5">
-                            <GradientStop Color="#7FFFFFFF" />
+                            <GradientStop Color="{DynamicResource GradientStopColor}" />
                             <GradientStop Offset="1" />
                         </RadialGradientBrush>
                     </Setter.Value>
@@ -80,9 +78,6 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <!--Setter TargetName="border" Property="BorderBrush" Value="#FF5A70FF" />
-                            <Setter TargetName="border" Property="BorderThickness" Value="15,0,0,0" />
-                            <Setter TargetName="border" Property="Margin" Value="15,0,0,0" /-->
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -90,7 +85,7 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="Wheat" />
+                <Setter Property="Foreground" Value="{DynamicResource SelectionColorSolid}" />
                 <Setter Property="FontWeight" Value="DemiBold" />
             </Trigger>
         </Style.Triggers>

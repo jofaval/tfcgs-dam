@@ -15,8 +15,8 @@
     <Style TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="BorderBrush" Value="Wheat" />
         <Setter Property="BorderBrush" Value="{x:Null}" />
-        <Setter Property="Background" Value="#33FFFFFF" />
-        <Setter Property="Foreground" Value="#FFFFFFFF" />
+        <Setter Property="Background" Value="{DynamicResource GradientStartColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource StandOutColorSolid}" />
         <!--Setter Property="Height" Value="50" /-->
         <Setter Property="HorizontalContentAlignment" Value="Center" />
     </Style>
