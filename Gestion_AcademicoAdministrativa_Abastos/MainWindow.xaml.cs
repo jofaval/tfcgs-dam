@@ -40,6 +40,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             XamlBridge.MainPanelInstance = MainPanel;
             //UIElementCollection mainGridContentChildrens = AddButtonPanel();
 
+            MaximizeMinimize();
+
             Left = 0;
             Top = 0;
 
