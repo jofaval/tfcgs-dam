@@ -5,7 +5,7 @@
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
-        <Setter Property="Foreground" Value="{DynamicResource StandOutColorSolid}" />
+        <Setter Property="Foreground" Value="{DynamicResource MainColorSolid}" />
         <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
         <Setter Property="FontFamily" Value="{DynamicResource StandardFontFamily}" />
         <Setter Property="Template">
@@ -13,12 +13,13 @@
                 <ControlTemplate TargetType="Button">
                     <Grid Background="{TemplateBinding Background}">
                         <Border x:Name="border" CornerRadius="0,15,0,15" BorderBrush="{TemplateBinding Foreground}" BorderThickness="0" Background="{TemplateBinding Background}">
-                            <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="{DynamicResource Sele}"/>
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource SelectionColorSolid}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource MainColorSolid}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -65,7 +66,10 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    <Style TargetType="Button" BasedOn="{StaticResource basicButton}" />
+    
+    <Style TargetType="Button" BasedOn="{StaticResource basicButton}">
+        <Setter Property="Foreground" Value="Black" />
+    </Style>
 
     <Style x:Key="MenuButton" TargetType="Button" BasedOn="{StaticResource basicButton}">
         <Setter Property="Template">
