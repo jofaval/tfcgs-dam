@@ -17,7 +17,10 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="95*" />
             </Grid.RowDefinitions>
-            <Label x:Name="WindowTitle" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding ApplicationTitle}" FontSize="{DynamicResource TitleFontSize}" />
+            <Label x:Name="WindowTitle" Grid.Column="0"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Content="{Binding NotificationTitle}" Padding="0"
+                   FontSize="{DynamicResource TitleFontSize}" />
             <Grid Grid.Column="1" HorizontalAlignment="Right" Width="75" VerticalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="33*" />

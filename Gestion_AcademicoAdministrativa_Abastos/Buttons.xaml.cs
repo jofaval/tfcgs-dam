@@ -38,7 +38,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 }
                 else if (btnSender == FifthButton)
                 {
-                    MessageBox.Show("No implementado.");
+                    Notification.CreateNotificaion("No implementado.");
                 }
                 else if (btnSender == HomeButton)
                 {

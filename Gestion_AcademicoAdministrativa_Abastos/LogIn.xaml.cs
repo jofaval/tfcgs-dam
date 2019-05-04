@@ -79,7 +79,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             }
             else
             {
-                MessageBox.Show(Constants.UnsuccesfulLogIn);
+                Notification.CreateNotificaion(Constants.UnsuccesfulLogIn);
             }
         }
     }

@@ -4,6 +4,15 @@
     <Style TargetType="Label" BasedOn="{StaticResource SpecialTextControl}">
         <Setter Property="Foreground" Value="{DynamicResource StandOutColorSolid}" />
     </Style>
+    <Style TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource StandOutColorSolid}" />
+        <Setter Property="TextWrapping" Value="WrapWithOverflow" />
+        <Setter Property="Padding" Value="0" />
+
+        <Setter Property="FontFamily" Value="{DynamicResource StandardFontFamily}" />
+        <Setter Property="FontSize" Value="{DynamicResource StandardFontSize}" />
+        <Setter Property="FontStretch" Value="Normal" />
+    </Style>
     <Style TargetType="ComboBox" BasedOn="{StaticResource SpecialTextControl}">
         <Setter Property="Foreground" Value="{DynamicResource MainColorSolid}" />
         <Setter Property="Background">
