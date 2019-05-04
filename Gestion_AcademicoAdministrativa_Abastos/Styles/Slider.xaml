@@ -1,12 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos.Styles">
+                    xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos">
 
-    <Style x:Key="baseSlider" TargetType="{x:Type Slider}">
+    <Style x:Key="baseSlider" TargetType="Slider">
         <Setter Property="AutoToolTipPlacement" Value="TopLeft" />
         <Setter Property="AutoToolTipPrecision" Value="0" />
         <Setter Property="TickFrequency" Value="0.5" />
-        <Setter Property=" IsSnapToTickEnabled" Value="True" />
+        <Setter Property="IsSnapToTickEnabled" Value="True" />
     </Style>
 
     <LinearGradientBrush x:Key="HorizontalBrush" StartPoint="0,0" EndPoint="1,0">
