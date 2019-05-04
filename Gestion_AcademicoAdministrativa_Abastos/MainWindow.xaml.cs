@@ -38,7 +38,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             XamlBridge.MainWindowInstance = this;
             XamlBridge.BackgroundGrid = BackgroundGrid;
             XamlBridge.MainPanelInstance = MainPanel;
-            //UIElementCollection mainGridContentChildrens = AddButtonPanel();
 
             MaximizeMinimize();
 
@@ -78,7 +77,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
                 StaticReferences.Initializer();
                 var context = StaticReferences.Context;
-                //StaticReferences.Context.Entry(XamlBridge.CurrentUser.Persona1).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();
             }
 
@@ -182,7 +180,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void BtnMaximize_Click(object sender, RoutedEventArgs e)
         {
-            //ControladorWPF.MaximizeNormalize(this, TopBar);
             if (!XamlFunctionality.IsWindowOpen<Configuration>(nameof(Configuration)))
             {
                 var config = new Configuration()
