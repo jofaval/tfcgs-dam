@@ -16,4 +16,17 @@
         <GradientStop Color="{DynamicResource SecondaryColor}" />
         <GradientStop Color="{DynamicResource MainColor}" Offset="1" />
     </LinearGradientBrush>
+
+    <Color x:Key="StandOutColor">White</Color>
+    <SolidColorBrush x:Key="StandOutColorSolid" Color="{DynamicResource StandOutColor}" />
+    <Color x:Key="SelectionColor">Wheat</Color>
+    <SolidColorBrush x:Key="SelectionColorSolid" Color="{DynamicResource SelectionColor}" />
+
+    <Color x:Key="GradientStartColor">#33FFFFFF</Color>
+    <Color x:Key="GradientStopColor">#7FFFFFFF</Color>
+
+    <LinearGradientBrush x:Key="TopBarGradient" EndPoint="0.5,1" StartPoint="0,1">
+        <GradientStop Color="{DynamicResource MainColor}" Offset="0" />
+        <GradientStop Color="#FF202023" Offset="1" />
+    </LinearGradientBrush>
 </ResourceDictionary>
