@@ -2,13 +2,7 @@
     <Window.Resources>
     </Window.Resources>
     <Grid x:Name="TestGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Grid x:Name="MainPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF69E655" Offset="0" />
-                    <GradientStop Color="#FF006CC5" Offset="1" />
-                </LinearGradientBrush>
-            </Grid.Background>
+        <Grid x:Name="MainPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{DynamicResource BackgroundColorfulGradient}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="30*" />
                 <ColumnDefinition Width="40*" />
@@ -19,7 +13,6 @@
                 <RowDefinition Height="60*" />
                 <RowDefinition Height="20*" />
             </Grid.RowDefinitions>
-            <Border Grid.Row="1" Grid.Column="1" BorderThickness="20" CornerRadius="10,0,10,0">
                 <Grid x:Name="LogInContent" Grid.Row="1" Grid.Column="1">
                     <Grid.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -61,7 +54,6 @@
                         </Button.Template>
                     </Button>
                 </Grid>
-            </Border>
         </Grid>
     </Grid>
 </Window>

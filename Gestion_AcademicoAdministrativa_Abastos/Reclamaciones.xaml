@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Reclamaciones" Height="450" Width="800">
     <Grid x:Name="Container" Grid.Row="1" Background="#FF15171B" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Grid x:Name="MainGridContent" Grid.Row="1" Background="#FF15171B" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid x:Name="MainGridContent" Grid.Row="1" Background="{DynamicResource MainColorSolid}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid x:Name="MainPanel" Grid.Column="1" Panel.ZIndex="-2">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

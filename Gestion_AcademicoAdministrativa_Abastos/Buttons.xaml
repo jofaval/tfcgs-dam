@@ -8,13 +8,7 @@
         Title="Buttons" Height="800" Width="250">
     <Grid>
         <Grid x:Name="MainGridContent" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FF15171B">
-            <DockPanel x:Name="MenuPanel" HorizontalAlignment="Stretch" LastChildFill="True" VerticalAlignment="Stretch" Panel.ZIndex="1">
-                <DockPanel.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#00000000" Offset="1" />
-                        <GradientStop Color="#0CFFFFFF" />
-                    </LinearGradientBrush>
-                </DockPanel.Background>
+            <DockPanel x:Name="MenuPanel" HorizontalAlignment="Stretch" LastChildFill="True" VerticalAlignment="Stretch" Panel.ZIndex="1" Background="{DynamicResource BackgroundContainerGradient}">
                 <Grid HorizontalAlignment="Stretch">
                     <Grid.Effect>
                         <DropShadowEffect Direction="-45" BlurRadius="50" RenderingBias="Quality" />
