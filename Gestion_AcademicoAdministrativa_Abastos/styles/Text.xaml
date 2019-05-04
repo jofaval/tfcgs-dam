@@ -94,5 +94,10 @@
     <Style TargetType="PasswordBox" BasedOn="{StaticResource textboxPasswordboxStyles}">
         <Setter Property="Template" Value="{StaticResource passwordbox}" />
     </Style>
+    <Style TargetType="ToolTip" BasedOn="{StaticResource SpecialTextControl}">
+        <Setter Property="Foreground" Value="{DynamicResource StandOutColorSolid}" />
+        <Setter Property="Background" Value="{DynamicResource MainColorSolid}" />
+        <Setter Property="Padding" Value="0" />
+    </Style>
 
 </ResourceDictionary>
