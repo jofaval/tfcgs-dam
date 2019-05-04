@@ -19,11 +19,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public string ApplicationTitle { get; set; }
         public const double TopBarHeight = 25;
 
-        public RadialGradientBrush radialGradientBrush = new RadialGradientBrush();
-        public SolidColorBrush solidColorBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#00000000"));
-        public GradientStop gradientStopTop = new GradientStop((Color)ColorConverter.ConvertFromString("#FFA2FF00"), 0);
-        public GradientStop gradientStopBottom = new GradientStop((Color)ColorConverter.ConvertFromString("#FFA2FF00"), 0);
-
         public int HeightRows { get; set; }
 
         public MainWindow()
@@ -132,13 +127,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void PreLoadedContent()
         {
-            DataContext = this;
             ApplicationTitle = Constants.ApplicationTitle;
-
-            HeightRows = 100;
-
-            radialGradientBrush.GradientStops.Add(gradientStopTop);
-            radialGradientBrush.GradientStops.Add(gradientStopBottom);
         }
 
         public UIElementCollection AddButtonPanel()
