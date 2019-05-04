@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
@@ -75,7 +77,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             }
         }
 
-        public static void CreateNotificaion(string msg, string title = "Notification", long dissappearAfter = 2000)
+        public static void CreateNotificaion(string msg, string title = "Notification", long dissappearAfter = 3000)
         {
             var notification = new Notification()
             {
@@ -88,6 +90,23 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             notification.InitializeComponent();
             Console.WriteLine(notification.NotificationContent);
+        }
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            Closing -= Window_Closing;
+            e.Cancel = true;
+            var anim = new DoubleAnimation(0, TimeSpan.FromMilliseconds(0.25 * 1000));
+            anim.Completed += (s, _) => Close();
+            BeginAnimation(OpacityProperty, anim);
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Loaded -= Window_Loaded;
+            Opacity = 0;
+            var anim = new DoubleAnimation(1, TimeSpan.FromMilliseconds(0.25 * 1000));
+            BeginAnimation(OpacityProperty, anim);
         }
     }
 }

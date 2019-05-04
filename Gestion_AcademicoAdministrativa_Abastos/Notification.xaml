@@ -7,7 +7,8 @@
         xmlns:properties="clr-namespace:Gestion_AcademicoAdministrativa_Abastos.Properties"
         mc:Ignorable="d"
         AllowsTransparency="True" WindowStyle="None" Background="Transparent"
-        Title="Notification" Height="450" Width="800">
+        Title="Notification" Height="450" Width="800"
+        Closing="Window_Closing" Loaded="Window_Loaded">
     <Grid Background="{DynamicResource MainColorSolid}">
         <Grid.RowDefinitions>
             <RowDefinition Height="20*" />
