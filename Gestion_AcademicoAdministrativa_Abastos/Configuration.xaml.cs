@@ -36,6 +36,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             Application.Current.Resources[Constants.ResourceWindowWidth] = windowWidth;
             Application.Current.Resources[Constants.ResourceWindowHeight] = windowHeight;
             SliderWindowSize.Value = (byte)XamlBridge.SizeEnum;
+
+            var screenWidth = SystemParameters.FullPrimaryScreenWidth;
+            var screenHeight = SystemParameters.FullPrimaryScreenHeight;
+
+            Width = screenWidth / 4;
+            Height = screenHeight / 2;
         }
 
         private void LoadComboBoxWithFontFamilies()
