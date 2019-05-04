@@ -76,6 +76,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             if (LoadingProgress.Value >= 100)
             {
                 mainWindow.Visibility = Visibility.Visible;
+                XamlBridge.MainWindowInstance = mainWindow;
 
                 XamlFunctionality.ChangeWindowContent(mainWindow.MainPanel, new LogIn());
                 this.Close();

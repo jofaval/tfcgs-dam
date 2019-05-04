@@ -24,6 +24,29 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public GradientStop gradientStopTop = new GradientStop((Color)ColorConverter.ConvertFromString("#FFA2FF00"), 0);
         public GradientStop gradientStopBottom = new GradientStop((Color)ColorConverter.ConvertFromString("#FFA2FF00"), 0);
 
+        public int HeightRows { get; set; }
+
+        public MainWindow()
+        {
+            PreLoadedContent();
+            InitializeComponent();
+
+            var screenSize = Screen.PrimaryScreen.Bounds.Size;
+            WindowVar.Width = screenSize.Width;
+            WindowVar.Height = screenSize.Height;
+
+            //XamlBridge.MainWindowInstance = this;
+            XamlBridge.BackgroundGrid = BackgroundGrid;
+            XamlBridge.MainPanelInstance = MainPanel;
+            //UIElementCollection mainGridContentChildrens = AddButtonPanel();
+
+            Left = 0;
+            Top = 0;
+
+            BackgroundGrid.Margin = new Thickness(10);
+            FillMainData();
+        }
+
         internal void CloseApp()
         {
             this.Close();
@@ -59,29 +82,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             TxtNombre.IsReadOnly = !TxtNombre.IsReadOnly;
             TxtApellidos.IsReadOnly = !TxtApellidos.IsReadOnly;
             TxtEmail.IsReadOnly = !TxtEmail.IsReadOnly;
-        }
-
-        public int HeightRows { get; set; }
-
-        public MainWindow()
-        {
-            PreLoadedContent();
-            InitializeComponent();
-
-            var screenSize = Screen.PrimaryScreen.Bounds.Size;
-            WindowVar.Width = screenSize.Width;
-            WindowVar.Height = screenSize.Height;
-
-            XamlBridge.MainWindowInstance = this;
-            XamlBridge.BackgroundGrid = BackgroundGrid;
-            XamlBridge.MainPanelInstance = MainPanel;
-            //UIElementCollection mainGridContentChildrens = AddButtonPanel();
-
-            Left = 0;
-            Top = 0;
-
-            BackgroundGrid.Margin = new Thickness(10);
-            FillMainData();
         }
 
         public void FillMainData()
