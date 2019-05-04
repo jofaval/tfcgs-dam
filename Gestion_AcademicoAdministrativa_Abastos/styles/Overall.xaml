@@ -4,6 +4,7 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
                     xmlns:font="http://schemas.microsoft.com/winfx/2006/xaml/composite-font">
     <sys:Double x:Key="StandardFontSize">15</sys:Double>
+    <sys:Double x:Key="TitleFontSize">10</sys:Double>
     <FontFamily x:Key="StandardFontFamily">./#Ubuntu</FontFamily>
     
     <Style x:Key="SpecialTextControl" TargetType="{x:Type Control}">
