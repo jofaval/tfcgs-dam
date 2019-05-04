@@ -51,11 +51,16 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-    <Style TargetType="TextBox" BasedOn="{StaticResource SpecialTextControl}">
+
+    <Style x:Key="textboxPasswordboxStyles" TargetType="Control" BasedOn="{StaticResource SpecialTextControl}">
+        <Setter Property="Foreground" Value="{DynamicResource BackgroundContainerGradient}" />
+        <Setter Property="TextBox.CaretBrush" Value="{DynamicResource BackgroundContainerGradient}" />
+        <Setter Property="Background" Value="{DynamicResource StandOutColorSolid}" />
+    </Style>
+
+    <Style TargetType="TextBox" BasedOn="{StaticResource textboxPasswordboxStyles}">
         <Setter Property="Template" Value="{StaticResource TextBoxBaseControlTemplate}" />
         <Setter Property="TextWrapping" Value="Wrap" />
-        <Setter Property="Foreground" Value="{DynamicResource StandOutColorSolid}" />
-        <Setter Property="Background" Value="{DynamicResource BackgroundContainerGradient}" />
     </Style>
 
     <ControlTemplate x:Key="passwordbox" TargetType="{x:Type PasswordBox}">
@@ -77,10 +82,8 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-    <Style TargetType="PasswordBox" BasedOn="{StaticResource SpecialTextControl}">
+    <Style TargetType="PasswordBox" BasedOn="{StaticResource textboxPasswordboxStyles}">
         <Setter Property="Template" Value="{StaticResource passwordbox}" />
-        <Setter Property="Foreground" Value="{DynamicResource StandOutColorSolid}" />
-        <Setter Property="Background" Value="{DynamicResource BackgroundContainerGradient}" />
     </Style>
 
 </ResourceDictionary>
