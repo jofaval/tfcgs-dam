@@ -26,7 +26,7 @@
             <Ellipse Name="PART_Ellipse" 
                          Width="30"
                          Height="30" 
-                         Stroke="Black"
+                         Stroke="Transparent"
                          Fill="{StaticResource RoundButtonDefaultBrush}"/>
             <ContentPresenter Name="PART_ContentPresenter"  ContentSource="Content" Margin="0,0,0,6" 
                                   HorizontalAlignment="Center" 
@@ -120,7 +120,7 @@
                                   Content="+" Command="Slider.IncreaseSmall" />
 
                         <Border Name="PART_Border" 
-                            BorderBrush="Black" BorderThickness="1" 
+                            BorderBrush="Black" BorderThickness="0" 
                             Padding="2"
                             CornerRadius="5" 
                             Grid.Row="1" Grid.Column="1"
