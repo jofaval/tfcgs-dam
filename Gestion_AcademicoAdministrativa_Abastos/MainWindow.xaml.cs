@@ -35,7 +35,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             WindowVar.Width = screenSize.Width;
             WindowVar.Height = screenSize.Height;
 
-            //XamlBridge.MainWindowInstance = this;
+            XamlBridge.MainWindowInstance = this;
             XamlBridge.BackgroundGrid = BackgroundGrid;
             XamlBridge.MainPanelInstance = MainPanel;
             //UIElementCollection mainGridContentChildrens = AddButtonPanel();
@@ -70,6 +70,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             if (!isNotEditable)
             {
+                TxtNombre.Select(0,0);
                 var currentUserPerson = XamlBridge.CurrentUser.Persona1;
                 currentUserPerson.Nombre = TxtNombre.Text;
                 currentUserPerson.Apellidos = TxtApellidos.Text;
@@ -99,12 +100,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 XamlFunctionality.FillDataOfReadOnlyText(TxtApellidos, persona.Apellidos);
                 XamlFunctionality.FillDataOfReadOnlyText(TxtEmail, persona.Email);
                 var telefonos = from telefono in persona.Telefono.ToList()
-                           select new
-                           {
-                               Telefono = telefono.Telefono1,
-                               telefono.Comentario,
-                           };
-                
+                                select new
+                                {
+                                    Telefono = telefono.Telefono1,
+                                    telefono.Comentario,
+                                };
+
                 XamlFunctionality.FillDataGrid(DataGridTelefono, telefonos);
             }
         }
