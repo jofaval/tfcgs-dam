@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Linq;
 using Model;
 using System.Collections.Generic;
+using System.Windows.Media.Animation;
 
 namespace Gestion_AcademicoAdministrativa_Abastos
 {
@@ -190,6 +191,15 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         private void BtnMinimize_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = ControladorWPF.WinowMMinimizedState;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Closing -= Window_Closing;
+            e.Cancel = true;
+            var anim = new DoubleAnimation(0, TimeSpan.FromMilliseconds(0.25 * 1000));
+            anim.Completed += (s, _) => Close();
+            BeginAnimation(OpacityProperty, anim);
         }
     }
 }

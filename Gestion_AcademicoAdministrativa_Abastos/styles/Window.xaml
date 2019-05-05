@@ -8,7 +8,6 @@
     <Style x:Key="WindowStyle" TargetType="Window" BasedOn="{StaticResource SpecialTextControl}">
         <Setter Property="Width" Value="{DynamicResource WindowWidth}" />
         <Setter Property="Height" Value="{DynamicResource WindowHeight}" />
-        <Setter Property="Cursor" Value="Hand" />
 
         <Style.Triggers>
             <EventTrigger RoutedEvent="Window.Loaded">
@@ -20,15 +19,6 @@
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
-            <!--EventTrigger RoutedEvent="Window.Closing">
-                <BeginStoryboard>
-                    <Storyboard>
-                        <DoubleAnimation Storyboard.TargetProperty="(Window.Opacity)"
-                                 From="1.0" To="0.0" Duration="0:1:1"
-                                 AutoReverse="False" FillBehavior="HoldEnd"/>
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger-->
         </Style.Triggers>
     </Style>
 </ResourceDictionary>

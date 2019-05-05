@@ -7,7 +7,8 @@
              mc:Ignorable="d" Title="Aplicacion"
              WindowStartupLocation="CenterScreen"
              WindowStyle="None" AllowsTransparency="True" Background="Transparent"
-             Style="{StaticResource WindowStyle}" Height="678">
+             Style="{StaticResource WindowStyle}" Height="678"
+             Closing="Window_Closing">
     <Window.Effect>
         <DropShadowEffect BlurRadius="10" ShadowDepth="0" Direction="-45" RenderingBias="Quality" Opacity="0.35" />
     </Window.Effect>
