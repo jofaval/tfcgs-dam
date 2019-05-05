@@ -7,6 +7,34 @@
         mc:Ignorable="d"
         Title="Reclamacion" Height="450" Width="800">
     <Grid>
-        
+        <Grid Background="{DynamicResource MainColorSolid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*" />
+                <RowDefinition Height="80*" />
+            </Grid.RowDefinitions>
+            <Grid x:Name="TopBar" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Background="{DynamicResource TopBarGradient}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="95*" />
+                </Grid.RowDefinitions>
+                <!--{Binding NotificationTitle}-->
+                <Label Padding="0" x:Name="WindowTitle" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Reclamacion" FontFamily="5" />
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="90*" />
+                    <ColumnDefinition Width="5*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="90*" />
+                    <RowDefinition Height="5*" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="1" Grid.Column="1" x:Name="WindowContent"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding NotificationContent}" Padding="0" Height="Auto"
+                       Style="{StaticResource NotificationContent}"/>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
