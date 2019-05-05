@@ -1,0 +1,40 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos">
+    <Style TargetType="ProgressBar">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ProgressBar">
+                    <Grid x:Name="LayoutRoot">
+                        <!-- attach the view model -->
+                        <local:CircularProgressBarViewModel.Attach>
+                            <local:CircularProgressBarViewModel HoleSizeFactor="0.75"/>
+                        </local:CircularProgressBarViewModel.Attach>
+
+                        <!-- a circular outline -->
+                        <Ellipse Width="{Binding Diameter}" Height="{Binding Diameter}"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Stroke="LightGray" Fill="Transparent"
+                    StrokeThickness="0.3">
+                        </Ellipse>
+
+                        <!-- a pie-piece that indicates the progress -->
+                        <local:PiePiece CentreX="{Binding CentreX}" CentreY="{Binding CentreY}"
+                          RotationAngle="0" WedgeAngle="{Binding Angle}"
+                          Radius="{Binding Radius}" Fill="LightBlue"/>
+
+                        <!-- progress as a percent -->
+                        <Grid util:GridUtils.RowDefinitions="*,3.5*,*"
+                util:GridUtils.ColumnDefinitions="*,3.5*,*">
+                            <TextBlock Text="{Binding Percent, StringFormat=0%}"
+                        Foreground="DarkBlue"
+                        FontWeight="Bold" FontSize="20"
+                        Grid.Row="1" Grid.Column="1"
+                        VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
