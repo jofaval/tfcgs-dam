@@ -31,10 +31,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             WindowVar.Width = screenSize.Width;
             WindowVar.Height = screenSize.Height;
 
-            XamlBridge.MainWindowInstance = this;
-            XamlBridge.BackgroundGrid = BackgroundGrid;
-            XamlBridge.MainPanelInstance = MainPanel;
-
             MaximizeMinimize();
 
             Left = 0;
@@ -46,7 +42,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         internal void CloseApp()
         {
-            this.Close();
+            Close();
             System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
 
@@ -152,10 +148,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             if (e.ChangedButton == MouseButton.Left)
             {
-                this.DragMove();
-                if (this.WindowState == ControladorWPF.WinowMaximizedState)
+                DragMove();
+                if (WindowState == ControladorWPF.WinowMaximizedState)
                 {
-                    TopBar.Height = Double.NaN;
+                    TopBar.Height = double.NaN;
                 }
                 else
                 {
@@ -166,7 +162,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void BtnMaximize_Click(object sender, RoutedEventArgs e)
@@ -190,7 +186,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void BtnMinimize_Click(object sender, RoutedEventArgs e)
         {
-            this.WindowState = ControladorWPF.WinowMMinimizedState;
+            WindowState = ControladorWPF.WinowMMinimizedState;
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
