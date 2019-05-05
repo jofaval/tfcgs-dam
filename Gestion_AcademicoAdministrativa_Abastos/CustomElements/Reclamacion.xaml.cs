@@ -20,14 +20,43 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
     /// </summary>
     public partial class Reclamacion : Window
     {
+        public string Asunto { get; set; }
+        public string Contenido { get; set; }
+        public string DirigidoA { get; set; }
+
+        public bool EnTramite { get; set; }
+        public DateTime FechaEnvio { get; set; }
+        public DateTime FechaRevision { get; set; }
+
+        public int NumParte { get; set; }
+        public string Respuesta { get; set; }
+        public string Revisor { get; set; }
+
         public Reclamacion()
         {
             InitializeComponent();
+            Console.WriteLine(XamlFunctionality.CheckNet() ? "Funciona" : "No hay internet");
         }
 
-        public static Grid CreateReclamacion(Reclamacion reclamacion)
+        public static Grid CreateReclamacion(Model.Reclamacion reclamacion)
         {
-            return null;
+            return new Reclamacion()
+            {
+                Asunto = reclamacion.Asunto,
+                Contenido = reclamacion.Contenido,
+                DirigidoA = reclamacion.DirigidoA,
+                EnTramite = reclamacion.EnTramite ?? false,
+                FechaEnvio = reclamacion.FechaEnvio ?? new DateTime(),
+                FechaRevision = reclamacion.FechaRevision ?? new DateTime(),
+                NumParte = reclamacion.NumParte,
+                Respuesta = reclamacion.Respuesta,
+                Revisor = reclamacion.Revisor,
+            }.MainGridContent;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
