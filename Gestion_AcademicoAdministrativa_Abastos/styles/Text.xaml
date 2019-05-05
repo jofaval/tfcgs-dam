@@ -4,7 +4,7 @@
     <Style TargetType="Label" BasedOn="{StaticResource SpecialTextControl}">
         <Setter Property="Foreground" Value="{DynamicResource StandOutColorSolid}" />
     </Style>
-    <Style TargetType="TextBlock">
+    <Style x:Key="NotificationContent" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource StandOutColorSolid}" />
         <Setter Property="TextWrapping" Value="WrapWithOverflow" />
         <Setter Property="Padding" Value="0" />
