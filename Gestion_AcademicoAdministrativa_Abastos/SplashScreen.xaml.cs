@@ -91,6 +91,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             XamlBridge.SizeEnum = WindowSizeEnum.WIDTH_1920_X_HEIGHT_1080;
             XamlBridge.MainWindowInstance = mainWindow;
 
+            XamlBridge.BackgroundGrid = mainWindow.BackgroundGrid;
+            var mainPanel = mainWindow.MainPanel;
+            XamlBridge.MainPanelInstance = mainPanel;
+            XamlBridge.BackUpMainPanel = mainPanel;
+
             XamlFunctionality.ChangeWindowContent(mainWindow.MainPanel, new LogIn());
             this.Close();
         }

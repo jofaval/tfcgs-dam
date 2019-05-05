@@ -155,5 +155,20 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             return System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
         }
+
+        public static void ReplaceGrids(Grid originalGrid, Grid newGrid)
+        {
+            var originalGridChildren = ((Grid)originalGrid.Parent).Children;
+            originalGridChildren.Remove(originalGrid);
+
+            var newGridParent = (Grid)newGrid.Parent;
+            if (newGridParent != null)
+            {
+                var newGridChildren = newGridParent.Children;
+                newGridChildren.Remove(newGrid);
+            }
+
+            originalGridChildren.Add(newGrid);
+        }
     }
 }

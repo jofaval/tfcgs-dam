@@ -42,7 +42,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 }
                 else if (btnSender == HomeButton)
                 {
-                    XamlFunctionality.ChangeWindowContent(mainWindowPanel, new MainWindow());
+                    var backUpMainPanel = XamlBridge.BackUpMainPanel;
+
+                    XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
+
+                    XamlBridge.MainPanelInstance = backUpMainPanel;
                 }
                 else if (btnSender == LogOutButton)
                 {
