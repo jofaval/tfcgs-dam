@@ -7,7 +7,7 @@
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="SplashScreen" Visibility="Visible" Background="Transparent"
-        AllowsTransparency="True" WindowStyle="None">
+        AllowsTransparency="True" WindowStyle="None" Style="{DynamicResource WindowStyle}">
     <Grid>
         <Grid.Background>
             <ImageBrush x:Name="Logo" Stretch="UniformToFill" ImageSource="SplashScreen-12-04-2019.png"/>
@@ -47,7 +47,7 @@
             </ProgressBar>
             <TextBlock Text="{Binding ElementName=LoadingProgress, Path=Value, StringFormat={}{0:0}%}" 
            HorizontalAlignment="Center" VerticalAlignment="Center"
-            FontSize="6" FontFamily="Ubuntu" FontWeight="Normal"/>
+            FontSize="6" FontWeight="Normal" Foreground="{DynamicResource BackgroundColorfulGradient}"/>
         </Grid>
     </Grid>
 </Window>

@@ -39,8 +39,9 @@
                 </ControlTemplate>
             </Setter.Value>
         </-->
-        <Setter Property="Background" Value="{DynamicResource MainColorSolid}"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundContainerGradient}"/>
         <Setter Property="Foreground" Value="{DynamicResource BackgroundColorfulGradient}"/>
+        <Setter Property="BorderThickness" Value="0" />
 
     </Style>
 </ResourceDictionary>
