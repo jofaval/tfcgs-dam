@@ -1,4 +1,5 @@
-﻿using Model.DataStructure;
+﻿using Controller;
+using Model.DataStructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -52,9 +54,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 myTimer.Interval = 1;
             }
             myTimer.Start();
+
+            StaticReferences.Initializer();
         }
 
-        private void MyTimer_Tick(Object myObject, EventArgs myEventArgs)
+        private void MyTimer_Tick(object myObject, EventArgs myEventArgs)
         {
             /*var totalTime = 1 * 1000;
             var veces = 100;
@@ -76,14 +80,19 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             if (LoadingProgress.Value >= 100)
             {
-                mainWindow.Visibility = Visibility.Visible;
-                XamlBridge.SizeEnum = WindowSizeEnum.WIDTH_1920_X_HEIGHT_1080;
-                XamlBridge.MainWindowInstance = mainWindow;
-
-                XamlFunctionality.ChangeWindowContent(mainWindow.MainPanel, new LogIn());
-                this.Close();
+                WhenFinished();
                 myTimer.Stop();
             }
+        }
+
+        private void WhenFinished()
+        {
+            mainWindow.Visibility = Visibility.Visible;
+            XamlBridge.SizeEnum = WindowSizeEnum.WIDTH_1920_X_HEIGHT_1080;
+            XamlBridge.MainWindowInstance = mainWindow;
+
+            XamlFunctionality.ChangeWindowContent(mainWindow.MainPanel, new LogIn());
+            this.Close();
         }
     }
 }
