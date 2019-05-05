@@ -150,5 +150,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 window.Close();
             }
         }
+
+        public static bool CheckNet()
+        {
+            return System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
+        }
     }
 }
