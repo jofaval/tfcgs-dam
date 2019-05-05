@@ -125,7 +125,7 @@
     <Compile Include="Horario.xaml.cs">
       <DependentUpon>Horario.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Notification.xaml.cs">
+    <Compile Include="CustomElements\Notification.xaml.cs">
       <DependentUpon>Notification.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reclamaciones.xaml.cs">
@@ -179,7 +179,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Notification.xaml">
+    <Page Include="CustomElements\Notification.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
