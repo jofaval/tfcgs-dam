@@ -8,6 +8,7 @@
             <ResourceDictionary.MergedDictionaries >
                 <ResourceDictionary Source="styles/Colors.xaml"/>
                 <ResourceDictionary Source="styles/Overall.xaml"/>
+                <ResourceDictionary Source="styles/Window.xaml"/>
                 <ResourceDictionary Source="styles/DataGrid.xaml"/>
                 <ResourceDictionary Source="styles/ScrollBar.xaml"/>
                 <ResourceDictionary Source="styles/Button.xaml"/>
