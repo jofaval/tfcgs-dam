@@ -2,39 +2,45 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos">
     <Style TargetType="ProgressBar">
-        <Setter Property="Template">
+        <!--Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="ProgressBar">
-                    <Grid x:Name="LayoutRoot">
-                        <!-- attach the view model -->
-                        <local:CircularProgressBarViewModel.Attach>
-                            <local:CircularProgressBarViewModel HoleSizeFactor="0.75"/>
-                        </local:CircularProgressBarViewModel.Attach>
-
-                        <!-- a circular outline -->
-                        <Ellipse Width="{Binding Diameter}" Height="{Binding Diameter}"
-                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Stroke="LightGray" Fill="Transparent"
-                    StrokeThickness="0.3">
-                        </Ellipse>
-
-                        <!-- a pie-piece that indicates the progress -->
-                        <local:PiePiece CentreX="{Binding CentreX}" CentreY="{Binding CentreY}"
-                          RotationAngle="0" WedgeAngle="{Binding Angle}"
-                          Radius="{Binding Radius}" Fill="LightBlue"/>
-
-                        <!-- progress as a percent -->
-                        <Grid util:GridUtils.RowDefinitions="*,3.5*,*"
-                util:GridUtils.ColumnDefinitions="*,3.5*,*">
-                            <TextBlock Text="{Binding Percent, StringFormat=0%}"
-                        Foreground="DarkBlue"
-                        FontWeight="Bold" FontSize="20"
-                        Grid.Row="1" Grid.Column="1"
-                        VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        </Grid>
+                <ControlTemplate TargetType="{x:Type ProgressBar}">
+                    <Grid MinHeight="14"
+              MinWidth="200"
+              Background="{TemplateBinding Background}">
+                        <Border x:Name="PART_Track"
+                  CornerRadius="2"
+                  BorderThickness="1">
+                            <Border.BorderBrush>
+                                <SolidColorBrush Color="{DynamicResource BorderMediumColor}" />
+                            </Border.BorderBrush>
+                        </Border>
+                        <Border x:Name="PART_Indicator"
+                  CornerRadius="2"
+                  BorderThickness="1"
+                  HorizontalAlignment="Left"
+                  Background="{TemplateBinding Foreground}"
+                  Margin="0,-1,0,1">
+                            <Border.BorderBrush>
+                                <LinearGradientBrush StartPoint="0,0"
+                                   EndPoint="0,1">
+                                    <GradientBrush.GradientStops>
+                                        <GradientStopCollection>
+                                            <GradientStop Color="{DynamicResource BorderLightColor}"
+                                  Offset="0.0" />
+                                            <GradientStop Color="{DynamicResource BorderMediumColor}"
+                                  Offset="1.0" />
+                                        </GradientStopCollection>
+                                    </GradientBrush.GradientStops>
+                                </LinearGradientBrush>
+                            </Border.BorderBrush>
+                        </Border>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
-        </Setter>
+        </-->
+        <Setter Property="Background" Value="{DynamicResource MainColorSolid}"/>
+        <Setter Property="Foreground" Value="{DynamicResource BackgroundColorfulGradient}"/>
+
     </Style>
 </ResourceDictionary>
