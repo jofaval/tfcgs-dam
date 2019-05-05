@@ -4,9 +4,31 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
     <sys:Double x:Key="WindowWidth">1920</sys:Double>
     <sys:Double x:Key="WindowHeight">1080</sys:Double>
-    
-    <Style TargetType="{x:Type Window}">
+
+    <Style x:Key="WindowStyle" TargetType="Window" BasedOn="{StaticResource SpecialTextControl}">
         <Setter Property="Width" Value="{DynamicResource WindowWidth}" />
         <Setter Property="Height" Value="{DynamicResource WindowHeight}" />
+        <Setter Property="Cursor" Value="Hand" />
+
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Window.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="(Window.Opacity)"
+                                 From="0.0" To="1.0" Duration="0:0:0.5"
+                                 AutoReverse="False" FillBehavior="HoldEnd"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <!--EventTrigger RoutedEvent="Window.Closing">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="(Window.Opacity)"
+                                 From="1.0" To="0.0" Duration="0:1:1"
+                                 AutoReverse="False" FillBehavior="HoldEnd"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger-->
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>
