@@ -17,6 +17,7 @@
                 <ResourceDictionary Source="styles/Reclamacion.xaml"/>
                 <ResourceDictionary Source="styles/ContextMenu.xaml"/>
                 <ResourceDictionary Source="styles/Slider.xaml"/>
+                <ResourceDictionary Source="styles/ComboBox.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
