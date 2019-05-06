@@ -128,6 +128,7 @@
     <Compile Include="CustomElements\Notification.xaml.cs">
       <DependentUpon>Notification.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PreLoadedButtons\StaticButtonViews.cs" />
     <Compile Include="Reclamaciones.xaml.cs">
       <DependentUpon>Reclamaciones.xaml</DependentUpon>
     </Compile>
@@ -296,8 +297,6 @@
   <ItemGroup>
     <Resource Include="SplashScreen-12-04-2019.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Buttons\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
