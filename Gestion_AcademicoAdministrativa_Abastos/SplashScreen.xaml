@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos"
         WindowStartupLocation="CenterScreen"
-        mc:Ignorable="d"
+        mc:Ignorable="d" Topmost="True"
         Title="SplashScreen" Visibility="Visible" Background="Transparent"
         AllowsTransparency="True" WindowStyle="None" Style="{DynamicResource WindowStyle}">
     <Grid>
