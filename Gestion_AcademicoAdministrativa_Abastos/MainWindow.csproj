@@ -140,6 +140,9 @@
     </Compile>
     <Compile Include="Classes\XamlBridge.cs" />
     <Compile Include="Classes\XamlFunctionality.cs" />
+    <Compile Include="ViewSelector.xaml.cs">
+      <DependentUpon>ViewSelector.xaml</DependentUpon>
+    </Compile>
     <Page Include="Buscador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -237,6 +240,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewSelector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
