@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Net.Http;
 using Controller;
+using System.Threading;
 
 namespace Gestion_AcademicoAdministrativa_Abastos
 {
@@ -65,27 +66,36 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             {
                 XamlBridge.CurrentUser = user;
 
-                var instance = XamlBridge.MainWindowInstance;
-
-                var backUpMainPanel = XamlBridge.BackUpMainPanel;
-                XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
-
-                XamlBridge.MainPanelInstance = backUpMainPanel;
-
-                if (CheckSaveInformation.IsChecked.Value)
+                var viewSelector = new ViewSelector()
                 {
-                    XamlFunctionality.WriteSaveUsernamePassword(this);
-                }
-
-                instance.AddButtonPanel();
-                instance.FillMainData();
-
-                this.Close();
+                    Visibility = Visibility.Visible,
+                    LogInInstance = this,
+                };
             }
             else
             {
                 Notification.CreateNotificaion(Constants.UnsuccesfulLogIn);
             }
+        }
+
+        public void FinalizeLogIn()
+        {
+            var instance = XamlBridge.MainWindowInstance;
+
+            var backUpMainPanel = XamlBridge.BackUpMainPanel;
+            XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
+
+            XamlBridge.MainPanelInstance = backUpMainPanel;
+
+            if (CheckSaveInformation.IsChecked.Value)
+            {
+                XamlFunctionality.WriteSaveUsernamePassword(this);
+            }
+
+            instance.AddButtonPanel();
+            instance.FillMainData();
+
+            Close();
         }
     }
 }
