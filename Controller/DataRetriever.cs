@@ -50,13 +50,13 @@ namespace Controller
                 {
                     views.Add(ViewsEnum.PROFESOR);
                 }
-                else if (trabajador.Administrativo != null)
-                {
-                    views.Add(ViewsEnum.ADMINISTRATIVO);
-                }
                 else if (user.PermisoAdmin)
                 {
                     views.Add(ViewsEnum.ADMINISTRADOR);
+                }
+                else if (trabajador.Administrativo != null)
+                {
+                    views.Add(ViewsEnum.ADMINISTRATIVO);
                 }
             }
 
