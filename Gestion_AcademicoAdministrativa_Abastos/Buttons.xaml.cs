@@ -13,7 +13,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public Buttons()
         {
             InitializeComponent();
-            var buttons = StaticButtonViews.LoadFromView(Model.DataStructure.ViewsEnum.ALUMNO);
+            var buttons = StaticButtonViews.LoadFromView(XamlBridge.ViewEnum);
             var menuPanelChildrens = MenuButtons.Children;
             foreach (var button in buttons)
             {
