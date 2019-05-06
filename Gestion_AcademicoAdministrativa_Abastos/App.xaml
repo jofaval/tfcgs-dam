@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos"
              StartupUri="SplashScreen.xaml">
-             <!--StartupUri="CustomElements/Reclamacion.xaml"-->
     <Application.Resources>
         <ResourceDictionary >
             <ResourceDictionary.MergedDictionaries >
