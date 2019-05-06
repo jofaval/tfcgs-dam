@@ -20,6 +20,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         public static Usuario CurrentUser { get; set; }
         public static WindowSizeEnum SizeEnum { get; set; }
+        public static ViewsEnum ViewEnum { get; set; }
 
         public static void CloseEverything()
         {
