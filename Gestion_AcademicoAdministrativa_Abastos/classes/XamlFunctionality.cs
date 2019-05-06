@@ -113,24 +113,25 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public static void WriteSaveUsernamePassword(LogIn logIn)
         {
             var file = Constants.UsernameFile;
-            if (!File.Exists(file))
+            if (File.Exists(file))
             {
-                using (StreamWriter w = File.AppendText(file))
-                {
-                    w.WriteLine(
-                        Cryptography.Encrypt(
-                            logIn.UsernameField.Text,
-                            Constants.ApplicationTitle
-                        )
-                        );
-
-                    w.WriteLine(
-                        Cryptography.Encrypt(
-                            logIn.PasswordeField.Password.ToString(),
-                            Constants.ApplicationTitle
-                        )
+                File.Delete(file);
+            }
+            using (StreamWriter w = File.AppendText(file))
+            {
+                w.WriteLine(
+                    Cryptography.Encrypt(
+                        logIn.UsernameField.Text,
+                        Constants.ApplicationTitle
+                    )
                     );
-                }
+
+                w.WriteLine(
+                    Cryptography.Encrypt(
+                        logIn.PasswordeField.Password.ToString(),
+                        Constants.ApplicationTitle
+                    )
+                );
             }
             var lines = File.ReadAllLines(file);
         }
