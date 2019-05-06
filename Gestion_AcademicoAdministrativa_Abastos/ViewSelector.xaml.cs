@@ -22,20 +22,21 @@ namespace Gestion_AcademicoAdministrativa_Abastos
     public partial class ViewSelector : Window
     {
         public LogIn LogInInstance { get; set; }
+
         public ViewSelector()
         {
             InitializeComponent();
-            var items = ComboBoxViewSelector.Items;
-            var viewEnum = (ViewsEnum[])Enum.GetValues(typeof(ViewsEnum));
-            foreach (var view in viewEnum)
-            {
-                var comboBoxItem = new ComboBoxItem()
-                {
-                    Content = view
-                };
 
-                items.Add(comboBoxItem);
-            }
+            //var viewEnum = (ViewsEnum[])Enum.GetValues(typeof(ViewsEnum));
+            //foreach (var view in viewList)
+            //{
+            //    var comboBoxItem = new ComboBoxItem()
+            //    {
+            //        Content = view
+            //    };
+
+            //    items.Add(comboBoxItem);
+            //}
 
             var screenHeight = SystemParameters.FullPrimaryScreenHeight;
             var screenWidth = SystemParameters.FullPrimaryScreenWidth;
@@ -46,6 +47,20 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var newHeight = screenHeight * .10;
             Height = newHeight;
             MaxHeight = Height;
+        }
+
+        public void FillViewsComboBox(List<ViewsEnum> possibleViews)
+        {
+            var items = ComboBoxViewSelector.Items;
+            foreach (var view in possibleViews)
+            {
+                var comboBoxItem = new ComboBoxItem()
+                {
+                    Content = view
+                };
+
+                items.Add(comboBoxItem);
+            }
         }
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
