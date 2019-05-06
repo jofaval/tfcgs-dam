@@ -9,7 +9,7 @@
     <Grid>
         <Grid x:Name="MainGridContent" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FF15171B">
             <DockPanel x:Name="MenuPanel" HorizontalAlignment="Stretch" LastChildFill="True" VerticalAlignment="Stretch" Panel.ZIndex="1" Background="{DynamicResource BackgroundContainerGradient}">
-                <Grid HorizontalAlignment="Stretch">
+                <Grid HorizontalAlignment="Stretch" x:Name="MenuButtons">
                     <Grid.Effect>
                         <DropShadowEffect Direction="-45" BlurRadius="50" RenderingBias="Quality" />
                     </Grid.Effect>
@@ -30,13 +30,6 @@
                         <RowDefinition Height="1*" />
                         <RowDefinition Height="1*" />
                     </Grid.RowDefinitions>
-                    <Button x:Name="HomeButton" Grid.Row="0" Content="Home" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
-                    <Button x:Name="FirstButton" Grid.Row="1" Content="Buscador Profesorado" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
-                    <Button x:Name="SecondButton" Grid.Row="2" Content="Horario" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
-                    <Button x:Name="ThirdButton" Grid.Row="3" Content="Editar Informacion" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
-                    <Button x:Name="ForthButton" Grid.Row="4" Content="Reclamaciones" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
-                    <Button x:Name="FifthButton" Grid.Row="5" Content="Solicitudes" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
-                    <Button x:Name="LogOutButton" Grid.Row="6" Content="Salir" Style="{StaticResource MenuButton}" Click="MenuButtons_Click"></Button>
                 </Grid>
             </DockPanel>
         </Grid>
