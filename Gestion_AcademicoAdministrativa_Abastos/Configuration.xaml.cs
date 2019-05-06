@@ -48,10 +48,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             var fontFamilies = Fonts.SystemFontFamilies;
             var comboBoxFontFamilyitems = ComboBoxFontFamily.Items;
-            var selectedFontFamily = (FontFamily)Application.Current.Resources[Constants.ResourceFontFamily];
+            var selectedFontFamilySource = ((FontFamily)Application.Current.Resources[Constants.ResourceFontFamily]).Source;
             foreach (FontFamily fontFamily in fontFamilies)
             {
-                var fontFamilyName = fontFamily.ToString();
+                var fontFamilyName = fontFamily.Source;
 
                 var item = new ComboBoxItem
                 {
@@ -61,7 +61,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
                 comboBoxFontFamilyitems.Add(item);
 
-                if (selectedFontFamily.Source.Equals(fontFamily.Source))
+                if (selectedFontFamilySource.Equals(fontFamilyName))
                 {
                     ComboBoxFontFamily.SelectedItem = item;
                 }
