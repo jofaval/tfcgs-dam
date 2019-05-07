@@ -142,10 +142,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                     }
                     else if (btnSender == LogOutButton)
                     {
-                        XamlBridge.CloseEverything();
-
-                        //Application.Current.Shutdown();
-                        System.Windows.Forms.Application.Restart();
+                        //XamlBridge.CloseEverything();
+                        LogOutFromMainWindow();
                     }
                 }
             };
@@ -259,10 +257,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                     }
                     else if (btnSender == LogOutButton)
                     {
-                        XamlBridge.CloseEverything();
+                        //XamlBridge.CloseEverything();
 
                         //Application.Current.Shutdown();
-                        System.Windows.Forms.Application.Restart();
+                        LogOutFromMainWindow();
                     }
                 }
             };
@@ -285,6 +283,24 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             var buttonList = new List<Button>();
             return buttonList;
+        }
+
+        static public void LogOutFromMainWindow()
+        {
+            var mainWindowInstance = XamlBridge.MainWindowInstance;
+
+            XamlBridge.BackgroundGrid = mainWindowInstance.BackgroundGrid;
+            var mainPanel = mainWindowInstance.MainPanel;
+            XamlBridge.MainPanelInstance = mainPanel;
+            XamlBridge.BackUpMainPanel = mainPanel;
+
+            XamlFunctionality.ChangeWindowContent(mainPanel, new LogIn());
+
+            //XamlBridge.MainWindowInstance.Close();
+            //var splashScreen = new SplashScreen();
+            //splashScreen.InitializeComponent();
+            //splashScreen.LoadingProgress.Value = 0;
+            //splashScreen.Visibility = Visibility.Visible;
         }
     }
 }
