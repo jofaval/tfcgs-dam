@@ -205,6 +205,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             Grid.SetRow(ThirdButton, numRow);
             numRow++;
 
+            var ActasButton = new Button()
+            {
+                Name = "ActasButton",
+                Content = "Actas de Evaluación",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(ActasButton);
+            Grid.SetRow(ActasButton, numRow);
+            numRow++;
+
             var LogOutButton = new Button()
             {
                 Name = "LogOutButton",
@@ -239,6 +249,13 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                         XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
 
                         XamlBridge.MainPanelInstance = backUpMainPanel;
+                    }
+                    else if (btnSender == ActasButton)
+                    {
+                        var backUpMainPanel = new ActasDeEvaluacion()
+                        {
+                            Visibility = Visibility.Visible,
+                        };
                     }
                     else if (btnSender == LogOutButton)
                     {
