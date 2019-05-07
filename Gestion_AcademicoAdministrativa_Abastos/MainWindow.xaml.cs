@@ -9,6 +9,7 @@ using System.Linq;
 using Model;
 using System.Collections.Generic;
 using System.Windows.Media.Animation;
+using Panel = System.Windows.Controls.Panel;
 
 namespace Gestion_AcademicoAdministrativa_Abastos
 {
@@ -61,7 +62,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             if (!isNotEditable)
             {
-                TxtNombre.Select(0,0);
+                TxtNombre.Select(0, 0);
                 var currentUserPerson = XamlBridge.CurrentUser.Persona1;
                 currentUserPerson.Nombre = TxtNombre.Text;
                 currentUserPerson.Apellidos = TxtApellidos.Text;
@@ -144,6 +145,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             return mainGridContentChildrens;
         }
 
+        public void RemoveButtonsFromButtonPanel()
+        {
+            var buttonChildrens = MainGridContent.Children;
+            buttonChildrens.Remove(buttonChildrens[0]);
+        }
+
         private void TopBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -194,7 +201,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             Closing -= Window_Closing;
             e.Cancel = true;
             var anim = new DoubleAnimation(0, TimeSpan.FromMilliseconds(0.25 * 1000));
-            anim.Completed += (s, _) => Close();
+            anim.Completed += (s, _) => System.Windows.Application.Current.Shutdown();
             BeginAnimation(OpacityProperty, anim);
         }
     }
