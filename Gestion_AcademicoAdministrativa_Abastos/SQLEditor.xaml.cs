@@ -1,6 +1,8 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +34,20 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             {
                 try
                 {
-                    var resultList = dataBaseContext.Database.SqlQuery<string>(script).ToList<object>();
+                    var resultList = dataBaseContext.Database.SqlQuery<List<string>>(script).ToList();
+
+                    Console.WriteLine(resultList.ToString());
+
+                    foreach (var item in resultList)
+                    {
+                        if (item is List<string> itemList)
+                        {
+                            foreach (var element in itemList)
+                            {
+                                Console.WriteLine(element);
+                            }
+                        }
+                    }
 
                     DataGridResult.ItemsSource = resultList;
                 }
