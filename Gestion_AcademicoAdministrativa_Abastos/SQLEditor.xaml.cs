@@ -1,19 +1,12 @@
 ﻿using Model;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Data;
 
 namespace Gestion_AcademicoAdministrativa_Abastos
 {
@@ -29,32 +22,24 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void BtnExecute_Click(object sender, RoutedEventArgs e)
         {
-            string script = TxtQuery.Text;
-            using (var dataBaseContext = new AbastosDbContext())
+            try
             {
-                try
+                string script = TxtQuery.Text;
+                var abastosConnectionString = ConfigurationManager.ConnectionStrings["Abastos"].ConnectionString;
+
+                using (var connectionSQL = new SqlConnection(abastosConnectionString))
                 {
-                    var resultList = dataBaseContext.Database.SqlQuery<List<string>>(script).ToList();
-
-                    Console.WriteLine(resultList.ToString());
-
-                    foreach (var item in resultList)
+                    using (var dataAdapter = new SqlDataAdapter(script, connectionSQL))
                     {
-                        if (item is List<string> itemList)
-                        {
-                            foreach (var element in itemList)
-                            {
-                                Console.WriteLine(element);
-                            }
-                        }
+                        var ds = new DataSet();
+                        dataAdapter.Fill(ds);
+                        DataGridResult.ItemsSource = ds.Tables[0].AsEnumerable().ToList();
                     }
-
-                    DataGridResult.ItemsSource = resultList;
                 }
-                catch (Exception ex)
-                {
-                    Notification.CreateNotificaion(ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                Notification.CreateNotificaion(ex.Message);
             }
         }
     }
