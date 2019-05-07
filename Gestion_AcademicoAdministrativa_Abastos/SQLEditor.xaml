@@ -43,7 +43,7 @@
                                 <ColumnDefinition Width="100*" />
                             </Grid.ColumnDefinitions>
                             <ScrollViewer>
-                                <TextBox x:Name="TxtSearch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextChanged="TxtSearch_TextChanged"/>
+                                <TextBox x:Name="TxtQuery" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextChanged="TxtSearch_TextChanged"/>
                             </ScrollViewer>
                         </Grid>
                         <Grid Grid.Column="1" Grid.Row="2">
@@ -52,7 +52,7 @@
                                 <ColumnDefinition Width="50*" />
                                 <ColumnDefinition Width="25*" />
                             </Grid.ColumnDefinitions>
-                            <Button x:Name="BtnSearch" Grid.Column="1" Content="Buscar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="BtnSearch_Click"/>
+                            <Button x:Name="BtnExecute" Grid.Column="1" Content="Ejecutar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="BtnExecute_Click"/>
                         </Grid>
                         <DataGrid x:Name="DataGridResult" Grid.Row="6" AutoGenerateColumns="True" ColumnWidth="Auto">
                         </DataGrid>

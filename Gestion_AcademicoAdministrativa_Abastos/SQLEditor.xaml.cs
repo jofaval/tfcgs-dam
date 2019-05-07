@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,24 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public SQLEditor()
         {
             InitializeComponent();
+        }
+
+        private void BtnExecute_Click(object sender, RoutedEventArgs e)
+        {
+            string script = TxtQuery.Text;
+            using (var dataBaseContext = new AbastosDbContext())
+            {
+                try
+                {
+                    var resultList = dataBaseContext.Database.SqlQuery<string>(script).ToList<object>();
+
+                    DataGridResult.ItemsSource = resultList;
+                }
+                catch (Exception ex)
+                {
+                    Notification.CreateNotificaion(ex.Message);
+                }
+            }
         }
     }
 }
