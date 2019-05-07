@@ -9,13 +9,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 {
     public class XamlFunctionality
     {
-        public static void FillDataGrid(DataGrid grid, IEnumerable<object> collection)
+        public static void FillDataGrid(DataGrid dataGrid, IEnumerable<object> collection)
         {
             if (collection != null)
             {
-                grid.Items.Clear();
-                grid.ItemsSource = collection;
-                var dataGridCols = grid.Columns;
+                dataGrid.ItemsSource = null;
+                dataGrid.Items.Clear();
+                dataGrid.ItemsSource = collection;
+                var dataGridCols = dataGrid.Columns;
 
                 var dataGridColsLen = dataGridCols.Count;
                 for (int colIterator = 0; colIterator < dataGridColsLen; colIterator++)
@@ -41,11 +42,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             XamlBridge.MainPanelInstance = newWindowMainGridContent;
         }
 
-        private static UIElementCollection RemoveGridFromParent(Grid grid)
+        private static UIElementCollection RemoveGridFromParent(Grid dataGrid)
         {
-            var gridParent = grid.Parent;
+            var gridParent = dataGrid.Parent;
             var gridParentChildrens = ((Grid)gridParent).Children;
-            gridParentChildrens.Remove(grid);
+            gridParentChildrens.Remove(dataGrid);
             return gridParentChildrens;
         }
 
