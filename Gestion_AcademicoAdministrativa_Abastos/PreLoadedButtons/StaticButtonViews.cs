@@ -296,6 +296,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             XamlFunctionality.ChangeWindowContent(mainPanel, new LogIn());
 
+            mainWindowInstance.RemoveButtonsFromButtonPanel();
+
             //XamlBridge.MainWindowInstance.Close();
             //var splashScreen = new SplashScreen();
             //splashScreen.InitializeComponent();
