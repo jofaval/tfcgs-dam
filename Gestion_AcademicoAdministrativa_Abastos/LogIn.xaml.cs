@@ -66,13 +66,22 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             {
                 XamlBridge.CurrentUser = user;
                 var possibleViews = DataRetriever.PosibleViews(user);
-
-                var viewSelector = new ViewSelector()
+                if (possibleViews.Count > 1)
                 {
-                    Visibility = Visibility.Visible,
-                    LogInInstance = this,
-                };
-                viewSelector.FillViewsComboBox(possibleViews);
+                    var viewSelector = new ViewSelector()
+                    {
+                        Visibility = Visibility.Visible,
+                        LogInInstance = this,
+                    };
+                    viewSelector.FillViewsComboBox(possibleViews);
+                }
+                else
+                {
+                    XamlBridge.ViewEnum = possibleViews.ElementAt(0);
+                    FinalizeLogIn();
+                }
+                
+
             }
             else
             {
