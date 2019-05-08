@@ -32,10 +32,10 @@
                     </Grid.RowDefinitions>
                     <Grid HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Panel.ZIndex="-1">
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="10*" />
+                            <RowDefinition Height="30*" />
                             <RowDefinition Height="15*" />
-                            <RowDefinition Height="25*" />
-                            <RowDefinition Height="15*" />
-                            <RowDefinition Height="45*" />
+                            <RowDefinition Height="50*" />
                         </Grid.RowDefinitions>
                         <Label Grid.Row="0" Content="Ejecuta Scripts de T-SQL Libremente" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
                         <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
