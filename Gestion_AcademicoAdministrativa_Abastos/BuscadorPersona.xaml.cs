@@ -20,7 +20,9 @@ namespace Gestion_AcademicoAdministrativa_Abastos
     /// </summary>
     public partial class BuscadorPersona : Window
     {
-        public List<dynamic> Lista { get; set; }
+        public List<dynamic> PersonaList { get; set; }
+        public int SelectedIndex { get; set; }
+
         public BuscadorPersona()
         {
             InitializeComponent();
@@ -30,7 +32,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             var joiner = Constants.StringJoiner;
             var currentUserPerson = XamlBridge.CurrentUser.Persona1;
-            var personas = StaticReferences.Context.PersonaDbSet
+            PersonaList = (List<dynamic>)StaticReferences.Context.PersonaDbSet
                 .Select(p => new
                 {
                     p.Dni,
@@ -38,8 +40,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                     p.Nombre,
                     p.Apellidos,
                     Direccion = string.Concat(p.Calle, joiner, p.Patio, joiner, p.Piso, joiner, p.Puerta),
-                }).ToList();
-            XamlFunctionality.FillDataGrid(DataGridResult, personas);
+                });
+            XamlFunctionality.FillDataGrid(DataGridResult, PersonaList);
         }
     }
 }
