@@ -282,6 +282,112 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         static public List<Button> CreateAdministradorView()
         {
             var buttonList = new List<Button>();
+
+            var menuButtonStyle = (Style)Application.Current.Resources["MenuButton"];
+            var numRow = 0;
+
+            var HomeButton = new Button()
+            {
+                Name = "HomeButton",
+                Content = "Home",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(HomeButton);
+            Grid.SetRow(HomeButton, numRow);
+            numRow++;
+
+            var FirstButton = new Button()
+            {
+                Name = "FirstButton",
+                Content = "Buscador Profesorado",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(FirstButton);
+            Grid.SetRow(FirstButton, numRow);
+            numRow++;
+
+            var SecondButton = new Button()
+            {
+                Name = "SecondButton",
+                Content = "Horario",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(SecondButton);
+            Grid.SetRow(SecondButton, numRow);
+            numRow++;
+
+            var ThirdButton = new Button()
+            {
+                Name = "ThirdButton",
+                Content = "Editar Informacion",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(ThirdButton);
+            Grid.SetRow(ThirdButton, numRow);
+            numRow++;
+
+            var SQLEditor = new Button()
+            {
+                Name = "SQLEditor",
+                Content = "Editor de T-SQL",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(SQLEditor);
+            Grid.SetRow(SQLEditor, numRow);
+            numRow++;
+
+            var LogOutButton = new Button()
+            {
+                Name = "LogOutButton",
+                Content = "Salir",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(LogOutButton);
+            Grid.SetRow(LogOutButton, numRow);
+            numRow++;
+
+            Menu_Click AlumnoView_Click = delegate (object sender, RoutedEventArgs e)
+            {
+                if (sender is Button btnSender)
+                {
+                    var mainWindowPanel = XamlBridge.MainPanelInstance;
+                    if (btnSender == FirstButton)
+                    {
+                        XamlFunctionality.ChangeWindowContent(mainWindowPanel, new Buscador());
+                    }
+                    else if (btnSender == SecondButton)
+                    {
+                        XamlFunctionality.ChangeWindowContent(mainWindowPanel, new Horario());
+                    }
+                    else if (btnSender == ThirdButton)
+                    {
+                        XamlBridge.MainWindowInstance.MakeDataEditable();
+                    }
+                    else if (btnSender == HomeButton)
+                    {
+                        var backUpMainPanel = XamlBridge.BackUpMainPanel;
+
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
+
+                        XamlBridge.MainPanelInstance = backUpMainPanel;
+                    }
+                    else if (btnSender == SQLEditor)
+                    {
+                        var sqlEditorMainPanel = new SQLEditor();
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, sqlEditorMainPanel.MainPanel);
+                    }
+                    else if (btnSender == LogOutButton)
+                    {
+                        LogOutFromMainWindow();
+                    }
+                }
+            };
+
+            foreach (var button in buttonList)
+            {
+                button.Click += new RoutedEventHandler(AlumnoView_Click);
+            }
+
             return buttonList;
         }
 
