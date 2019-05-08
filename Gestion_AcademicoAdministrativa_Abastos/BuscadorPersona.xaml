@@ -33,12 +33,27 @@
                     <Grid HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Panel.ZIndex="-1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="5*" />
+                            <RowDefinition Height="7*" />
+                            <RowDefinition Height="5*" />
                             <RowDefinition Height="67*" />
                             <RowDefinition Height="5*" />
                             <RowDefinition Height="7*" />
+                            <RowDefinition Height="7*" />
                         </Grid.RowDefinitions>
-                        <DataGrid x:Name="DataGridResult" Grid.Row="1" AutoGenerateColumns="True" ColumnWidth="Auto" />
-                        <Grid Grid.Row="3">
+                        <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50*" />
+                                <ColumnDefinition Width="10*" />
+                                <ColumnDefinition Width="20*" />
+                                <ColumnDefinition Width="20*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="TxtSearch" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                            <Button x:Name="BtnSearch" Grid.Column="1" Content="Buscar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="BtnSearch_Click"/>
+                            <CheckBox x:Name="IgnoreMayus" Grid.Column="2" Content="IgnorarMayusculas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" />
+                            <CheckBox x:Name="ExactMatch" Grid.Column="3" Content="Coincidencia Exacta" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" />
+                        </Grid>
+                        <DataGrid x:Name="DataGridResult" Grid.Row="3" AutoGenerateColumns="True" ColumnWidth="Auto" />
+                        <Grid Grid.Row="5">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="35*" />
                                 <ColumnDefinition Width="20*" />
