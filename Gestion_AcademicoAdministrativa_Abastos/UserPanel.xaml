@@ -32,7 +32,34 @@
                     </Grid.RowDefinitions>
                     <TabControl Grid.Column="1" Grid.Row="1" Background="{DynamicResource MainColorSolid}" BorderBrush="Transparent">
                         <TabItem Header="Crear Usuario">
-                            <ComboBox x:Name="ComboBoxPermisos" />
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10*" />
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="10*" />
+                                    <RowDefinition Height="5*" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="35*" />
+                                        <RowDefinition Height="65*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50*" />
+                                        <ColumnDefinition Width="50*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Grid.Row="0" Content="Usuario" />
+                                    <TextBox x:Name="TxtUsername" Grid.Column="0" Grid.Row="1"/>
+                                    <Label Grid.Column="1" Grid.Row="0" Content="Contraseña" />
+                                    <TextBox x:Name="TxtPassword" Grid.Column="1" Grid.Row="1" />
+                                </Grid>
+                                <Label Grid.Row="1" Content="Persona" />
+                                <TextBox x:Name="TxtPersona" Grid.Column="0" Grid.Row="2"/>
+                                <Label Grid.Row="3" Content="Grupo de Usuarios" />
+                                <ComboBox x:Name="ComboBoxPermisos" Grid.Row="4" />
+                            </Grid>
                         </TabItem>
                         <TabItem Header="Permisos de Usuario">
                             <Grid>
@@ -82,7 +109,7 @@
                                         <ColumnDefinition Width="50*" />
                                         <ColumnDefinition Width="25*" />
                                     </Grid.ColumnDefinitions>
-                                <Button Grid.Column="1" x:Name="CreatePermisoButton" Content="Crear Permiso" Click="CreatePermisoButton_Click"/>
+                                    <Button Grid.Column="1" x:Name="CreatePermisoButton" Content="Crear Permiso" Click="CreatePermisoButton_Click"/>
                                 </Grid>
                                 <DataGrid Grid.Row="2" x:Name="DataGridPermisos" AutoGenerateColumns="True" ColumnWidth="*" />
                             </Grid>
