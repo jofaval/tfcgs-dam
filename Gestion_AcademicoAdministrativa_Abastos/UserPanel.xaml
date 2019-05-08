@@ -35,7 +35,7 @@
                             
                         </TabItem>
                         <TabItem Header="Permisos de Usuario">
-                            <DataGrid x:Name="DataGridResult" AutoGenerateColumns="True" ColumnWidth="Auto">
+                            <DataGrid x:Name="DataGridPermisos" AutoGenerateColumns="True" ColumnWidth="*">
 
                             </DataGrid>
                         </TabItem>

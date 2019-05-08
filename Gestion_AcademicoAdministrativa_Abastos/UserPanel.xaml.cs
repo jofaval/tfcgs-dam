@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public UserPanel()
         {
             InitializeComponent();
+            var permisos = StaticReferences.Context.PermisosUsuarioDbSet.ToList();
+            DataGridPermisos.ItemsSource = permisos;
         }
     }
 }
