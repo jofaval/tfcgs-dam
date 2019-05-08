@@ -24,7 +24,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             InitializeComponent();
             var permisos = StaticReferences.Context.PermisosUsuarioDbSet.ToList();
-            DataGridPermisos.ItemsSource = permisos;
+            DataGridPermisos.ItemsSource = from p in permisos
+                                           select new
+                                           {
+                                               p.Nombre,
+                                               p.Descripcion,
+                                               EsAdmin = p.PermisoAdmin,
+                                               EsAdministrativo = p.PermisoAdministrativo,
+                                               EsProfesor = p.PermisProfesor,
+                                               EsAlumno = p.PermisoAlumno
+                                           };
         }
     }
 }
