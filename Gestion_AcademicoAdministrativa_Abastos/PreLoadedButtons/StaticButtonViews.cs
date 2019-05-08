@@ -296,36 +296,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             Grid.SetRow(HomeButton, numRow);
             numRow++;
 
-            var FirstButton = new Button()
-            {
-                Name = "FirstButton",
-                Content = "Buscador Profesorado",
-                Style = menuButtonStyle
-            };
-            buttonList.Add(FirstButton);
-            Grid.SetRow(FirstButton, numRow);
-            numRow++;
-
-            var SecondButton = new Button()
-            {
-                Name = "SecondButton",
-                Content = "Horario",
-                Style = menuButtonStyle
-            };
-            buttonList.Add(SecondButton);
-            Grid.SetRow(SecondButton, numRow);
-            numRow++;
-
-            var ThirdButton = new Button()
-            {
-                Name = "ThirdButton",
-                Content = "Editar Informacion",
-                Style = menuButtonStyle
-            };
-            buttonList.Add(ThirdButton);
-            Grid.SetRow(ThirdButton, numRow);
-            numRow++;
-
             var SQLEditor = new Button()
             {
                 Name = "SQLEditor",
@@ -350,20 +320,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             {
                 if (sender is Button btnSender)
                 {
-                    var mainWindowPanel = XamlBridge.MainPanelInstance;
-                    if (btnSender == FirstButton)
-                    {
-                        XamlFunctionality.ChangeWindowContent(mainWindowPanel, new Buscador());
-                    }
-                    else if (btnSender == SecondButton)
-                    {
-                        XamlFunctionality.ChangeWindowContent(mainWindowPanel, new Horario());
-                    }
-                    else if (btnSender == ThirdButton)
-                    {
-                        XamlBridge.MainWindowInstance.MakeDataEditable();
-                    }
-                    else if (btnSender == HomeButton)
+                    if (btnSender == HomeButton)
                     {
                         var backUpMainPanel = XamlBridge.BackUpMainPanel;
 
@@ -373,8 +330,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                     }
                     else if (btnSender == SQLEditor)
                     {
-                        var sqlEditorMainPanel = new SQLEditor();
-                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, sqlEditorMainPanel.MainPanel);
+                        var sqlEditorMainPanel = new SQLEditor().MainPanel;
+
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, sqlEditorMainPanel);
+
+                        XamlBridge.MainPanelInstance = sqlEditorMainPanel;
                     }
                     else if (btnSender == LogOutButton)
                     {
