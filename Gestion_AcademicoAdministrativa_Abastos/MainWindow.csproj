@@ -132,6 +132,7 @@
     <Compile Include="CustomElements\Notification.xaml.cs">
       <DependentUpon>Notification.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PreLoadedButtons\AlumnoButtons.cs" />
     <Compile Include="PreLoadedButtons\StaticButtonViews.cs" />
     <Compile Include="Reclamaciones.xaml.cs">
       <DependentUpon>Reclamaciones.xaml</DependentUpon>
