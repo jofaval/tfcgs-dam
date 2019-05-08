@@ -1,4 +1,5 @@
 ﻿using Controller;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,32 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void CreatePermisoButton_Click(object sender, RoutedEventArgs e)
         {
+            var nombrePermiso = TxtNombre.Text;
+            var descripcionPermiso = TxtDescripcion.Text;
 
+            var permisoAdministrador = CheckBoxPermisoAdministrador.IsChecked.Value;
+            var permisoAdministrativo = CheckBoxPermisoAdministrador.IsChecked.Value;
+            var permisoProfesor = CheckBoxPermisoAdministrador.IsChecked.Value;
+            var permisoAlumno = CheckBoxPermisoAdministrador.IsChecked.Value;
+
+            if (nombrePermiso.Equals(string.Empty))
+            {
+                Notification.CreateNotificaion("No puede existir un permiso sin nombre");
+            }
+            else
+            {
+                var permisoUsuario = new PermisosUsuario
+                {
+                    Nombre = nombrePermiso,
+                    Descripcion = descripcionPermiso,
+                    PermisoAdmin = permisoAdministrador,
+                    PermisoAdministrativo = permisoAdministrativo,
+                    PermisProfesor = permisoProfesor,
+                    PermisoAlumno = permisoAlumno,
+                };
+                StaticReferences.Context.PermisosUsuarioDbSet.Add(permisoUsuario);
+                StaticReferences.Context.SaveChanges();
+            }
         }
     }
 }
