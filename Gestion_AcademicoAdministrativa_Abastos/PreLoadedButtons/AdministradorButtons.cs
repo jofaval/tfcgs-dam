@@ -40,7 +40,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             var UserPanelButton = new Button()
             {
                 Name = "UserPanel",
-                Content = "Editor de T-SQL",
+                Content = "Panel de Usuarios",
                 Style = menuButtonStyle
             };
             buttonList.Add(UserPanelButton);
