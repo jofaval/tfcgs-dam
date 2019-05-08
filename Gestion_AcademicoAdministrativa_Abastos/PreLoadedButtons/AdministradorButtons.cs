@@ -27,14 +27,24 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             Grid.SetRow(HomeButton, numRow);
             numRow++;
 
-            var SQLEditor = new Button()
+            var SQLEditorButton = new Button()
             {
                 Name = "SQLEditor",
                 Content = "Editor de T-SQL",
                 Style = menuButtonStyle
             };
-            buttonList.Add(SQLEditor);
-            Grid.SetRow(SQLEditor, numRow);
+            buttonList.Add(SQLEditorButton);
+            Grid.SetRow(SQLEditorButton, numRow);
+            numRow++;
+
+            var UserPanelButton = new Button()
+            {
+                Name = "UserPanel",
+                Content = "Editor de T-SQL",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(UserPanelButton);
+            Grid.SetRow(UserPanelButton, numRow);
             numRow++;
 
             var LogOutButton = new Button()
@@ -59,9 +69,17 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
 
                         XamlBridge.MainPanelInstance = backUpMainPanel;
                     }
-                    else if (btnSender == SQLEditor)
+                    else if (btnSender == SQLEditorButton)
                     {
                         var sqlEditorMainPanel = new SQLEditor().MainPanel;
+
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, sqlEditorMainPanel);
+
+                        XamlBridge.MainPanelInstance = sqlEditorMainPanel;
+                    }
+                    else if (btnSender == UserPanelButton)
+                    {
+                        var sqlEditorMainPanel = new UserPanel().MainPanel;
 
                         XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, sqlEditorMainPanel);
 
