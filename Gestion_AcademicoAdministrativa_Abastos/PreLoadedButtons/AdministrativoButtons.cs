@@ -1,5 +1,4 @@
-﻿using Model.DataStructure;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,28 +8,9 @@ using System.Windows.Controls;
 
 namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
 {
-    public class StaticButtonViews
+    public class AdministrativoButtons
     {
-        delegate void Menu_Click(object sender, RoutedEventArgs e);
-
-        static public List<Button> LoadFromView(ViewsEnum viewEnum)
-        {
-            switch (viewEnum)
-            {
-                case ViewsEnum.ALUMNO:
-                    return AlumnoButtons.CreateAlumnoView();
-                case ViewsEnum.PROFESOR:
-                    return ProfesorButtons.CreateProfesorView();
-                case ViewsEnum.ADMINISTRATIVO:
-                    return AdministrativoButtons.CreateAdministrativoView();
-                case ViewsEnum.ADMINISTRADOR:
-                    return CreateAdministradorView();
-                default:
-                    return null;
-            }
-        }
-
-        static public List<Button> CreateAdministradorView()
+        static public List<Button> CreateAdministrativoView()
         {
             var buttonList = new List<Button>();
 
@@ -67,7 +47,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             Grid.SetRow(LogOutButton, numRow);
             numRow++;
 
-            Menu_Click AlumnoView_Click = delegate (object sender, RoutedEventArgs e)
+            void AdministrativoView_Click(object sender, RoutedEventArgs e)
             {
                 if (sender is Button btnSender)
                 {
@@ -89,28 +69,17 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                     }
                     else if (btnSender == LogOutButton)
                     {
-                        LogOutFromMainWindow();
+                        StaticButtonViews.LogOutFromMainWindow();
                     }
                 }
             };
 
             foreach (var button in buttonList)
             {
-                button.Click += new RoutedEventHandler(AlumnoView_Click);
+                button.Click += new RoutedEventHandler(AdministrativoView_Click);
             }
 
             return buttonList;
-        }
-
-        static public void LogOutFromMainWindow()
-        {
-            var mainWindowInstance = XamlBridge.MainWindowInstance;
-
-            XamlBridge.BackgroundGrid = mainWindowInstance.BackgroundGrid;
-
-            XamlFunctionality.ChangeWindowContent(XamlBridge.MainPanelInstance, new LogIn());
-
-            mainWindowInstance.RemoveButtonsFromButtonPanel();
         }
     }
 }
