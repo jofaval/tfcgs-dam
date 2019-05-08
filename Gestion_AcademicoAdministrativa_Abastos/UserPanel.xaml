@@ -32,7 +32,7 @@
                     </Grid.RowDefinitions>
                     <TabControl Grid.Column="1" Grid.Row="1" Background="{DynamicResource MainColorSolid}" BorderBrush="Transparent">
                         <TabItem Header="Crear Usuario">
-                            
+                            <ComboBox x:Name="ComboBoxPermisos" />
                         </TabItem>
                         <TabItem Header="Permisos de Usuario">
                             <Grid>

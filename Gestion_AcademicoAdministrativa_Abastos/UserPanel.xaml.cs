@@ -28,6 +28,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             InitializeComponent();
             var permisos = StaticReferences.Context.PermisosUsuarioDbSet.ToList();
             DataGridPermisos.ItemsSource = Permisos;
+            ComboBoxPermisos.ItemsSource = Permisos;
             var saved = from p in permisos
                         select new
                         {
