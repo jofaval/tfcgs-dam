@@ -27,6 +27,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             Grid.SetRow(HomeButton, numRow);
             numRow++;
 
+            var BuscadorPersonaButton = new Button()
+            {
+                Name = "BuscadorPersona",
+                Content = "Buscador de Personas",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(BuscadorPersonaButton);
+            Grid.SetRow(BuscadorPersonaButton, numRow);
+            numRow++;
+
             var SQLEditorButton = new Button()
             {
                 Name = "SQLEditor",
@@ -71,19 +81,27 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                     }
                     else if (btnSender == SQLEditorButton)
                     {
-                        var sqlEditorMainPanel = new SQLEditor().MainPanel;
+                        var mainPanel = new SQLEditor().MainPanel;
 
-                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, sqlEditorMainPanel);
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, mainPanel);
 
-                        XamlBridge.MainPanelInstance = sqlEditorMainPanel;
+                        XamlBridge.MainPanelInstance = mainPanel;
                     }
                     else if (btnSender == UserPanelButton)
                     {
-                        var sqlEditorMainPanel = new UserPanel().MainPanel;
+                        var mainPanel = new UserPanel().MainPanel;
 
-                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, sqlEditorMainPanel);
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, mainPanel);
 
-                        XamlBridge.MainPanelInstance = sqlEditorMainPanel;
+                        XamlBridge.MainPanelInstance = mainPanel;
+                    }
+                    else if (btnSender == BuscadorPersonaButton)
+                    {
+                        var mainPanel = new BuscadorPersona().MainPanel;
+
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, mainPanel);
+
+                        XamlBridge.MainPanelInstance = mainPanel;
                     }
                     else if (btnSender == LogOutButton)
                     {
