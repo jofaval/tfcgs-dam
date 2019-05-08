@@ -93,7 +93,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             notification.StartTimer();
 
             notification.InitializeComponent();
-            Console.WriteLine(notification.NotificationContent);
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
