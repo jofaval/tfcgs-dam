@@ -14,6 +14,7 @@ namespace Controller
 
         public static readonly string UnsuccesfulLogIn = "No se ha podido acceder. ¡Lo sentimos!" +
                     "\nLa combinación usuario/contraseña no era la correcta.";
+        public static readonly string StringJoiner = ", ";
 
         public static readonly string UsernameFile = "user.sav";
         public static readonly string SettingsFile = "user.stgs";
