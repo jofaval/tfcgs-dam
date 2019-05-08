@@ -70,10 +70,10 @@
                                             <ColumnDefinition Width="50*" />
                                             <ColumnDefinition Width="25*" />
                                         </Grid.ColumnDefinitions>
-                                        <CheckBox Grid.Column="1" Grid.Row="0" Content="Permiso de Administrador" />
-                                        <CheckBox Grid.Column="1" Grid.Row="1" Content="Permiso de Administrativo" />
-                                        <CheckBox Grid.Column="1" Grid.Row="2" Content="Permiso de Profesor" />
-                                        <CheckBox Grid.Column="1" Grid.Row="3" Content="Permiso de Alumno" />
+                                        <CheckBox x:Name="CheckBoxPermisoAdministrador" Grid.Column="1" Grid.Row="0" Content="Permiso de Administrador" />
+                                        <CheckBox x:Name="CheckBoxPermisoAdministrativo" Grid.Column="1" Grid.Row="1" Content="Permiso de Administrativo" />
+                                        <CheckBox x:Name="CheckBoxPermisoProfesor" Grid.Column="1" Grid.Row="2" Content="Permiso de Profesor" />
+                                        <CheckBox x:Name="CheckBoxPermisoAlumno" Grid.Column="1" Grid.Row="3" Content="Permiso de Alumno" />
                                     </Grid>
                                 </Grid>
                                 <Grid Grid.Row="1">
@@ -82,7 +82,7 @@
                                         <ColumnDefinition Width="50*" />
                                         <ColumnDefinition Width="25*" />
                                     </Grid.ColumnDefinitions>
-                                <Button Grid.Column="1" x:Name="CreatePermisoButton" Content="Crear Permiso" />
+                                <Button Grid.Column="1" x:Name="CreatePermisoButton" Content="Crear Permiso" Click="CreatePermisoButton_Click"/>
                                 </Grid>
                                 <DataGrid Grid.Row="2" x:Name="DataGridPermisos" AutoGenerateColumns="True" ColumnWidth="*" />
                             </Grid>
