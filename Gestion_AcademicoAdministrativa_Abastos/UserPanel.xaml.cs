@@ -35,5 +35,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                                                EsAlumno = p.PermisoAlumno
                                            };
         }
+
+        private void CreatePermisoButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
