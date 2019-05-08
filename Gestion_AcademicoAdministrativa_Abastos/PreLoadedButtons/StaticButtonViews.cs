@@ -24,82 +24,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                 case ViewsEnum.ADMINISTRATIVO:
                     return AdministrativoButtons.CreateAdministrativoView();
                 case ViewsEnum.ADMINISTRADOR:
-                    return CreateAdministradorView();
+                    return AdministradorButtons.CreateAdministradorView();
                 default:
                     return null;
             }
-        }
-
-        static public List<Button> CreateAdministradorView()
-        {
-            var buttonList = new List<Button>();
-
-            var menuButtonStyle = (Style)Application.Current.Resources["MenuButton"];
-            var numRow = 0;
-
-            var HomeButton = new Button()
-            {
-                Name = "HomeButton",
-                Content = "Home",
-                Style = menuButtonStyle
-            };
-            buttonList.Add(HomeButton);
-            Grid.SetRow(HomeButton, numRow);
-            numRow++;
-
-            var SQLEditor = new Button()
-            {
-                Name = "SQLEditor",
-                Content = "Editor de T-SQL",
-                Style = menuButtonStyle
-            };
-            buttonList.Add(SQLEditor);
-            Grid.SetRow(SQLEditor, numRow);
-            numRow++;
-
-            var LogOutButton = new Button()
-            {
-                Name = "LogOutButton",
-                Content = "Salir",
-                Style = menuButtonStyle
-            };
-            buttonList.Add(LogOutButton);
-            Grid.SetRow(LogOutButton, numRow);
-            numRow++;
-
-            Menu_Click AlumnoView_Click = delegate (object sender, RoutedEventArgs e)
-            {
-                if (sender is Button btnSender)
-                {
-                    if (btnSender == HomeButton)
-                    {
-                        var backUpMainPanel = XamlBridge.BackUpMainPanel;
-
-                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
-
-                        XamlBridge.MainPanelInstance = backUpMainPanel;
-                    }
-                    else if (btnSender == SQLEditor)
-                    {
-                        var sqlEditorMainPanel = new SQLEditor().MainPanel;
-
-                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, sqlEditorMainPanel);
-
-                        XamlBridge.MainPanelInstance = sqlEditorMainPanel;
-                    }
-                    else if (btnSender == LogOutButton)
-                    {
-                        LogOutFromMainWindow();
-                    }
-                }
-            };
-
-            foreach (var button in buttonList)
-            {
-                button.Click += new RoutedEventHandler(AlumnoView_Click);
-            }
-
-            return buttonList;
         }
 
         static public void LogOutFromMainWindow()
