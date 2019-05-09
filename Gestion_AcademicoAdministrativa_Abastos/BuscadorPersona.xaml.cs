@@ -22,16 +22,18 @@ namespace Gestion_AcademicoAdministrativa_Abastos
     {
         public List<dynamic> PersonaList { get; set; }
         public int SelectedIndex { get; set; }
-        public int Step { get; set; }
+        public string Step { get; set; }
 
         public BuscadorPersona()
         {
             PersonaList = new List<dynamic>();
+            Step = 10.ToString();
             InitializeComponent();
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
+            Console.WriteLine(Step);
             var joiner = Constants.StringJoiner;
             var currentUserPerson = XamlBridge.CurrentUser.Persona1;
 
@@ -50,12 +52,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 PersonaList.Add(savedItem);
             }
 
-            var startIndex = SelectedIndex * 10;
-            var endIndex = startIndex + Step;
-
-            XamlFunctionality.FillDataGrid(DataGridResult, PersonaList
-                .Where((elemn, index) => index >= startIndex && index < endIndex)
-                .ToList());
+            Button_Click(null, null);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -67,7 +64,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                     SelectedIndex--;
                 }
             }
-            else
+            else if (sender == ButtonNext)
             {
                 if (SelectedIndex < PersonaList.Count - 1)
                 {
@@ -76,7 +73,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             }
 
             var startIndex = SelectedIndex * 10;
-            var endIndex = startIndex + Step;
+            var endIndex = startIndex + int.Parse(Step);
 
             XamlFunctionality.FillDataGrid(DataGridResult, PersonaList
                 .Where((elemn, index) => index >= startIndex && index < endIndex)

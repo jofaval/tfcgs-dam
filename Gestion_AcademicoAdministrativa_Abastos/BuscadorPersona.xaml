@@ -35,7 +35,9 @@
                             <RowDefinition Height="5*" />
                             <RowDefinition Height="7*" />
                             <RowDefinition Height="5*" />
-                            <RowDefinition Height="64*" />
+                            <RowDefinition Height="7*" />
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="52*" />
                             <RowDefinition Height="5*" />
                             <RowDefinition Height="7*" />
                             <RowDefinition Height="7*" />
@@ -52,8 +54,18 @@
                             <CheckBox x:Name="IgnoreMayus" Grid.Column="2" Content="IgnorarMayusculas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" />
                             <CheckBox x:Name="ExactMatch" Grid.Column="3" Content="Coincidencia Exacta" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" />
                         </Grid>
-                        <DataGrid x:Name="DataGridResult" Grid.Row="3" AutoGenerateColumns="True" ColumnWidth="Auto" />
-                        <Grid Grid.Row="5">
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="25*" />
+                                <ColumnDefinition Width="25*" />
+                                <ColumnDefinition Width="25*" />
+                                <ColumnDefinition Width="25*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="1" Content="Número de Filas"/>
+                            <TextBox Grid.Column="2" Text="{Binding Step}"/>
+                        </Grid>
+                        <DataGrid x:Name="DataGridResult" Grid.Row="5" AutoGenerateColumns="True" ColumnWidth="Auto" />
+                        <Grid Grid.Row="7">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="35*" />
                                 <ColumnDefinition Width="20*" />
