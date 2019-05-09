@@ -33,7 +33,18 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                     {
                         var ds = new DataSet();
                         dataAdapter.Fill(ds);
-                        DataGridResult.ItemsSource = ds.Tables[0].AsEnumerable().ToList();
+                        var realList = new List<object[]>();
+                        var table = ds.Tables[0];
+                        var row = table.Rows;
+                        foreach (var item in row)
+                        {
+                            if (item is DataRow itemAsDataRow)
+                            {
+                                object[] items = itemAsDataRow.ItemArray;
+                                realList.Add(itemAsDataRow.ItemArray);
+                            }
+                        }
+                        DataGridResult.ItemsSource = realList;
                     }
                 }
             }
