@@ -116,7 +116,6 @@ namespace DataIntegrityTests
             Assert.IsFalse(state);
         }
 
-        //DataGenerator
         [TestMethod]
         public void CheckBadEmail()
         {
