@@ -47,6 +47,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                     Direccion = string.Concat(p.Calle, joiner, p.Patio, joiner, p.Piso, joiner, p.Puerta),
                 });
 
+            PersonaList.Clear();
             foreach (var savedItem in saved)
             {
                 PersonaList.Add(savedItem);
