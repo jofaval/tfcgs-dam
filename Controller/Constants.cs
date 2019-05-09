@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Controller
@@ -32,5 +33,6 @@ namespace Controller
         public static readonly string XmlWindowHeight = "windowHeight";
 
         public static readonly double AspectRatio = 1920 / 1080;
+        public static readonly Regex RegexOnlyNumber = new Regex("[^0-9]+");
     }
 }
