@@ -52,6 +52,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 PersonaList.Add(savedItem);
             }
 
+            LabelNumRows.Content = PersonaList.Count;
+
             LoadPageData();
         }
 
@@ -78,7 +80,9 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         private void LoadPageData()
         {
             var startIndex = SelectedIndex * 10;
+            LabelStartIndex.Content = startIndex;
             var endIndex = startIndex + Step;
+            LabelEndIndex.Content = endIndex;
 
             XamlFunctionality.FillDataGrid(DataGridResult, PersonaList
                 .Where((elemn, index) => index >= startIndex && index < endIndex)
