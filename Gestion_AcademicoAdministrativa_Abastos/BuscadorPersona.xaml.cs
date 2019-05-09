@@ -66,22 +66,27 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            var correcto = false;
             if (sender == ButtonPrevious)
             {
-                if (SelectedIndex > 0)
+                correcto = SelectedIndex > 0;
+                if (correcto)
                 {
                     SelectedIndex--;
                 }
             }
             else if (sender == ButtonNext)
             {
-                if ((SelectedIndex * Step) < PersonaList.Count - Step)
+                correcto = (SelectedIndex * Step) < PersonaList.Count - Step;
+                if (correcto)
                 {
                     SelectedIndex++;
                 }
             }
-
-            LoadPageData();
+            if (correcto)
+            {
+                LoadPageData();
+            }
         }
 
         private void LoadPageData()
