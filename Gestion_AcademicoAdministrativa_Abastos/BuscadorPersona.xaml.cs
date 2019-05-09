@@ -28,8 +28,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             PersonaList = new List<dynamic>();
             Step = 15;
-            TxtStep.Text = Step.ToString();
             InitializeComponent();
+            TxtStep.Text = Step.ToString();
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
@@ -75,7 +75,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             }
             else if (sender == ButtonNext)
             {
-                if ((SelectedIndex * Step) < PersonaList.Count - 1)
+                if ((SelectedIndex * Step) < PersonaList.Count - Step)
                 {
                     SelectedIndex++;
                 }
