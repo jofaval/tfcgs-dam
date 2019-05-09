@@ -61,8 +61,8 @@
                                 <ColumnDefinition Width="20*" />
                                 <ColumnDefinition Width="35*" />
                             </Grid.ColumnDefinitions>
-                            <Button Grid.Column="1" Content="Anterior"/>
-                            <Button Grid.Column="3" Content="Siguiente"/>
+                            <Button x:Name="ButtonPrevious" Grid.Column="1" Content="Anterior" Click="Button_Click"/>
+                            <Button x:Name="ButtonNext" Grid.Column="3" Content="Siguiente" Click="Button_Click"/>
                         </Grid>
                     </Grid>
                 </Grid>

@@ -22,9 +22,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
     {
         public List<dynamic> PersonaList { get; set; }
         public int SelectedIndex { get; set; }
+        public int Step { get; set; }
 
         public BuscadorPersona()
         {
+            PersonaList = new List<dynamic>();
             InitializeComponent();
         }
 
@@ -32,7 +34,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             var joiner = Constants.StringJoiner;
             var currentUserPerson = XamlBridge.CurrentUser.Persona1;
-            PersonaList = (List<dynamic>)StaticReferences.Context.PersonaDbSet
+
+            var saved = StaticReferences.Context.PersonaDbSet
                 .Select(p => new
                 {
                     p.Dni,
@@ -41,7 +44,43 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                     p.Apellidos,
                     Direccion = string.Concat(p.Calle, joiner, p.Patio, joiner, p.Piso, joiner, p.Puerta),
                 });
-            XamlFunctionality.FillDataGrid(DataGridResult, PersonaList);
+
+            foreach (var savedItem in saved)
+            {
+                PersonaList.Add(savedItem);
+            }
+
+            var startIndex = SelectedIndex * 10;
+            var endIndex = startIndex + Step;
+
+            XamlFunctionality.FillDataGrid(DataGridResult, PersonaList
+                .Where((elemn, index) => index >= startIndex && index < endIndex)
+                .ToList());
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender == ButtonPrevious)
+            {
+                if (SelectedIndex > 0)
+                {
+                    SelectedIndex--;
+                }
+            }
+            else
+            {
+                if (SelectedIndex < PersonaList.Count - 1)
+                {
+                    SelectedIndex++;
+                }
+            }
+
+            var startIndex = SelectedIndex * 10;
+            var endIndex = startIndex + Step;
+
+            XamlFunctionality.FillDataGrid(DataGridResult, PersonaList
+                .Where((elemn, index) => index >= startIndex && index < endIndex)
+                .ToList());
         }
     }
 }
