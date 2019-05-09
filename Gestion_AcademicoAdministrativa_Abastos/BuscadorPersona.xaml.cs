@@ -37,7 +37,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var joiner = Constants.StringJoiner;
             var currentUserPerson = XamlBridge.CurrentUser.Persona1;
 
-            var saved = StaticReferences.Context.PersonaDbSet
+            var name = TxtSearch.Text;
+            var ignoreMayus = IgnoreMayus.IsChecked;
+            var exactMatch = ExactMatch.IsChecked;
+
+            var saved = StaticReferences.Context.PersonaDbSet.AsEnumerable()
+                .Where(p => DataIntegrityChecker.FullyCheckIfContainsString(p.Nombre, name, ignoreMayus, exactMatch))
                 .Select(p => new
                 {
                     p.Dni,
@@ -69,7 +74,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             }
             else if (sender == ButtonNext)
             {
-                if (SelectedIndex < PersonaList.Count - 1)
+                if ((SelectedIndex * Step) < PersonaList.Count - 1)
                 {
                     SelectedIndex++;
                 }
