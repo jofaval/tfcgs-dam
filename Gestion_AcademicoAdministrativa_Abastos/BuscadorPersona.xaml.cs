@@ -27,7 +27,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public BuscadorPersona()
         {
             PersonaList = new List<dynamic>();
-            Step = 10;
+            Step = 15;
+            TxtStep.Text = Step.ToString();
             InitializeComponent();
         }
 
