@@ -204,5 +204,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             anim.Completed += (s, _) => System.Windows.Application.Current.Shutdown();
             BeginAnimation(OpacityProperty, anim);
         }
+
+        private void WindowVar_Activated(object sender, EventArgs e)
+        {
+            Topmost = false;
+        }
     }
 }
