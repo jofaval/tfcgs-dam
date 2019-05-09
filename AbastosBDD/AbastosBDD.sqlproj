@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>AbastosBDD</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{9de8bb02-467e-408a-9637-dc8e96c82453}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>AbastosBDD</RootNamespace>
+    <AssemblyName>AbastosBDD</AssemblyName>
+    <ModelCollation>3082,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Modern_Spanish_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Reclamacion.sql" />
+    <Build Include="dbo\Tables\Proyecto.sql" />
+    <Build Include="dbo\Tables\Asignatura.sql" />
+    <Build Include="dbo\Tables\Certificado.sql" />
+    <Build Include="dbo\Tables\CertificadoMatricula.sql" />
+    <Build Include="dbo\Tables\CertificadoTitulo.sql" />
+    <Build Include="dbo\Tables\CertificadoNotas.sql" />
+    <Build Include="dbo\Tables\Titulo.sql" />
+    <Build Include="dbo\Tables\Convocatoria.sql" />
+    <Build Include="dbo\Tables\Evaluacion.sql" />
+    <Build Include="dbo\Tables\Nota.sql" />
+    <Build Include="dbo\Tables\AsistenciaSemanaAsignatura.sql" />
+    <Build Include="dbo\Tables\AsistenciaDiaAsignatura.sql" />
+    <Build Include="dbo\Tables\Horario.sql" />
+    <Build Include="dbo\Tables\Impartimiento.sql" />
+    <Build Include="dbo\Tables\PermisosUsuario.sql" />
+    <Build Include="dbo\Tables\Usuario.sql" />
+    <Build Include="dbo\Tables\Persona.sql" />
+    <Build Include="dbo\Tables\Telefono.sql" />
+    <Build Include="dbo\Tables\Trabajador.sql" />
+    <Build Include="dbo\Tables\Baja.sql" />
+    <Build Include="dbo\Tables\Aula.sql" />
+    <Build Include="dbo\Tables\Ordenador.sql" />
+    <Build Include="dbo\Tables\Departamento.sql" />
+    <Build Include="dbo\Tables\Profesor.sql" />
+    <Build Include="dbo\Tables\ProfesorSustituto.sql" />
+    <Build Include="dbo\Tables\Administrativo.sql" />
+    <Build Include="dbo\Tables\Especial.sql" />
+    <Build Include="dbo\Tables\Mantenimiento.sql" />
+    <Build Include="dbo\Tables\Curso.sql" />
+    <Build Include="dbo\Tables\Bachiller.sql" />
+    <Build Include="dbo\Tables\Eso.sql" />
+    <Build Include="dbo\Tables\Ciclo.sql" />
+    <Build Include="dbo\Tables\Superior.sql" />
+    <Build Include="dbo\Tables\Alumno.sql" />
+    <Build Include="Security\NT Service_MSSQLSERVER.sql" />
+    <Build Include="Security\NT Service_MSSQLSERVER_1.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="dbo\Stored Procedures\WriteToFile.sql" />
+  </ItemGroup>
+</Project>
