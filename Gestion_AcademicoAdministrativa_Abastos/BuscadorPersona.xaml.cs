@@ -80,7 +80,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void LoadPageData()
         {
-            var startIndex = SelectedIndex * 10;
+            var startIndex = SelectedIndex * Step;
             LabelStartIndex.Content = startIndex;
             var endIndex = startIndex + Step;
             LabelEndIndex.Content = endIndex;
