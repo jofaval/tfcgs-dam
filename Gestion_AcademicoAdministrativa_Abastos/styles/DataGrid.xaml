@@ -17,7 +17,6 @@
         <Setter Property="BorderBrush" Value="{x:Null}" />
         <Setter Property="Background" Value="{DynamicResource StandOutColorSolid}" />
         <Setter Property="Foreground" Value="{DynamicResource MainColorSolid}" />
-        <!--Setter Property="Height" Value="50" /-->
         <Setter Property="HorizontalContentAlignment" Value="Center" />
     </Style>
     <Style TargetType="{x:Type DataGridRowHeader}">
@@ -28,7 +27,6 @@
         <Setter Property="Foreground" Value="#FFB3B3B3" />
         <Setter Property="Background" Value="#33000000" />
         <Setter Property="Background" Value="Transparent" />
-        <!--Setter Property="Height" Value="40" /-->
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource SelectionColorSolid}"/>
@@ -39,7 +37,6 @@
         <Setter Property="BorderBrush" Value="{x:Null}" />
         <Setter Property="Background" Value="#FF262626" />
         <Setter Property="BorderThickness" Value="0"/>
-        <!--Setter Property="TextBlock.VerticalAlignment" Value="Center" /-->
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource SelectionColorSolid}"/>
