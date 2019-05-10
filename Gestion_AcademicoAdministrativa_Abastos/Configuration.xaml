@@ -25,7 +25,8 @@
             <RowDefinition Height="5*" />
             <RowDefinition Height="10*" />
             <RowDefinition Height="5*" />
-            <RowDefinition Height="25*" />
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="35*" />
             <RowDefinition Height="5*" />
             <RowDefinition Height="5*" />
         </Grid.RowDefinitions>
@@ -43,7 +44,7 @@
                 HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Center"
                 ValueChanged="ScreenSize_ValueChanged"
                 AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0"/>
-        <Button x:Name="BtnMaximize" Grid.Column="1" Grid.Row="7" Content="Maximizar/Minimizar" Click="BtnMaximize_Click"/>
-        <Button x:Name="BtnClose" Grid.Column="1" Grid.Row="9" Content="Salir" Click="BtnClose_Click"/>
+        <Button x:Name="BtnMaximize" Grid.Column="1" Grid.Row="8" Content="Maximizar/Minimizar" Click="BtnMaximize_Click"/>
+        <Button x:Name="BtnClose" Grid.Column="1" Grid.Row="10" Content="Salir" Click="BtnClose_Click"/>
     </Grid>
 </Window>

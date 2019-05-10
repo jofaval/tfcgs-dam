@@ -13,7 +13,7 @@
         <GradientStop Color="#79B942" Offset="1.0" />
     </LinearGradientBrush>
     <RadialGradientBrush x:Key="RoundButtonDefaultBrush">
-        <GradientStop Color="#38B24A" Offset="1"/>
+        <GradientStop Color="{DynamicResource MainColor}" Offset="1"/>
     </RadialGradientBrush>
     <RadialGradientBrush x:Key="RoundButtonPressedBrush">
         <GradientStop Color="#38B24A" Offset="1"/>
@@ -23,11 +23,15 @@
     </RadialGradientBrush>
     <ControlTemplate x:Key="RoundButtonTemplate" TargetType="RepeatButton">
         <Grid>
-            <Ellipse Name="PART_Ellipse" 
+            <Border x:Name="Border" BorderThickness="5" CornerRadius="15"
+                    BorderBrush="Transparent"
+                         Background="{DynamicResource BackgroundContainerGradient}">
+                <Rectangle Name="PART_Ellipse" 
                          Width="30"
                          Height="30" 
                          Stroke="Transparent"
-                         Fill="{StaticResource RoundButtonDefaultBrush}"/>
+                           Fill="Transparent"/>
+            </Border>
             <ContentPresenter Name="PART_ContentPresenter"  ContentSource="Content" Margin="0,0,0,6" 
                                   HorizontalAlignment="Center" 
                                   VerticalAlignment="Center"
@@ -37,11 +41,11 @@
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter TargetName="PART_Ellipse" Property="Fill" Value="{StaticResource RoundButtonMouseOverBrush}" />
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource BackgroundColorfulGradient}" />
                 <Setter TargetName="PART_ContentPresenter" Property="TextBlock.Foreground" Value="White" />
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter TargetName="PART_Ellipse" Property="Fill" Value="{StaticResource RoundButtonPressedBrush}" />
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource BackgroundColorfulGradient}" />
                 <Setter TargetName="PART_ContentPresenter" Property="TextBlock.Foreground" Value="White" />
             </Trigger>
         </ControlTemplate.Triggers>
@@ -110,10 +114,9 @@
                         </Grid.ColumnDefinitions>
 
                         <RepeatButton Name="PART_DecreaseRepeatButton" 
-                                  Grid.Row="1" Grid.Column="0" 
+                                  Grid.Row="1" Grid.Column="0"
                                   Style="{StaticResource RoundButtonStyle}" 
                                   Content="-" Command="Slider.DecreaseSmall" />
-
                         <RepeatButton Name="PART_IncreaseRepeatButton" 
                                   Grid.Row="1" Grid.Column="2" 
                                   Style="{StaticResource RoundButtonStyle}" 
