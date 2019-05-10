@@ -80,15 +80,15 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Thumb">
                     <Canvas>
-                        <Path Margin="0,5,0,0" Data="M 8,3 L 0,15 0,30 15,30 15,15 8,3" Stroke="Black"
-                              Name="Ellipse" Fill="#EAE9E4" />
+                        <Path Margin="0,5,0,0" Data="M 8,3 L 0,15 0,30 15,30 15,15 8,3" Stroke="Transparent"
+                              Name="Ellipse" Fill="{StaticResource BackgroundContainerGradient}" />
                     </Canvas>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Ellipse" Property="Fill" Value="#EAE9E4"/>
+                            <Setter TargetName="Ellipse" Property="Fill" Value="{StaticResource BackgroundColorfulGradient}"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="Ellipse" Property="Fill" Value="#EAE9E4"/>
+                            <Setter TargetName="Ellipse" Property="Fill" Value="{StaticResource BackgroundColorfulGradient}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -98,6 +98,7 @@
 
     <Style TargetType="Slider" BasedOn="{StaticResource baseSlider}">
         <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Slider">
@@ -123,13 +124,13 @@
                                   Content="+" Command="Slider.IncreaseSmall" />
 
                         <Border Name="PART_Border" 
-                            BorderBrush="Black" BorderThickness="0" 
+                            BorderBrush="Transparent" BorderThickness="5" 
                             Padding="2"
                             CornerRadius="5" 
                             Grid.Row="1" Grid.Column="1"
                             Width="{TemplateBinding Width}" 
                             Height="{TemplateBinding Height}"
-                            Background="{StaticResource HorizontalBrush}"
+                            Background="{StaticResource StandOutColorSolid}"
                             HorizontalAlignment="Stretch"  
                             VerticalAlignment="Center" />
 
