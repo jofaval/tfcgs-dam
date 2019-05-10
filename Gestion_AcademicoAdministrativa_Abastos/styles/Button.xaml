@@ -12,8 +12,11 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Grid Background="{TemplateBinding Background}">
-                        <Border x:Name="border" CornerRadius="0,15,0,15" BorderBrush="{TemplateBinding Foreground}" BorderThickness="0" Background="{TemplateBinding Background}">
-                            <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Border x:Name="border" CornerRadius="0,15,0,15"
+                                BorderBrush="{TemplateBinding Foreground}"
+                                BorderThickness="0" Background="{TemplateBinding Background}">
+                            <ContentPresenter Content="{TemplateBinding Content}"
+                                              HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
