@@ -29,4 +29,12 @@
         <GradientStop Color="{DynamicResource MainColor}" Offset="0" />
         <GradientStop Color="#FF202023" Offset="1" />
     </LinearGradientBrush>
+
+    <Color x:Key="ConfigurationStartColor">#FF1E233E</Color>
+    <Color x:Key="ConfigurationStopColor">#FFE00065</Color>
+
+    <LinearGradientBrush x:Key="ConfigurationGradient" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="{DynamicResource ConfigurationStartColor}" Offset="0"/>
+        <GradientStop Color="{DynamicResource ConfigurationStopColor}" Offset="1"/>
+    </LinearGradientBrush>
 </ResourceDictionary>
