@@ -37,4 +37,12 @@
         <GradientStop Color="{DynamicResource ConfigurationStartColor}" Offset="0"/>
         <GradientStop Color="{DynamicResource ConfigurationStopColor}" Offset="1"/>
     </LinearGradientBrush>
+
+    <Color x:Key="MainWindowStartColor">#FF8008</Color>
+    <Color x:Key="MainWindowStopColor">#FFC837</Color>
+    
+    <LinearGradientBrush x:Key="MainWindowGradient" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="{DynamicResource MainWindowStartColor}" Offset="0" />
+        <GradientStop Color="{DynamicResource MainWindowStopColor}" Offset="1" />
+    </LinearGradientBrush>
 </ResourceDictionary>

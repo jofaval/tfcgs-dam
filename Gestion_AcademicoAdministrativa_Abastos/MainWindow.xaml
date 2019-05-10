@@ -66,13 +66,7 @@
                         <RowDefinition Height="90*" />
                         <RowDefinition Height="5*" />
                     </Grid.RowDefinitions>
-                    <Grid HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Panel.ZIndex="-1">
-                        <Grid.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#FFFF3FEE" Offset="0" />
-                                <GradientStop Color="#FFFFB32D" Offset="1" />
-                            </LinearGradientBrush>
-                        </Grid.Background>
+                    <Grid HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Panel.ZIndex="-1" Background="{DynamicResource MainWindowGradient}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="5*" />
                             <ColumnDefinition Width="90*" />
