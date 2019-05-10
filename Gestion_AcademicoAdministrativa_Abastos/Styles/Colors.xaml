@@ -30,8 +30,8 @@
         <GradientStop Color="#FF202023" Offset="1" />
     </LinearGradientBrush>
 
-    <Color x:Key="ConfigurationStartColor">#FF1E233E</Color>
-    <Color x:Key="ConfigurationStopColor">#FFE00065</Color>
+    <Color x:Key="ConfigurationStartColor">#11998E</Color>
+    <Color x:Key="ConfigurationStopColor">#38EF7D</Color>
 
     <LinearGradientBrush x:Key="ConfigurationGradient" EndPoint="0.5,1" StartPoint="0.5,0">
         <GradientStop Color="{DynamicResource ConfigurationStartColor}" Offset="0"/>
