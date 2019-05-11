@@ -29,11 +29,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             PersonaList = new List<dynamic>();
             Step = 15;
             InitializeComponent();
-            TxtStep.Text = Step.ToString();
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
+            TxtStep.Text = Step.ToString();
             Console.WriteLine(Step);
             var joiner = Constants.StringJoiner;
             var currentUserPerson = XamlBridge.CurrentUser.Persona1;
@@ -113,7 +113,18 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 var content = senderAsTextBox.Text;
                 if (!content.Equals(string.Empty))
                 {
-                    Step = int.Parse(content);
+                    var parsedValue = int.Parse(content);
+                    Step = parsedValue;
+                    if (parsedValue > 0)
+                    {
+                        var count = PersonaList.Count - 1;
+                        var indexWithParsedValue = SelectedIndex * parsedValue;
+                        if (indexWithParsedValue >= count)
+                        {
+                            var fixedValue = (count / parsedValue) - 1;
+                            SelectedIndex = fixedValue;
+                        }
+                    }
                     LoadPageData();
                 }
             }
