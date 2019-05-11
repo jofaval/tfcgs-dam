@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.DataStructure;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -156,81 +157,7 @@ namespace Controller
             var dniNumber = RandomGenerator.Next(MaxDNINumber);
             var resto = dniNumber % 23;
 
-            var letra = ' ';
-            switch (resto)
-            {
-                case 0:
-                    letra = 'T';
-                    break;
-                case 1:
-                    letra = 'R';
-                    break;
-                case 2:
-                    letra = 'W';
-                    break;
-                case 3:
-                    letra = 'A';
-                    break;
-                case 4:
-                    letra = 'G';
-                    break;
-                case 5:
-                    letra = 'M';
-                    break;
-                case 6:
-                    letra = 'Y';
-                    break;
-                case 7:
-                    letra = 'F';
-                    break;
-                case 8:
-                    letra = 'P';
-                    break;
-                case 9:
-                    letra = 'D';
-                    break;
-                case 10:
-                    letra = 'X';
-                    break;
-                case 11:
-                    letra = 'B';
-                    break;
-                case 12:
-                    letra = 'N';
-                    break;
-                case 13:
-                    letra = 'J';
-                    break;
-                case 14:
-                    letra = 'Z';
-                    break;
-                case 15:
-                    letra = 'S';
-                    break;
-                case 16:
-                    letra = 'Q';
-                    break;
-                case 17:
-                    letra = 'V';
-                    break;
-                case 18:
-                    letra = 'H';
-                    break;
-                case 19:
-                    letra = 'L';
-                    break;
-                case 20:
-                    letra = 'C';
-                    break;
-                case 21:
-                    letra = 'K';
-                    break;
-                case 22:
-                    letra = 'E';
-                    break;
-            }
-
-            return dniNumber.ToString("D8") + letra;
+            return dniNumber.ToString("D8") + (DNILeterEnum)resto;
         }
 
         public bool CheckDniIsCorrect(string dni)
@@ -252,84 +179,8 @@ namespace Controller
                 }
                 var resto = int.Parse(dni.Substring(0, 8)) % 23;
                 var letraOrigin = char.ToUpper(dni.ElementAt(8));
-                bool result = false;
 
-                switch (resto)
-                {
-                    case 0:
-                        result = letraOrigin == 'T'
-                            || letraOrigin == 'X';
-                        break;
-                    case 1:
-                        result = letraOrigin == 'R'
-                            || letraOrigin == 'Y';
-                        break;
-                    case 2:
-                        result = letraOrigin == 'W'
-                            || letraOrigin == 'Z';
-                        break;
-                    case 3:
-                        result = letraOrigin == 'A';
-                        break;
-                    case 4:
-                        result = letraOrigin == 'G';
-                        break;
-                    case 5:
-                        result = letraOrigin == 'M';
-                        break;
-                    case 6:
-                        result = letraOrigin == 'Y';
-                        break;
-                    case 7:
-                        result = letraOrigin == 'F';
-                        break;
-                    case 8:
-                        result = letraOrigin == 'P';
-                        break;
-                    case 9:
-                        result = letraOrigin == 'D';
-                        break;
-                    case 10:
-                        result = letraOrigin == 'X';
-                        break;
-                    case 11:
-                        result = letraOrigin == 'B';
-                        break;
-                    case 12:
-                        result = letraOrigin == 'N';
-                        break;
-                    case 13:
-                        result = letraOrigin == 'J';
-                        break;
-                    case 14:
-                        result = letraOrigin == 'Z';
-                        break;
-                    case 15:
-                        result = letraOrigin == 'S';
-                        break;
-                    case 16:
-                        result = letraOrigin == 'Q';
-                        break;
-                    case 17:
-                        result = letraOrigin == 'V';
-                        break;
-                    case 18:
-                        result = letraOrigin == 'H';
-                        break;
-                    case 19:
-                        result = letraOrigin == 'L';
-                        break;
-                    case 20:
-                        result = letraOrigin == 'C';
-                        break;
-                    case 21:
-                        result = letraOrigin == 'K';
-                        break;
-                    case 22:
-                        result = letraOrigin == 'E';
-                        break;
-                }
-                return result;
+                return letraOrigin.Equals((DNILeterEnum)resto);
             }
             return false;
         }
