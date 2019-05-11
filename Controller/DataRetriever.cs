@@ -16,9 +16,11 @@ namespace Controller
 
         public Usuario GetUser(string username, string password)
         {
-            StaticReferences.Initializer();
             var usuarios = StaticReferences.Context.UsuarioDbSet;
-            var usuario = usuarios.Where((x) => x.Username == username && x.Contrasenya == password).FirstOrDefault();
+            var usuario = usuarios
+                .Where((x) => x.Username.Equals(username)
+                && x.Contrasenya.Equals(password))
+                .FirstOrDefault();
             return usuario;
         }
 
@@ -27,7 +29,7 @@ namespace Controller
             if (Instance == null)
             {
                 Instance = new DataRetriever();
-                //Context = new AbastosDbContext();
+                StaticReferences.Initializer();
             }
 
             return Instance;
@@ -50,7 +52,8 @@ namespace Controller
                 {
                     views.Add(ViewsEnum.PROFESOR);
                 }
-                else if (trabajador.Administrativo != null)
+                else if (trabajador.Administrativo != null
+                    || user.PermisoAdministrativo)
                 {
                     views.Add(ViewsEnum.ADMINISTRATIVO);
                 }
