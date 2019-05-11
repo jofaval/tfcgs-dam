@@ -29,7 +29,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
 
             var BuscadorPersonaButton = new Button()
             {
-                Name = "BuscadorPersona",
+                Name = "BuscadorV2",
                 Content = "Buscador de Personas",
                 Style = menuButtonStyle
             };
@@ -97,7 +97,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                     }
                     else if (btnSender == BuscadorPersonaButton)
                     {
-                        var mainPanel = new BuscadorPersona().MainPanel;
+                        var mainPanel = new BuscadorV2().MainPanel;
 
                         XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, mainPanel);
 

@@ -16,15 +16,15 @@ using System.Windows.Shapes;
 namespace Gestion_AcademicoAdministrativa_Abastos
 {
     /// <summary>
-    /// Lógica de interacción para BuscadorPersona.xaml
+    /// Lógica de interacción para BuscadorV2.xaml
     /// </summary>
-    public partial class BuscadorPersona : Window
+    public partial class BuscadorV2 : Window
     {
         public List<dynamic> PersonaList { get; set; }
         public int SelectedIndex { get; set; }
         public int Step { get; set; }
 
-        public BuscadorPersona()
+        public BuscadorV2()
         {
             PersonaList = new List<dynamic>();
             Step = 15;

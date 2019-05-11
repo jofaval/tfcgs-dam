@@ -76,6 +76,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             {
                 return reclamaciones.MainPanel;
             }
+            else if (window is BuscadorV2 buscadorPersona)
+            {
+                return buscadorPersona.MainPanel;
+            }
 
             return null;
         }

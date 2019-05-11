@@ -117,8 +117,8 @@
     <Compile Include="Buscador.xaml.cs">
       <DependentUpon>Buscador.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BuscadorPersona.xaml.cs">
-      <DependentUpon>BuscadorPersona.xaml</DependentUpon>
+    <Compile Include="BuscadorV2.xaml.cs">
+      <DependentUpon>BuscadorV2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Buttons.xaml.cs">
       <DependentUpon>Buttons.xaml</DependentUpon>
@@ -168,7 +168,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="BuscadorPersona.xaml">
+    <Page Include="BuscadorV2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

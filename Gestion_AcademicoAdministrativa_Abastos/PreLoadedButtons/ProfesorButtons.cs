@@ -84,7 +84,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                     var mainWindowPanel = XamlBridge.MainPanelInstance;
                     if (btnSender == FirstButton)
                     {
-                        XamlFunctionality.ChangeWindowContent(mainWindowPanel, new Buscador());
+                        XamlFunctionality.ChangeWindowContent(mainWindowPanel, new BuscadorV2());
                     }
                     else if (btnSender == SecondButton)
                     {
