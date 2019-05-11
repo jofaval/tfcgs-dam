@@ -30,6 +30,6 @@ namespace Model.DataStructure
         L = 19,
         C = 20,
         K = 21,
-        W = 22,
+        E = 22,
     }
 }
