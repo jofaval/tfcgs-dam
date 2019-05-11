@@ -7,6 +7,20 @@ namespace Controller
 {
     public class AlumnoFunctionality
     {
+        public static IEnumerable<object> GetProfesores()
+        {
+            return StaticReferences.Profesores
+                   .Select(profesor =>
+                   new
+                   {
+                       profesor.Trabajador1.Persona1.Nombre,
+                       profesor.Trabajador1.Persona1.Apellidos,
+                       profesor.Departamento,
+                       profesor.Trabajador1.Especial.Funcion,
+                       profesor.Trabajador1.Persona1.Email,
+                   }).AsEnumerable();
+        }
+
         public static IEnumerable<object> GetProfesores(string name, bool? ignoreMayus = true, bool? exactMatch = true)
         {
             name = name.ToLower();

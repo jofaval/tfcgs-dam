@@ -43,5 +43,25 @@ namespace Controller
                        alumno.Persona1.Email,
                    };
         }
+
+        public static List<dynamic> GetAlumnos(Profesor profesor)
+        {
+            var alumnos = StaticReferences.Alumnos
+                   .Where(a => profesor.Impartimiento
+                   .Where(i => i.CursoCod.Equals(a.CursoCod))
+                   .Any())
+                   .AsEnumerable();
+
+            return (List<dynamic>)alumnos
+                .Select(alumno =>
+                   new
+                   {
+                       alumno.NumExpediente,
+                       alumno.CursoNombre,
+                       alumno.Persona1.Nombre,
+                       alumno.Persona1.Apellidos,
+                       alumno.Persona1.Email,
+                   });
+        }
     }
 }

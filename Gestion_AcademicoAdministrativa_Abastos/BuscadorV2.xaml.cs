@@ -1,4 +1,6 @@
 ﻿using Controller;
+using Model;
+using Model.DataStructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,15 +22,25 @@ namespace Gestion_AcademicoAdministrativa_Abastos
     /// </summary>
     public partial class BuscadorV2 : Window
     {
-        public List<dynamic> PersonaList { get; set; }
+        public List<object> UserRoleList { get; set; }
+        public List<object> ContainerList { get; set; }
         public int SelectedIndex { get; set; }
         public int Step { get; set; }
 
         public BuscadorV2()
         {
-            PersonaList = new List<dynamic>();
+            UserRoleList = new List<dynamic>();
             Step = 15;
             InitializeComponent();
+            var selectedView = XamlBridge.ViewEnum;
+            if (selectedView.Equals(ViewsEnum.PROFESOR))
+            {
+                ContainerList = DataRetriever.GetInstance().GetListByUser(selectedView, XamlBridge.CurrentUser.Persona1.Trabajador.Profesor).ToList();
+            }
+            else
+            {
+                ContainerList = DataRetriever.GetInstance().GetListByUser(selectedView).ToList();
+            }
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
@@ -42,24 +54,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var ignoreMayus = IgnoreMayus.IsChecked;
             var exactMatch = ExactMatch.IsChecked;
 
-            var saved = StaticReferences.Context.PersonaDbSet.AsEnumerable()
-                .Where(p => DataIntegrityChecker.FullyCheckIfContainsString(p.Nombre, name, ignoreMayus, exactMatch))
-                .Select(p => new
-                {
-                    p.Dni,
-                    p.Nif,
-                    p.Nombre,
-                    p.Apellidos,
-                    Direccion = string.Concat(p.Calle, joiner, p.Patio, joiner, p.Piso, joiner, p.Puerta),
-                });
+            var saved = ContainerList;
+                //.Where(person => DataIntegrityChecker.FullyCheckIfContainsString(person.Nombre, name, ignoreMayus, exactMatch));
 
-            PersonaList.Clear();
+            UserRoleList.Clear();
             foreach (var savedItem in saved)
             {
-                PersonaList.Add(savedItem);
+                UserRoleList.Add(savedItem);
             }
 
-            LabelNumRows.Content = PersonaList.Count;
+            LabelNumRows.Content = UserRoleList.Count;
 
             LoadPageData();
         }
@@ -77,7 +81,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             }
             else if (sender == ButtonNext)
             {
-                correcto = (SelectedIndex * Step) < PersonaList.Count - Step;
+                correcto = (SelectedIndex * Step) < UserRoleList.Count - Step;
                 if (correcto)
                 {
                     SelectedIndex++;
@@ -96,7 +100,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var endIndex = startIndex + Step;
             LabelEndIndex.Content = endIndex;
 
-            XamlFunctionality.FillDataGrid(DataGridResult, PersonaList
+            XamlFunctionality.FillDataGrid(DataGridResult, UserRoleList
                 .Where((elemn, index) => index >= startIndex && index < endIndex)
                 .ToList());
         }
@@ -117,7 +121,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                     Step = parsedValue;
                     if (parsedValue > 0)
                     {
-                        var count = PersonaList.Count - 1;
+                        var count = UserRoleList.Count - 1;
                         var indexWithParsedValue = SelectedIndex * parsedValue;
                         if (indexWithParsedValue >= count)
                         {

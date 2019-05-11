@@ -65,5 +65,30 @@ namespace Controller
 
             return views;
         }
+
+        public IEnumerable<dynamic> GetListByUser(ViewsEnum user, Profesor profesor = null)
+        {
+            var joiner = Constants.StringJoiner;
+
+            switch (user)
+            {
+                case ViewsEnum.ALUMNO:
+                    return AlumnoFunctionality.GetProfesores();
+                case ViewsEnum.PROFESOR:
+                    return ProfesorFunctionality.GetAlumnos(profesor);
+                case ViewsEnum.ADMINISTRATIVO:
+                case ViewsEnum.ADMINISTRADOR:
+                default:
+                    return StaticReferences.Context.PersonaDbSet
+                    .Select(p => new
+                    {
+                        p.Dni,
+                        p.Nif,
+                        p.Nombre,
+                        p.Apellidos,
+                        Direccion = string.Concat(p.Calle, joiner, p.Patio, joiner, p.Piso, joiner, p.Puerta),
+                    }).AsEnumerable();
+            }
+        }
     }
 }
