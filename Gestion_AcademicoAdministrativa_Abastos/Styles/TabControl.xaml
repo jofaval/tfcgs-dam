@@ -79,6 +79,7 @@
                 <Setter TargetName="Border" Property="Background" Value="{StaticResource MainColorSolid}" />
                 <Setter Property="Background" Value="{StaticResource MainColorSolid}" />
                 <Setter Property="Foreground" Value="{StaticResource StandOutColorSolid}" />
+                <Setter Property="TextBlock.Cursor" Value="Hand" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
