@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos"
         xmlns:controls="clr-namespace:Gestion_AcademicoAdministrativa_Abastos.CustomElements"
         mc:Ignorable="d"
-        Title="CrearPersonaç">
+        Title="CrearPersona">
     <Grid x:Name="Container" Grid.Row="1" Background="#FF15171B" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid x:Name="MainGridContent" Grid.Row="1" Background="{DynamicResource MainColorSolid}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid x:Name="MainPanel" Grid.Column="1" Panel.ZIndex="-2">
@@ -188,10 +188,58 @@
                             </Grid>
                         </TabItem>
                         <TabItem Header="{StaticResource FormPersonaRemovalTabItemHeader}">
-
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25*" />
+                                    <RowDefinition Height="50*" />
+                                    <RowDefinition Height="25*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="15*" />
+                                    <ColumnDefinition Width="70*" />
+                                    <ColumnDefinition Width="15*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="1" Grid.Row="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="20*" />
+                                        <RowDefinition Height="30*" />
+                                        <RowDefinition Height="10*" />
+                                        <RowDefinition Height="20*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Content="{StaticResource FormPersonaDNI}"/>
+                                    <TextBox x:Name="TxtDNIRemove" Grid.Row="1" />
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormPersonaDNIExample}" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtDNIRemove}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                    <Button Grid.Row="3" Content="{StaticResource FormPersonaRemove}" />
+                                </Grid>
+                            </Grid>
                         </TabItem>
                         <TabItem Header="{StaticResource FormPersonaModifyTabItemHeader}">
-
+                            <Grid x:Name="ModifyTabContainer">
+                                <Grid x:Name="ModifyTab">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="5*" />
+                                        <RowDefinition Height="90*" />
+                                        <RowDefinition Height="5*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5*" />
+                                        <ColumnDefinition Width="90*" />
+                                        <ColumnDefinition Width="5*" />
+                                    </Grid.ColumnDefinitions>
+                                    <DataGrid x:Name="DataGridPersonas" Grid.Row="1" Grid.Column="1" />
+                                </Grid>
+                            </Grid>
                         </TabItem>
                     </TabControl>
                 </Grid>

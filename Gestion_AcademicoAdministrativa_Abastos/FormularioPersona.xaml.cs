@@ -22,6 +22,9 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public FormularioPersona()
         {
             InitializeComponent();
+            var buscadorPersona = new BuscadorV2();
+            XamlFunctionality.ReplaceGrids(ModifyTab, buscadorPersona.MainPanel);
+            buscadorPersona.Close();
         }
     }
 }
