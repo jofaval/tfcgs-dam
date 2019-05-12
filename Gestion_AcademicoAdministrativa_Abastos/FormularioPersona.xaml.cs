@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Gestion_AcademicoAdministrativa_Abastos
 {
     /// <summary>
-    /// Lógica de interacción para CrearPersonaç.xaml
+    /// Lógica de interacción para ormularioPersona.xaml
     /// </summary>
-    public partial class CrearPersonaç : Window
+    public partial class FormularioPersona : Window
     {
-        public CrearPersonaç()
+        public FormularioPersona()
         {
             InitializeComponent();
         }
