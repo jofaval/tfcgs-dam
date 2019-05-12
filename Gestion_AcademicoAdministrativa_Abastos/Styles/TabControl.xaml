@@ -36,7 +36,7 @@
         <Setter Property="BorderBrush" Value="{x:Null}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="TabStripPlacement" Value="Left" />
+        <Setter Property="TabStripPlacement" Value="Right" />
         <!--Setter Property="Template" Value="{StaticResource TabControlTemplate}" /-->
     </Style>
     
@@ -53,7 +53,7 @@
                 Padding="15"
                 Background="{DynamicResource SelectedColorSolid}"
                 BorderBrush="Transparent" 
-                BorderThickness="0" 
+                BorderThickness="5" 
                 CornerRadius="0" >
                 <ContentPresenter x:Name="ContentSite"
                     VerticalAlignment="Center"
@@ -62,7 +62,7 @@
                     Margin="0"
                     RecognizesAccessKey="True">
                     <ContentPresenter.LayoutTransform>
-                        <RotateTransform Angle="270" />
+                        <RotateTransform Angle="-270" />
                     </ContentPresenter.LayoutTransform>
                 </ContentPresenter>
             </Border>
@@ -73,7 +73,7 @@
                 <Setter TargetName="Border" Property="BorderThickness" Value="0" />
                 <Setter TargetName="Border" Property="Background" Value="{DynamicResource SelectedColorSolid}" />
                 <Setter Property="Background" Value="{DynamicResource SelectedColorSolid}" />
-                <Setter Property="Foreground" Value="{StaticResource MainColorSolid}" />
+                <Setter Property="Foreground" Value="{StaticResource StandOutColorSolid}" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter TargetName="Border" Property="Background" Value="{StaticResource MainColorSolid}" />

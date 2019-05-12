@@ -6,7 +6,7 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos"
         xmlns:controls="clr-namespace:Gestion_AcademicoAdministrativa_Abastos.CustomElements"
-        mc:Ignorable="d" Style="{StaticResource WindowStyle}"
+        mc:Ignorable="d"
         Title="CrearPersonaç">
     <Grid x:Name="Container" Grid.Row="1" Background="#FF15171B" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid x:Name="MainGridContent" Grid.Row="1" Background="{DynamicResource MainColorSolid}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
