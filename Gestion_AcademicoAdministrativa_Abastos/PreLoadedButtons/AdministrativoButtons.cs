@@ -30,7 +30,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             var FormPersona = new Button()
             {
                 Name = "FormPersona",
-                Content = "Crear Persona",
+                Content = "Formularios Persona",
                 Style = menuButtonStyle
             };
             buttonList.Add(FormPersona);
