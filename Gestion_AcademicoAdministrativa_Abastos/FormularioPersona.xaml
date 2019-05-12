@@ -46,10 +46,11 @@
                             <RowDefinition Height="10*" />
                             <RowDefinition Height="5*" />
                             <RowDefinition Height="5*" />
-                            <RowDefinition Height="10*" />
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="5*" />
                             <RowDefinition Height="5*" />
                             <RowDefinition Height="10*" />
-                            <RowDefinition Height="5*" />
                             <RowDefinition Height="10*" />
                         </Grid.RowDefinitions>
                         <Label />
@@ -63,22 +64,76 @@
                                 <RowDefinition Height="25*" />
                                 <RowDefinition Height="75*" />
                             </Grid.RowDefinitions>
-                            <Label Content="Nombre" Grid.Column="0"/>
-                            <TextBox x:Name="TxtNombre" Grid.Column="0" Grid.Row="1">
+                            <Label Content="{DynamicResource FormPersonaDNI}" Grid.Column="0"/>
+                            <TextBox x:Name="TxtDNI" Grid.Column="0" Grid.Row="1">
                                 <controls:CueBannerService.CueBanner>
-                                    <TextBlock Style="{StaticResource PlaceHolderContent}"
-                                               Text="Nombre" />
+                                    <sys:String>DNI</sys:String>
                                 </controls:CueBannerService.CueBanner>
                             </TextBox>
-                            <Label Content="Apellidos" Grid.Column="2"/>
-                            <TextBox Grid.Column="2" x:Name="TxtApellidos" Grid.Row="1">
+                            <Label Content="{DynamicResource FormPersonaNIF}" Grid.Column="2"/>
+                            <TextBox Grid.Column="2" x:Name="TxtNIF" Grid.Row="1">
                                 <controls:CueBannerService.CueBanner>
-                                    <TextBlock Style="{StaticResource PlaceHolderContent}"
-                                               Text="Apellidos" />
+                                    <sys:String>NIF</sys:String>
                                 </controls:CueBannerService.CueBanner>
                             </TextBox>
                         </Grid>
-                        <Button Grid.Row="6" Content="Crear Persona" />
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="35*" />
+                                <ColumnDefinition Width="15*" />
+                                <ColumnDefinition Width="50*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25*" />
+                                <RowDefinition Height="75*" />
+                            </Grid.RowDefinitions>
+                            <Label Content="{DynamicResource FormPersonaNombre}" Grid.Column="0"/>
+                            <TextBox x:Name="TxtNombre" Grid.Column="0" Grid.Row="1">
+                                <controls:CueBannerService.CueBanner >
+                                    <!--TextBlock Style="{StaticResource PlaceHolderContent}"
+                                               Text="Nombre" /-->
+                                    <sys:String>Nombre</sys:String>
+                                </controls:CueBannerService.CueBanner>
+                            </TextBox>
+                            <Label Content="{DynamicResource FormPersonaApellidos}" Grid.Column="2"/>
+                            <TextBox Grid.Column="2" x:Name="TxtApellidos" Grid.Row="1">
+                                <controls:CueBannerService.CueBanner>
+                                    <sys:String>Apellidos</sys:String>
+                                </controls:CueBannerService.CueBanner>
+                            </TextBox>
+                        </Grid>
+                        <Grid Grid.Row="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="35*" />
+                                <ColumnDefinition Width="15*" />
+                                <ColumnDefinition Width="50*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25*" />
+                                <RowDefinition Height="75*" />
+                            </Grid.RowDefinitions>
+                            <Label Content="{DynamicResource FormPersonaEmail}" Grid.Column="0"/>
+                            <TextBox x:Name="TxtEmail" Grid.Column="0" Grid.Row="1">
+                                <controls:CueBannerService.CueBanner>
+                                    <sys:String>Email</sys:String>
+                                </controls:CueBannerService.CueBanner>
+                            </TextBox>
+                            <Label Content="{DynamicResource FormPersonaTelefono}" Grid.Column="2"/>
+                            <TextBox Grid.Column="2" x:Name="TxtTelefono" Grid.Row="1" />
+                            <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormPersonaTelefono}" >
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=TxtTelefono}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                        <Button Grid.Row="7" Content="Crear Persona" />
                     </Grid>
                 </Grid>
             </Grid>
