@@ -75,10 +75,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                     }
                     else if (btnSender == FromCurso)
                     {
-                        //var backUpMainPanel = new FormularioCurso().MainPanel;
-                        //XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
+                        var backUpMainPanel = new FormularioCurso().MainPanel;
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
 
-                        //XamlBridge.MainPanelInstance = backUpMainPanel;
+                        XamlBridge.MainPanelInstance = backUpMainPanel;
                     }
                     else if (btnSender == LogOutButton)
                     {
