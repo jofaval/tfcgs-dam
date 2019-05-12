@@ -37,6 +37,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             Grid.SetRow(FormPersona, numRow);
             numRow++;
 
+            var FromCurso = new Button()
+            {
+                Name = "FromCurso",
+                Content = "Formularios Curso",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(FromCurso);
+            Grid.SetRow(FromCurso, numRow);
+            numRow++;
+
             var LogOutButton = new Button()
             {
                 Name = "LogOutButton",
@@ -54,18 +64,21 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                     if (btnSender == HomeButton)
                     {
                         var backUpMainPanel = XamlBridge.BackUpMainPanel;
-
                         XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
-
                         XamlBridge.MainPanelInstance = backUpMainPanel;
                     }
                     else if (btnSender == FormPersona)
                     {
-                        var sqlEditorMainPanel = new FormularioPersona().MainPanel;
+                        var backUpMainPanel = new FormularioPersona().MainPanel;
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
+                        XamlBridge.MainPanelInstance = backUpMainPanel;
+                    }
+                    else if (btnSender == FromCurso)
+                    {
+                        //var backUpMainPanel = new FormularioCurso().MainPanel;
+                        //XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
 
-                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, sqlEditorMainPanel);
-
-                        XamlBridge.MainPanelInstance = sqlEditorMainPanel;
+                        //XamlBridge.MainPanelInstance = backUpMainPanel;
                     }
                     else if (btnSender == LogOutButton)
                     {
