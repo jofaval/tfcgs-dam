@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Controller;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +13,7 @@ using System.Windows.Media;
 
 namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
 {
+    //https://jasonkemp.ca/blog/the-missing-net-4-cue-banner-in-wpf-i-mean-watermark-in-wpf/
     public static class CueBannerService
     {
         //there is absolutely no way to write this statement out
@@ -34,15 +37,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
                                              DependencyPropertyChangedEventArgs e)
         {
             Control control = (Control)d;
-            control.Loaded += control_Loaded;
+            control.Loaded += Control_Loaded;
+
             if (d is ComboBox || d is TextBox)
             {
-                control.GotFocus += control_GotFocus;
-                control.LostFocus += control_Loaded;
+                control.GotFocus += Control_GotFocus;
+                control.LostFocus += Control_Loaded;
             }
         }
 
-        private static void control_GotFocus(object sender, RoutedEventArgs e)
+        private static void Control_GotFocus(object sender, RoutedEventArgs e)
         {
             Control c = (Control)sender;
             if (ShouldShowCueBanner(c))
@@ -51,7 +55,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
             }
         }
 
-        private static void control_Loaded(object sender, RoutedEventArgs e)
+        private static void Control_Loaded(object sender, RoutedEventArgs e)
         {
             Control control = (Control)sender;
             if (ShouldShowCueBanner(control))
@@ -108,12 +112,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
         {
             this.IsHitTestVisible = false;
 
-            contentPresenter = new ContentPresenter();
-            contentPresenter.Content = cueBanner;
-            contentPresenter.Opacity = 0.7;
-            contentPresenter.Margin =
+            contentPresenter = new ContentPresenter
+            {
+                Content = cueBanner,
+                Opacity = 0.7,
+                Margin =
                new Thickness(Control.Margin.Left + Control.Padding.Left,
-                             Control.Margin.Top + Control.Padding.Top, 0, 0);
+                             Control.Margin.Top + Control.Padding.Top, 0, 0),
+            };
         }
 
         private Control Control
