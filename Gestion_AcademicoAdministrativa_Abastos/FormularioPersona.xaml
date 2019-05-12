@@ -38,149 +38,153 @@
                         <RowDefinition Height="90*" />
                         <RowDefinition Height="5*" />
                     </Grid.RowDefinitions>
-                    <Grid Grid.Column="1" Grid.Row="1" x:Name="ContentPanel">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="5*" />
-                            <RowDefinition Height="15*" />
-                            <RowDefinition Height="5*" />
-                            <RowDefinition Height="15*" />
-                            <RowDefinition Height="5*" />
-                            <RowDefinition Height="15*" />
-                            <RowDefinition Height="5*" />
-                            <RowDefinition Height="10*" />
-                            <RowDefinition Height="5*" />
-                        </Grid.RowDefinitions>
-                        <Label />
-                        <Grid Grid.Row="1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="35*" />
-                                <ColumnDefinition Width="15*" />
-                                <ColumnDefinition Width="50*" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="50*" />
-                                <RowDefinition Height="50*" />
-                            </Grid.RowDefinitions>
-                            <Label Content="{DynamicResource FormPersonaDNI}" Grid.Column="0"/>
-                            <TextBox x:Name="TxtDNI" Grid.Column="0" Grid.Row="1" />
+                    <TabControl Grid.Column="1" Grid.Row="1">
+                        <TabItem Header="Crear">
+                            <Grid Grid.Column="1" Grid.Row="1" x:Name="CreationContentPanel">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0*" />
+                                    <RowDefinition Height="15*" />
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="15*" />
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="15*" />
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="10*" />
+                                    <RowDefinition Height="5*" />
+                                </Grid.RowDefinitions>
+                                <Label />
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="35*" />
+                                        <ColumnDefinition Width="15*" />
+                                        <ColumnDefinition Width="50*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50*" />
+                                        <RowDefinition Height="50*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Content="{DynamicResource FormPersonaDNI}" Grid.Column="0"/>
+                                    <TextBox x:Name="TxtDNI" Grid.Column="0" Grid.Row="1" />
 
-                            <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormPersonaDNIExample}" >
-                                <TextBlock.Style>
-                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Text, ElementName=TxtDNI}" Value="">
-                                                <Setter Property="Visibility" Value="Visible"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormPersonaDNIExample}" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtDNI}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
 
-                            <Label Content="{DynamicResource FormPersonaNIF}" Grid.Column="2"/>
-                            <TextBox Grid.Column="2" x:Name="TxtNIF" Grid.Row="1" />
+                                    <Label Content="{DynamicResource FormPersonaNIF}" Grid.Column="2"/>
+                                    <TextBox Grid.Column="2" x:Name="TxtNIF" Grid.Row="1" />
 
-                            <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormPersonaNIFExample}" >
-                                <TextBlock.Style>
-                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Text, ElementName=TxtNIF}" Value="">
-                                                <Setter Property="Visibility" Value="Visible"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
+                                    <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormPersonaNIFExample}" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtNIF}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
 
-                        </Grid>
-                        <Grid Grid.Row="3">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="35*" />
-                                <ColumnDefinition Width="15*" />
-                                <ColumnDefinition Width="50*" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="50*" />
-                                <RowDefinition Height="50*" />
-                            </Grid.RowDefinitions>
-                            <Label Content="{DynamicResource FormPersonaNombre}" Grid.Column="0"/>
-                            <TextBox x:Name="TxtNombre" Grid.Column="0" Grid.Row="1">
-                            </TextBox>
+                                </Grid>
+                                <Grid Grid.Row="3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="35*" />
+                                        <ColumnDefinition Width="15*" />
+                                        <ColumnDefinition Width="50*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50*" />
+                                        <RowDefinition Height="50*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Content="{DynamicResource FormPersonaNombre}" Grid.Column="0"/>
+                                    <TextBox x:Name="TxtNombre" Grid.Column="0" Grid.Row="1">
+                                    </TextBox>
 
-                            <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormPersonaNombreExample}" >
-                                <TextBlock.Style>
-                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Text, ElementName=TxtNombre}" Value="">
-                                                <Setter Property="Visibility" Value="Visible"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
-                            <Label Content="{DynamicResource FormPersonaApellidos}" Grid.Column="2"/>
-                            <TextBox Grid.Column="2" x:Name="TxtApellidos" Grid.Row="1" />
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormPersonaNombreExample}" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtNombre}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                    <Label Content="{DynamicResource FormPersonaApellidos}" Grid.Column="2"/>
+                                    <TextBox Grid.Column="2" x:Name="TxtApellidos" Grid.Row="1" />
 
-                            <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormPersonaApellidosExample}" >
-                                <TextBlock.Style>
-                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Text, ElementName=TxtApellidos}" Value="">
-                                                <Setter Property="Visibility" Value="Visible"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
-                        </Grid>
-                        <Grid Grid.Row="5">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="35*" />
-                                <ColumnDefinition Width="15*" />
-                                <ColumnDefinition Width="50*" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="50*" />
-                                <RowDefinition Height="50*" />
-                            </Grid.RowDefinitions>
-                            <Label Content="{DynamicResource FormPersonaEmail}" Grid.Column="0"/>
-                            <TextBox x:Name="TxtEmail" Grid.Column="0" Grid.Row="1" />
+                                    <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormPersonaApellidosExample}" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtApellidos}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                                <Grid Grid.Row="5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="35*" />
+                                        <ColumnDefinition Width="15*" />
+                                        <ColumnDefinition Width="50*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50*" />
+                                        <RowDefinition Height="50*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Content="{DynamicResource FormPersonaEmail}" Grid.Column="0"/>
+                                    <TextBox x:Name="TxtEmail" Grid.Column="0" Grid.Row="1" />
 
-                            <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormPersonaEmailExample}" >
-                                <TextBlock.Style>
-                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Text, ElementName=TxtEmail}" Value="">
-                                                <Setter Property="Visibility" Value="Visible"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
-                            <Label Content="{DynamicResource FormPersonaTelefono}" Grid.Column="2"/>
-                            <TextBox Grid.Column="2" x:Name="TxtTelefono" Grid.Row="1" />
-                            <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormPersonaTelefonoExample}" >
-                                <TextBlock.Style>
-                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Text, ElementName=TxtTelefono}" Value="">
-                                                <Setter Property="Visibility" Value="Visible"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
-                        </Grid>
-                        <Button Grid.Row="7" Content="Crear Persona" />
-                    </Grid>
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormPersonaEmailExample}" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtEmail}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                    <Label Content="{DynamicResource FormPersonaTelefono}" Grid.Column="2"/>
+                                    <TextBox Grid.Column="2" x:Name="TxtTelefono" Grid.Row="1" />
+                                    <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormPersonaTelefonoExample}" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtTelefono}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                                <Button Grid.Row="7" Content="Crear Persona" />
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
                 </Grid>
             </Grid>
         </Grid>
