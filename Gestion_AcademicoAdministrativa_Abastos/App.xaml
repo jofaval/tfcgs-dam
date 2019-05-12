@@ -1,4 +1,4 @@
-﻿<Application x:Class="Gestion_AcademicoAdministrativa_Abastos.App"
+﻿a<Application x:Class="Gestion_AcademicoAdministrativa_Abastos.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos"
@@ -18,6 +18,8 @@
                 <ResourceDictionary Source="styles/ContextMenu.xaml"/>
                 <ResourceDictionary Source="styles/Slider.xaml"/>
                 <ResourceDictionary Source="styles/ComboBox.xaml"/>
+                <ResourceDictionary Source="styles/TabControl.xaml"/>
+                
                 <ResourceDictionary Source="Strings/Constants.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
