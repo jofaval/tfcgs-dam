@@ -126,6 +126,9 @@
     <Compile Include="Configuration.xaml.cs">
       <DependentUpon>Configuration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FormularioPersona.xaml.cs">
+      <DependentUpon>FormularioPersona.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomElements\Reclamacion.xaml.cs">
       <DependentUpon>Reclamacion.xaml</DependentUpon>
     </Compile>
@@ -177,6 +180,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Configuration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormularioPersona.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
