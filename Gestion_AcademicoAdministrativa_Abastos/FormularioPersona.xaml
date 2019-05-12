@@ -27,7 +27,7 @@
                     <RowDefinition Height="90*" />
                     <RowDefinition Height="5*" />
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FF15171B">
+                <Grid Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{StaticResource MainColorSolid}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="5*" />
                         <ColumnDefinition Width="90*" />
@@ -38,14 +38,17 @@
                         <RowDefinition Height="90*" />
                         <RowDefinition Height="5*" />
                     </Grid.RowDefinitions>
-                    <TabControl Grid.Column="1" Grid.Row="1">
-                        <TabItem Header="Crear">
-                            <Grid Grid.Column="1" Grid.Row="1" x:Name="CreationContentPanel">
+                    <TabControl Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <TabItem Header="{DynamicResource FormPersonaCreationTabItemHeader}">
+                            <Grid Grid.Column="1" Grid.Row="1" x:Name="CreationContentPanel"
+                                  Background="{DynamicResource BackgroundContainerGradient}">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="100*" />
+                                    <ColumnDefinition Width="5*" />
+                                    <ColumnDefinition  Width="90*"/>
+                                    <ColumnDefinition  Width="5*"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="0*" />
+                                    <RowDefinition Height="5*" />
                                     <RowDefinition Height="15*" />
                                     <RowDefinition Height="5*" />
                                     <RowDefinition Height="15*" />
@@ -56,7 +59,7 @@
                                     <RowDefinition Height="5*" />
                                 </Grid.RowDefinitions>
                                 <Label />
-                                <Grid Grid.Row="1">
+                                <Grid Grid.Row="1" Grid.Column="1">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="35*" />
                                         <ColumnDefinition Width="15*" />
@@ -99,7 +102,7 @@
                                     </TextBlock>
 
                                 </Grid>
-                                <Grid Grid.Row="3">
+                                <Grid Grid.Row="3" Grid.Column="1">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="35*" />
                                         <ColumnDefinition Width="15*" />
@@ -141,7 +144,7 @@
                                         </TextBlock.Style>
                                     </TextBlock>
                                 </Grid>
-                                <Grid Grid.Row="5">
+                                <Grid Grid.Row="5" Grid.Column="1">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="35*" />
                                         <ColumnDefinition Width="15*" />
@@ -181,8 +184,14 @@
                                         </TextBlock.Style>
                                     </TextBlock>
                                 </Grid>
-                                <Button Grid.Row="7" Content="Crear Persona" />
+                                <Button Grid.Row="7" Grid.Column="1" Content="Crear Persona" />
                             </Grid>
+                        </TabItem>
+                        <TabItem Header="{StaticResource FormPersonaRemovalTabItemHeader}">
+
+                        </TabItem>
+                        <TabItem Header="{StaticResource FormPersonaModifyTabItemHeader}">
+
                         </TabItem>
                     </TabControl>
                 </Grid>

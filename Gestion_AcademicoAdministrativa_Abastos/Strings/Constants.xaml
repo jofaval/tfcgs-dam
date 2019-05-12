@@ -14,4 +14,8 @@
     <sys:String x:Key="FormPersonaTelefonoExample">98765432</sys:String>
     <sys:String x:Key="FormPersonaEmail">Email</sys:String>
     <sys:String x:Key="FormPersonaEmailExample">ejemplo@dominio.com</sys:String>
+    <sys:String x:Key="FormPersonaCreationTabItemHeader">Crear Persona</sys:String>
+    <sys:String x:Key="FormPersonaRemovalTabItemHeader">Eliminar Persona</sys:String>
+    <sys:String x:Key="FormPersonaModifyTabItemHeader">Modificar Persona</sys:String>
+    
 </ResourceDictionary>
