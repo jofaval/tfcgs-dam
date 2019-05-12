@@ -18,6 +18,7 @@
                 <ResourceDictionary Source="styles/ContextMenu.xaml"/>
                 <ResourceDictionary Source="styles/Slider.xaml"/>
                 <ResourceDictionary Source="styles/ComboBox.xaml"/>
+                <ResourceDictionary Source="Strings/Constants.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
