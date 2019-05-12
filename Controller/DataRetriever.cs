@@ -52,8 +52,14 @@ namespace Controller
                 {
                     views.Add(ViewsEnum.PROFESOR);
                 }
-                else if (trabajador.Administrativo != null
-                    || user.PermisoAdministrativo)
+                else if (trabajador.Administrativo != null)
+                {
+                    views.Add(ViewsEnum.ADMINISTRATIVO);
+                }
+            }
+            if (!views.Contains(ViewsEnum.ADMINISTRATIVO))
+            {
+                if (user.PermisoAdministrativo)
                 {
                     views.Add(ViewsEnum.ADMINISTRATIVO);
                 }
