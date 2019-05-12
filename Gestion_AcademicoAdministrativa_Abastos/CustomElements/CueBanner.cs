@@ -57,6 +57,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
 
         private static void Control_Loaded(object sender, RoutedEventArgs e)
         {
+            if (sender is TextBox senderAsTextBox)
+            {
+                Console.WriteLine(senderAsTextBox.Name);
+                    var count = VisualTreeHelper.GetChildrenCount(senderAsTextBox);
+                Console.WriteLine(count);
+                for (int innerChildIterator = 0; innerChildIterator < count; innerChildIterator++)
+                {
+                    var children = VisualTreeHelper.GetChild(senderAsTextBox, innerChildIterator);
+                }
+            }
             Control control = (Control)sender;
             if (ShouldShowCueBanner(control))
             {
@@ -67,6 +77,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
         private static void RemoveCueBanner(UIElement control)
         {
             AdornerLayer layer = AdornerLayer.GetAdornerLayer(control);
+            layer.Visibility = Visibility.Hidden;
 
             Adorner[] adorners = layer.GetAdorners(control);
             if (adorners == null) return;
@@ -83,6 +94,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
         private static void ShowCueBanner(Control control)
         {
             AdornerLayer layer = AdornerLayer.GetAdornerLayer(control);
+            layer.Visibility = Visibility.Visible;
             layer.Add(new CueBannerAdorner(control, GetCueBanner(control)));
         }
 
