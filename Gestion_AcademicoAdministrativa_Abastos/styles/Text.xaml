@@ -13,6 +13,10 @@
         <Setter Property="FontSize" Value="{DynamicResource StandardFontSize}" />
         <Setter Property="FontStretch" Value="Normal" />
     </Style>
+    <Style x:Key="PlaceHolderContent" TargetType="TextBlock" BasedOn="{StaticResource NotificationContent}">
+        <Setter Property="Foreground" Value="{StaticResource MainColorSolid}" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
     <Style TargetType="ComboBox" BasedOn="{StaticResource SpecialTextControl}">
         <Setter Property="Foreground" Value="{DynamicResource MainColorSolid}" />
         <Setter Property="Background">
