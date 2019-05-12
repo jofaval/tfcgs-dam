@@ -4,6 +4,7 @@ using Model.DataStructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -54,12 +55,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var ignoreMayus = IgnoreMayus.IsChecked;
             var exactMatch = ExactMatch.IsChecked;
 
-            var saved = ContainerList;
+            var saved = ContainerList
+                .Cast<dynamic>();
                 //.Where(person => DataIntegrityChecker.FullyCheckIfContainsString(person.Nombre, name, ignoreMayus, exactMatch));
 
             UserRoleList.Clear();
             foreach (var savedItem in saved)
             {
+                Console.WriteLine(savedItem);
                 UserRoleList.Add(savedItem);
             }
 
