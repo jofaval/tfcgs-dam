@@ -4,6 +4,7 @@
     <Style TargetType="Label" BasedOn="{StaticResource SpecialTextControl}">
         <Setter Property="Foreground" Value="{DynamicResource StandOutColorSolid}" />
     </Style>
+    
     <Style x:Key="NotificationContent" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource StandOutColorSolid}" />
         <Setter Property="TextWrapping" Value="WrapWithOverflow" />
@@ -13,10 +14,17 @@
         <Setter Property="FontSize" Value="{DynamicResource StandardFontSize}" />
         <Setter Property="FontStretch" Value="Normal" />
     </Style>
+    
     <Style x:Key="PlaceHolderContent" TargetType="TextBlock" BasedOn="{StaticResource NotificationContent}">
         <Setter Property="Foreground" Value="{StaticResource MainColorSolid}" />
         <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="IsHitTestVisible" Value="False" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Padding" Value="15" />
+        <Setter Property="Foreground" Value="DarkGray" />
     </Style>
+    
     <Style TargetType="ComboBox" BasedOn="{StaticResource SpecialTextControl}">
         <Setter Property="Foreground" Value="{DynamicResource MainColorSolid}" />
         <Setter Property="Background">
@@ -28,6 +36,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
     <Style TargetType="CheckBox" BasedOn="{StaticResource SpecialTextControl}">
         <Setter Property="Foreground" Value="{DynamicResource StandOutColorSolid}" />
         <Setter Property="SnapsToDevicePixels"
