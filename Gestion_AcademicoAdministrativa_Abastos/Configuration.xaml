@@ -30,21 +30,21 @@
             <RowDefinition Height="5*" />
             <RowDefinition Height="5*" />
         </Grid.RowDefinitions>
-        <Label Content="Tamaño de la fuente" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="Tamaño de la fuente" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource MainColorSolid}"/>
         <Slider x:Name="SliderFontSize" Grid.Column="1" Grid.Row="2"
                 Minimum="8" Maximum="32"
                 HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Center"
                 ValueChanged="SliderFontSize_ValueChanged"/>
-        <Label Content="Familia de la fuente" Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" VerticalAlignment="Center" />
+        <Label Content="Familia de la fuente" Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource MainColorSolid}"/>
         <ComboBox x:Name="ComboBoxFontFamily" Grid.Column="1" Grid.Row="4" SelectionChanged="ComboBoxFontFamily_SelectionChanged"/>
-        <Label Content="Tamaño de la Ventana" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" VerticalAlignment="Center" />
+        <Label Content="Tamaño de la Ventana" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource MainColorSolid}"/>
         <Slider x:Name="SliderWindowSize" Grid.Column="1" Grid.Row="6"
                 Minimum="0" Maximum="5"
                 TickFrequency="1" IsSnapToTickEnabled="True"
                 HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Center"
                 ValueChanged="ScreenSize_ValueChanged"
                 AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0"/>
-        <Button x:Name="BtnMaximize" Grid.Column="1" Grid.Row="8" Content="Maximizar/Minimizar" Click="BtnMaximize_Click"/>
-        <Button x:Name="BtnClose" Grid.Column="1" Grid.Row="10" Content="Salir" Click="BtnClose_Click"/>
+        <Button x:Name="BtnMaximize" Grid.Column="1" Grid.Row="8" Content="Maximizar/Minimizar" Click="BtnMaximize_Click" Foreground="{StaticResource MainColorSolid}"/>
+        <Button x:Name="BtnClose" Grid.Column="1" Grid.Row="10" Content="Salir" Click="BtnClose_Click" Foreground="{StaticResource MainColorSolid}"/>
     </Grid>
 </Window>
