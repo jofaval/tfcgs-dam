@@ -3,9 +3,15 @@
                     xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
     <sys:String x:Key="FormPersonaDNI">DNI</sys:String>
+    <sys:String x:Key="FormPersonaDNIExample">12345678H</sys:String>
     <sys:String x:Key="FormPersonaNIF">NIF</sys:String>
+    <sys:String x:Key="FormPersonaNIFExample">12345678Z</sys:String>
     <sys:String x:Key="FormPersonaNombre">Nombre</sys:String>
+    <sys:String x:Key="FormPersonaNombreExample">Federico</sys:String>
     <sys:String x:Key="FormPersonaApellidos">Apellidos</sys:String>
+    <sys:String x:Key="FormPersonaApellidosExample">García Jimenez</sys:String>
     <sys:String x:Key="FormPersonaTelefono">Telefono</sys:String>
+    <sys:String x:Key="FormPersonaTelefonoExample">98765432</sys:String>
     <sys:String x:Key="FormPersonaEmail">Email</sys:String>
+    <sys:String x:Key="FormPersonaEmailExample">ejemplo@dominio.com</sys:String>
 </ResourceDictionary>

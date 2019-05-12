@@ -43,15 +43,15 @@
                             <ColumnDefinition Width="100*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="15*" />
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="15*" />
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="15*" />
+                            <RowDefinition Height="5*" />
                             <RowDefinition Height="10*" />
                             <RowDefinition Height="5*" />
-                            <RowDefinition Height="5*" />
-                            <RowDefinition Height="5*" />
-                            <RowDefinition Height="5*" />
-                            <RowDefinition Height="5*" />
-                            <RowDefinition Height="5*" />
-                            <RowDefinition Height="10*" />
-                            <RowDefinition Height="10*" />
                         </Grid.RowDefinitions>
                         <Label />
                         <Grid Grid.Row="1">
@@ -61,21 +61,41 @@
                                 <ColumnDefinition Width="50*" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="25*" />
-                                <RowDefinition Height="75*" />
+                                <RowDefinition Height="50*" />
+                                <RowDefinition Height="50*" />
                             </Grid.RowDefinitions>
                             <Label Content="{DynamicResource FormPersonaDNI}" Grid.Column="0"/>
-                            <TextBox x:Name="TxtDNI" Grid.Column="0" Grid.Row="1">
-                                <controls:CueBannerService.CueBanner>
-                                    <sys:String>DNI</sys:String>
-                                </controls:CueBannerService.CueBanner>
-                            </TextBox>
+                            <TextBox x:Name="TxtDNI" Grid.Column="0" Grid.Row="1" />
+
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormPersonaDNIExample}" >
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=TxtDNI}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+
                             <Label Content="{DynamicResource FormPersonaNIF}" Grid.Column="2"/>
-                            <TextBox Grid.Column="2" x:Name="TxtNIF" Grid.Row="1">
-                                <controls:CueBannerService.CueBanner>
-                                    <sys:String>NIF</sys:String>
-                                </controls:CueBannerService.CueBanner>
-                            </TextBox>
+                            <TextBox Grid.Column="2" x:Name="TxtNIF" Grid.Row="1" />
+
+                            <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormPersonaNIFExample}" >
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=TxtNIF}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+
                         </Grid>
                         <Grid Grid.Row="3">
                             <Grid.ColumnDefinitions>
@@ -84,23 +104,40 @@
                                 <ColumnDefinition Width="50*" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="25*" />
-                                <RowDefinition Height="75*" />
+                                <RowDefinition Height="50*" />
+                                <RowDefinition Height="50*" />
                             </Grid.RowDefinitions>
                             <Label Content="{DynamicResource FormPersonaNombre}" Grid.Column="0"/>
                             <TextBox x:Name="TxtNombre" Grid.Column="0" Grid.Row="1">
-                                <controls:CueBannerService.CueBanner >
-                                    <!--TextBlock Style="{StaticResource PlaceHolderContent}"
-                                               Text="Nombre" /-->
-                                    <sys:String>Nombre</sys:String>
-                                </controls:CueBannerService.CueBanner>
                             </TextBox>
+
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormPersonaNombreExample}" >
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=TxtNombre}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
                             <Label Content="{DynamicResource FormPersonaApellidos}" Grid.Column="2"/>
-                            <TextBox Grid.Column="2" x:Name="TxtApellidos" Grid.Row="1">
-                                <controls:CueBannerService.CueBanner>
-                                    <sys:String>Apellidos</sys:String>
-                                </controls:CueBannerService.CueBanner>
-                            </TextBox>
+                            <TextBox Grid.Column="2" x:Name="TxtApellidos" Grid.Row="1" />
+
+                            <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormPersonaApellidosExample}" >
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=TxtApellidos}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
                         </Grid>
                         <Grid Grid.Row="5">
                             <Grid.ColumnDefinitions>
@@ -109,18 +146,27 @@
                                 <ColumnDefinition Width="50*" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="25*" />
-                                <RowDefinition Height="75*" />
+                                <RowDefinition Height="50*" />
+                                <RowDefinition Height="50*" />
                             </Grid.RowDefinitions>
                             <Label Content="{DynamicResource FormPersonaEmail}" Grid.Column="0"/>
-                            <TextBox x:Name="TxtEmail" Grid.Column="0" Grid.Row="1">
-                                <controls:CueBannerService.CueBanner>
-                                    <sys:String>Email</sys:String>
-                                </controls:CueBannerService.CueBanner>
-                            </TextBox>
+                            <TextBox x:Name="TxtEmail" Grid.Column="0" Grid.Row="1" />
+
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormPersonaEmailExample}" >
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=TxtEmail}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
                             <Label Content="{DynamicResource FormPersonaTelefono}" Grid.Column="2"/>
                             <TextBox Grid.Column="2" x:Name="TxtTelefono" Grid.Row="1" />
-                            <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormPersonaTelefono}" >
+                            <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormPersonaTelefonoExample}" >
                                 <TextBlock.Style>
                                     <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
                                         <Setter Property="Visibility" Value="Collapsed"/>
