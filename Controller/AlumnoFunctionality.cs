@@ -52,7 +52,7 @@ namespace Controller
             var currentYear = DateTime.Now.Year;
 
             return from horario in horarios
-                   .Where(h => h.CursoCod == curso && h.Anyo == currentYear)
+                   .Where(h => h.CursoCod.Equals(curso) && h.Anyo.Equals(currentYear))
                    .ToList()
                    select new
                    {
@@ -70,5 +70,5 @@ namespace Controller
 
             return horariosDelAlumno.ToList();
         }
-    }
+    }   
 }
