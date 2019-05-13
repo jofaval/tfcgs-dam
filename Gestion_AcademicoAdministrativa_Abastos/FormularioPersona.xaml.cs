@@ -23,7 +23,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             InitializeComponent();
             var buscadorPersona = new BuscadorV2();
-            XamlFunctionality.ReplaceGrids(ModifyTab, buscadorPersona.MainPanel);
+            XamlFunctionality.ReplaceGrids(ModifyTab, buscadorPersona.ContentPanel);
             buscadorPersona.Close();
         }
     }

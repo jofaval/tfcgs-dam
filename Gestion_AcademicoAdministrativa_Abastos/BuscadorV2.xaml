@@ -8,7 +8,7 @@
         Title="BuscadorPersona" Height="450" Width="800">
     <Grid x:Name="Container" Grid.Row="1" Background="{DynamicResource MainColorSolid}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid x:Name="MainGridContent" Grid.Row="1" Background="{DynamicResource MainColorSolid}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Grid Grid.Column="1" Panel.ZIndex="-2" Background="{DynamicResource BackgroundColorfulGradient}">
+            <Grid x:Name="MainPanel" Grid.Column="1" Panel.ZIndex="-2" Background="{DynamicResource BackgroundColorfulGradient}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5*" />
                     <ColumnDefinition Width="90*" />
@@ -19,7 +19,7 @@
                     <RowDefinition Height="90*" />
                     <RowDefinition Height="5*" />
                 </Grid.RowDefinitions>
-                <Grid x:Name="MainPanel" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{DynamicResource MainColorSolid}">
+                <Grid x:Name="ContentPanel" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{DynamicResource MainColorSolid}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="5*" />
                         <ColumnDefinition Width="90*" />
