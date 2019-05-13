@@ -145,6 +145,9 @@
     <Compile Include="FormularioCurso.xaml.cs">
       <DependentUpon>FormularioCurso.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FormularioHorario.xaml.cs">
+      <DependentUpon>FormularioHorario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FormularioPersona.xaml.cs">
       <DependentUpon>FormularioPersona.xaml</DependentUpon>
     </Compile>
@@ -203,6 +206,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FormularioCurso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormularioHorario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
