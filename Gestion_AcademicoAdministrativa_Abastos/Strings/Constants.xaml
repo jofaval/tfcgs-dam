@@ -25,6 +25,7 @@
     <sys:String x:Key="FormCursoNombreExample">Desarrollo de Aplicaciones Multiplataforma</sys:String>
     <sys:String x:Key="FormCursoDate">Fecha de Matriculación</sys:String>
     <sys:String x:Key="FormCursoDateExample">Federico</sys:String>
+    <sys:String x:Key="FormCursoShift">Es Turno de Tarde</sys:String>
     <sys:String x:Key="FormCursoCreationButton">Crear Curso</sys:String>
     <sys:String x:Key="FormCursoRemoveButton">Eliminar Curso</sys:String>
     <sys:String x:Key="FormCursoCreationTabItemHeader">Crear Curso</sys:String>
