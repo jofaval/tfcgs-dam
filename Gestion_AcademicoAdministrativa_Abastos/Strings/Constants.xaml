@@ -18,5 +18,16 @@
     <sys:String x:Key="FormPersonaRemovalTabItemHeader">Eliminar Persona</sys:String>
     <sys:String x:Key="FormPersonaModifyTabItemHeader">Modificar Persona</sys:String>
     <sys:String x:Key="FormPersonaRemove">Eliminar Persona</sys:String>
-    
+
+    <sys:String x:Key="FormCursoCod">Código</sys:String>
+    <sys:String x:Key="FormCursoCodxample">7J</sys:String>
+    <sys:String x:Key="FormCursoNombre">Nombre</sys:String>
+    <sys:String x:Key="FormCursoNombreExample">Desarrollo de Aplicaciones Multiplataforma</sys:String>
+    <sys:String x:Key="FormCursoDate">Fecha de Matriculación</sys:String>
+    <sys:String x:Key="FormCursoDateExample">Federico</sys:String>
+    <sys:String x:Key="FormCursoCreationButton">Crear Curso</sys:String>
+    <sys:String x:Key="FormCursoRemoveButton">Eliminar Curso</sys:String>
+    <sys:String x:Key="FormCursoCreationTabItemHeader">Crear Curso</sys:String>
+    <sys:String x:Key="FormCursoRemovalTabItemHeader">Eliminar Curso</sys:String>
+    <sys:String x:Key="FormCursoModifyTabItemHeader">Modificar Curso</sys:String>
 </ResourceDictionary>
