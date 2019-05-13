@@ -142,28 +142,28 @@
       <DependentUpon>Configuration.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomElements\CueBanner.cs" />
-    <Compile Include="FormularioAsignatura.xaml.cs">
+    <Compile Include="Formularios\FormularioAsignatura.xaml.cs">
       <DependentUpon>FormularioAsignatura.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FormularioAula.xaml.cs">
+    <Compile Include="Formularios\FormularioAula.xaml.cs">
       <DependentUpon>FormularioAula.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FormularioCurso.xaml.cs">
+    <Compile Include="Formularios\FormularioCurso.xaml.cs">
       <DependentUpon>FormularioCurso.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FormularioDepartamento.xaml.cs">
+    <Compile Include="Formularios\FormularioDepartamento.xaml.cs">
       <DependentUpon>FormularioDepartamento.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FormularioHorario.xaml.cs">
+    <Compile Include="Formularios\FormularioHorario.xaml.cs">
       <DependentUpon>FormularioHorario.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FormularioPersona.xaml.cs">
+    <Compile Include="Formularios\FormularioPersona.xaml.cs">
       <DependentUpon>FormularioPersona.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomElements\Reclamacion.xaml.cs">
       <DependentUpon>Reclamacion.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FormularioTrabajador.xaml.cs">
+    <Compile Include="Formularios\FormularioTrabajador.xaml.cs">
       <DependentUpon>FormularioTrabajador.xaml</DependentUpon>
     </Compile>
     <Compile Include="Horario.xaml.cs">
@@ -217,27 +217,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FormularioAsignatura.xaml">
+    <Page Include="Formularios\FormularioAsignatura.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FormularioAula.xaml">
+    <Page Include="Formularios\FormularioAula.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FormularioCurso.xaml">
+    <Page Include="Formularios\FormularioCurso.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FormularioDepartamento.xaml">
+    <Page Include="Formularios\FormularioDepartamento.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FormularioHorario.xaml">
+    <Page Include="Formularios\FormularioHorario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FormularioTrabajador.xaml">
+    <Page Include="Formularios\FormularioTrabajador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -245,7 +245,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FormularioPersona.xaml">
+    <Page Include="Formularios\FormularioPersona.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
