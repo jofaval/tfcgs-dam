@@ -84,7 +84,7 @@ namespace Controller
                 Instance = new DataGenerator();
                 var dataPath = Path.Combine(
                     Directory.GetParent(
-    Directory.GetCurrentDirectory()).Parent.Parent.FullName,
+                    Directory.GetCurrentDirectory()).Parent.Parent.FullName,
                     "Controller",
                     "Data"
                     );
