@@ -27,10 +27,6 @@ namespace Controller
             StaticReferences.Initializer();
             var profesores = StaticReferences.Profesores.AsEnumerable();
 
-            //return profesores.AsEnumerable()
-            //    .Where(p => DataIntegrityChecker.FullyCheckIfContainsString(p.Trabajador1.Persona1.Nombre, name, ignoreMayus, exactMatch))
-            //    .ToList();
-
             var resultList = name.Equals(string.Empty) ?
                 profesores.ToList() :
                 profesores
