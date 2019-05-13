@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos"
+        xmlns:wpfExtended="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
         mc:Ignorable="d"
         Title="FormularioCurso" Height="450" Width="800">
     <Grid x:Name="Container" Grid.Row="1" Background="#FF15171B" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -109,7 +110,7 @@
                                         <RowDefinition Height="50*" />
                                     </Grid.RowDefinitions>
                                     <Label Content="{DynamicResource FormCursoDate}" Grid.Column="0"/>
-                                    <DatePicker x:Name="TxtDate" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <wpfExtended:DateTimePicker x:Name="TxtDate" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
 
 
                                     <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormCursoDateExample}" >
