@@ -37,14 +37,64 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             Grid.SetRow(FormPersona, numRow);
             numRow++;
 
-            var FromCurso = new Button()
+            var FormCurso = new Button()
             {
-                Name = "FromCurso",
+                Name = "FormCurso",
                 Content = "Formularios Curso",
                 Style = menuButtonStyle
             };
-            buttonList.Add(FromCurso);
-            Grid.SetRow(FromCurso, numRow);
+            buttonList.Add(FormCurso);
+            Grid.SetRow(FormCurso, numRow);
+            numRow++;
+
+            var FormAsignatura = new Button()
+            {
+                Name = "FormAsignatura",
+                Content = "Formularios Asignatura",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(FormAsignatura);
+            Grid.SetRow(FormAsignatura, numRow);
+            numRow++;
+
+            var FormAula = new Button()
+            {
+                Name = "FormAula",
+                Content = "Formularios Aula",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(FormAula);
+            Grid.SetRow(FormAula, numRow);
+            numRow++;
+
+            var FormDepartamento = new Button()
+            {
+                Name = "FormDepartamento",
+                Content = "Formularios Departamento",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(FormDepartamento);
+            Grid.SetRow(FormDepartamento, numRow);
+            numRow++;
+
+            var FormTrabajador = new Button()
+            {
+                Name = "FormTrabajador",
+                Content = "Formularios Trabajador",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(FormTrabajador);
+            Grid.SetRow(FormTrabajador, numRow);
+            numRow++;
+
+            var FormHorario = new Button()
+            {
+                Name = "FormHorario",
+                Content = "Formularios Horario",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(FormHorario);
+            Grid.SetRow(FormHorario, numRow);
             numRow++;
 
             var LogOutButton = new Button()
@@ -73,9 +123,44 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                         XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
                         XamlBridge.MainPanelInstance = backUpMainPanel;
                     }
-                    else if (btnSender == FromCurso)
+                    else if (btnSender == FormCurso)
                     {
                         var backUpMainPanel = new FormularioCurso().MainPanel;
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
+
+                        XamlBridge.MainPanelInstance = backUpMainPanel;
+                    }
+                    else if (btnSender == FormAsignatura)
+                    {
+                        var backUpMainPanel = new FormularioAsignatura().MainPanel;
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
+
+                        XamlBridge.MainPanelInstance = backUpMainPanel;
+                    }
+                    else if (btnSender == FormAula)
+                    {
+                        var backUpMainPanel = new FormularioAula().MainPanel;
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
+
+                        XamlBridge.MainPanelInstance = backUpMainPanel;
+                    }
+                    else if (btnSender == FormDepartamento)
+                    {
+                        var backUpMainPanel = new FormularioDepartamento().MainPanel;
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
+
+                        XamlBridge.MainPanelInstance = backUpMainPanel;
+                    }
+                    else if (btnSender == FormTrabajador)
+                    {
+                        var backUpMainPanel = new FormularioTrabajador().MainPanel;
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
+
+                        XamlBridge.MainPanelInstance = backUpMainPanel;
+                    }
+                    else if (btnSender == FormHorario)
+                    {
+                        var backUpMainPanel = new FormularioHorario().MainPanel;
                         XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
 
                         XamlBridge.MainPanelInstance = backUpMainPanel;
