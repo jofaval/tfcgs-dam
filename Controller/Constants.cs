@@ -34,5 +34,8 @@ namespace Controller
 
         public static readonly double AspectRatio = 1920 / 1080;
         public static readonly Regex RegexOnlyNumber = new Regex("[^0-9]+");
+
+        public const double TopBarHeight = 25;
+        public const int MainWindowThickness = 5;
     }
 }

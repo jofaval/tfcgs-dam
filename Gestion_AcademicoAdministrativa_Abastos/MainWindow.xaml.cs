@@ -10,6 +10,7 @@ using Model;
 using System.Collections.Generic;
 using System.Windows.Media.Animation;
 using Panel = System.Windows.Controls.Panel;
+using Controller;
 
 namespace Gestion_AcademicoAdministrativa_Abastos
 {
@@ -19,7 +20,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos
     public partial class MainWindow : Window
     {
         public string ApplicationTitle { get; set; }
-        public const double TopBarHeight = 25;
 
         public int HeightRows { get; set; }
 
@@ -37,7 +37,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             Left = 0;
             Top = 0;
 
-            BackgroundGrid.Margin = new Thickness(10);
+            BackgroundGrid.Margin = new Thickness(5);
             FillMainData();
         }
 
@@ -104,6 +104,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         internal void MaximizeMinimize()
         {
             ControladorWPF.MaximizeNormalize(this, TopBar);
+            if (WindowState == WindowState.Maximized)
+            {
+                BackgroundGrid.Margin = new Thickness(0);
+            }
+            else
+            {
+                BackgroundGrid.Margin = new Thickness(Constants.MainWindowThickness);
+            }
         }
 
         internal void SetSize(int[] windowSizeArray)
@@ -162,7 +170,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 }
                 else
                 {
-                    TopBar.Height = TopBarHeight;
+                    TopBar.Height = Constants.TopBarHeight;
                 }
             }
         }
