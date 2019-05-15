@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.DataStructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace Controller
             var year = dateTime.Year;
             var month = dateTime.Month;
 
-            if (month < 8)
+            if (month < (byte)MonthEnum.AUGUST)
             {
                 year--;
             }
