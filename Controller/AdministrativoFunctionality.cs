@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace Controller
 {
-    class AdministrativoFunctionality
+    public class AdministrativoFunctionality
     {
+        public int GetAcademicYear(DateTime dateTime)
+        {
+            var year = dateTime.Year;
+            var month = dateTime.Month;
+
+            if (month < 8)
+            {
+                year--;
+            }
+
+            return year;
+        }
     }
 }
