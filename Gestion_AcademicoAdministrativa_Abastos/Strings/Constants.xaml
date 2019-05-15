@@ -64,5 +64,16 @@
     <sys:String x:Key="FormDepartamentoCreationTabItemHeader">Crear Departamento</sys:String>
     <sys:String x:Key="FormDepartamentoRemovalTabItemHeader">Eliminar Departamento</sys:String>
     <sys:String x:Key="FormDepartamentoModifyTabItemHeader">Modificar Departamento</sys:String>
+
+    <sys:String x:Key="FormHorarioHoraInicio">Horario Inicio</sys:String>
+    <sys:String x:Key="FormHorarioHoraInicioExample">2</sys:String>
+    <sys:String x:Key="FormHorarioHoraFinal">Nombre</sys:String>
+    <sys:String x:Key="FormHorarioHoraFinalExample">Ingles</sys:String>
+    <sys:String x:Key="FormHorarioAula">Aula</sys:String>
+    <sys:String x:Key="FormHorarioCreationButton">Crear Horario</sys:String>
+    <sys:String x:Key="FormHorarioRemoveButton">Eliminar Horario</sys:String>
+    <sys:String x:Key="FormHorarioCreationTabItemHeader">Crear Horario</sys:String>
+    <sys:String x:Key="FormHorarioRemovalTabItemHeader">Eliminar Horario</sys:String>
+    <sys:String x:Key="FormHorarioModifyTabItemHeader">Modificar Horario</sys:String>
     
 </ResourceDictionary>
