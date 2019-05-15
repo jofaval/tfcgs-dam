@@ -31,4 +31,17 @@
     <sys:String x:Key="FormCursoCreationTabItemHeader">Crear Curso</sys:String>
     <sys:String x:Key="FormCursoRemovalTabItemHeader">Eliminar Curso</sys:String>
     <sys:String x:Key="FormCursoModifyTabItemHeader">Modificar Curso</sys:String>
+
+    <sys:String x:Key="FormAsignaturaCod">Código</sys:String>
+    <sys:String x:Key="FormAsignaturaCodExample">10632</sys:String>
+    <sys:String x:Key="FormAsignaturaNombre">Nombre</sys:String>
+    <sys:String x:Key="FormAsignaturaNombreExample">Programación</sys:String>
+    <sys:String x:Key="FormAsignaturaBranch">Rama</sys:String>
+    <sys:String x:Key="FormAsignaturaBranchExample">Informática</sys:String>
+    <sys:String x:Key="FormAsignaturaCreationButton">Crear Asignatura</sys:String>
+    <sys:String x:Key="FormAsignaturaRemoveButton">Eliminar Asignatura</sys:String>
+    <sys:String x:Key="FormAsignaturaCreationTabItemHeader">Crear Asignatura</sys:String>
+    <sys:String x:Key="FormAsignaturaRemovalTabItemHeader">Eliminar Asignatura</sys:String>
+    <sys:String x:Key="FormAsignaturaModifyTabItemHeader">Modificar Asignatura</sys:String>
+    
 </ResourceDictionary>
