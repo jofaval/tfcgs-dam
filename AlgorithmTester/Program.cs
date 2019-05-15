@@ -270,8 +270,9 @@ namespace AlgorithmTester
             db.SaveChanges();*/
 
             //CARGAR DATOS EN LA BASE DE DATOS
-            LoadData();
+            //LoadData();
 
+            //NAVEGAR POR LOS DIRECTORIOS
             /*string solutiondir = Directory.GetParent(
     Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\Controller";
 
@@ -279,8 +280,12 @@ namespace AlgorithmTester
             Console.ReadLine();*/
             //Console.ReadLine();
 
+            //ENVIAR UN MAIL
             //SendEmail();
 
+            //DateTime starting index
+            Console.WriteLine(DateTime.Now.Month);
+            Console.ReadLine();
         }
 
         private static void SendEmail()
