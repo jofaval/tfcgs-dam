@@ -9,7 +9,7 @@ namespace Controller
 {
     public class AdministrativoFunctionality
     {
-        public int GetAcademicYear(DateTime dateTime)
+        public static int GetAcademicYear(DateTime dateTime)
         {
             var year = dateTime.Year;
             var month = dateTime.Month;
