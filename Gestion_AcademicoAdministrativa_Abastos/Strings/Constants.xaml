@@ -43,5 +43,15 @@
     <sys:String x:Key="FormAsignaturaCreationTabItemHeader">Crear Asignatura</sys:String>
     <sys:String x:Key="FormAsignaturaRemovalTabItemHeader">Eliminar Asignatura</sys:String>
     <sys:String x:Key="FormAsignaturaModifyTabItemHeader">Modificar Asignatura</sys:String>
+
+    <sys:String x:Key="FormAulaPiso">Piso</sys:String>
+    <sys:String x:Key="FormAulaPisoExample">2</sys:String>
+    <sys:String x:Key="FormAulaNum">Número</sys:String>
+    <sys:String x:Key="FormAulaNumExample">07</sys:String>
+    <sys:String x:Key="FormAulaCreationButton">Crear Aula</sys:String>
+    <sys:String x:Key="FormAulaRemoveButton">Eliminar Aula</sys:String>
+    <sys:String x:Key="FormAulaCreationTabItemHeader">Crear Aula</sys:String>
+    <sys:String x:Key="FormAulaRemovalTabItemHeader">Eliminar Aula</sys:String>
+    <sys:String x:Key="FormAulaModifyTabItemHeader">Modificar Aula</sys:String>
     
 </ResourceDictionary>
