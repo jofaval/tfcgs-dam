@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,30 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public FormularioHorario()
         {
             InitializeComponent();
+        }
+
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+            StaticReferences.Initializer();
+            var context = StaticReferences.Context;
+            var cursos = context.CursoDbSet;
+
+            var cursoCodText = TxtCursoCod.Text;
+            var cursoNombreText = TxtCursoNombre.Text;
+            var curso = cursos.SingleOrDefault(c => c.Cod.Equals(cursoCodText) && c.Nombre.Equals(cursoNombreText));
+
+            var asignaturas = context.AsignaturaDbSet;
+            var asignaturaCodText = TxtCodAsignatura.Text;
+            var asignatura = asignaturas.SingleOrDefault(a => a.Cod.Equals(asignaturaCodText));
+
+            var horario = new Model.Horario()
+            {
+                Anyo = AdministrativoFunctionality.GetAcademicYear(StaticReferences.CurrentDateTime),
+                CursoCod = cursoCodText,
+                CursoNombre = cursoNombreText,
+                Curso = curso,
+                Asignatura
+            };
         }
     }
 }

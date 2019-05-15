@@ -37,7 +37,7 @@
                         <RowDefinition Height="5*" />
                     </Grid.RowDefinitions>
                     <TabControl Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                        <TabItem Header="{DynamicResource FormCursoCreationTabItemHeader}">
+                        <TabItem Header="{DynamicResource FormHorarioCreationTabItemHeader}">
                             <Grid Grid.Column="1" Grid.Row="1" x:Name="CreationContentPanel"
                                   Background="{DynamicResource BackgroundContainerGradient}">
                                 <Grid.ColumnDefinitions>
@@ -50,6 +50,8 @@
                                     <RowDefinition Height="15*" />
                                     <RowDefinition Height="5*" />
                                     <RowDefinition Height="15*" />
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="10*" />
                                     <RowDefinition Height="5*" />
                                     <RowDefinition Height="10*" />
                                     <RowDefinition Height="5*" />
@@ -66,14 +68,14 @@
                                         <RowDefinition Height="50*" />
                                     </Grid.RowDefinitions>
                                     <Label Content="{DynamicResource FormCursoCod}" Grid.Column="0"/>
-                                    <TextBox x:Name="TxtCod" Grid.Column="0" Grid.Row="1" />
+                                    <TextBox x:Name="TxtCursoCod" Grid.Column="0" Grid.Row="1" />
 
                                     <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormCursoCodxample}" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
                                                 <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtCod}" Value="">
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtCursoCod}" Value="">
                                                         <Setter Property="Visibility" Value="Visible"/>
                                                     </DataTrigger>
                                                 </Style.Triggers>
@@ -82,7 +84,7 @@
                                     </TextBlock>
 
                                     <Label Content="{DynamicResource FormCursoNombre}" Grid.Column="2"/>
-                                    <TextBox Grid.Column="2" x:Name="TxtNombre" Grid.Row="1" />
+                                    <TextBox Grid.Column="2" x:Name="TxtCursoNombre" Grid.Row="1" />
 
                                     <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormCursoNombreExample}" >
                                         <TextBlock.Style>
@@ -108,28 +110,62 @@
                                         <RowDefinition Height="50*" />
                                         <RowDefinition Height="50*" />
                                     </Grid.RowDefinitions>
-                                    <Label Content="{DynamicResource FormCursoDate}" Grid.Column="0"/>
-                                    
-
-
-                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormCursoDateExample}" >
+                                    <Label Content="Hora Inicio" Grid.Column="0"/>
+                                    <TextBox Grid.Row="1" x:Name="TxtHoraInicio"/>
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormHorarioInicioExample}" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
                                                 <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtDate}" Value="">
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtHoraInicio}" Value="">
                                                         <Setter Property="Visibility" Value="Visible"/>
                                                     </DataTrigger>
                                                 </Style.Triggers>
                                             </Style>
                                         </TextBlock.Style>
                                     </TextBlock>
-                                    <CheckBox Grid.Column="2" x:Name="TxtShift" Grid.Row="1" Content="{DynamicResource FormCursoShift}"/>
+                                    <Label Grid.Column="2" Content="Hora Final"/>
+                                    <TextBox Grid.Column="2" Grid.Row="1" x:Name="TxtHoraFinal"/>
+                                    <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormHorarioDateExample}" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtHoraFinal}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
                                 </Grid>
-                                <Button Grid.Row="5" Grid.Column="1" Content="{StaticResource FormCursoCreationButton}" />
+                                <Grid Grid.Row="5" Grid.Column="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50*" />
+                                        <RowDefinition Height="50*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Column="2" Content="Asignatura"/>
+                                    <ComboBox Grid.Column="2" Grid.Row="1" x:Name="ComboBoxAsignatura"/>
+                                    <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormHorarioDateExample}" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=ComboBoxAsignatura}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                                <Button x:Name="Create" Grid.Row="7" Grid.Column="1" Content="{StaticResource FormHorarioCreationButton}" Click="Create_Click"/>
                             </Grid>
                         </TabItem>
-                        <TabItem Header="{StaticResource FormCursoRemovalTabItemHeader}">
+                        <TabItem Header="{StaticResource FormHorarioRemovalTabItemHeader}">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25*" />
@@ -148,9 +184,9 @@
                                         <RowDefinition Height="10*" />
                                         <RowDefinition Height="20*" />
                                     </Grid.RowDefinitions>
-                                    <Label Grid.Row="0" Content="{StaticResource FormCursoCod}"/>
+                                    <Label Grid.Row="0" Content="{StaticResource FormHorarioCod}"/>
                                     <TextBox x:Name="TxtDNIRemove" Grid.Row="1" />
-                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormCursoCodxample}" >
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormHorarioCodxample}" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -162,11 +198,11 @@
                                             </Style>
                                         </TextBlock.Style>
                                     </TextBlock>
-                                    <Button Grid.Row="3" Content="{StaticResource FormCursoRemoveButton}" />
+                                    <Button Grid.Row="3" Content="{StaticResource FormHorarioRemoveButton}" />
                                 </Grid>
                             </Grid>
                         </TabItem>
-                        <TabItem Header="{StaticResource FormCursoModifyTabItemHeader}">
+                        <TabItem Header="{StaticResource FormHorarioModifyTabItemHeader}">
                             <Grid x:Name="ModifyTabContainer">
                                 <Grid x:Name="ModifyTab">
                                     <Grid.RowDefinitions>
