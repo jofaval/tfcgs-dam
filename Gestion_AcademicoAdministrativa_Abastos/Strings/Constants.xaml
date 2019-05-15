@@ -53,5 +53,16 @@
     <sys:String x:Key="FormAulaCreationTabItemHeader">Crear Aula</sys:String>
     <sys:String x:Key="FormAulaRemovalTabItemHeader">Eliminar Aula</sys:String>
     <sys:String x:Key="FormAulaModifyTabItemHeader">Modificar Aula</sys:String>
+
+    <sys:String x:Key="FormDepartamentoCod">Código</sys:String>
+    <sys:String x:Key="FormDepartamentoCodExample">2</sys:String>
+    <sys:String x:Key="FormDepartamentoNombre">Nombre</sys:String>
+    <sys:String x:Key="FormDepartamentoNombreExample">Ingles</sys:String>
+    <sys:String x:Key="FormDepartamentoAula">Aula</sys:String>
+    <sys:String x:Key="FormDepartamentoCreationButton">Crear Departamento</sys:String>
+    <sys:String x:Key="FormDepartamentoRemoveButton">Eliminar Departamento</sys:String>
+    <sys:String x:Key="FormDepartamentoCreationTabItemHeader">Crear Departamento</sys:String>
+    <sys:String x:Key="FormDepartamentoRemovalTabItemHeader">Eliminar Departamento</sys:String>
+    <sys:String x:Key="FormDepartamentoModifyTabItemHeader">Modificar Departamento</sys:String>
     
 </ResourceDictionary>
