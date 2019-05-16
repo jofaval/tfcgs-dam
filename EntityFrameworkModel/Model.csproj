@@ -118,6 +118,7 @@
     <Compile Include="EntityFramework\Titulo.cs" />
     <Compile Include="EntityFramework\Trabajador.cs" />
     <Compile Include="EntityFramework\Usuario.cs" />
+    <Compile Include="PartialAsignatura.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
