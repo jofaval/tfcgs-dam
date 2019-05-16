@@ -4,7 +4,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:wpf1="http://schemas.microsoft.com/xps/2005/06"
-             mc:Ignorable="d" Title="Aplicacion"
+             mc:Ignorable="d" Title="{Binding ApplicationTitle}"
              WindowStartupLocation="CenterScreen"
              WindowStyle="None" AllowsTransparency="True" Background="Transparent"
              Style="{StaticResource WindowStyle}" Height="678"
