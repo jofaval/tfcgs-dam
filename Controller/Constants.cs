@@ -32,6 +32,9 @@ namespace Controller
         public static readonly string XmlWindowWidth = "windowWidth";
         public static readonly string XmlWindowHeight = "windowHeight";
 
+        public static readonly string SuccessCreatingEntity = "Se ha creado con éxito";
+        public static readonly string FailureCreatingEntity = "Ya existe en el sistema o no se ha podido añadir";
+
         public static readonly double AspectRatio = 1920 / 1080;
         public static readonly Regex RegexOnlyNumber = new Regex("[^0-9]+");
 
