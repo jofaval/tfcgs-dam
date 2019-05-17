@@ -127,7 +127,7 @@
                                     </TextBlock>
                                     <CheckBox Grid.Column="2" x:Name="TxtShift" Grid.Row="1" Content="{DynamicResource FormCursoShift}"/>
                                 </Grid>
-                                <Button Grid.Row="5" Grid.Column="1" Content="{StaticResource FormCursoCreationButton}" />
+                                <Button x:Name="Create" Grid.Row="5" Grid.Column="1" Content="{StaticResource FormCursoCreationButton}" Click="Create_Click"/>
                             </Grid>
                         </TabItem>
                         <TabItem Header="{StaticResource FormCursoRemovalTabItemHeader}">

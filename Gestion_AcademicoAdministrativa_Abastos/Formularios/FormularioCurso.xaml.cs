@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controller;
+using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public FormularioCurso()
         {
             InitializeComponent();
+        }
+
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+            var cod = TxtCod.Text;
+            var nombre = TxtNombre.Text;
+            var fechaMAtriculacion = TxtDate.Value;
+            var turnoTarde = TxtShift.IsChecked.Value;
+            string msg = ComponentGenerator.GetInstance().CreateCurso(cod, nombre, fechaMAtriculacion, turnoTarde);
+            Notification.CreateNotificaion(msg);
         }
     }
 }
