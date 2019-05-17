@@ -53,5 +53,27 @@ namespace Controller
                 return Constants.FailureCreatingEntity;
             }
         }
+
+        public string CreateAsignatura(string cod, string nombre, string rama)
+        {
+            var asignatura = new Asignatura()
+            {
+                Cod = cod,
+                Nombre = nombre,
+                Rama = rama,
+            };
+            var context = StaticReferences.Context;
+            var asignaturas = context.AsignaturaDbSet;
+            if (!asignaturas.Any(c => c.Cod.Equals(cod)))
+            {
+                asignaturas.Add(asignatura);
+                context.SaveChanges();
+                return Constants.SuccessCreatingEntity;
+            }
+            else
+            {
+                return Constants.FailureCreatingEntity;
+            }
+        }
     }
 }
