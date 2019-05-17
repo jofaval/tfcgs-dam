@@ -122,7 +122,7 @@
                                         </TextBlock.Style>
                                     </TextBlock>
                                 </Grid>
-                                <Button Grid.Row="5" Grid.Column="1" Content="{StaticResource FormAsignaturaCreationButton}" />
+                                <Button x:Name="Create" Grid.Row="5" Grid.Column="1" Content="{StaticResource FormAsignaturaCreationButton}" Click="Create_Click"/>
                             </Grid>
                         </TabItem>
                         <TabItem Header="{StaticResource FormAsignaturaRemovalTabItemHeader}">

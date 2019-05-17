@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public FormularioAsignatura()
         {
             InitializeComponent();
+        }
+
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+            var cod = TxtCod.Text;
+            var nombre = TxtNombre.Text;
+            var rama = TxtBranch.Text;
+
+            var msg = ComponentGenerator.GetInstance().CreateAsignatura(cod, nombre, rama);
+            Notification.CreateNotificaion(msg);
         }
     }
 }
