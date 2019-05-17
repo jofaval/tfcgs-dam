@@ -9,5 +9,7 @@ namespace Model
     public partial class Asignatura
     {
         public override string ToString() => $"Codigo: {Cod}, Nombre: {Nombre}";
+
+        public bool Equals(Asignatura other) => Cod.Equals(other.Cod);
     }
 }
