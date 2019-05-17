@@ -9,6 +9,7 @@ namespace Controller
 {
     public class ComponentGenerator
     {
+        public ComponentGenerator Instance { get; set; }
         public Alumno CreateAlumno(Persona Persona, string NumExpediente, Profesor Tutor)
         {
             return new Alumno()
@@ -18,6 +19,42 @@ namespace Controller
                 Tutor = Tutor.Trabajador,
                 FechaMatriculacion = DateTime.Now
             };
+        }
+
+        public static ComponentGenerator GetInstance()
+        {
+            if (Instance is null)
+            {
+                Instance = new ComponentGenerator();
+            }
+
+            return Instance;
+        }
+
+        public string CreateCurso(string cod, string nombre, DateTime? fechaMAtriculacion, bool turnoTarde)
+        {
+            var curso = new Curso()
+            {
+                Cod = cod,
+                Nombre = nombre,
+                FechaMatriculacion = fechaMAtriculacion,
+                TurnoTarde = turnoTarde,
+            };
+            var context = StaticReferences.Context;
+            var cursos = context.CursoDbSet;
+            var msg = "";
+            if (!cursos.Any(c => c.Cod.Equals(cod)))
+            {
+                cursos.Add(curso);
+                context.SaveChanges();
+                msg = Constants.SuccessCreatingEntity;
+            }
+            else
+            {
+                msg = Constants.FailureCreatingEntity;
+            }
+
+            return msg;
         }
     }
 }
