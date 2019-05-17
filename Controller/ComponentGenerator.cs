@@ -9,7 +9,7 @@ namespace Controller
 {
     public class ComponentGenerator
     {
-        public ComponentGenerator Instance { get; set; }
+        private static ComponentGenerator Instance { get; set; }
         public Alumno CreateAlumno(Persona Persona, string NumExpediente, Profesor Tutor)
         {
             return new Alumno()
@@ -42,19 +42,16 @@ namespace Controller
             };
             var context = StaticReferences.Context;
             var cursos = context.CursoDbSet;
-            var msg = "";
             if (!cursos.Any(c => c.Cod.Equals(cod)))
             {
                 cursos.Add(curso);
                 context.SaveChanges();
-                msg = Constants.SuccessCreatingEntity;
+                return Constants.SuccessCreatingEntity;
             }
             else
             {
-                msg = Constants.FailureCreatingEntity;
+                return Constants.FailureCreatingEntity;
             }
-
-            return msg;
         }
     }
 }
