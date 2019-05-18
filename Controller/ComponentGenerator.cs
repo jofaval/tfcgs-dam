@@ -54,6 +54,41 @@ namespace Controller
             }
         }
 
+        public string CreatePersona(string dni, string nif, string nombre, string apellidos, string email, string telefono)
+        {
+            var persona = new Model.Persona()
+            {
+                Dni = dni,
+                Nif = nif,
+                Nombre = nombre,
+                Apellidos = apellidos,
+                Email = email,
+            };
+
+            persona.Telefono = new List<Model.Telefono>
+            {
+                new Model.Telefono()
+                {
+                    Persona1 = persona,
+                    Telefono1 = telefono,
+                }
+            };
+
+            var context = StaticReferences.Context;
+            var personas = context.PersonaDbSet;
+
+            if (!personas.Contains(persona))
+            {
+                personas.Add(persona);
+                context.SaveChanges();
+                return Constants.SuccessCreatingEntity;
+            }
+            else
+            {
+                return Constants.FailureCreatingEntity;
+            }
+        }
+
         public string CreateHorario(Curso curso, Asignatura asignatura, DateTime horaInicio, DateTime horaFinal)
         {
             StaticReferences.Initializer();
