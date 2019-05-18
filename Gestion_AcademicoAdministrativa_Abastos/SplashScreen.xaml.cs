@@ -42,7 +42,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             myTimer.Tick += new EventHandler(MyTimer_Tick);
 
-            // Sets the timer interval to 5 seconds.
             var newRatio = (int)ratio;
             if (newRatio > 0)
             {
@@ -67,23 +66,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void MyTimer_Tick(object myObject, EventArgs myEventArgs)
         {
-            /*var totalTime = 1 * 1000;
-            var veces = 100;
-            var stopTime = totalTime / veces;
-            var ratio = totalTime / veces;
-
-            float value = 0;
-            for (int valueIterator = 0; valueIterator < veces; valueIterator++)
-            {
-                LoadingProgress.Value = value;
-                value += ratio;
-                Thread.Sleep((int)stopTime);
-            }
-            LoadingProgress.Value = 100;*/
-            //LoadingProgress.Value += ratio;
             ProgressValue += ratio;
             LoadingProgress.Value = ProgressValue;
-            //Console.WriteLine(LoadingProgress.Value);
 
             if (LoadingProgress.Value >= 100)
             {
