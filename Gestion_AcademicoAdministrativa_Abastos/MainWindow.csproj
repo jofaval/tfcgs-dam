@@ -142,6 +142,9 @@
       <DependentUpon>Configuration.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomElements\CueBanner.cs" />
+    <Compile Include="Formularios\FichaPersona.xaml.cs">
+      <DependentUpon>FichaPersona.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FormularioAsignatura.xaml.cs">
       <DependentUpon>FormularioAsignatura.xaml</DependentUpon>
     </Compile>
@@ -214,6 +217,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Configuration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formularios\FichaPersona.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
