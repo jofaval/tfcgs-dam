@@ -8,13 +8,13 @@ namespace Controller
 {
     public class ComponentRemover
     {
-        private static ComponentGenerator Instance { get; set; }
+        private static ComponentRemover Instance { get; set; }
 
-        public ComponentGenerator GetInstance()
+        public static ComponentRemover GetInstance()
         {
             if (Instance is null)
             {
-                Instance = new ComponentGenerator();
+                Instance = new ComponentRemover();
             }
 
             return Instance;
