@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using System.Linq;
 using System.Windows.Media.Animation;
+using System.Windows.Threading;
 
 namespace Gestion_AcademicoAdministrativa_Abastos
 {
@@ -211,6 +212,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         private void WindowVar_Activated(object sender, EventArgs e)
         {
             Topmost = false;
+        }
+
+        private void MainWindow_OnActivated(object sender, EventArgs e)
+        {
+            Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() => WindowStyle = WindowStyle.None));
         }
     }
 }

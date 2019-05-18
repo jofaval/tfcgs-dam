@@ -14,6 +14,10 @@
         <DropShadowEffect BlurRadius="10" ShadowDepth="0" Direction="-45" RenderingBias="Quality" Opacity="0.35" />
     </Window.Effect>
     <Grid x:Name="BackgroundGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1493*"/>
+            <ColumnDefinition Width="407*"/>
+        </Grid.ColumnDefinitions>
         <Grid.Background>
             <RadialGradientBrush>
                 <GradientStop Color="#FFA2FF00" Offset="0" />
@@ -24,7 +28,7 @@
             <RowDefinition Height="4*" />
             <RowDefinition Height="96*" />
         </Grid.RowDefinitions>
-        <Grid x:Name="TopBar" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" MouseDown="TopBar_MouseDown" PreviewMouseLeftButtonDown="TopBar_PreviewMouseLeftButtonDown" Background="{DynamicResource TopBarGradient}">
+        <Grid x:Name="TopBar" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" MouseDown="TopBar_MouseDown" PreviewMouseLeftButtonDown="TopBar_PreviewMouseLeftButtonDown" Background="{DynamicResource TopBarGradient}" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="95*" />
             </Grid.RowDefinitions>
@@ -43,7 +47,7 @@
                 <Button Grid.Column="2" Content="×" Click="BtnCerrar_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource CloseButton}" />
             </Grid>
         </Grid>
-        <Grid Grid.Row="1" x:Name="WindowContent">
+        <Grid Grid.Row="1" x:Name="WindowContent" Grid.ColumnSpan="2">
             <Grid x:Name="MainGridContent" Grid.Row="1" Background="{DynamicResource MainColorSolid}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="20*" />
