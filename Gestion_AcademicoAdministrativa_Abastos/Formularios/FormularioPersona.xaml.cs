@@ -37,7 +37,38 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var email = TxtEmail.Text;
             var telefono = TxtTelefono.Text;
 
+            if (string.IsNullOrWhiteSpace(dni))
+            {
+                Notification.CreateNotificaion("El campo DNI es obligatorio");
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(nif))
+            {
+                Notification.CreateNotificaion("El campo NIF es obligatorio");
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(nombre))
+            {
+                Notification.CreateNotificaion("El campo Nombre es obligatorio");
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(apellidos))
+            {
+                Notification.CreateNotificaion("El campo Apellidos es obligatorio");
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(email))
+            {
+                Notification.CreateNotificaion("El campo Email es obligatorio");
+                return;
+            }
+
             Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreatePersona(dni, nif, nombre, apellidos, email, telefono));
+        }
+
+        private void Remove_Click(object sender, RoutedEventArgs e)
+        {
+            Notification.CreateNotificaion(ComponentRemover.GetInstance().RemovePersona(TxtDNIRemove.Text));
         }
     }
 }

@@ -207,7 +207,7 @@
                                         <RowDefinition Height="20*" />
                                     </Grid.RowDefinitions>
                                     <Label Grid.Row="0" Content="{StaticResource FormPersonaDNI}"/>
-                                    <TextBox x:Name="TxtDNIRemove" Grid.Row="1" />
+                                    <TextBox x:Name="TxtDNIRemove" Grid.Row="1" MaxLength="9"/>
                                     <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormPersonaDNIExample}" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
@@ -220,7 +220,7 @@
                                             </Style>
                                         </TextBlock.Style>
                                     </TextBlock>
-                                    <Button Grid.Row="3" Content="{StaticResource FormPersonaRemove}" />
+                                    <Button x:Name="Remove" Grid.Row="3" Content="{StaticResource FormPersonaRemove}" Click="Remove_Click"/>
                                 </Grid>
                             </Grid>
                         </TabItem>
