@@ -24,7 +24,7 @@
             <RowDefinition Height="35*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <ProgressBar x:Name="LoadingProgress" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Value="0" AutomationProperties.HelpText="Testeo">
+            <ProgressBar x:Name="LoadingProgress" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Value="0" AutomationProperties.HelpText="Testeo" Visibility="Hidden">
                 <ProgressBar.BorderBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
@@ -46,7 +46,7 @@
                 </ProgressBar.Foreground>
             </ProgressBar>
             <TextBlock Text="{Binding ElementName=LoadingProgress, Path=Value, StringFormat={}{0:0}%}" 
-           HorizontalAlignment="Center" VerticalAlignment="Center"
+           HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"
             FontSize="6" FontWeight="Normal" Foreground="{DynamicResource BackgroundColorfulGradient}"/>
         </Grid>
     </Grid>

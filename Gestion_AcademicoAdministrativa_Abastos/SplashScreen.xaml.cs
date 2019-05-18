@@ -59,8 +59,9 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void DoMeanWhile()
         {
-            DataRetriever.GetInstance().GetUser("sfgsdfs", "sfsfs");
-            AlumnoFunctionality.GetProfesores("", false, false);
+            var emptyString = string.Empty;
+            DataRetriever.GetInstance().GetUser(emptyString, emptyString);
+            AlumnoFunctionality.GetProfesores(emptyString, true, true);
             StaticReferences.Initializer();
         }
 
