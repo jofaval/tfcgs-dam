@@ -44,6 +44,7 @@
         <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
         <Setter Property="MinWidth" Value="120"/>
         <Setter Property="MinHeight" Value="20"/>
+        <Setter Property="TextBlock.Padding" Value="15" />
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Template">
             <Setter.Value>
