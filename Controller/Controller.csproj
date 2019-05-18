@@ -74,6 +74,7 @@
     <Compile Include="AdministrativoFunctionality.cs" />
     <Compile Include="AlumnoFunctionality.cs" />
     <Compile Include="ComponentGenerator.cs" />
+    <Compile Include="ComponentRemover.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Cryptography.cs" />
     <Compile Include="DataGenerator.cs" />
