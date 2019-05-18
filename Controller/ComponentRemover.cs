@@ -23,12 +23,12 @@ namespace Controller
         public string RemovePersona (string Dni)
         {
             var context = StaticReferences.Context;
-            var personas = context.PersonaDbSet;
+            var personas = context.PersonaDbSet.ToList();
 
             var persona = personas.SingleOrDefault(p => p.Dni.Equals(Dni));
             if (personas.Contains(persona))
             {
-                personas.Remove(persona);
+                context.PersonaDbSet.Remove(persona);
                 context.SaveChanges();
                 return Constants.SuccessRemovingEntity;
             }

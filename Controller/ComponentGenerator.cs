@@ -56,7 +56,7 @@ namespace Controller
 
         public string CreatePersona(string dni, string nif, string nombre, string apellidos, string email, string telefono)
         {
-            var persona = new Model.Persona()
+            var persona = new Persona()
             {
                 Dni = dni,
                 Nif = nif,
@@ -65,9 +65,9 @@ namespace Controller
                 Email = email,
             };
 
-            persona.Telefono = new List<Model.Telefono>
+            persona.Telefono = new List<Telefono>
             {
-                new Model.Telefono()
+                new Telefono()
                 {
                     Persona1 = persona,
                     Telefono1 = telefono,
@@ -75,11 +75,11 @@ namespace Controller
             };
 
             var context = StaticReferences.Context;
-            var personas = context.PersonaDbSet;
+            var personas = context.PersonaDbSet.ToList();
 
             if (!personas.Contains(persona))
             {
-                personas.Add(persona);
+                context.PersonaDbSet.Add(persona);
                 context.SaveChanges();
                 return Constants.SuccessCreatingEntity;
             }
