@@ -1,4 +1,5 @@
 ﻿using Controller;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,36 +26,22 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             InitializeComponent();
             var cursos = StaticReferences.Context.CursoDbSet.ToList();
             ComboBoxCurso.ItemsSource = cursos;
-            //var asignaturas = StaticReferences.Context.AsignaturaDbSet.ToList();
-            //ComboBoxAsignatura.ItemsSource = asignaturas;
+            var asignaturas = StaticReferences.Context.AsignaturaDbSet.ToList();
+            ComboBoxAsignatura.ItemsSource = asignaturas;
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)
         {
-            StaticReferences.Initializer();
-            var context = StaticReferences.Context;
-            var cursos = context.CursoDbSet;
 
-            //var cursoCodText = TxtCursoCod.Text;
-            //var cursoNombreText = TxtCursoNombre.Text;
-            //var curso = cursos.SingleOrDefault(c => c.Cod.Equals(cursoCodText) && c.Nombre.Equals(cursoNombreText));
+            var selectedCurso = (Curso)ComboBoxCurso.SelectedValue;
 
-            var asignaturas = context.AsignaturaDbSet;
-            var selectedAsignatura = (dynamic)((ComboBoxItem)ComboBoxAsignatura.SelectedItem).Content;
-            var asignaturaCodText = ((string)selectedAsignatura.Cod);
-            var asignatura = asignaturas.SingleOrDefault(a => a.Cod.Equals(asignaturaCodText));
+            var selectedAsignatura = (Asignatura)ComboBoxAsignatura.SelectedValue;
+            var asignaturaCodText = selectedAsignatura.Cod;
 
-            var horaInicio = TxtHoraInicio.Value;
+            var horaInicio = TxtHoraInicio.Value.Value;
+            var horaFinal = TxtHoraFinal.Value.Value;
 
-            var horario = new Model.Horario()
-            {
-                Anyo = AdministrativoFunctionality.GetAcademicYear(StaticReferences.CurrentDateTime),
-                //CursoCod = cursoCodText,
-                //CursoNombre = cursoNombreText,
-                //Curso = curso,
-                CodAsignatura = asignaturaCodText,
-                Asignatura = asignatura,
-            };
+            Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreateHorario(selectedCurso, selectedAsignatura, horaInicio, horaFinal));
         }
 
         private void Remove_Click(object sender, RoutedEventArgs e)
