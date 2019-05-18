@@ -9,5 +9,7 @@ namespace Model
     public partial class Persona
     {
         public override string ToString() => $"DNI: {Dni}, Nombre: {Nombre}, Apellidos: {Apellidos}";
+
+        public bool Equals(Persona other) => Dni.Equals(other.Dni);
     }
 }
