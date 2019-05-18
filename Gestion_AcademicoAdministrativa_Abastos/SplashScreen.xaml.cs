@@ -38,7 +38,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             App.LoadSettings();
             ProgressValue = 0;
             InitializeComponent();
-            this.WindowState = WindowState.Maximized;
+            WindowState = WindowState.Maximized;
 
             myTimer.Tick += new EventHandler(MyTimer_Tick);
 
@@ -87,12 +87,15 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             XamlBridge.BackUpMainPanel = mainPanel;
 
             XamlFunctionality.ChangeWindowContent(mainWindow.MainPanel, new LogIn());
-            this.Close();
+            Close();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DoMeanWhile();
+            new Thread(delegate ()
+            {
+                DoMeanWhile();
+            }).Start();
         }
     }
 }
