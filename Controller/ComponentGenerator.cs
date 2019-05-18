@@ -58,7 +58,7 @@ namespace Controller
         {
             StaticReferences.Initializer();
             var context = StaticReferences.Context;
-            var horarios = context.HorarioDbSet;
+            var horarios = context.HorarioDbSet.ToList();
             context.SaveChanges();
             var cursoCodText = curso.Cod;
             var cursoNombreText = curso.Nombre;
@@ -77,7 +77,7 @@ namespace Controller
                 HoraFinal = horaFinal.Hour,
             };
 
-            if (!horarios.Any(h => h.Equals(horario)))
+            if (!horarios.Contains(horario))
             {
                 context.HorarioDbSet.Add(horario);
                 context.SaveChanges();
