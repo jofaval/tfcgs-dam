@@ -96,4 +96,12 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <Style x:Key="CloseButton" TargetType="{x:Type Button}" BasedOn="{StaticResource MenuButton}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#59FF0000" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

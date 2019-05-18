@@ -23,7 +23,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100*" />
                 </Grid.ColumnDefinitions>
-                <Button x:Name="BtnCerrar" Grid.Column="2" Content="×" Click="BtnCerrar_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource MenuButton}" />
+                <Button x:Name="BtnCerrar" Grid.Column="2" Content="×" Click="BtnCerrar_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource CloseButton}" />
             </Grid>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
