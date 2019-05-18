@@ -184,7 +184,7 @@
                                         </TextBlock.Style>
                                     </TextBlock>
                                 </Grid>
-                                <Button Grid.Row="7" Grid.Column="1" Content="Crear Persona" />
+                                <Button x:Name="Create" Grid.Row="7" Grid.Column="1" Content="Crear Persona" Click="Create_Click"/>
                             </Grid>
                         </TabItem>
                         <TabItem Header="{StaticResource FormPersonaRemovalTabItemHeader}">
