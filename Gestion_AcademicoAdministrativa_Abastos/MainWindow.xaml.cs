@@ -4,13 +4,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Linq;
-using Model;
-using System.Collections.Generic;
 using System.Windows.Media.Animation;
-using Panel = System.Windows.Controls.Panel;
-using Controller;
 
 namespace Gestion_AcademicoAdministrativa_Abastos
 {
