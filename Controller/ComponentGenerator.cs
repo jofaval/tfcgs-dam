@@ -54,6 +54,41 @@ namespace Controller
             }
         }
 
+        public string CreateHorario(Curso curso, Asignatura asignatura, DateTime horaInicio, DateTime horaFinal)
+        {
+            StaticReferences.Initializer();
+            var context = StaticReferences.Context;
+            var horarios = context.HorarioDbSet;
+            context.SaveChanges();
+            var cursoCodText = curso.Cod;
+            var cursoNombreText = curso.Nombre;
+
+            var asignaturaCodText = asignatura.Cod;
+
+            var horario = new Horario()
+            {
+                Anyo = AdministrativoFunctionality.GetAcademicYear(StaticReferences.CurrentDateTime),
+                CursoCod = cursoCodText,
+                CursoNombre = cursoNombreText,
+                Curso = curso,
+                CodAsignatura = asignaturaCodText,
+                Asignatura = asignatura,
+                HoraInicio = horaInicio,
+                HoraFinal = horaFinal.Hour,
+            };
+
+            if (!horarios.Any(h => h.Equals(horario)))
+            {
+                context.HorarioDbSet.Add(horario);
+                context.SaveChanges();
+                return Constants.SuccessCreatingEntity;
+            }
+            else
+            {
+                return Constants.FailureCreatingEntity;
+            }
+        }
+
         public string CreateAsignatura(string cod, string nombre, string rama)
         {
             var asignatura = new Asignatura()
