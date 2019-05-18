@@ -45,4 +45,7 @@
         <GradientStop Color="{DynamicResource MainWindowStartColor}" Offset="0" />
         <GradientStop Color="{DynamicResource MainWindowStopColor}" Offset="1" />
     </LinearGradientBrush>
+
+    <Color x:Key="CloseColor">#59FF0000</Color>
+    <SolidColorBrush x:Key="CloseColorSolid" Color="{DynamicResource CloseColor}" />
 </ResourceDictionary>

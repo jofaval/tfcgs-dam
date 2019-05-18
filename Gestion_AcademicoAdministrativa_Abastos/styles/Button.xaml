@@ -100,8 +100,29 @@
     <Style x:Key="CloseButton" TargetType="{x:Type Button}" BasedOn="{StaticResource MenuButton}">
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#59FF0000" />
+                <Setter Property="Background" Value="{StaticResource CloseColorSolid}" />
             </Trigger>
+            <Trigger Property="IsMouseOver" Value="False">
+                <Setter Property="Background" Value="Transparent" />
+            </Trigger>
+            <EventTrigger RoutedEvent="MouseEnter">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.15" FillBehavior="Stop" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" From="Transparent" To="{StaticResource CloseColor}" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.35" FillBehavior="Stop" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" From="{StaticResource CloseColor}" To="Transparent" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
         </Style.Triggers>
     </Style>
 </ResourceDictionary>
