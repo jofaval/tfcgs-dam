@@ -53,8 +53,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 myTimer.Interval = 1;
             }
             myTimer.Start();
-
-            DoMeanWhile();
         }
 
         private void DoMeanWhile()
@@ -90,6 +88,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             XamlFunctionality.ChangeWindowContent(mainWindow.MainPanel, new LogIn());
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            DoMeanWhile();
         }
     }
 }
