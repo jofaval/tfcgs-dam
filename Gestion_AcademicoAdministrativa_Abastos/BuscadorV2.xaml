@@ -97,8 +97,8 @@
                                 <ColumnDefinition Width="20*" />
                                 <ColumnDefinition Width="35*" />
                             </Grid.ColumnDefinitions>
-                            <Button x:Name="ButtonPrevious" Grid.Column="1" Content="Anterior" Click="Button_Click"/>
-                            <Button x:Name="ButtonNext" Grid.Column="3" Content="Siguiente" Click="Button_Click"/>
+                            <Button x:Name="ButtonPrevious" Grid.Column="1" Content="Anterior" Click="NextPrevious_Click"/>
+                            <Button x:Name="ButtonNext" Grid.Column="3" Content="Siguiente" Click="NextPrevious_Click"/>
                         </Grid>
                     </Grid>
                 </Grid>

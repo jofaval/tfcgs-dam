@@ -66,12 +66,13 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 UserRoleList.Add(savedItem);
             }
 
+            SelectedIndex = 0;
             LabelNumRows.Content = UserRoleList.Count;
 
             LoadPageData();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void NextPrevious_Click(object sender, RoutedEventArgs e)
         {
             var correcto = false;
             if (sender == ButtonPrevious)
@@ -139,7 +140,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void QueryEntry_Click(object sender, RoutedEventArgs e)
         {
-            Notification.CreateNotificaion(sender.GetType().ToString());
+            var selectedItem = (dynamic)DataGridResult.SelectedItem;
+            if (selectedItem != null)
+            {
+                Notification.CreateNotificaion(selectedItem.Dni);
+            }
         }
     }
 }
