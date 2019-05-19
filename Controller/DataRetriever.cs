@@ -39,34 +39,37 @@ namespace Controller
         {
             var views = new List<ViewsEnum>();
 
-            var userPersona = user.Persona1;
-            if (userPersona.Alumno != null)
+            if (user != null)
             {
-                views.Add(ViewsEnum.ALUMNO);
-            }
+                var userPersona = user.Persona1;
+                if (userPersona.Alumno != null)
+                {
+                    views.Add(ViewsEnum.ALUMNO);
+                }
 
-            var trabajador = userPersona.Trabajador;
-            if (trabajador != null)
-            {
-                if (trabajador.Profesor != null)
+                var trabajador = userPersona.Trabajador;
+                if (trabajador != null)
                 {
-                    views.Add(ViewsEnum.PROFESOR);
+                    if (trabajador.Profesor != null)
+                    {
+                        views.Add(ViewsEnum.PROFESOR);
+                    }
+                    else if (trabajador.Administrativo != null)
+                    {
+                        views.Add(ViewsEnum.ADMINISTRATIVO);
+                    }
                 }
-                else if (trabajador.Administrativo != null)
+                if (!views.Contains(ViewsEnum.ADMINISTRATIVO))
                 {
-                    views.Add(ViewsEnum.ADMINISTRATIVO);
+                    if (user.PermisoAdministrativo)
+                    {
+                        views.Add(ViewsEnum.ADMINISTRATIVO);
+                    }
                 }
-            }
-            if (!views.Contains(ViewsEnum.ADMINISTRATIVO))
-            {
-                if (user.PermisoAdministrativo)
+                if (user.PermisoAdmin)
                 {
-                    views.Add(ViewsEnum.ADMINISTRATIVO);
+                    views.Add(ViewsEnum.ADMINISTRADOR);
                 }
-            }
-            if (user.PermisoAdmin)
-            {
-                views.Add(ViewsEnum.ADMINISTRADOR);
             }
 
             return views;
