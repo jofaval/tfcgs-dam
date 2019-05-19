@@ -59,11 +59,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
             }
         }
 
-        public static void CreateNotificaion(string title = "Confirmas la acción")
+        public static ConfirmNotification CreateNotificaion(string title = "Confirmas la acción")
         {
-            if (XamlFunctionality.IsWindowOpen<Notification>())
+            if (XamlFunctionality.IsWindowOpen<ConfirmNotification>())
             {
-                XamlFunctionality.CloseWindowInstancesOf<Notification>();
+                XamlFunctionality.CloseWindowInstancesOf<ConfirmNotification>();
             }
             var notification = new ConfirmNotification()
             {
@@ -72,12 +72,18 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
             };
 
             notification.InitializeComponent();
+            return notification;
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             Closing -= Window_Closing;
             e.Cancel = true;
+            CloseWindow();
+        }
+
+        private void CloseWindow()
+        {
             var anim = new DoubleAnimation(0, TimeSpan.FromMilliseconds(0.25 * 1000));
             anim.Completed += (s, _) => Close();
             BeginAnimation(OpacityProperty, anim);
@@ -89,6 +95,21 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
             Opacity = 0;
             var anim = new DoubleAnimation(1, TimeSpan.FromMilliseconds(0.25 * 1000));
             BeginAnimation(OpacityProperty, anim);
+        }
+
+        private void Confirm_Click(object sender, RoutedEventArgs e)
+        {
+            DoWhenFinished();
+        }
+
+        private void DoWhenFinished()
+        {
+            
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            CloseWindow();
         }
     }
 }
