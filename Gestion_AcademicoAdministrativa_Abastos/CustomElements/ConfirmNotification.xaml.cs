@@ -102,7 +102,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
             DoWhenFinished();
         }
 
-        private void DoWhenFinished()
+        public void DoWhenFinished()
         {
             
         }
