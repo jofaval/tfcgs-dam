@@ -38,8 +38,11 @@ namespace Controller
         public static readonly string SuccessRemovingEntity = "Se ha eliminado con éxito";
         public static readonly string FailureRemovingEntity = "No se ha podido eliminar o no se ha encontrado.";
 
+        public static readonly string NoResults = "No hemos podido encontrar resultados";
+
         public static readonly double AspectRatio = 1920 / 1080;
         public static readonly Regex RegexOnlyNumber = new Regex("[^0-9]+");
+        public static readonly Regex RegexAlphaNumeric = new Regex(@"[^\w]+");
         public const double TopBarHeight = 25;
         public const int MainWindowThickness = 5;
     }
