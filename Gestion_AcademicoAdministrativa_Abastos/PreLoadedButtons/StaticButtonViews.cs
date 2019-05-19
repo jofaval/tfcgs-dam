@@ -35,6 +35,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             var mainWindowInstance = XamlBridge.MainWindowInstance;
 
             XamlBridge.BackgroundGrid = mainWindowInstance.BackgroundGrid;
+            XamlBridge.CurrentUser = null;
 
             XamlFunctionality.ChangeWindowContent(XamlBridge.MainPanelInstance, new LogIn());
 
