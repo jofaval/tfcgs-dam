@@ -22,11 +22,9 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
     /// </summary>
     public partial class ConfirmNotification : Window
     {
-        public bool OKClicked { get; set; }
+        public const int MARGIN = 25;
 
         public string NotificationTitle { get; set; }
-
-        public const int MARGIN = 25;
 
         public ConfirmNotification()
         {
@@ -104,7 +102,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
 
         public void DoWhenFinished()
         {
-            
+
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
