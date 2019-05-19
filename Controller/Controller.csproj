@@ -80,6 +80,7 @@
     <Compile Include="DataGenerator.cs" />
     <Compile Include="DataIntegrityChecker.cs" />
     <Compile Include="DataRetriever.cs" />
+    <Compile Include="DynamicMojo.cs" />
     <Compile Include="ProfesorFunctionality.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaticReferences.cs" />
