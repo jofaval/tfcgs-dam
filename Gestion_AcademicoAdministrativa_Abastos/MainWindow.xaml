@@ -7,7 +7,7 @@
              mc:Ignorable="d" Title="{Binding ApplicationTitle}"
              WindowStartupLocation="CenterScreen"
              WindowStyle="None" AllowsTransparency="True" Background="Transparent"
-             Style="{StaticResource WindowStyle}" Height="678"
+             Style="{StaticResource WindowStyle}"
              Topmost="True" Activated="WindowVar_Activated"
              Closing="Window_Closing">
     <Window.Effect>
