@@ -74,7 +74,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             }
 
             SelectedIndex = 0;
+            var count = UserRoleList.Count;
             LabelNumRows.Content = UserRoleList.Count;
+            if (count == 0)
+            {
+                Notification.CreateNotificaion(Constants.NoResults);
+            }
 
             LoadPageData();
         }
