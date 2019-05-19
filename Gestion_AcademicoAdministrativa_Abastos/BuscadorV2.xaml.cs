@@ -1,4 +1,5 @@
 ﻿using Controller;
+using Gestion_AcademicoAdministrativa_Abastos.Formularios;
 using Model;
 using Model.DataStructure;
 using Model.ViewModel;
@@ -149,7 +150,15 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var selectedItem = DataGridResult.SelectedItem;
             if (selectedItem is PersonaViewModel selectedItemAsPersonaViewModel)
             {
-                Notification.CreateNotificaion(selectedItemAsPersonaViewModel.Dni);
+                //Notification.CreateNotificaion();
+                var persona = DataRetriever.GetInstance().GetPersona(selectedItemAsPersonaViewModel.Dni);
+                var fichaPersona = new FichaPersona();
+                fichaPersona.Close();
+                fichaPersona.FillWithData(persona);
+                var backUpMainPanel = fichaPersona.MainPanel;
+                XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
+
+                XamlBridge.MainPanelInstance = backUpMainPanel;
             }
         }
     }

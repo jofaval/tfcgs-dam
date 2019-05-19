@@ -25,6 +25,15 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             InitializeComponent();
         }
 
+        public void FillWithData(Model.Persona persona)
+        {
+            TxtDNI.Text = persona.Dni;
+            TxtNIF.Text = persona.Nif;
+            TxtNombre.Text = persona.Nombre;
+            TxtApellidos.Text = persona.Apellidos;
+            TxtEmail.Text = persona.Email;
+        }
+
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
             var userViews = DataRetriever.PosibleViews(
@@ -41,6 +50,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                 };
                 items.Add(tabItem);
             }
+        }
+
+        public void Search()
+        {
+            
         }
     }
 }
