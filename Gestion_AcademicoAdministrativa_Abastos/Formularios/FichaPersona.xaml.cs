@@ -22,6 +22,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
     public partial class FichaPersona : Window
     {
         public Model.Persona SelectedPersona { get; set; }
+
         public FichaPersona()
         {
             InitializeComponent();
@@ -60,7 +61,20 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
 
         private void Modify_Click(object sender, RoutedEventArgs e)
         {
-            ConfirmNotification.CreateNotificaion();
+            var notification = ConfirmNotification.CreateNotificaion();
+            DynamicMojo.SwapMethodBodies(
+                typeof(ConfirmNotification).GetMethod(nameof(notification.DoWhenFinished)),
+                typeof(FichaPersona).GetMethod(nameof(ModifyContent))
+            );
+        }
+
+        public void ModifyContent()
+        {
+            Notification.CreateNotificaion("Funciona");
+            if (SelectedPersona != null)
+            {
+                SelectedPersona.Nombre = TxtNombre.Text;
+            }
         }
 
         private void Remove_Click(object sender, RoutedEventArgs e)
