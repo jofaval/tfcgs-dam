@@ -1,4 +1,5 @@
 ﻿using Controller;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,6 +27,34 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                     dataGridCol.Width = new DataGridLength(0.95, DataGridLengthUnitType.Star);
                 }
             }
+        }
+
+        internal static void QueryInfoOnWebsite()
+        {
+            var RunningProcessPaths = ProcessFileNameFinderClass.GetAllRunningProcessFilePaths();
+
+            string process = "";
+
+            var workingMsg = " está en funcionamiento,\nenseguida se abrirá.";
+            if (RunningProcessPaths.Contains("chrome.exe"))
+            {
+                //firefox is running
+                Notification.CreateNotificaion(string.Concat("chrome", workingMsg));
+                process = "chrome.exe";
+            }
+            else if (RunningProcessPaths.Contains("firefox.exe"))
+            {
+                //Google Chrome is running
+                Notification.CreateNotificaion(string.Concat("firefox", workingMsg));
+                process = "firefox.exe";
+            }
+            else if (RunningProcessPaths.Contains("opera.exe"))
+            {
+                //Google Chrome is running
+                Notification.CreateNotificaion(string.Concat("opera", workingMsg));
+                process = "opera.exe";
+            }
+            System.Diagnostics.Process.Start(process, Constants.UrlHelper);
         }
 
         public static void ChangeWindowContent(Grid mainGrid, Window newWindow)
