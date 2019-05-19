@@ -3,6 +3,7 @@ using Model;
 using Model.DataStructure;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -141,10 +142,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         private void QueryEntry_Click(object sender, RoutedEventArgs e)
         {
             var selectedItem = (dynamic)DataGridResult.SelectedItem;
-            if (selectedItem != null)
-            {
-                Notification.CreateNotificaion(selectedItem.Dni);
-            }
+            Notification.CreateNotificaion(selectedItem.GetType());
+            //if (selectedItem != null)
+            //{
+            //    Notification.CreateNotificaion(selectedItem.Dni);
+            //}
         }
     }
 }
