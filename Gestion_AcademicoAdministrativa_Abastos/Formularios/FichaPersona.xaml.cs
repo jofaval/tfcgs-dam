@@ -20,6 +20,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
     /// </summary>
     public partial class FichaPersona : Window
     {
+        public Model.Persona SelectedPersona { get; set; }
         public FichaPersona()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
         {
             if (persona != null)
             {
+                SelectedPersona = persona;
                 TxtDNI.Text = persona.Dni;
                 TxtNIF.Text = persona.Nif;
                 TxtNombre.Text = persona.Nombre;
@@ -39,7 +41,15 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            FillWithData(DataRetriever.GetInstance().GetPersona(TxtDniSearch.Text));
+            var persona = DataRetriever.GetInstance().GetPersona(TxtDniSearch.Text);
+            if (persona is null)
+            {
+                Notification.CreateNotificaion(Constants.NoResults);
+            }
+            else
+            {
+                FillWithData(persona);
+            }
         }
     }
 }
