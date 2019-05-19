@@ -96,5 +96,17 @@ namespace Controller
                     }).AsEnumerable();
             }
         }
+
+        public Usuario GetUserByPerson(Persona persona)
+        {
+            return persona.Usuario.FirstOrDefault();
+        }
+
+        public Usuario GetUserByPerson(string DNI)
+        {
+            return StaticReferences.Context.PersonaDbSet
+                .SingleOrDefault(p => p.Dni.Equals(DNI))?
+                .Usuario.FirstOrDefault();
+        }
     }
 }
