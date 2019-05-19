@@ -38,6 +38,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             Grid.SetRow(BuscadorPersona, numRow);
             numRow++;
 
+            var FichaPersona = new Button()
+            {
+                Name = "FichaPersona",
+                Content = "Fichas Personales",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(FichaPersona);
+            Grid.SetRow(FichaPersona, numRow);
+            numRow++;
+
             var FormPersona = new Button()
             {
                 Name = "FormPersona",
@@ -106,16 +116,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             };
             buttonList.Add(FormHorario);
             Grid.SetRow(FormHorario, numRow);
-            numRow++;
-
-            var FichaPersona = new Button()
-            {
-                Name = "FichaPersona",
-                Content = "Fichas Personales",
-                Style = menuButtonStyle
-            };
-            buttonList.Add(FichaPersona);
-            Grid.SetRow(FichaPersona, numRow);
             numRow++;
 
             var LogOutButton = new Button()
