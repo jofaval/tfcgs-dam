@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,24 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
         public FichaPersona()
         {
             InitializeComponent();
+        }
+
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            var userViews = DataRetriever.PosibleViews(
+                DataRetriever.GetInstance().GetUserByPerson(
+                    TxtDniSearch.Text
+                    )
+                );
+            var items = TabViews.Items;
+            foreach (var userView in userViews)
+            {
+                var tabItem = new TabItem()
+                {
+                    Header = userView,
+                };
+                items.Add(tabItem);
+            }
         }
     }
 }

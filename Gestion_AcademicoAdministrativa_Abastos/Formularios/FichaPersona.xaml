@@ -45,8 +45,8 @@
                             <ColumnDefinition Width="25*" />
                             <ColumnDefinition Width="10*" />
                         </Grid.ColumnDefinitions>
-                        <TextBox Grid.Column="0"/>
-                        <Button Content="Buscar" Grid.Column="2"/>
+                        <TextBox x:Name="TxtDniSearch" Grid.Column="0"/>
+                        <Button x:Name="BtnSearch" Content="Buscar" Grid.Column="2" Click="BtnSearch_Click"/>
                     </Grid>
                     <TabControl Grid.Column="1" Grid.Row="3" x:Name="TabViews">
                         <TabItem Header="Datos Personales">
