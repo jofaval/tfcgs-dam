@@ -10,7 +10,7 @@ namespace Model.ViewModel
     {
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
-        public Departamento Departamento { get; set; }
+        public string Departamento { get; set; }
         public string Funcion { get; set; }
         public string Email { get; set; }
     }

@@ -18,7 +18,7 @@ namespace Controller
                    {
                        Nombre = profesor.Trabajador1?.Persona1?.Nombre,
                        Apellidos = profesor.Trabajador1?.Persona1?.Apellidos,
-                       Departamento = profesor.Departamento1,
+                       Departamento = profesor.Departamento1.Nombre,
                        Funcion = profesor.Trabajador1?.Especial?.Funcion,
                        Email = profesor.Trabajador1?.Persona1?.Email,
                    }).AsEnumerable();
