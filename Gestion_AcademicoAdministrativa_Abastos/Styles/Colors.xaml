@@ -12,6 +12,8 @@
     </LinearGradientBrush>
 
     <Color x:Key="SecondaryColor">#FF2A2D34</Color>
+    <SolidColorBrush x:Key="SecondaryColorSolid" Color="{DynamicResource SecondaryColor}" />
+    
     <LinearGradientBrush x:Key="BackgroundContainerGradient" EndPoint="0.5,1" StartPoint="0.5,0">
         <GradientStop Color="{DynamicResource SecondaryColor}" />
         <GradientStop Color="{DynamicResource MainColor}" Offset="1" />
@@ -48,4 +50,7 @@
 
     <Color x:Key="CloseColor">#A5FF0000</Color>
     <SolidColorBrush x:Key="CloseColorSolid" Color="{DynamicResource CloseColor}" />
+
+    <Color x:Key="SecondaryColorLowOpacity">#BFEFEFEF</Color>
+    <SolidColorBrush x:Key="SecondaryColorLowOpacitySolid" Color="{DynamicResource SecondaryColorLowOpacity}" />
 </ResourceDictionary>
