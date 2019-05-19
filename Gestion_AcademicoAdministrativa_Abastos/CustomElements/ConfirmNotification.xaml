@@ -28,18 +28,14 @@
         </Grid>
         <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5*" />
-                <ColumnDefinition Width="45*" />
-                <ColumnDefinition Width="45*" />
-                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="50*" />
+                <ColumnDefinition Width="50*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="5*" />
-                <RowDefinition Height="90*" />
-                <RowDefinition Height="5*" />
+                <RowDefinition Height="100*" />
             </Grid.RowDefinitions>
-            <Button x:Name="Confirm" Content="Confirmar" Grid.Column="1" Grid.Row="1" Style="{StaticResource MenuButton}" Click="Confirm_Click"/>
-            <Button x:Name="Cancel" Content="Cancelar" Grid.Column="2" Grid.Row="1" Style="{StaticResource MenuButton}" Click="Cancel_Click"/>
+            <Button x:Name="Confirm" Content="Confirmar" Grid.Column="0" Grid.Row="1" Style="{StaticResource MenuButton}" Click="Confirm_Click"/>
+            <Button x:Name="Cancel" Content="Cancelar" Grid.Column="1" Grid.Row="1" Style="{StaticResource MenuButton}" Click="Cancel_Click"/>
         </Grid>
     </Grid>
 </Window>
