@@ -48,6 +48,7 @@
         <Setter Property="Background" Value="{x:Null}"></Setter>
         <Setter Property="BorderThickness" Value="5"></Setter>
         <Setter Property="Background" Value="{DynamicResource StandOutColorSolid}" />
+        <Setter Property="ContextMenu" Value="{StaticResource ContextMenuTextBox}" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource StandOutColorSolid}" />
