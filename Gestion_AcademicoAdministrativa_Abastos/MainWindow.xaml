@@ -14,6 +14,13 @@
         <DropShadowEffect BlurRadius="10" ShadowDepth="0" Direction="-45" RenderingBias="Quality" Opacity="0.35" />
     </Window.Effect>
     <Grid x:Name="BackgroundGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
+        <Grid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Testeo" />
+                    <MenuItem Header="Testeo" />
+                    <MenuItem Header="Testeo" />
+                </ContextMenu>
+        </Grid.ContextMenu>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1493*"/>
             <ColumnDefinition Width="407*"/>
