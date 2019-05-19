@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using Gestion_AcademicoAdministrativa_Abastos.Formularios;
 
 namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
 {
@@ -97,6 +98,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             Grid.SetRow(FormHorario, numRow);
             numRow++;
 
+            var FichaPersona = new Button()
+            {
+                Name = "FichaPersona",
+                Content = "Fichas Personales",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(FichaPersona);
+            Grid.SetRow(FichaPersona, numRow);
+            numRow++;
+
             var LogOutButton = new Button()
             {
                 Name = "LogOutButton",
@@ -161,6 +172,13 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                     else if (btnSender == FormHorario)
                     {
                         var backUpMainPanel = new FormularioHorario().MainPanel;
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
+
+                        XamlBridge.MainPanelInstance = backUpMainPanel;
+                    }
+                    else if (btnSender == FichaPersona)
+                    {
+                        var backUpMainPanel = new FichaPersona().MainPanel;
                         XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
 
                         XamlBridge.MainPanelInstance = backUpMainPanel;
