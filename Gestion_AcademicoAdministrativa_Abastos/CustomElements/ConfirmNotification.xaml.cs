@@ -33,15 +33,15 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
             var screenHeight = SystemParameters.FullPrimaryScreenHeight;
             var screenWidth = SystemParameters.FullPrimaryScreenWidth;
 
-            var newWidth = screenWidth * .5;
+            var newWidth = screenWidth * .25;
             Width = newWidth;
             MaxWidth = newWidth;
-            var newHeight = screenHeight * .5;
+            var newHeight = screenHeight * .25;
             Height = newHeight;
             MaxHeight = Height;
 
-            Top = screenHeight - Height;
-            Left = screenWidth - Width;
+            Top = screenHeight * .5 - Height * .5;
+            Left = screenWidth * .5 - Width * .5;
         }
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
@@ -98,6 +98,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
             DoWhenFinished();
+            CloseWindow();
         }
 
         public void DoWhenFinished()
