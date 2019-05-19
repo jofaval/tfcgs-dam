@@ -64,8 +64,14 @@
                             <Label Grid.Column="1" Content="Número de Filas"/>
                             <TextBox x:Name="TxtStep" Grid.Column="2" Text="{Binding Path=Step}" PreviewTextInput="TxtStep_PreviewTextInput" TextChanged="TxtStep_TextChanged"/>
                         </Grid>
-                        <DataGrid x:Name="DataGridResult" Grid.Row="5" AutoGenerateColumns="True" ColumnWidth="Auto" />
-                        <Grid Grid.Row="6" >
+                        <DataGrid x:Name="DataGridResult" Grid.Row="5" AutoGenerateColumns="True" ColumnWidth="Auto">
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem x:Name="QueryEntry" Header="Consultar Ficha" Click="QueryEntry_Click" />
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
+                        </DataGrid>
+                            <Grid Grid.Row="6" >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="5*" />
                                 <ColumnDefinition Width="15*" />

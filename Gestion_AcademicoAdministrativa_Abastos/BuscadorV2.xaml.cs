@@ -136,5 +136,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 }
             }
         }
+
+        private void QueryEntry_Click(object sender, RoutedEventArgs e)
+        {
+            Notification.CreateNotificaion(sender.GetType().ToString());
+        }
     }
 }
