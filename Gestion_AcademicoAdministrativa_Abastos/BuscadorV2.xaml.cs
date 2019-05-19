@@ -24,8 +24,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
     /// </summary>
     public partial class BuscadorV2 : Window
     {
-        public List<object> UserRoleList { get; set; }
-        public List<object> ContainerList { get; set; }
+        public List<dynamic> UserRoleList { get; set; }
+        public List<dynamic> ContainerList { get; set; }
         public int SelectedIndex { get; set; }
         public int Step { get; set; }
 
@@ -42,6 +42,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             else
             {
                 ContainerList = DataRetriever.GetInstance().GetListByUser(selectedView).ToList();
+            }
+            if (!selectedView.Equals(ViewsEnum.ADMINISTRATIVO))
+            {
+                DataGridContextMenu.Visibility = Visibility.Hidden;
             }
         }
 
@@ -141,11 +145,25 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void QueryEntry_Click(object sender, RoutedEventArgs e)
         {
-            var selectedItem = (dynamic)DataGridResult.SelectedItem;
-            Notification.CreateNotificaion(selectedItem.GetType());
+            var selectedCells = DataGridResult.SelectedCells;
+            var selectedItem = selectedCells;
+            foreach (var item in selectedCells)
+            {
+                Console.WriteLine(item);
+            }
+            //Notification.CreateNotificaion(selectedItem.GetType().GetProperties()[0].Name);
+            //selectedItem = ;
+            //var types = selectedItem.GetType().GetEnumValues();
+            //var len = types.Length;
+            //for (int typeIterator = 0; typeIterator < len; typeIterator++)
+            //{
+            //    var type = types.GetValue(typeIterator);
+            //    Console.WriteLine(type);
+            //}
+            //Notification.CreateNotificaion(selectedItem.ToString());
             //if (selectedItem != null)
             //{
-            //    Notification.CreateNotificaion(selectedItem.Dni);
+            //    Notification.CreateNotificaion(((dynamic)selectedItem).Dni);
             //}
         }
     }
