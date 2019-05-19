@@ -83,6 +83,7 @@
     <Style TargetType="TextBox" BasedOn="{StaticResource textboxPasswordboxStyles}">
         <Setter Property="Template" Value="{StaticResource TextBoxBaseControlTemplate}" />
         <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="ContextMenu" Value="{StaticResource ContextMenuTextBox}" />
     </Style>
 
     <ControlTemplate x:Key="passwordbox" TargetType="{x:Type PasswordBox}">

@@ -31,4 +31,10 @@
         <Setter Property="Foreground" Value="{DynamicResource MainColorSolid}" />
         <Setter Property="Margin" Value="5,5,5,0" />
     </Style>
+    <ContextMenu x:Key="ContextMenuTextBox">
+        <MenuItem Header="Deshacer" />
+        <MenuItem Header="Copiar" />
+        <MenuItem Header="Cortar" />
+        <MenuItem Header="Pegar" />
+    </ContextMenu>
 </ResourceDictionary>
