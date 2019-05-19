@@ -29,8 +29,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             }
         }
 
-        internal static void QueryInfoOnWebsite()
+        internal static void QueryInfoOnWebsite(string url = "")
         {
+            if (string.IsNullOrEmpty(url))
+            {
+                url = Constants.UrlHelper;
+            }
             var RunningProcessPaths = ProcessFileNameFinderClass.GetAllRunningProcessFilePaths();
 
             string process = "";
@@ -54,7 +58,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 Notification.CreateNotificaion(string.Concat("opera", workingMsg));
                 process = "opera.exe";
             }
-            System.Diagnostics.Process.Start(process, Constants.UrlHelper);
+            System.Diagnostics.Process.Start(process, url);
         }
 
         public static void ChangeWindowContent(Grid mainGrid, Window newWindow)
