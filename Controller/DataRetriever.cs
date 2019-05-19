@@ -108,9 +108,14 @@ namespace Controller
 
         public Usuario GetUserByPerson(string DNI)
         {
-            return StaticReferences.Context.PersonaDbSet
-                .SingleOrDefault(p => p.Dni.Equals(DNI))?
+            return GetPersona(DNI)?
                 .Usuario.FirstOrDefault();
+        }
+
+        public Persona GetPersona(string DNI)
+        {
+            return StaticReferences.Context.PersonaDbSet
+                .SingleOrDefault(p => p.Dni.Equals(DNI));
         }
     }
 }
