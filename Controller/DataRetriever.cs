@@ -76,7 +76,7 @@ namespace Controller
             return views;
         }
 
-        public IEnumerable<IHasName> GetListByUser(ViewsEnum user, Profesor profesor = null)
+        public IEnumerable<dynamic> GetListByUser(ViewsEnum user, Profesor profesor = null)
         {
             var joiner = Constants.StringJoiner;
 

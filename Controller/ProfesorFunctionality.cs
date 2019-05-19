@@ -45,7 +45,7 @@ namespace Controller
                    };
         }
 
-        public static IEnumerable<IHasName> GetAlumnos(Profesor profesor)
+        public static IEnumerable<dynamic> GetAlumnos(Profesor profesor)
         {
             var alumnos = StaticReferences.Alumnos
                    .Where(a => profesor.Impartimiento

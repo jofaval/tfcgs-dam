@@ -25,14 +25,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos
     /// </summary>
     public partial class BuscadorV2 : Window
     {
-        public List<IHasName> UserRoleList { get; set; }
-        public List<IHasName> ContainerList { get; set; }
+        public List<dynamic> UserRoleList { get; set; }
+        public List<dynamic> ContainerList { get; set; }
         public int SelectedIndex { get; set; }
         public int Step { get; set; }
 
         public BuscadorV2()
         {
-            UserRoleList = new List<IHasName>();
+            UserRoleList = new List<dynamic>();
             Step = 15;
             InitializeComponent();
             var selectedView = XamlBridge.ViewEnum;
@@ -62,8 +62,9 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var exactMatch = ExactMatch.IsChecked;
 
             var saved = ContainerList
-                .Cast<dynamic>();
-                //.Where(person => DataIntegrityChecker.FullyCheckIfContainsString(person.Nombre, name, ignoreMayus, exactMatch));
+                .Cast<dynamic>()
+                .Where(person => DataIntegrityChecker.FullyCheckIfContainsString((person as IHasName).Nombre, name, ignoreMayus, exactMatch))
+                ;
 
             UserRoleList.Clear();
             foreach (var savedItem in saved)
@@ -146,12 +147,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void QueryEntry_Click(object sender, RoutedEventArgs e)
         {
-            var selectedCells = DataGridResult.SelectedCells;
-            var selectedItem = selectedCells;
-            foreach (var item in selectedCells)
-            {
-                Console.WriteLine(item);
-            }
+            //var selectedCells = DataGridResult.SelectedCells;
+            //var selectedItem = selectedCells;
+            //foreach (var item in selectedCells)
+            //{
+            //    Console.WriteLine(item);
+            //}
             //Notification.CreateNotificaion(selectedItem.GetType().GetProperties()[0].Name);
             //selectedItem = ;
             //var types = selectedItem.GetType().GetEnumValues();
@@ -166,6 +167,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             //{
             //    Notification.CreateNotificaion(((dynamic)selectedItem).Dni);
             //}
+            var selectedItem = DataGridResult.SelectedItem;
+            if (selectedItem is PersonaViewModel selectedItemAsPersonaViewModel)
+            {
+                Notification.CreateNotificaion(selectedItemAsPersonaViewModel.Dni);
+            }
         }
     }
 }

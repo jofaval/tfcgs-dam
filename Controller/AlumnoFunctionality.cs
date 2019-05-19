@@ -9,7 +9,7 @@ namespace Controller
 {
     public class AlumnoFunctionality
     {
-        public static IEnumerable<IHasName> GetProfesores()
+        public static IEnumerable<dynamic> GetProfesores()
         {
             var profesores = StaticReferences.Profesores.AsEnumerable();
             return profesores
@@ -24,7 +24,7 @@ namespace Controller
                    }).AsEnumerable();
         }
 
-        public static IEnumerable<object> GetProfesores(string name, bool? ignoreMayus = true, bool? exactMatch = true)
+        public static IEnumerable<dynamic> GetProfesores(string name, bool? ignoreMayus = true, bool? exactMatch = true)
         {
             name = name.ToLower();
             StaticReferences.Initializer();
