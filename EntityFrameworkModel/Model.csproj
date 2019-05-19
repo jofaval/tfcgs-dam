@@ -124,6 +124,7 @@
     <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\IHasName.cs" />
+    <Compile Include="ViewModel\PersonaViewModel.cs" />
     <Compile Include="ViewModel\ProfesorViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
