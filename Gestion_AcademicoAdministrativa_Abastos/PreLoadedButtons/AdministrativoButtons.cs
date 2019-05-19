@@ -28,6 +28,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             Grid.SetRow(HomeButton, numRow);
             numRow++;
 
+            var BuscadorPersona = new Button()
+            {
+                Name = "BuscadorPersona",
+                Content = "Buscar Personas",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(BuscadorPersona);
+            Grid.SetRow(BuscadorPersona, numRow);
+            numRow++;
+
             var FormPersona = new Button()
             {
                 Name = "FormPersona",
@@ -125,6 +135,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                     if (btnSender == HomeButton)
                     {
                         var backUpMainPanel = XamlBridge.BackUpMainPanel;
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
+                        XamlBridge.MainPanelInstance = backUpMainPanel;
+                    }
+                    else if (btnSender == BuscadorPersona)
+                    {
+                        var backUpMainPanel = new BuscadorV2().MainPanel;
                         XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
                         XamlBridge.MainPanelInstance = backUpMainPanel;
                     }
