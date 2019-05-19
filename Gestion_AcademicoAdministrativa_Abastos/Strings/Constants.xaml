@@ -17,7 +17,9 @@
     <sys:String x:Key="FormPersonaCreationTabItemHeader">Crear Persona</sys:String>
     <sys:String x:Key="FormPersonaRemovalTabItemHeader">Eliminar Persona</sys:String>
     <sys:String x:Key="FormPersonaModifyTabItemHeader">Modificar Persona</sys:String>
-    <sys:String x:Key="FormPersonaRemove">Eliminar Persona</sys:String>
+    <sys:String x:Key="FormPersonaCreateButton">Crear Persona</sys:String>
+    <sys:String x:Key="FormPersonaModifyButton">Modificar Persona</sys:String>
+    <sys:String x:Key="FormPersonaRemoveButton">Eliminar Persona</sys:String>
 
     <sys:String x:Key="FormCursoCod">Código</sys:String>
     <sys:String x:Key="FormCursoCodxample">7J</sys:String>
