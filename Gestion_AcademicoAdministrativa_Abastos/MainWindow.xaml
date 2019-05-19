@@ -15,11 +15,14 @@
     </Window.Effect>
     <Grid x:Name="BackgroundGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
         <Grid.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="Testeo" />
-                    <MenuItem Header="Testeo" />
-                    <MenuItem Header="Testeo" />
-                </ContextMenu>
+            <ContextMenu>
+                <MenuItem x:Name="MaximizarNormalizarItem" Header="Maximizar/Normalizar" Click="MaximizarNormalizarItem_Click" />
+                <Separator />
+                <MenuItem x:Name="TwitterItem" Header="Twitter" Click="TwitterItem_Click"/>
+                <MenuItem x:Name="QueryInfoItem" Header="Consultar Información" Click="QueryInfoItem_Click"/>
+                <Separator />
+                <MenuItem x:Name="LogOutItem" Header="Salir" Click="LogOutItem_Click"/>
+            </ContextMenu>
         </Grid.ContextMenu>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1493*"/>

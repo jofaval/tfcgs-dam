@@ -218,5 +218,28 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() => WindowStyle = WindowStyle.None));
         }
+
+        private void MaximizarNormalizarItem_Click(object sender, RoutedEventArgs e)
+        {
+            ControladorWPF.MaximizeNormalize(this, TopBar);
+        }
+
+        private void QueryInfoItem_Click(object sender, RoutedEventArgs e)
+        {
+            XamlFunctionality.QueryInfoOnWebsite();
+        }
+
+        private void LogOutItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (XamlBridge.CurrentUser != null)
+            {
+                PreLoadedButtons.StaticButtonViews.LogOutFromMainWindow();
+            }
+        }
+
+        private void TwitterItem_Click(object sender, RoutedEventArgs e)
+        {
+            XamlFunctionality.QueryInfoOnWebsite("https://twitter.com/institutabastos?lang=es");
+        }
     }
 }
