@@ -1,4 +1,5 @@
 ﻿using Controller;
+using Gestion_AcademicoAdministrativa_Abastos.CustomElements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,6 +51,21 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             {
                 FillWithData(persona);
             }
+        }
+
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Modify_Click(object sender, RoutedEventArgs e)
+        {
+            ConfirmNotification.CreateNotificaion();
+        }
+
+        private void Remove_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

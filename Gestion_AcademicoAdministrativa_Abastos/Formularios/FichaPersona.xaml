@@ -188,9 +188,9 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="100*" />
                                     </Grid.RowDefinitions>
-                                    <Button Content="{StaticResource FormPersonaCreateButton}" Grid.Column="0"/>
-                                    <Button Content="{StaticResource FormPersonaModifyButton}" Grid.Column="2"/>
-                                    <Button Content="{StaticResource FormPersonaRemoveButton}" Grid.Column="4"/>
+                                    <Button x:Name="Create" Content="{StaticResource FormPersonaCreateButton}" Grid.Column="0" Click="Create_Click"/>
+                                    <Button x:Name="Modify" Content="{StaticResource FormPersonaModifyButton}" Grid.Column="2" Click="Modify_Click"/>
+                                    <Button x:Name="Remove" Content="{StaticResource FormPersonaRemoveButton}" Grid.Column="4" Click="Remove_Click"/>
                                 </Grid>
                             </Grid>
                         </TabItem>
