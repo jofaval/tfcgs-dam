@@ -6,7 +6,9 @@
         <Setter Property="OverridesDefaultStyle" Value="False" />
         <Setter Property="Grid.IsSharedSizeScope" Value="true" />
         <Setter Property="HasDropShadow" Value="True" />
-        <Setter Property="Background" Value="{DynamicResource SecondaryColorLowOpacitySolid}" />
+        <!--Setter Property="Background" Value="{DynamicResource SecondaryColorLowOpacitySolid}" /-->
+        <Setter Property="Background" Value="{DynamicResource StandOutColorSolid}" />
+        <Setter Property="Opacity" Value="0.80" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ContextMenu}">
@@ -29,12 +31,14 @@
     <Style TargetType="{x:Type MenuItem}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource MainColorSolid}" />
-        <Setter Property="Margin" Value="5,5,5,0" />
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="FontWeight" Value="Bold" />
     </Style>
     <ContextMenu x:Key="ContextMenuTextBox">
-        <MenuItem Header="Deshacer" />
-        <MenuItem Header="Copiar" />
-        <MenuItem Header="Cortar" />
-        <MenuItem Header="Pegar" />
+        <MenuItem Header="Deshacer" Command="ApplicationCommands.Undo"/>
+        <MenuItem Header="Rehacer" Command="ApplicationCommands.Redo"/>
+        <MenuItem Header="Copiar" Command="ApplicationCommands.Copy"/>
+        <MenuItem Header="Cortar" Command="ApplicationCommands.Cut"/>
+        <MenuItem Header="Pegar" Command="ApplicationCommands.Paste"/>
     </ContextMenu>
 </ResourceDictionary>
