@@ -1,6 +1,7 @@
 ﻿using Controller;
 using Model;
 using Model.DataStructure;
+using Model.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -24,14 +25,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos
     /// </summary>
     public partial class BuscadorV2 : Window
     {
-        public List<dynamic> UserRoleList { get; set; }
-        public List<dynamic> ContainerList { get; set; }
+        public List<IHasName> UserRoleList { get; set; }
+        public List<IHasName> ContainerList { get; set; }
         public int SelectedIndex { get; set; }
         public int Step { get; set; }
 
         public BuscadorV2()
         {
-            UserRoleList = new List<dynamic>();
+            UserRoleList = new List<IHasName>();
             Step = 15;
             InitializeComponent();
             var selectedView = XamlBridge.ViewEnum;

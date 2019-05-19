@@ -1,5 +1,6 @@
 ﻿using Model;
 using Model.DataStructure;
+using Model.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,7 +76,7 @@ namespace Controller
             return views;
         }
 
-        public IEnumerable<dynamic> GetListByUser(ViewsEnum user, Profesor profesor = null)
+        public IEnumerable<IHasName> GetListByUser(ViewsEnum user, Profesor profesor = null)
         {
             var joiner = Constants.StringJoiner;
 
@@ -89,12 +90,12 @@ namespace Controller
                 case ViewsEnum.ADMINISTRADOR:
                 default:
                     return StaticReferences.Context.PersonaDbSet
-                    .Select(p => new
+                    .Select(p => new PersonaViewModel
                     {
-                        p.Dni,
-                        p.Nif,
-                        p.Nombre,
-                        p.Apellidos,
+                        Dni = p.Dni,
+                        Nif = p.Nif,
+                        Nombre = p.Nombre,
+                        Apellidos = p.Apellidos,
                         Direccion = string.Concat(p.Calle, joiner, p.Patio, joiner, p.Piso, joiner, p.Puerta),
                     }).AsEnumerable();
             }

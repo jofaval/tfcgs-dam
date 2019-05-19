@@ -1,23 +1,26 @@
 ﻿using Model;
+using Model.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 
 namespace Controller
 {
     public class AlumnoFunctionality
     {
-        public static IEnumerable<object> GetProfesores()
+        public static IEnumerable<IHasName> GetProfesores()
         {
-            return StaticReferences.Profesores
+            var profesores = StaticReferences.Profesores.AsEnumerable();
+            return profesores
                    .Select(profesor =>
-                   new
+                   new ProfesorViewModel
                    {
-                       profesor.Trabajador1.Persona1.Nombre,
-                       profesor.Trabajador1.Persona1.Apellidos,
-                       profesor.Departamento,
-                       profesor.Trabajador1.Especial.Funcion,
-                       profesor.Trabajador1.Persona1.Email,
+                       Nombre = profesor.Trabajador1?.Persona1?.Nombre,
+                       Apellidos = profesor.Trabajador1?.Persona1?.Apellidos,
+                       Departamento = profesor.Departamento1,
+                       Funcion = profesor.Trabajador1?.Especial?.Funcion,
+                       Email = profesor.Trabajador1?.Persona1?.Email,
                    }).AsEnumerable();
         }
 
@@ -70,5 +73,5 @@ namespace Controller
 
             return horariosDelAlumno.ToList();
         }
-    }   
+    }
 }

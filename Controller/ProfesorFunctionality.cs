@@ -1,4 +1,5 @@
 ﻿using Model;
+using Model.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,7 +45,7 @@ namespace Controller
                    };
         }
 
-        public static List<dynamic> GetAlumnos(Profesor profesor)
+        public static IEnumerable<IHasName> GetAlumnos(Profesor profesor)
         {
             var alumnos = StaticReferences.Alumnos
                    .Where(a => profesor.Impartimiento
@@ -52,16 +53,16 @@ namespace Controller
                    .Any())
                    .AsEnumerable();
 
-            return (List<dynamic>)alumnos
+            return alumnos
                 .Select(alumno =>
-                   new
+                   new AlumnoViewModel
                    {
-                       alumno.NumExpediente,
-                       alumno.CursoNombre,
-                       alumno.Persona1.Nombre,
-                       alumno.Persona1.Apellidos,
-                       alumno.Persona1.Email,
-                   });
+                       NumExpediente = alumno.NumExpediente,
+                       CursoNombre = alumno.CursoNombre,
+                       Nombre = alumno.Persona1.Nombre,
+                       Apellidos = alumno.Persona1.Apellidos,
+                       Email = alumno.Persona1.Email,
+                   }).AsEnumerable();
         }
     }
 }
