@@ -63,6 +63,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             var nombre = TxtNombre.Text;
             var apellidos = TxtApellidos.Text;
             var email = TxtEmail.Text;
+            var calle = TxtCalle.Text;
+            var patio = TxtPatio.Text;
+            var piso = TxtPiso.Text;
+            var puerta = TxtPuerta.Text;
 
             if (string.IsNullOrWhiteSpace(dni))
             {
@@ -89,8 +93,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                 Notification.CreateNotificaion("El campo Email es obligatorio");
                 return;
             }
+            else if (string.IsNullOrWhiteSpace(calle)
+                || string.IsNullOrWhiteSpace(patio)
+                || string.IsNullOrWhiteSpace(piso)
+                || string.IsNullOrWhiteSpace(puerta))
+            {
+                Notification.CreateNotificaion("Se ha de rellenar la dirección completa.");
+                return;
+            }
 
-            Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreatePersona(dni, nif, nombre, apellidos, email));
+            Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreatePersona(dni, nif, nombre, apellidos, email, calle, patio, piso, puerta));
         }
 
         private void Modify_Click(object sender, RoutedEventArgs e)
