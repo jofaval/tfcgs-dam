@@ -40,6 +40,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                 TxtNombre.Text = persona.Nombre;
                 TxtApellidos.Text = persona.Apellidos;
                 TxtEmail.Text = persona.Email;
+                TxtCalle.Text = persona.Calle;
+                TxtPatio.Text = persona.Patio;
+                TxtPiso.Text = persona.Piso;
+                TxtPuerta.Text = persona.Puerta;
             }
         }
 
