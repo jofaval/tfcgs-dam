@@ -1,5 +1,6 @@
 ﻿using Controller;
 using Gestion_AcademicoAdministrativa_Abastos.CustomElements;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
     /// </summary>
     public partial class FichaPersona : Window
     {
-        public Model.Persona SelectedPersona { get; set; }
+        public Persona SelectedPersona { get; set; }
 
         public FichaPersona()
         {
@@ -29,7 +30,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             InitializeComponent();
         }
 
-        public void FillWithData(Model.Persona persona)
+        public void FillWithData(Persona persona)
         {
             if (persona != null)
             {
@@ -46,7 +47,43 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                 TxtPuerta.Text = persona.Puerta;
                 TxtCodigoPostal.Text = persona.CodigoPostal;
                 FechaNacmimiento.SelectedDate = persona.FechaNacimiento;
+                var alumno = persona.Alumno;
+                if (alumno != null)
+                {
+                    FillAlumnoWithData(alumno);
+                }
             }
+        }
+
+        public void FillAlumnoWithData(Alumno alumno)
+        {
+            TxtNumExpediente.Text = alumno.NumExpediente;
+            TxtNIA.Text = alumno.NumExpediente;
+            FechaMatriculacion.SelectedDate = alumno.FechaMatriculacion;
+        }
+
+        public void ClearPersonaData()
+        {
+            var emptyString = string.Empty;
+            TxtDNI.Text = emptyString;
+            TxtNIF.Text = emptyString;
+            TxtNombre.Text = emptyString;
+            TxtApellidos.Text = emptyString;
+            TxtEmail.Text = emptyString;
+            TxtCalle.Text = emptyString;
+            TxtPatio.Text = emptyString;
+            TxtPiso.Text = emptyString;
+            TxtPuerta.Text = emptyString;
+            TxtCodigoPostal.Text = emptyString;
+            FechaNacmimiento.SelectedDate = new DateTime();
+            SelectedPersona = null;
+            ClearAlumno();
+        }
+
+        public void ClearAlumno()
+        {
+            TxtNumExpediente.Text = string.Empty;
+            TxtNIA.Text = string.Empty;
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
@@ -62,7 +99,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             }
         }
 
-        private void Create_Click(object sender, RoutedEventArgs e)
+        private void CreatePersona_Click(object sender, RoutedEventArgs e)
         {
             var dni = TxtDNI.Text;
             var nif = TxtNIF.Text;
@@ -113,7 +150,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreatePersona(dni, nif, nombre, apellidos, email, calle, patio, piso, puerta, codigoPostal, FechaNacmimiento.SelectedDate.Value));
         }
 
-        private void Modify_Click(object sender, RoutedEventArgs e)
+        private void ModifyPersona_Click(object sender, RoutedEventArgs e)
         {
             var notification = ConfirmNotification.CreateNotificaion();
             DynamicMojo.SwapMethodBodies(
@@ -131,7 +168,50 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             }
         }
 
-        private void Remove_Click(object sender, RoutedEventArgs e)
+        private void RemovePersona_Click(object sender, RoutedEventArgs e)
+        {
+            StaticReferences.Context.PersonaDbSet.Remove(SelectedPersona);
+            StaticReferences.Context.SaveChanges();
+            ClearPersonaData();
+        }
+
+        private void CreateAlumno_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedDate = FechaNacmimiento.SelectedDate.Value;
+            var numExpediente = TxtNumExpediente.Text;
+            var nia = TxtNIA.Text;
+
+            Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreateAlumno(SelectedPersona, numExpediente, nia, selectedDate));
+        }
+
+        private void ModifyAlumno_Click(object sender, RoutedEventArgs e)
+        {
+            var alumno = SelectedPersona.Alumno;
+            alumno.NumExpediente = TxtNumExpediente.Text;
+            alumno.FechaMatriculacion = FechaMatriculacion.SelectedDate.Value;
+            SelectedPersona.Alumno = alumno;
+            StaticReferences.Context.Entry(alumno).State = System.Data.Entity.EntityState.Modified;
+            StaticReferences.Context.SaveChanges();
+        }
+
+        private void RemoveAlumno_Click(object sender, RoutedEventArgs e)
+        {
+            SelectedPersona.Alumno = null;
+            StaticReferences.Context.Entry(SelectedPersona).State = System.Data.Entity.EntityState.Modified;
+            StaticReferences.Context.SaveChanges();
+        }
+
+        private void CreateTrabajador_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ModifyTrabajador_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RemoveTrabajador_Click(object sender, RoutedEventArgs e)
         {
 
         }

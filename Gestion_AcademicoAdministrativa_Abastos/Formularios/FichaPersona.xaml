@@ -328,9 +328,158 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="100*" />
                                     </Grid.RowDefinitions>
-                                    <Button x:Name="Create" Content="{StaticResource FormPersonaCreateButton}" Grid.Column="0" Click="Create_Click"/>
-                                    <Button x:Name="Modify" Content="{StaticResource FormPersonaModifyButton}" Grid.Column="2" Click="Modify_Click"/>
-                                    <Button x:Name="Remove" Content="{StaticResource FormPersonaRemoveButton}" Grid.Column="4" Click="Remove_Click"/>
+                                    <Button x:Name="CreatePersona" Content="{StaticResource FormPersonaCreateButton}" Grid.Column="0" Click="CreatePersona_Click"/>
+                                    <Button x:Name="ModifyPersona" Content="{StaticResource FormPersonaModifyButton}" Grid.Column="2" Click="ModifyPersona_Click"/>
+                                    <Button x:Name="RemovePersona" Content="{StaticResource FormPersonaRemoveButton}" Grid.Column="4" Click="RemovePersona_Click"/>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Alumno" >
+                            <Grid x:Name="AlumnoPanel"
+                                  Background="{DynamicResource BackgroundContainerGradient}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*" />
+                                    <ColumnDefinition  Width="90*"/>
+                                    <ColumnDefinition  Width="5*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="15*" />
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="15*" />
+                                    <RowDefinition Height="15*" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Column="1" Grid.Row="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="35*" />
+                                        <RowDefinition Height="65*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40*" />
+                                        <ColumnDefinition Width="10*" />
+                                        <ColumnDefinition Width="40*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="NumExpediente" Grid.Column="0"/>
+                                    <TextBox x:Name="TxtNumExpediente" Grid.Column="0" Grid.Row="1" />
+
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormPersonaPuertaExample}" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtNumExpediente}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                    <Label Content="NIA" Grid.Column="2"/>
+                                    <TextBox x:Name="TxtNIA" Grid.Column="2" Grid.Row="1" />
+
+                                    <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormPersonaPuertaExample}" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtNIA}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                                <Grid Grid.Column="1" Grid.Row="3">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="35*" />
+                                        <RowDefinition Height="65*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Content="Fecha de Matriculacion" Grid.Column="2"/>
+                                    <DatePicker x:Name="FechaMatriculacion" Grid.Column="2" Grid.Row="1" />
+                                </Grid>
+                                <Grid Grid.Column="1" Grid.Row="4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30*" />
+                                        <ColumnDefinition Width="5*" />
+                                        <ColumnDefinition Width="30*" />
+                                        <ColumnDefinition Width="5*" />
+                                        <ColumnDefinition Width="30*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button x:Name="CreateAlumno" Content="Crear Alumno" Grid.Column="0" Click="CreateAlumno_Click"/>
+                                    <Button x:Name="ModifyAlumno" Content="Modificar Alumno" Grid.Column="2" Click="ModifyAlumno_Click"/>
+                                    <Button x:Name="RemoveAlumno" Content="Eliminar Alumno" Grid.Column="4" Click="RemoveAlumno_Click"/>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Trabajador" >
+                            <Grid x:Name="TrabajadorPanel"
+                                  Background="{DynamicResource BackgroundContainerGradient}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*" />
+                                    <ColumnDefinition  Width="90*"/>
+                                    <ColumnDefinition  Width="5*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="15*" />
+                                    <RowDefinition Height="20*" />
+                                    <RowDefinition Height="25*" />
+                                    <RowDefinition Height="20*" />
+                                    <RowDefinition Height="35*" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Column="1" Grid.Row="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="35*" />
+                                        <RowDefinition Height="65*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40*" />
+                                        <ColumnDefinition Width="10*" />
+                                        <ColumnDefinition Width="40*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Fecha de Incorporacion" Grid.Column="0"/>
+                                    <DatePicker x:Name="FechaIncorporacion" Grid.Column="0" Grid.Row="1" />
+                                    
+                                    <Label Content="Sueldo" Grid.Column="2"/>
+                                    <TextBox x:Name="TxtSueldo" Grid.Column="2" Grid.Row="1" />
+
+                                    <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormPersonaPuertaExample}" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtSueldo}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                                <Grid Grid.Column="1" Grid.Row="3">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="35*" />
+                                        <RowDefinition Height="65*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100*" />
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                                <Grid Grid.Column="1" Grid.Row="4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30*" />
+                                        <ColumnDefinition Width="5*" />
+                                        <ColumnDefinition Width="30*" />
+                                        <ColumnDefinition Width="5*" />
+                                        <ColumnDefinition Width="30*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button x:Name="CreateTrabajador" Content="Crear Trabajador" Grid.Column="0" Click="CreateTrabajador_Click"/>
+                                    <Button x:Name="ModifyTrabajador" Content="Modificar Trabajador" Grid.Column="2" Click="ModifyTrabajador_Click"/>
+                                    <Button x:Name="RemoveTrabajador" Content="Eliminar Trabajador" Grid.Column="4" Click="RemoveTrabajador_Click"/>
                                 </Grid>
                             </Grid>
                         </TabItem>
