@@ -158,6 +158,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 //Notification.CreateNotificaion();
                 var persona = DataRetriever.GetInstance().GetPersona(selectedItemAsPersonaViewModel.Dni);
                 var fichaPersona = new FichaPersona();
+                XamlBridge.FichaPersona = fichaPersona;
                 fichaPersona.Close();
                 fichaPersona.FillWithData(persona);
                 var backUpMainPanel = fichaPersona.MainPanel;
