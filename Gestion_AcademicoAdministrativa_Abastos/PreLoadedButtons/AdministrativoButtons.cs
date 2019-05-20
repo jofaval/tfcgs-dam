@@ -194,7 +194,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                     }
                     else if (btnSender == FichaPersona)
                     {
-                        var backUpMainPanel = new FichaPersona().MainPanel;
+                        var fichaPersona = new FichaPersona();
+                        var backUpMainPanel = fichaPersona.MainPanel;
+                        XamlBridge.FichaPersona = fichaPersona;
+                        fichaPersona.Close();
                         XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
 
                         XamlBridge.MainPanelInstance = backUpMainPanel;
