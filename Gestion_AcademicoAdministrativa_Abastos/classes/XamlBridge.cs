@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Gestion_AcademicoAdministrativa_Abastos.Formularios;
+using Model;
 using Model.DataStructure;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public static Usuario CurrentUser { get; set; }
         public static WindowSizeEnum SizeEnum { get; set; }
         public static ViewsEnum ViewEnum { get; set; }
+        public static FichaPersona FichaPersona { get; internal set; }
 
         public static void CloseEverything()
         {
