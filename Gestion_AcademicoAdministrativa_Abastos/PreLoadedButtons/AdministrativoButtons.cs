@@ -48,16 +48,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             Grid.SetRow(FichaPersona, numRow);
             numRow++;
 
-            var FormPersona = new Button()
-            {
-                Name = "FormPersona",
-                Content = "Formularios Persona",
-                Style = menuButtonStyle
-            };
-            buttonList.Add(FormPersona);
-            Grid.SetRow(FormPersona, numRow);
-            numRow++;
-
             var FormCurso = new Button()
             {
                 Name = "FormCurso",
@@ -98,16 +88,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             Grid.SetRow(FormDepartamento, numRow);
             numRow++;
 
-            var FormTrabajador = new Button()
-            {
-                Name = "FormTrabajador",
-                Content = "Formularios Trabajador",
-                Style = menuButtonStyle
-            };
-            buttonList.Add(FormTrabajador);
-            Grid.SetRow(FormTrabajador, numRow);
-            numRow++;
-
             var FormHorario = new Button()
             {
                 Name = "FormHorario",
@@ -144,12 +124,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                         XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
                         XamlBridge.MainPanelInstance = backUpMainPanel;
                     }
-                    else if (btnSender == FormPersona)
-                    {
-                        var backUpMainPanel = new FormularioPersona().MainPanel;
-                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
-                        XamlBridge.MainPanelInstance = backUpMainPanel;
-                    }
                     else if (btnSender == FormCurso)
                     {
                         var backUpMainPanel = new FormularioCurso().MainPanel;
@@ -174,13 +148,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                     else if (btnSender == FormDepartamento)
                     {
                         var backUpMainPanel = new FormularioDepartamento().MainPanel;
-                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
-
-                        XamlBridge.MainPanelInstance = backUpMainPanel;
-                    }
-                    else if (btnSender == FormTrabajador)
-                    {
-                        var backUpMainPanel = new FormularioTrabajador().MainPanel;
                         XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
 
                         XamlBridge.MainPanelInstance = backUpMainPanel;
