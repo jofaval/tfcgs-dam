@@ -25,6 +25,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
 
         public FichaPersona()
         {
+            DataContext = this;
             InitializeComponent();
         }
 
@@ -33,6 +34,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             if (persona != null)
             {
                 SelectedPersona = persona;
+                SelectedPersonaLabel.Content = persona.ToString();
                 TxtDNI.Text = persona.Dni;
                 TxtNIF.Text = persona.Nif;
                 TxtNombre.Text = persona.Nombre;
@@ -73,7 +75,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             Notification.CreateNotificaion("Funciona");
             if (SelectedPersona != null)
             {
-                SelectedPersona.Nombre = TxtNombre.Text;
+                XamlBridge.FichaPersona.TxtNombre.Text = XamlBridge.FichaPersona.TxtNombre.Text + "Funciona";
             }
         }
 

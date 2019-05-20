@@ -35,7 +35,8 @@
                         <RowDefinition Height="5*" />
                         <RowDefinition Height="7.5*" />
                         <RowDefinition Height="5*" />
-                        <RowDefinition Height="75*" />
+                        <RowDefinition Height="65*" />
+                        <RowDefinition Height="10*" />
                         <RowDefinition Height="5*" />
                     </Grid.RowDefinitions>
                     <Grid Grid.Column="1" Grid.Row="1">
@@ -195,6 +196,14 @@
                             </Grid>
                         </TabItem>
                     </TabControl>
+                    <Grid Grid.Column="1" Grid.Row="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40*" />
+                            <ColumnDefinition Width="60*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="Persona seleccionada: " HorizontalAlignment="Right"/>
+                        <Label x:Name="SelectedPersonaLabel" Grid.Column="1"/>
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>
