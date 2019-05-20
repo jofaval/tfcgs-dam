@@ -14,6 +14,14 @@
     <sys:String x:Key="FormPersonaTelefonoExample">98765432</sys:String>
     <sys:String x:Key="FormPersonaEmail">Email</sys:String>
     <sys:String x:Key="FormPersonaEmailExample">ejemplo@dominio.com</sys:String>
+    <sys:String x:Key="FormPersonaCalle">Calle</sys:String>
+    <sys:String x:Key="FormPersonaCalleExample">Avenida de Francia</sys:String>
+    <sys:String x:Key="FormPersonaPatio">Patio</sys:String>
+    <sys:String x:Key="FormPersonaPatioExample">4</sys:String>
+    <sys:String x:Key="FormPersonaPiso">Piso</sys:String>
+    <sys:String x:Key="FormPersonaPisoExample">2</sys:String>
+    <sys:String x:Key="FormPersonaPuerta">Puerta</sys:String>
+    <sys:String x:Key="FormPersonaPuertaExample">10</sys:String>
     <sys:String x:Key="FormPersonaCreationTabItemHeader">Crear Persona</sys:String>
     <sys:String x:Key="FormPersonaRemovalTabItemHeader">Eliminar Persona</sys:String>
     <sys:String x:Key="FormPersonaModifyTabItemHeader">Modificar Persona</sys:String>
