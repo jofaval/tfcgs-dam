@@ -116,9 +116,11 @@
                                 </Grid>
                                 <Grid Grid.Row="3" Grid.Column="1">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="35*" />
-                                        <ColumnDefinition Width="15*" />
-                                        <ColumnDefinition Width="50*" />
+                                        <ColumnDefinition Width="25*" />
+                                        <ColumnDefinition Width="5*" />
+                                        <ColumnDefinition Width="45*" />
+                                        <ColumnDefinition Width="5*" />
+                                        <ColumnDefinition Width="20*" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="50*" />
@@ -155,6 +157,8 @@
                                             </Style>
                                         </TextBlock.Style>
                                     </TextBlock>
+                                    <Label Content="Fecha Nac" Grid.Column="4"/>
+                                    <DatePicker x:Name="FechaNacmimiento" Grid.Column="4" Grid.Row="1"/>
                                 </Grid>
                                 <Grid Grid.Row="5" Grid.Column="1">
                                     <Grid.ColumnDefinitions>

@@ -44,6 +44,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                 TxtPatio.Text = persona.Patio;
                 TxtPiso.Text = persona.Piso;
                 TxtPuerta.Text = persona.Puerta;
+                TxtCodigoPostal.Text = persona.CodigoPostal;
+                FechaNacmimiento.SelectedDate = persona.FechaNacimiento;
             }
         }
 
@@ -71,6 +73,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             var patio = TxtPatio.Text;
             var piso = TxtPiso.Text;
             var puerta = TxtPuerta.Text;
+            var codigoPostal = TxtCodigoPostal.Text;
 
             if (string.IsNullOrWhiteSpace(dni))
             {
@@ -100,13 +103,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             else if (string.IsNullOrWhiteSpace(calle)
                 || string.IsNullOrWhiteSpace(patio)
                 || string.IsNullOrWhiteSpace(piso)
-                || string.IsNullOrWhiteSpace(puerta))
+                || string.IsNullOrWhiteSpace(puerta)
+                || string.IsNullOrWhiteSpace(codigoPostal))
             {
                 Notification.CreateNotificaion("Se ha de rellenar la dirección completa.");
                 return;
             }
 
-            Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreatePersona(dni, nif, nombre, apellidos, email, calle, patio, piso, puerta));
+            Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreatePersona(dni, nif, nombre, apellidos, email, calle, patio, piso, puerta, codigoPostal, FechaNacmimiento.SelectedDate.Value));
         }
 
         private void Modify_Click(object sender, RoutedEventArgs e)

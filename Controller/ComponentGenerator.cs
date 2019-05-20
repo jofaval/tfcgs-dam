@@ -54,7 +54,7 @@ namespace Controller
             }
         }
 
-        public string CreatePersona(string dni, string nif, string nombre, string apellidos, string email, string calle, string patio, string piso, string puerta, string telefono = "")
+        public string CreatePersona(string dni, string nif, string nombre, string apellidos, string email, string calle, string patio, string piso, string puerta, string codigoPostal, DateTime fechaNac, string telefono = "")
         {
             var persona = new Persona()
             {
@@ -67,6 +67,8 @@ namespace Controller
                 Patio = patio,
                 Piso = piso,
                 Puerta = puerta,
+                CodigoPostal = codigoPostal,
+                FechaNacimiento = fechaNac,
             };
 
             if (string.IsNullOrEmpty(telefono))
