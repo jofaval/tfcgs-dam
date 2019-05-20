@@ -54,7 +54,7 @@ namespace Controller
             }
         }
 
-        public string CreatePersona(string dni, string nif, string nombre, string apellidos, string email, string telefono)
+        public string CreatePersona(string dni, string nif, string nombre, string apellidos, string email, string telefono = "")
         {
             var persona = new Persona()
             {
@@ -65,14 +65,17 @@ namespace Controller
                 Email = email,
             };
 
-            persona.Telefono = new List<Telefono>
+            if (string.IsNullOrEmpty(telefono))
             {
-                new Telefono()
+                persona.Telefono = new List<Telefono>
                 {
-                    Persona1 = persona,
-                    Telefono1 = telefono,
-                }
-            };
+                    new Telefono()
+                    {
+                        Persona1 = persona,
+                        Telefono1 = telefono,
+                    }
+                };
+            }
 
             var context = StaticReferences.Context;
             var personas = context.PersonaDbSet.ToList();
