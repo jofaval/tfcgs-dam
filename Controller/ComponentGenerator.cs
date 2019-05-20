@@ -10,15 +10,28 @@ namespace Controller
     public class ComponentGenerator
     {
         private static ComponentGenerator Instance { get; set; }
-        public Alumno CreateAlumno(Persona Persona, string NumExpediente, Profesor Tutor)
+        public string CreateAlumno(Persona Persona, string NumExpediente, string NIA, DateTime fechaMatriculacion)
         {
-            return new Alumno()
+            var alumno = new Alumno()
             {
                 Persona = Persona.Dni,
                 NumExpediente = NumExpediente,
-                Tutor = Tutor.Trabajador,
-                FechaMatriculacion = DateTime.Now
+                FechaMatriculacion = fechaMatriculacion,
+                Persona1 = Persona,
             };
+
+            var context = StaticReferences.Context;
+            var cursos = context.AlumnoDbSet;
+            if (!context.AlumnoDbSet.Contains(alumno))
+            {
+                context.AlumnoDbSet.Add(alumno);
+                context.SaveChanges();
+                return Constants.SuccessCreatingEntity;
+            }
+            else
+            {
+                return Constants.FailureCreatingEntity;
+            }
         }
 
         public static ComponentGenerator GetInstance()
@@ -88,9 +101,16 @@ namespace Controller
 
             if (!personas.Contains(persona))
             {
-                context.PersonaDbSet.Add(persona);
-                context.SaveChanges();
-                return Constants.SuccessCreatingEntity;
+                try
+                {
+                    context.PersonaDbSet.Add(persona);
+                    context.SaveChanges();
+                    return Constants.SuccessCreatingEntity;
+                }
+                catch (Exception ex)
+                {
+                    return ex.Message;
+                }
             }
             else
             {
