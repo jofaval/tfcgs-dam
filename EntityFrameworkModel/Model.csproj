@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbastosDbContext.cs" />
+    <Compile Include="Alumno.cs" />
     <Compile Include="Asignatura.cs" />
     <Compile Include="Curso.cs" />
     <Compile Include="DataStructure\DNILeterEnum.cs" />
