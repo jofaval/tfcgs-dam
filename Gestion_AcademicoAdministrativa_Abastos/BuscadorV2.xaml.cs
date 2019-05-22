@@ -37,7 +37,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             Step = 15;
             InitializeComponent();
             var selectedView = XamlBridge.ViewEnum;
-            if (selectedView.Equals(ViewsEnum.PROFESOR))
+            if (selectedView.Equals(ViewsEnum.Profesor))
             {
                 ContainerList = DataRetriever.GetInstance().GetListByUser(selectedView, XamlBridge.CurrentUser.Persona1.Trabajador.Profesor).ToList();
             }
@@ -45,7 +45,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             {
                 ContainerList = DataRetriever.GetInstance().GetListByUser(selectedView).ToList();
             }
-            if (!selectedView.Equals(ViewsEnum.ADMINISTRATIVO))
+            if (!selectedView.Equals(ViewsEnum.Administrativo))
             {
                 DataGridContextMenu.Visibility = Visibility.Hidden;
             }

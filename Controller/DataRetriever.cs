@@ -45,7 +45,7 @@ namespace Controller
                 var userPersona = user.Persona1;
                 if (userPersona.Alumno != null)
                 {
-                    views.Add(ViewsEnum.ALUMNO);
+                    views.Add(ViewsEnum.Alumno);
                 }
 
                 var trabajador = userPersona.Trabajador;
@@ -53,23 +53,23 @@ namespace Controller
                 {
                     if (trabajador.Profesor != null)
                     {
-                        views.Add(ViewsEnum.PROFESOR);
+                        views.Add(ViewsEnum.Profesor);
                     }
                     else if (trabajador.Administrativo != null)
                     {
-                        views.Add(ViewsEnum.ADMINISTRATIVO);
+                        views.Add(ViewsEnum.Administrativo);
                     }
                 }
-                if (!views.Contains(ViewsEnum.ADMINISTRATIVO))
+                if (!views.Contains(ViewsEnum.Administrativo))
                 {
                     if (user.PermisoAdministrativo)
                     {
-                        views.Add(ViewsEnum.ADMINISTRATIVO);
+                        views.Add(ViewsEnum.Administrativo);
                     }
                 }
                 if (user.PermisoAdmin)
                 {
-                    views.Add(ViewsEnum.ADMINISTRADOR);
+                    views.Add(ViewsEnum.Administrador);
                 }
             }
 
@@ -82,12 +82,12 @@ namespace Controller
 
             switch (user)
             {
-                case ViewsEnum.ALUMNO:
+                case ViewsEnum.Alumno:
                     return AlumnoFunctionality.GetProfesores();
-                case ViewsEnum.PROFESOR:
+                case ViewsEnum.Profesor:
                     return ProfesorFunctionality.GetAlumnos(profesor);
-                case ViewsEnum.ADMINISTRATIVO:
-                case ViewsEnum.ADMINISTRADOR:
+                case ViewsEnum.Administrativo:
+                case ViewsEnum.Administrador:
                 default:
                     return StaticReferences.Context.PersonaDbSet
                     .Select(p => new PersonaViewModel

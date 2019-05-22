@@ -8,9 +8,9 @@ namespace Model.DataStructure
 {
     public enum ViewsEnum
     {
-        ALUMNO = 0,
-        PROFESOR = 1,
-        ADMINISTRATIVO = 2,
-        ADMINISTRADOR = 3,
+        Alumno = 0,
+        Profesor = 1,
+        Administrativo = 2,
+        Administrador = 3,
     }
 }

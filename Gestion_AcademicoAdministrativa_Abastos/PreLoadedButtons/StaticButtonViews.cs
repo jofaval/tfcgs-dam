@@ -17,13 +17,13 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
         {
             switch (viewEnum)
             {
-                case ViewsEnum.ALUMNO:
+                case ViewsEnum.Alumno:
                     return AlumnoButtons.CreateAlumnoView();
-                case ViewsEnum.PROFESOR:
+                case ViewsEnum.Profesor:
                     return ProfesorButtons.CreateProfesorView();
-                case ViewsEnum.ADMINISTRATIVO:
+                case ViewsEnum.Administrativo:
                     return AdministrativoButtons.CreateAdministrativoView();
-                case ViewsEnum.ADMINISTRADOR:
+                case ViewsEnum.Administrador:
                     return AdministradorButtons.CreateAdministradorView();
                 default:
                     return null;
