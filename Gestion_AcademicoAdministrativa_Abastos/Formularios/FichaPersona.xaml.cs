@@ -4,6 +4,7 @@ using Model;
 using Model.DataStructure;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -211,7 +212,39 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
 
         private void CreateTrabajador_Click(object sender, RoutedEventArgs e)
         {
+            var trabajador = SelectedPersona.Trabajador;
+            if (trabajador != null)
+            {
+                new Trabajador()
+                {
+                    Sueldo = double.Parse(TxtSueldo.Text, CultureInfo.InvariantCulture),
+                    FechaIncorporacion = FechaIncorporacion.SelectedDate.Value,
+                };
 
+                if (SelectedTrabajadorEnum != null)
+                {
+                    switch (SelectedTrabajadorEnum)
+                    {
+                        case TrabajadoresEnum.Profesor:
+                            if (trabajador.Profesor is null)
+                            {
+                                trabajador.Profesor = new Profesor()
+                                {
+
+                                };
+                            }
+                            break;
+                        case TrabajadoresEnum.Administrativo:
+                            break;
+                        case TrabajadoresEnum.Especial:
+                            break;
+                        case TrabajadoresEnum.Mantenimiento:
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
         }
 
         private void ModifyTrabajador_Click(object sender, RoutedEventArgs e)
