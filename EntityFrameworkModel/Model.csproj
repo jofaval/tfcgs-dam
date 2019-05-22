@@ -87,6 +87,7 @@
     <Compile Include="DataStructure\ViewsEnum.cs" />
     <Compile Include="DataStructure\WindowSizeConversor.cs" />
     <Compile Include="DataStructure\WindowSizeEnum.cs" />
+    <Compile Include="Departamento.cs" />
     <Compile Include="EntityFramework\Administrativo.cs" />
     <Compile Include="EntityFramework\Alumno.cs" />
     <Compile Include="EntityFramework\Asignatura.cs" />
