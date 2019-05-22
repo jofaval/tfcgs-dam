@@ -1,6 +1,7 @@
 ﻿using Controller;
 using Gestion_AcademicoAdministrativa_Abastos.CustomElements;
 using Model;
+using Model.DataStructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
         {
             DataContext = this;
             InitializeComponent();
+            var comboBoxTrabajadorTypeItems = ComboBoxTrabajadorType.Items;
+            var trabajadoresEnumValues = Enum.GetValues(typeof(TrabajadoresEnum)).Cast<TrabajadoresEnum>();
+            foreach (var trabajadorTypeFromEnum in trabajadoresEnumValues)
+            {
+                comboBoxTrabajadorTypeItems.Add(trabajadorTypeFromEnum);
+            }
         }
 
         public void FillWithData(Persona persona)
@@ -212,6 +219,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
         }
 
         private void RemoveTrabajador_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ComboBoxTrabajadorType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

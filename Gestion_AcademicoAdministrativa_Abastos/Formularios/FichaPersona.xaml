@@ -427,10 +427,20 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="15*" />
                                     <RowDefinition Height="20*" />
+                                    <RowDefinition Height="20*" />
+                                    <RowDefinition Height="20*" />
                                     <RowDefinition Height="25*" />
                                     <RowDefinition Height="20*" />
                                     <RowDefinition Height="35*" />
                                 </Grid.RowDefinitions>
+                                <Grid Grid.Column="1" Grid.Row="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="35*" />
+                                        <RowDefinition Height="65*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Content="Tipo de Trabajador" />
+                                    <ComboBox x:Name="ComboBoxTrabajadorType" Grid.Row="1" SelectionChanged="ComboBoxTrabajadorType_SelectionChanged"/>
+                                </Grid>
                                 <Grid Grid.Column="1" Grid.Row="2">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="35*" />
@@ -460,16 +470,9 @@
                                         </TextBlock.Style>
                                     </TextBlock>
                                 </Grid>
-                                <Grid Grid.Column="1" Grid.Row="3">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="35*" />
-                                        <RowDefinition Height="65*" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="100*" />
-                                    </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="1" Grid.Row="4" x:Name="RolGrid">
                                 </Grid>
-                                <Grid Grid.Column="1" Grid.Row="4">
+                                <Grid Grid.Column="1" Grid.Row="8">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="30*" />
                                         <ColumnDefinition Width="5*" />
