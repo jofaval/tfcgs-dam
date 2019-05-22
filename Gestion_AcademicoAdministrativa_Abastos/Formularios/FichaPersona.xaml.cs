@@ -225,7 +225,27 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
 
         private void ComboBoxTrabajadorType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (sender is ComboBox senderAsComboBox)
+            {
+                var selectedValue = (TrabajadoresEnum)senderAsComboBox.SelectedValue;
+                var childrens = RolGrid.Children;
+                switch (selectedValue)
+                {
+                    case TrabajadoresEnum.Profesor:
+                        var departamento = new TextBox();
+                        departamento.Text = "Test";
+                        childrens.Add(departamento);
+                        break;
+                    case TrabajadoresEnum.Administrativo:
+                        break;
+                    case TrabajadoresEnum.Especial:
+                        break;
+                    case TrabajadoresEnum.Mantenimiento:
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }
