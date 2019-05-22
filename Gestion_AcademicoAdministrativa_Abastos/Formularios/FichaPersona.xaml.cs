@@ -229,18 +229,67 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             {
                 var selectedValue = (TrabajadoresEnum)senderAsComboBox.SelectedValue;
                 var childrens = RolGrid.Children;
+                childrens.Clear();
                 switch (selectedValue)
                 {
                     case TrabajadoresEnum.Profesor:
-                        var departamento = new TextBox();
-                        departamento.Text = "Test";
-                        childrens.Add(departamento);
-                        break;
                     case TrabajadoresEnum.Administrativo:
-                        break;
-                    case TrabajadoresEnum.Especial:
+                        var labelDepartamento = new Label()
+                        {
+                            Content = "Departamento",
+                        };
+                        childrens.Add(labelDepartamento);
+                        Grid.SetRow(labelDepartamento, 0);
+                        Grid.SetColumn(labelDepartamento, 0);
+
+                        var departamento = new ComboBox
+                        {
+                            ItemsSource = StaticReferences.Context.DepartamentoDbSet.ToList()
+                        };
+                        childrens.Add(departamento);
+                        Grid.SetRow(departamento, 1);
+                        Grid.SetColumn(departamento, 0);
                         break;
                     case TrabajadoresEnum.Mantenimiento:
+                        var labelFuncion = new Label()
+                        {
+                            Content = "Funcion",
+                        };
+                        childrens.Add(labelFuncion);
+                        Grid.SetRow(labelFuncion, 0);
+                        Grid.SetColumn(labelFuncion, 0);
+
+                        var txtFuncion = new TextBox();
+                        childrens.Add(txtFuncion);
+                        Grid.SetRow(txtFuncion, 1);
+                        Grid.SetColumn(txtFuncion, 0);
+
+                        var labelHorario = new Label()
+                        {
+                            Content = "Funcion",
+                        };
+                        childrens.Add(labelHorario);
+                        Grid.SetRow(labelHorario, 0);
+                        Grid.SetColumn(labelHorario, 2);
+
+                        var txtHorario = new TextBox();
+                        childrens.Add(txtHorario);
+                        Grid.SetRow(txtHorario, 1);
+                        Grid.SetColumn(txtHorario, 2);
+                        break;
+                    case TrabajadoresEnum.Especial:
+                        var labelFuncion2 = new Label()
+                        {
+                            Content = "Funcion",
+                        };
+                        childrens.Add(labelFuncion2);
+                        Grid.SetRow(labelFuncion2, 0);
+                        Grid.SetColumn(labelFuncion2, 0);
+
+                        var txtFuncion2 = new TextBox();
+                        childrens.Add(txtFuncion2);
+                        Grid.SetRow(txtFuncion2, 1);
+                        Grid.SetColumn(txtFuncion2, 0);
                         break;
                     default:
                         break;

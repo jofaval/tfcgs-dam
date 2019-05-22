@@ -425,13 +425,13 @@
                                     <ColumnDefinition  Width="5*"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
+                                    <RowDefinition Height="5*" />
                                     <RowDefinition Height="15*" />
-                                    <RowDefinition Height="20*" />
-                                    <RowDefinition Height="20*" />
-                                    <RowDefinition Height="20*" />
-                                    <RowDefinition Height="25*" />
-                                    <RowDefinition Height="20*" />
-                                    <RowDefinition Height="35*" />
+                                    <RowDefinition Height="15*" />
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="15*" />
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="15*" />
                                 </Grid.RowDefinitions>
                                 <Grid Grid.Column="1" Grid.Row="1">
                                     <Grid.RowDefinitions>
@@ -471,6 +471,15 @@
                                     </TextBlock>
                                 </Grid>
                                 <Grid Grid.Column="1" Grid.Row="4" x:Name="RolGrid">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40*" />
+                                        <ColumnDefinition Width="10*" />
+                                        <ColumnDefinition Width="40*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="35*" />
+                                        <RowDefinition Height="65*" />
+                                    </Grid.RowDefinitions>
                                 </Grid>
                                 <Grid Grid.Column="1" Grid.Row="8">
                                     <Grid.ColumnDefinitions>
