@@ -24,6 +24,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
     public partial class FichaPersona : Window
     {
         public Persona SelectedPersona { get; set; }
+        public TrabajadoresEnum SelectedTrabajadorEnum { get; set; }
 
         public FichaPersona()
         {
@@ -228,8 +229,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             if (sender is ComboBox senderAsComboBox)
             {
                 var selectedValue = (TrabajadoresEnum)senderAsComboBox.SelectedValue;
+                SelectedTrabajadorEnum = selectedValue;
                 var childrens = RolGrid.Children;
                 childrens.Clear();
+                var trabajador = SelectedPersona.Trabajador;
                 switch (selectedValue)
                 {
                     case TrabajadoresEnum.Profesor:
@@ -249,6 +252,17 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                         childrens.Add(departamento);
                         Grid.SetRow(departamento, 1);
                         Grid.SetColumn(departamento, 0);
+                        if (trabajador != null)
+                        {
+                            if (selectedValue.Equals(TrabajadoresEnum.Profesor))
+                            {
+                                departamento.SelectedValue = trabajador.Profesor.Departamento1;
+                            }
+                            else if (selectedValue.Equals(TrabajadoresEnum.Administrativo))
+                            {
+                                departamento.SelectedValue = trabajador.Administrativo.Departamento1;
+                            }
+                        }
                         break;
                     case TrabajadoresEnum.Mantenimiento:
                         var labelFuncion = new Label()
@@ -266,7 +280,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
 
                         var labelHorario = new Label()
                         {
-                            Content = "Funcion",
+                            Content = "Horario",
                         };
                         childrens.Add(labelHorario);
                         Grid.SetRow(labelHorario, 0);
@@ -276,6 +290,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                         childrens.Add(txtHorario);
                         Grid.SetRow(txtHorario, 1);
                         Grid.SetColumn(txtHorario, 2);
+
+                        if (trabajador != null)
+                        {
+                            txtFuncion.Text = trabajador.Mantenimiento.Funcion;
+                            txtHorario.Text = trabajador.Mantenimiento.Horario;
+                        }
                         break;
                     case TrabajadoresEnum.Especial:
                         var labelFuncion2 = new Label()
@@ -290,6 +310,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                         childrens.Add(txtFuncion2);
                         Grid.SetRow(txtFuncion2, 1);
                         Grid.SetColumn(txtFuncion2, 0);
+
+                        if (trabajador != null)
+                        {
+                            txtFuncion2.Text = trabajador.Especial.Funcion;
+                        }
                         break;
                     default:
                         break;
