@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,50 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public FormularioAula()
         {
             InitializeComponent();
+        }
+
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+            var piso = TxtPiso.Text;
+            var num = TxtNum.Text;
+
+            var aula = new Aula()
+            {
+                Piso = piso,
+                Num = num,
+            };
+
+            if (StaticReferences.Context.AulaDbSet.Any(a => a.Num.Equals(num) && a.Piso.Equals(piso)))
+            {
+                Notification.CreateNotificaion("Ya existe");
+                return;
+            }
+
+            StaticReferences.Context.AulaDbSet.Add(aula);
+            StaticReferences.Context.SaveChanges();
+            Notification.CreateNotificaion("Creado con exito");
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            var piso = TxtPiso.Text;
+            var num = TxtNum.Text;
+
+            var context = StaticReferences.Context;
+            var aula = context.AulaDbSet
+                .SingleOrDefault(a => a.Num.Equals(num)
+                && a.Piso.Equals(piso));
+
+            if (context.AulaDbSet.Contains(aula))
+            {
+                context.AulaDbSet.Remove(aula);
+                context.SaveChanges();
+                Notification.CreateNotificaion("Borrado con exito");
+            }
+            else
+            {
+                Notification.CreateNotificaion("No se ha encontrado");
+            }
         }
     }
 }
