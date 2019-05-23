@@ -35,5 +35,40 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var msg = ComponentGenerator.GetInstance().CreateAsignatura(cod, nombre, rama);
             Notification.CreateNotificaion(msg);
         }
+
+        private void Modify_Click(object sender, RoutedEventArgs e)
+        {
+            var cod = TxtCod.Text;
+            var nombre = TxtNombre.Text;
+            var rama = TxtBranch.Text;
+
+            var context = StaticReferences.Context;
+            var asignatura = context.AsignaturaDbSet
+                .SingleOrDefault(a => a.Cod.Equals(cod));
+            if (asignatura is null)
+            {
+                Notification.CreateNotificaion("No se ha podido encontrar");
+            }
+            else
+            {
+                asignatura.Nombre = nombre;
+                asignatura.Rama = rama;
+                context.Entry(asignatura).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            var cod = TxtCod.Text;
+            var context = StaticReferences.Context;
+            var asignatura = context.AsignaturaDbSet
+                .SingleOrDefault(a => a.Cod.Equals(cod));
+            if (context.AsignaturaDbSet.Contains(asignatura))
+            {
+                context.AsignaturaDbSet.Remove(asignatura);
+                context.SaveChanges();
+            }
+        }
     }
 }
