@@ -523,19 +523,31 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             switch (selecetedValue)
             {
                 case TrabajadoresEnum.Profesor:
-                    context.ProfesorDbSet.Remove(trabajador.Profesor);
+                    if (context.ProfesorDbSet.Contains(trabajador.Profesor))
+                    {
+                        context.ProfesorDbSet.Remove(trabajador.Profesor);
+                    }
                     trabajador.Profesor = null;
                     break;
                 case TrabajadoresEnum.Administrativo:
-                    context.AdministrativoDbSet.Remove(trabajador.Administrativo);
+                    if (context.AdministrativoDbSet.Contains(trabajador.Administrativo))
+                    {
+                        context.AdministrativoDbSet.Remove(trabajador.Administrativo);
+                    }
                     trabajador.Administrativo = null;
                     break;
                 case TrabajadoresEnum.Especial:
-                    context.EspecialDbSet.Remove(trabajador.Especial);
+                    if (context.EspecialDbSet.Contains(trabajador.Especial))
+                    {
+                        context.EspecialDbSet.Remove(trabajador.Especial);
+                    }
                     trabajador.Especial = null;
                     break;
                 case TrabajadoresEnum.Mantenimiento:
-                    context.MantenimientoDbSet.Remove(trabajador.Mantenimiento);
+                    if (context.MantenimientoDbSet.Contains(trabajador.Mantenimiento))
+                    {
+                        context.MantenimientoDbSet.Remove(trabajador.Mantenimiento);
+                    }
                     trabajador.Mantenimiento = null;
                     break;
                 default:
