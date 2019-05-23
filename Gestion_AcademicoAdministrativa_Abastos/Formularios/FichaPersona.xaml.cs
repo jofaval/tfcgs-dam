@@ -295,7 +295,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
 
         private void RemoveTrabajador_Click(object sender, RoutedEventArgs e)
         {
-
+            var trabajador = SelectedPersona.Trabajador;
+            if (trabajador is null)
+            {
+                Notification.CreateNotificaion("Esta persona no es un trabajador registrado");
+            }
+            else
+            {
+                StaticReferences.Context.TrabajadorDbSet.Remove(trabajador);
+                StaticReferences.Context.SaveChanges();
+            }
         }
 
         private void ComboBoxTrabajadorType_SelectionChanged(object sender, SelectionChangedEventArgs e)
