@@ -213,43 +213,84 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
         private void CreateTrabajador_Click(object sender, RoutedEventArgs e)
         {
             var trabajador = SelectedPersona.Trabajador;
-            if (trabajador != null)
+            if (trabajador is null)
             {
-                new Trabajador()
+                trabajador = new Trabajador()
                 {
+                    Persona = SelectedPersona.Dni,
+                    Persona1 = SelectedPersona,
                     Sueldo = double.Parse(TxtSueldo.Text, CultureInfo.InvariantCulture),
                     FechaIncorporacion = FechaIncorporacion.SelectedDate.Value,
                 };
-
-                if (SelectedTrabajadorEnum != null)
-                {
-                    switch (SelectedTrabajadorEnum)
-                    {
-                        case TrabajadoresEnum.Profesor:
-                            if (trabajador.Profesor is null)
-                            {
-                                trabajador.Profesor = new Profesor()
-                                {
-
-                                };
-                            }
-                            break;
-                        case TrabajadoresEnum.Administrativo:
-                            break;
-                        case TrabajadoresEnum.Especial:
-                            break;
-                        case TrabajadoresEnum.Mantenimiento:
-                            break;
-                        default:
-                            break;
-                    }
-                }
+                StaticReferences.Context.TrabajadorDbSet.Add(trabajador);
+                StaticReferences.Context.SaveChanges();
             }
+
+            switch (SelectedTrabajadorEnum)
+            {
+                case TrabajadoresEnum.Profesor:
+                    var selectedDepartamentoProfesor = (Departamento)XamlFunctionality.FindChild<ComboBox>(Application.Current.MainWindow, "ComboBoxDepartamento").SelectedValue;
+                    if (trabajador.Profesor is null)
+                    {
+                        trabajador.Profesor = new Profesor()
+                        {
+                            Departamento = selectedDepartamentoProfesor.Cod,
+                            Departamento1 = selectedDepartamentoProfesor,
+                            FechaIncorporacion = FechaIncorporacion.SelectedDate.Value,
+                        };
+                        StaticReferences.Context.ProfesorDbSet.Add(trabajador.Profesor);
+                        StaticReferences.Context.Entry(trabajador).State = System.Data.Entity.EntityState.Modified;
+                    }
+                    break;
+                case TrabajadoresEnum.Administrativo:
+                    var selectedDepartamentoAdministrativo = (Departamento)XamlFunctionality.FindChild<ComboBox>(Application.Current.MainWindow, "ComboBoxDepartamento").SelectedValue;
+                    var funcionAdministrativo = XamlFunctionality.FindChild<TextBox>(Application.Current.MainWindow, "TxtFuncion").Text;
+                    if (trabajador.Administrativo is null)
+                    {
+                        trabajador.Administrativo = new Administrativo()
+                        {
+                            Departamento = selectedDepartamentoAdministrativo.Cod,
+                            Departamento1 = selectedDepartamentoAdministrativo,
+                            Funcion = funcionAdministrativo,
+                        };
+                        StaticReferences.Context.AdministrativoDbSet.Add(trabajador.Administrativo);
+                        StaticReferences.Context.Entry(trabajador).State = System.Data.Entity.EntityState.Modified;
+                    }
+                    break;
+                case TrabajadoresEnum.Especial:
+                    var funcionEspecial = XamlFunctionality.FindChild<TextBox>(Application.Current.MainWindow, "TxtFuncion").Text;
+                    if (trabajador.Especial is null)
+                    {
+                        trabajador.Especial = new Especial()
+                        {
+                            Funcion = funcionEspecial,
+                        };
+                        StaticReferences.Context.EspecialDbSet.Add(trabajador.Especial);
+                        StaticReferences.Context.Entry(trabajador).State = System.Data.Entity.EntityState.Modified;
+                    }
+                    break;
+                case TrabajadoresEnum.Mantenimiento:
+                    var funcionMantenimiento = XamlFunctionality.FindChild<TextBox>(Application.Current.MainWindow, "TxtFuncion").Text;
+                    var horarioMantenimiento = XamlFunctionality.FindChild<TextBox>(Application.Current.MainWindow, "TxtHorario").Text;
+                    if (trabajador.Mantenimiento is null)
+                    {
+                        trabajador.Mantenimiento = new Mantenimiento()
+                        {
+                            Funcion = funcionMantenimiento,
+                            Horario = horarioMantenimiento,
+                        };
+                        StaticReferences.Context.MantenimientoDbSet.Add(trabajador.Mantenimiento);
+                        StaticReferences.Context.Entry(trabajador).State = System.Data.Entity.EntityState.Modified;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            StaticReferences.Context.SaveChanges();
         }
 
         private void ModifyTrabajador_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void RemoveTrabajador_Click(object sender, RoutedEventArgs e)
@@ -280,7 +321,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
 
                         var departamento = new ComboBox
                         {
-                            ItemsSource = StaticReferences.Context.DepartamentoDbSet.ToList()
+                            ItemsSource = StaticReferences.Context.DepartamentoDbSet.ToList(),
+                            Name = "ComboBoxDepartamento",
                         };
                         childrens.Add(departamento);
                         Grid.SetRow(departamento, 1);
@@ -289,13 +331,29 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                         {
                             if (selectedValue.Equals(TrabajadoresEnum.Profesor))
                             {
-                                departamento.SelectedValue = trabajador.Profesor.Departamento1;
+                                departamento.SelectedValue = trabajador.Profesor?.Departamento1;
                             }
                             else if (selectedValue.Equals(TrabajadoresEnum.Administrativo))
                             {
-                                departamento.SelectedValue = trabajador.Administrativo.Departamento1;
+                                departamento.SelectedValue = trabajador.Administrativo?.Departamento1;
                             }
                         }
+
+                        var labelFuncionAdministrativo = new Label()
+                        {
+                            Content = "Funcion",
+                        };
+                        childrens.Add(labelFuncionAdministrativo);
+                        Grid.SetRow(labelFuncionAdministrativo, 0);
+                        Grid.SetColumn(labelFuncionAdministrativo, 2);
+
+                        var txtFuncionAdministrativo = new TextBox()
+                        {
+                            Name = "TxtFunction",
+                        };
+                        childrens.Add(txtFuncionAdministrativo);
+                        Grid.SetRow(txtFuncionAdministrativo, 1);
+                        Grid.SetColumn(txtFuncionAdministrativo, 2);
                         break;
                     case TrabajadoresEnum.Mantenimiento:
                         var labelFuncion = new Label()
@@ -306,7 +364,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                         Grid.SetRow(labelFuncion, 0);
                         Grid.SetColumn(labelFuncion, 0);
 
-                        var txtFuncion = new TextBox();
+                        var txtFuncion = new TextBox()
+                        {
+                            Name = "TxtFunction",
+                        };
                         childrens.Add(txtFuncion);
                         Grid.SetRow(txtFuncion, 1);
                         Grid.SetColumn(txtFuncion, 0);
@@ -319,15 +380,18 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                         Grid.SetRow(labelHorario, 0);
                         Grid.SetColumn(labelHorario, 2);
 
-                        var txtHorario = new TextBox();
+                        var txtHorario = new TextBox()
+                        {
+                            Name = "TxtHorario",
+                        };
                         childrens.Add(txtHorario);
                         Grid.SetRow(txtHorario, 1);
                         Grid.SetColumn(txtHorario, 2);
 
                         if (trabajador != null)
                         {
-                            txtFuncion.Text = trabajador.Mantenimiento.Funcion;
-                            txtHorario.Text = trabajador.Mantenimiento.Horario;
+                            txtFuncion.Text = trabajador.Mantenimiento?.Funcion;
+                            txtHorario.Text = trabajador.Mantenimiento?.Horario;
                         }
                         break;
                     case TrabajadoresEnum.Especial:
@@ -339,14 +403,17 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                         Grid.SetRow(labelFuncion2, 0);
                         Grid.SetColumn(labelFuncion2, 0);
 
-                        var txtFuncion2 = new TextBox();
+                        var txtFuncion2 = new TextBox()
+                        {
+                            Name = "TxtFunction",
+                        };
                         childrens.Add(txtFuncion2);
                         Grid.SetRow(txtFuncion2, 1);
                         Grid.SetColumn(txtFuncion2, 0);
 
                         if (trabajador != null)
                         {
-                            txtFuncion2.Text = trabajador.Especial.Funcion;
+                            txtFuncion2.Text = trabajador.Especial?.Funcion;
                         }
                         break;
                     default:
