@@ -503,7 +503,46 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
 
         private void RemoveTrabajadorRole_Click(object sender, RoutedEventArgs e)
         {
+            var selecetedValue = ComboBoxTrabajadorType.SelectedValue;
 
+            if (selecetedValue is null)
+            {
+                Notification.CreateNotificaion("No has seleccionado ningún rol");
+                return;
+            }
+
+            var trabajador = SelectedPersona.Trabajador;
+
+            if (trabajador is null)
+            {
+                Notification.CreateNotificaion("El trabajador no ha sido creado todavía");
+                return;
+            }
+
+            var context = StaticReferences.Context;
+            switch (selecetedValue)
+            {
+                case TrabajadoresEnum.Profesor:
+                    context.ProfesorDbSet.Remove(trabajador.Profesor);
+                    trabajador.Profesor = null;
+                    break;
+                case TrabajadoresEnum.Administrativo:
+                    context.AdministrativoDbSet.Remove(trabajador.Administrativo);
+                    trabajador.Administrativo = null;
+                    break;
+                case TrabajadoresEnum.Especial:
+                    context.EspecialDbSet.Remove(trabajador.Especial);
+                    trabajador.Especial = null;
+                    break;
+                case TrabajadoresEnum.Mantenimiento:
+                    context.MantenimientoDbSet.Remove(trabajador.Mantenimiento);
+                    trabajador.Mantenimiento = null;
+                    break;
+                default:
+                    break;
+            }
+            StaticReferences.Context.Entry(trabajador).State = System.Data.Entity.EntityState.Modified;
+            context.SaveChanges();
         }
     }
 }

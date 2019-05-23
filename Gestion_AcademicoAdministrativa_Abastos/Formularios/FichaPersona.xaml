@@ -488,10 +488,13 @@
                                         <ColumnDefinition Width="30*" />
                                         <ColumnDefinition Width="5*" />
                                         <ColumnDefinition Width="30*" />
+                                        <ColumnDefinition Width="5*" />
+                                        <ColumnDefinition Width="30*" />
                                     </Grid.ColumnDefinitions>
                                     <Button x:Name="CreateTrabajador" Content="Crear Trabajador" Grid.Column="0" Click="CreateTrabajador_Click"/>
                                     <Button x:Name="ModifyTrabajador" Content="Modificar Trabajador" Grid.Column="2" Click="ModifyTrabajador_Click"/>
-                                    <Button x:Name="RemoveTrabajador" Content="Eliminar Trabajador" Grid.Column="4" Click="RemoveTrabajador_Click"/>
+                                    <Button x:Name="RemoveTrabajadorRole" Content="Eliminar Rol" Grid.Column="4" Click="RemoveTrabajadorRole_Click"/>
+                                    <Button x:Name="RemoveTrabajador" Content="Eliminar Trabajador" Grid.Column="6" Click="RemoveTrabajador_Click"/>
                                 </Grid>
                             </Grid>
                         </TabItem>
