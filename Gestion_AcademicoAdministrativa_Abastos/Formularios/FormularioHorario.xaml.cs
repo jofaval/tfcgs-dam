@@ -48,7 +48,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             //Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreateHorario(selectedCurso, selectedAsignatura, horaInicio, horaFinal));
         }
 
-        private void Remove_Click(object sender, RoutedEventArgs e)
+        private void Modify_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
         {
 
         }
