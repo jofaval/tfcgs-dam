@@ -24,8 +24,8 @@ namespace AlgorithmTester
             Context = new AbastosDbContext();
             Generator = DataGenerator.GetInstance();
             RandomGenerator = new Random(DateTime.Now.Millisecond);
-            //LoadPersonal();
-            //LoadUsuarios();
+            LoadPersonal();
+            LoadUsuarios();
             LoadProfesores();
             Context.SaveChanges();
         }
@@ -36,12 +36,10 @@ namespace AlgorithmTester
             var personasLen = personas.Count();
             var trabajadores = Context.TrabajadorDbSet;
             var profesores = Context.ProfesorDbSet;
-
-            var departamento = new Departamento()
-            {
-                Cod = "INF",
-                Nombre = "Test"
-            };
+            var cod = "INF";
+            var name = "Test";
+            var departamento = Context.DepartamentoDbSet.Single(d => d.Cod.ToString().Equals(cod)
+            && d.Nombre.ToString().Equals(name));
 
             var numProfesores = 150;
 
@@ -66,7 +64,7 @@ namespace AlgorithmTester
                         Trabajador = persona.Dni,
                         Trabajador1 = trabjador,
                         FechaIncorporacion = randomDate,
-                        Departamento = departamento.Cod,
+                        Departamento = "INF",
                         Departamento1 = departamento,
                     };
                     profesores.Add(profesor);
@@ -88,6 +86,7 @@ namespace AlgorithmTester
             var numPersonas = 150;
             for (int personIterator = 0; personIterator < numPersonas; personIterator++)
             {
+
                 var dni = Generator.GenerateDNI();
 
                 if (!personas.Any((p) => p.Dni == dni))
@@ -115,6 +114,8 @@ namespace AlgorithmTester
                                 Puerta = (RandomGenerator.Next(999) + 1).ToString(),
                                 Nombre = nombre,
                                 Apellidos = apellidos,
+                                Provincia = "Valencia",
+                                Localidad = "Valencia",
                                 FechaNacimiento = fechaNacimiento,
                                 Email = Generator.GenerateEmail(string.Concat(nombre, " ", apellidos))
                             };
@@ -270,7 +271,10 @@ namespace AlgorithmTester
             db.SaveChanges();*/
 
             //CARGAR DATOS EN LA BASE DE DATOS
-            //LoadData();
+            for (int dataLoadedCount = 0; dataLoadedCount < 2; dataLoadedCount++)
+            {
+                LoadData();
+            }
 
             //NAVEGAR POR LOS DIRECTORIOS
             /*string solutiondir = Directory.GetParent(
@@ -284,7 +288,7 @@ namespace AlgorithmTester
             //SendEmail();
 
             //DateTime starting index
-            Console.WriteLine(DateTime.Now.Month);
+            //Console.WriteLine(DateTime.Now.Month);
             Console.ReadLine();
         }
 
