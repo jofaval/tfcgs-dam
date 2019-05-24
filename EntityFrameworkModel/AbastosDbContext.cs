@@ -47,6 +47,7 @@ namespace Model
         public virtual DbSet<Titulo> TituloDbSet { get; set; }
         public virtual DbSet<Trabajador> TrabajadorDbSet { get; set; }
         public virtual DbSet<Usuario> UsuarioDbSet { get; set; }
+        public virtual DbSet<Tutores> Tutores { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -333,10 +334,6 @@ namespace Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<Curso>()
-                .Property(e => e.Tutor)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Curso>()
                 .HasOptional(e => e.Bachiller)
                 .WithRequired(e => e.Curso)
                 .WillCascadeOnDelete();
@@ -344,7 +341,8 @@ namespace Model
             modelBuilder.Entity<Curso>()
                 .HasMany(e => e.Certificado)
                 .WithRequired(e => e.Curso)
-                .HasForeignKey(e => new { e.CursoCod, e.CursoNombre });
+                .HasForeignKey(e => new { e.CursoCod, e.CursoNombre })
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Curso>()
                 .HasOptional(e => e.Ciclo)
@@ -354,7 +352,8 @@ namespace Model
             modelBuilder.Entity<Curso>()
                 .HasMany(e => e.Convocatoria)
                 .WithRequired(e => e.Curso)
-                .HasForeignKey(e => new { e.CursoCod, e.CursoNombre });
+                .HasForeignKey(e => new { e.CursoCod, e.CursoNombre })
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Curso>()
                 .HasOptional(e => e.Eso)
@@ -363,6 +362,11 @@ namespace Model
 
             modelBuilder.Entity<Curso>()
                 .HasMany(e => e.Horario)
+                .WithRequired(e => e.Curso)
+                .HasForeignKey(e => new { e.CursoCod, e.CursoNombre });
+
+            modelBuilder.Entity<Curso>()
+                .HasMany(e => e.Tutores)
                 .WithRequired(e => e.Curso)
                 .HasForeignKey(e => new { e.CursoCod, e.CursoNombre });
 
@@ -450,7 +454,8 @@ namespace Model
             modelBuilder.Entity<Horario>()
                 .HasMany(e => e.Impartimiento)
                 .WithRequired(e => e.Horario)
-                .HasForeignKey(e => new { e.CursoCod, e.CursoNombre, e.CodAsignatura, e.HoraInicio, e.Dia, e.Anyo, e.HoraFinal });
+                .HasForeignKey(e => new { e.CursoCod, e.CursoNombre, e.CodAsignatura, e.HoraInicio, e.Dia, e.Anyo, e.HoraFinal })
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Impartimiento>()
                 .Property(e => e.Profesor)
@@ -540,11 +545,6 @@ namespace Model
                 .Property(e => e.Descripcion)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PermisosUsuario>()
-                .HasMany(e => e.Usuario)
-                .WithRequired(e => e.PermisosUsuario)
-                .HasForeignKey(e => new { e.Nombre, e.PermisoAdministrativo, e.PermisoAdmin, e.PermisProfesor, e.PermisoAlumno });
-
             modelBuilder.Entity<Persona>()
                 .Property(e => e.Dni)
                 .IsUnicode(false);
@@ -567,6 +567,14 @@ namespace Model
 
             modelBuilder.Entity<Persona>()
                 .Property(e => e.Piso)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Persona>()
+                .Property(e => e.Provincia)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Persona>()
+                .Property(e => e.Localidad)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Persona>()
@@ -622,6 +630,11 @@ namespace Model
                 .HasOptional(e => e.ProfesorSustituto)
                 .WithRequired(e => e.Profesor)
                 .WillCascadeOnDelete();
+
+            modelBuilder.Entity<Profesor>()
+                .HasMany(e => e.Tutores)
+                .WithRequired(e => e.Profesor1)
+                .HasForeignKey(e => e.Profesor);
 
             modelBuilder.Entity<ProfesorSustituto>()
                 .Property(e => e.Sustituido)
@@ -690,7 +703,8 @@ namespace Model
             modelBuilder.Entity<Superior>()
                 .HasMany(e => e.Proyecto)
                 .WithRequired(e => e.Superior)
-                .HasForeignKey(e => new { e.SuperiorCod, e.SuperiorNombre });
+                .HasForeignKey(e => new { e.SuperiorCod, e.SuperiorNombre })
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Telefono>()
                 .Property(e => e.Persona)
@@ -767,6 +781,18 @@ namespace Model
 
             modelBuilder.Entity<Usuario>()
                 .Property(e => e.Nombre)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tutores>()
+                .Property(e => e.CursoCod)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tutores>()
+                .Property(e => e.CursoNombre)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tutores>()
+                .Property(e => e.Profesor)
                 .IsUnicode(false);
         }
     }

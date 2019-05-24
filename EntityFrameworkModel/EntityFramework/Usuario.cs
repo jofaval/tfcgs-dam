@@ -28,22 +28,6 @@ namespace Model
         [StringLength(50)]
         public string Nombre { get; set; }
 
-        [Key]
-        [Column(Order = 3)]
-        public bool PermisoAdministrativo { get; set; }
-
-        [Key]
-        [Column(Order = 4)]
-        public bool PermisoAdmin { get; set; }
-
-        [Key]
-        [Column(Order = 5)]
-        public bool PermisProfesor { get; set; }
-
-        [Key]
-        [Column(Order = 6)]
-        public bool PermisoAlumno { get; set; }
-
         public virtual PermisosUsuario PermisosUsuario { get; set; }
 
         public virtual Persona Persona1 { get; set; }

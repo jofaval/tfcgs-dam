@@ -13,6 +13,7 @@ namespace Model
         public Profesor()
         {
             Impartimiento = new HashSet<Impartimiento>();
+            Tutores = new HashSet<Tutores>();
         }
 
         [Key]
@@ -33,5 +34,8 @@ namespace Model
         public virtual Trabajador Trabajador1 { get; set; }
 
         public virtual ProfesorSustituto ProfesorSustituto { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tutores> Tutores { get; set; }
     }
 }

@@ -45,9 +45,8 @@ namespace Model
         public int Anyo { get; set; }
 
         [Key]
-        [Column(Order = 6)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int HoraFinal { get; set; }
+        [Column(Order = 6, TypeName = "date")]
+        public DateTime HoraFinal { get; set; }
 
         public virtual Asignatura Asignatura { get; set; }
 

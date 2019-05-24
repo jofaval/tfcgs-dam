@@ -44,9 +44,8 @@ namespace Model
         public int Anyo { get; set; }
 
         [Key]
-        [Column(Order = 7)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int HoraFinal { get; set; }
+        [Column(Order = 7, TypeName = "date")]
+        public DateTime HoraFinal { get; set; }
 
         [Key]
         [Column(Order = 8)]

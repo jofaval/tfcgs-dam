@@ -29,7 +29,7 @@ namespace Model
         public string Calle { get; set; }
 
         [Required]
-        [StringLength(6)]
+        [StringLength(5)]
         public string CodigoPostal { get; set; }
 
         [Required]
@@ -39,6 +39,14 @@ namespace Model
         [Required]
         [StringLength(3)]
         public string Piso { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string Provincia { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string Localidad { get; set; }
 
         [Required]
         [StringLength(4)]

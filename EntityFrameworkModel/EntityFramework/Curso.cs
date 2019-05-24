@@ -15,6 +15,7 @@ namespace Model
             Certificado = new HashSet<Certificado>();
             Convocatoria = new HashSet<Convocatoria>();
             Horario = new HashSet<Horario>();
+            Tutores = new HashSet<Tutores>();
         }
 
         [Key]
@@ -26,9 +27,6 @@ namespace Model
         [Column(Order = 1)]
         [StringLength(50)]
         public string Nombre { get; set; }
-
-        [StringLength(9)]
-        public string Tutor { get; set; }
 
         public DateTime? FechaMatriculacion { get; set; }
 
@@ -48,5 +46,8 @@ namespace Model
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Horario> Horario { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tutores> Tutores { get; set; }
     }
 }
