@@ -30,10 +30,55 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             var cod = TxtCod.Text;
             var nombre = TxtNombre.Text;
-            var fechaMAtriculacion = TxtDate.Value;
+            var fechaMatriculacion = TxtDate.Value;
             var turnoTarde = TxtShift.IsChecked.Value;
-            string msg = ComponentGenerator.GetInstance().CreateCurso(cod, nombre, fechaMAtriculacion, turnoTarde);
+
+            string msg = ComponentGenerator.GetInstance().CreateCurso(cod, nombre, fechaMatriculacion, turnoTarde);
+
             Notification.CreateNotificaion(msg);
+        }
+
+        private void Modify_Click(object sender, RoutedEventArgs e)
+        {
+            var cod = TxtCod.Text;
+            var nombre = TxtNombre.Text;
+            var fechaMatriculacion = TxtDate.Value;
+            var turnoTarde = TxtShift.IsChecked.Value;
+
+            var context = StaticReferences.Context;
+            var curso = context.CursoDbSet.SingleOrDefault(c => c.Cod.Equals(cod));
+
+            if (curso is null)
+            {
+                Notification.CreateNotificaion("No se ha encontrado");
+                return;
+            }
+            
+            curso.Nombre = nombre;
+            curso.FechaMatriculacion = fechaMatriculacion;
+            curso.TurnoTarde = turnoTarde;
+
+            context.Entry(curso).State = System.Data.Entity.EntityState.Modified;
+            context.SaveChanges();
+
+            Notification.CreateNotificaion("Se ha borrado con exito");
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            var context = StaticReferences.Context;
+            var curso = context.CursoDbSet.SingleOrDefault(c => c.Cod.Equals(TxtCod.Text));
+
+            if (curso is null)
+            {
+                Notification.CreateNotificaion("No se ha encontrado");
+                return;
+            }
+
+            context.CursoDbSet.Remove(curso);
+            context.SaveChanges();
+
+            Notification.CreateNotificaion("Se ha borrado con exito");
         }
     }
 }
