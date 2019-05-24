@@ -83,17 +83,33 @@
                                 </Grid>
                                 <Grid Grid.Row="3" Grid.Column="1">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="45*" />
-                                        <ColumnDefinition Width="10*" />
-                                        <ColumnDefinition Width="45*" />
+                                        <ColumnDefinition Width="30*" />
+                                        <ColumnDefinition Width="5*" />
+                                        <ColumnDefinition Width="30*" />
+                                        <ColumnDefinition Width="5*" />
+                                        <ColumnDefinition Width="30*" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="50*" />
                                         <RowDefinition Height="50*" />
                                     </Grid.RowDefinitions>
                                     <Label Content="{DynamicResource FormHorarioHoraInicio}" Grid.Column="0"/>
-                                    <wpfExtended:DateTimePicker x:Name="TxtHoraInicio" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormHorarioHoraInicioExample}" >
+                                    <ComboBox Grid.Row="1" Grid.Column="0" x:Name="ComboBoxDia" />
+                                    <TextBlock Grid.Column="0" Grid.Row="2" Text="Selecciona un dia" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=ComboBoxDia}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                    <Label Content="{DynamicResource FormHorarioHoraInicio}" Grid.Column="2"/>
+                                    <TextBox Grid.Row="1" Grid.Column="2" x:Name="TxtHoraInicio" />
+                                    <TextBlock Grid.Column="2" Grid.Row="2" Text="Selecciona un dia" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -105,9 +121,9 @@
                                             </Style>
                                         </TextBlock.Style>
                                     </TextBlock>
-                                    <Label Grid.Column="2" Content="{DynamicResource FormHorarioHoraFinal}"/>
-                                    <wpfExtended:DateTimePicker Grid.Column="2" Grid.Row="1" x:Name="TxtHoraFinal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                                    <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormHorarioHoraFinalExample}" >
+                                    <Label Grid.Column="4" Content="{DynamicResource FormHorarioHoraFinal}"/>
+                                    <TextBox Grid.Row="1" Grid.Column="4" x:Name="TxtHoraFinal" />
+                                    <TextBlock Grid.Column="4" Grid.Row="1" Text="{DynamicResource FormHorarioHoraFinalExample}" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>

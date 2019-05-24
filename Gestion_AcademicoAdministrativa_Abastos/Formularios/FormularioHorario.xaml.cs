@@ -1,5 +1,6 @@
 ﻿using Controller;
 using Model;
+using Model.DataStructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             ComboBoxCurso.ItemsSource = cursos;
             var asignaturas = StaticReferences.Context.AsignaturaDbSet.ToList();
             ComboBoxAsignatura.ItemsSource = asignaturas;
+            var valuesOfWeekEnum = Enum.GetValues(typeof(WeekEnum));
+            ComboBoxDia.ItemsSource = valuesOfWeekEnum;
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)
@@ -38,10 +41,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var selectedAsignatura = (Asignatura)ComboBoxAsignatura.SelectedValue;
             var asignaturaCodText = selectedAsignatura.Cod;
 
-            var horaInicio = TxtHoraInicio.Value.Value;
-            var horaFinal = TxtHoraFinal.Value.Value;
+            //var horaInicio = TxtHoraInicio.Value.Value;
+            //horaInicio.Year = 0;
+            //var horaFinal = TxtHoraFinal.Value.Value;
 
-            Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreateHorario(selectedCurso, selectedAsignatura, horaInicio, horaFinal));
+            //Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreateHorario(selectedCurso, selectedAsignatura, horaInicio, horaFinal));
         }
 
         private void Remove_Click(object sender, RoutedEventArgs e)
