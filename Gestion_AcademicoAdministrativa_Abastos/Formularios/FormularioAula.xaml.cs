@@ -1,5 +1,6 @@
 ﻿using Controller;
 using Model;
+using Model.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -111,6 +112,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             };
             context.OrdenadorDbSet.Add(ordenador);
             context.SaveChanges();
+            BtnQueryOrdenadores_Click(null, null);
+
             Notification.CreateNotificaion("Se ha creado con exito");
         }
 
@@ -151,6 +154,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             context.Entry(ordenador).State = System.Data.Entity.EntityState.Modified;
             context.SaveChanges();
+            BtnQueryOrdenadores_Click(null, null);
 
             Notification.CreateNotificaion("Se ha modificado con exito");
         }
@@ -179,6 +183,37 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             {
                 Notification.CreateNotificaion("No se ha encontrado");
             }
+            BtnQueryOrdenadores_Click(null, null);
+        }
+
+        private void BtnQueryOrdenadores_Click(object sender, RoutedEventArgs e)
+        {
+            var ordenadores = StaticReferences.Context.OrdenadorDbSet
+                .Where(o => o.Num.Equals(TxtNum.Text)
+                && o.Piso.Equals(TxtPiso.Text))
+                .Select(o => 
+                new OrdenadorViewModel
+                {
+                    Piso = o.Piso,
+                    Num = o.Num,
+                    CodOrdenadorAula = o.CodOrdenadorAula,
+                    Estado = o.Estado,
+                    Ip = o.Ip,
+                    SistemaOperativo = o.SistemaOperativo,
+                }
+                )
+                .ToList();
+            DataGridOrdenadores.ItemsSource = ordenadores;
+        }
+
+        private void QueryEntry_Click(object sender, RoutedEventArgs e)
+        {
+            var ordenador = (OrdenadorViewModel)DataGridOrdenadores.SelectedValue;
+            TxtCod.Text = ordenador.CodOrdenadorAula;
+            TxtEstado.Text = ordenador.Estado;
+            TxtIP.Text = ordenador.Ip;
+            TxtSO.Text = ordenador.SistemaOperativo;
+            TabPages.SelectedIndex = 1;
         }
     }
 }

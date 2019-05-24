@@ -36,7 +36,7 @@
                         <RowDefinition Height="90*" />
                         <RowDefinition Height="5*" />
                     </Grid.RowDefinitions>
-                    <TabControl Grid.Row="1" Grid.Column="1">
+                    <TabControl Grid.Row="1" Grid.Column="1" x:Name="TabPages">
                         <TabItem Header="Aula">
                             <Grid Grid.Column="1" Grid.Row="1" x:Name="CreationContentPanel"
                                   Background="{DynamicResource BackgroundContainerGradient}">
@@ -98,14 +98,18 @@
 
                                 </Grid>
                                 <Grid Grid.Row="3" Grid.Column="1">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="100*" />
-                                    </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="25*" />
                                         <RowDefinition Height="75*" />
                                     </Grid.RowDefinitions>
-                                    <DataGrid Grid.Row="1" />
+                                    <Button Content="Consultar Ordenadores" x:Name="BtnQueryOrdenadores" Click="BtnQueryOrdenadores_Click"/>
+                                    <DataGrid x:Name="DataGridOrdenadores" Grid.Row="1" AutoGenerateColumns="True" ColumnWidth="Auto">
+                                        <DataGrid.ContextMenu>
+                                            <ContextMenu x:Name="DataGridContextMenu">
+                                                <MenuItem x:Name="QueryEntry" Header="Consultar Ordenador" Click="QueryEntry_Click" />
+                                            </ContextMenu>
+                                        </DataGrid.ContextMenu>
+                                    </DataGrid>
                                 </Grid>
                                 <Grid Grid.Row="5" Grid.Column="1">
                                     <Grid.ColumnDefinitions>
