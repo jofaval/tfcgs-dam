@@ -85,6 +85,7 @@
     <Compile Include="DataStructure\MonthEnum.cs" />
     <Compile Include="DataStructure\TrabajadoresEnum.cs" />
     <Compile Include="DataStructure\ViewsEnum.cs" />
+    <Compile Include="DataStructure\WeekEnum.cs" />
     <Compile Include="DataStructure\WindowSizeConversor.cs" />
     <Compile Include="DataStructure\WindowSizeEnum.cs" />
     <Compile Include="Departamento.cs" />
