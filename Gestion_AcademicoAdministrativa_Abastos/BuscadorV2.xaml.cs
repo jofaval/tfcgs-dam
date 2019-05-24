@@ -64,7 +64,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             var saved = ContainerList
                 .Cast<dynamic>()
-                .Where(person => DataIntegrityChecker.FullyCheckIfContainsString((person as IHasName).Nombre, name, ignoreMayus, exactMatch));
+                .Where(person => DataIntegrityChecker.FullyCheckIfContainsString((person as IHasName).Nombre, name, ignoreMayus, exactMatch))
+                .OrderBy(person => (person as IHasName).Nombre);
 
             UserRoleList.Clear();
             foreach (var savedItem in saved)
