@@ -62,12 +62,12 @@ namespace Controller
                 }
                 if (!views.Contains(ViewsEnum.Administrativo))
                 {
-                    if (user.PermisoAdministrativo)
+                    if (user.PermisosUsuario.PermisoAdministrativo)
                     {
                         views.Add(ViewsEnum.Administrativo);
                     }
                 }
-                if (user.PermisoAdmin)
+                if (user.PermisosUsuario.PermisoAdmin)
                 {
                     views.Add(ViewsEnum.Administrador);
                 }

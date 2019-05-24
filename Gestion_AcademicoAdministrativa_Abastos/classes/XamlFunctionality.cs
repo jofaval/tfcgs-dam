@@ -235,8 +235,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             {
                 var child = VisualTreeHelper.GetChild(parent, i);
                 // If the child is not of the request child type child
-                T childType = child as T;
-                if (childType == null)
+                if (!(child is T childType))
                 {
                     // recursively drill down the tree
                     foundChild = FindChild<T>(child, childName);
@@ -246,9 +245,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 }
                 else if (!string.IsNullOrEmpty(childName))
                 {
-                    var frameworkElement = child as FrameworkElement;
                     // If the child's name is set for search
-                    if (frameworkElement != null && frameworkElement.Name == childName)
+                    if (child is FrameworkElement frameworkElement && frameworkElement.Name == childName)
                     {
                         // if the child's name is of the request name
                         foundChild = (T)child;

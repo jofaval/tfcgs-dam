@@ -138,7 +138,7 @@ namespace Controller
                 CodAsignatura = asignaturaCodText,
                 Asignatura = asignatura,
                 HoraInicio = horaInicio,
-                HoraFinal = horaFinal.Hour,
+                HoraFinal = horaFinal,
             };
 
             if (!horarios.Contains(horario))
