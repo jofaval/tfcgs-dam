@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public partial class Asignatura
+    public partial class Asignatura : IEquatable<Asignatura>
     {
         public override string ToString() => $"Codigo: {Cod}, Nombre: {Nombre}";
 
