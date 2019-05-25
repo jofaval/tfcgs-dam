@@ -25,26 +25,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public Horario()
         {
             InitializeComponent();
-            //var collection = AlumnoFunctionality.GetHorarios(XamlBridge.CurrentUser);
-            //XamlFunctionality.FillDataGrid(DataGridResult, collection);
-            //Console.WriteLine(collection.Count());
-            var collection = StaticReferences.Context.HorarioDbSet
-                .AsEnumerable()
-                .OrderBy(h => h)
-                .Select(h => new
-                {
-                    Dia = (WeekEnum)h.Dia,
-                    HoraInicio = ExtractHour(h.HoraInicio),
-                    HoraFinal = ExtractHour(h.HoraFinal),
-                    Asignatura = h.Asignatura.Nombre,
-                })
-                .ToList();
+            var collection = AlumnoFunctionality.GetHorarios(XamlBridge.CurrentUser);
             XamlFunctionality.FillDataGrid(DataGridResult, collection);
-        }
-
-        public string ExtractHour(DateTime dateTime)
-        {
-            return string.Concat(dateTime.Hour.ToString("D2"), ':', dateTime.Minute.ToString("D2"));
         }
     }
 }
