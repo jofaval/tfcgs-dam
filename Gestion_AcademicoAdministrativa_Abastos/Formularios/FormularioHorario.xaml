@@ -210,8 +210,8 @@
                                         <ColumnDefinition Width="10*" />
                                         <ColumnDefinition Width="40*" />
                                     </Grid.ColumnDefinitions>
-                                    <Button x:Name="CreateImpartimiento" Grid.Column="0" Content="{StaticResource FormHorarioCreationButton}" Click="CreateImpartimiento_Click"/>
-                                    <Button x:Name="DeleteImpartimiento" Grid.Column="4" Content="{StaticResource FormHorarioRemoveButton}" Click="DeleteImpartimiento_Click"/>
+                                    <Button x:Name="CreateImpartimiento" Grid.Column="0" Content="Registrar Impartimiento" Click="CreateImpartimiento_Click"/>
+                                    <Button x:Name="DeleteImpartimiento" Grid.Column="4" Content="Eliminar Impartimiento" Click="DeleteImpartimiento_Click"/>
                                 </Grid>
                             </Grid>
                         </TabItem>
