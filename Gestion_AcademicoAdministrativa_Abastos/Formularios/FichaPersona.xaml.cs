@@ -55,7 +55,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                 TxtPiso.Text = persona.Piso;
                 TxtPuerta.Text = persona.Puerta;
                 TxtCodigoPostal.Text = persona.CodigoPostal;
-                FechaNacmimiento.SelectedDate = persona.FechaNacimiento;
+                FechaNacmimiento.Value = persona.FechaNacimiento;
                 var alumno = persona.Alumno;
                 if (alumno != null)
                 {
@@ -68,7 +68,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
         {
             TxtNumExpediente.Text = alumno.NumExpediente;
             TxtNIA.Text = alumno.NumExpediente;
-            FechaMatriculacion.SelectedDate = alumno.FechaMatriculacion;
+            FechaMatriculacion.Value = alumno.FechaMatriculacion;
         }
 
         public void ClearPersonaData()
@@ -84,7 +84,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             TxtPiso.Text = emptyString;
             TxtPuerta.Text = emptyString;
             TxtCodigoPostal.Text = emptyString;
-            FechaNacmimiento.SelectedDate = new DateTime();
+            FechaNacmimiento.Value = new DateTime();
             SelectedPersona = null;
             ClearAlumno();
         }
@@ -156,7 +156,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                 return;
             }
 
-            Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreatePersona(dni, nif, nombre, apellidos, email, calle, patio, piso, puerta, codigoPostal, FechaNacmimiento.SelectedDate.Value));
+            Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreatePersona(dni, nif, nombre, apellidos, email, calle, patio, piso, puerta, codigoPostal, FechaNacmimiento.Value.Value));
         }
 
         private void ModifyPersona_Click(object sender, RoutedEventArgs e)
@@ -186,7 +186,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
 
         private void CreateAlumno_Click(object sender, RoutedEventArgs e)
         {
-            var selectedDate = FechaNacmimiento.SelectedDate.Value;
+            var selectedDate = FechaNacmimiento.Value.Value;
             var numExpediente = TxtNumExpediente.Text;
             var nia = TxtNIA.Text;
 
@@ -197,7 +197,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
         {
             var alumno = SelectedPersona.Alumno;
             alumno.NumExpediente = TxtNumExpediente.Text;
-            alumno.FechaMatriculacion = FechaMatriculacion.SelectedDate.Value;
+            alumno.FechaMatriculacion = FechaMatriculacion.Value.Value;
             SelectedPersona.Alumno = alumno;
             StaticReferences.Context.Entry(alumno).State = System.Data.Entity.EntityState.Modified;
             StaticReferences.Context.SaveChanges();
@@ -220,7 +220,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                     Persona = SelectedPersona.Dni,
                     Persona1 = SelectedPersona,
                     Sueldo = double.Parse(TxtSueldo.Text, CultureInfo.InvariantCulture),
-                    FechaIncorporacion = FechaIncorporacion.SelectedDate.Value,
+                    FechaIncorporacion = FechaIncorporacion.Value.Value,
                 };
                 StaticReferences.Context.TrabajadorDbSet.Add(trabajador);
                 StaticReferences.Context.SaveChanges();
@@ -236,7 +236,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                         {
                             Departamento = selectedDepartamentoProfesor.Cod,
                             Departamento1 = selectedDepartamentoProfesor,
-                            FechaIncorporacion = FechaIncorporacion.SelectedDate.Value,
+                            FechaIncorporacion = FechaIncorporacion.Value.Value,
                         };
                         StaticReferences.Context.ProfesorDbSet.Add(trabajador.Profesor);
                         StaticReferences.Context.Entry(trabajador).State = System.Data.Entity.EntityState.Modified;
@@ -309,7 +309,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                         {
                             Departamento = selectedDepartamentoProfesor.Cod,
                             Departamento1 = selectedDepartamentoProfesor,
-                            FechaIncorporacion = FechaIncorporacion.SelectedDate.Value,
+                            FechaIncorporacion = FechaIncorporacion.Value.Value,
                         };
                         StaticReferences.Context.ProfesorDbSet.Add(trabajador.Profesor);
                         StaticReferences.Context.Entry(trabajador).State = System.Data.Entity.EntityState.Modified;
