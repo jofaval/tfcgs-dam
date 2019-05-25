@@ -183,6 +183,9 @@
     <Compile Include="PreLoadedButtons\AlumnoButtons.cs" />
     <Compile Include="PreLoadedButtons\ProfesorButtons.cs" />
     <Compile Include="PreLoadedButtons\StaticButtonViews.cs" />
+    <Compile Include="ProfesorGuardia.xaml.cs">
+      <DependentUpon>ProfesorGuardia.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reclamaciones.xaml.cs">
       <DependentUpon>Reclamaciones.xaml</DependentUpon>
     </Compile>
@@ -256,6 +259,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Formularios\FormularioHorario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProfesorGuardia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
