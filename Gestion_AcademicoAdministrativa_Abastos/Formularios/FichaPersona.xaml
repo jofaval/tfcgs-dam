@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos.Formularios"
+        xmlns:wpfExtended="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
         mc:Ignorable="d"
         Title="FichaPersona" Height="450" Width="800">
     <Grid x:Name="Container" Grid.Row="1" Background="#FF15171B" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -158,7 +159,7 @@
                                         </TextBlock.Style>
                                     </TextBlock>
                                     <Label Content="Fecha Nac" Grid.Column="4"/>
-                                    <DatePicker x:Name="FechaNacmimiento" Grid.Column="4" Grid.Row="1"/>
+                                    <wpfExtended:DateTimePicker x:Name="FechaNacmimiento" Grid.Column="4" Grid.Row="1"/>
                                 </Grid>
                                 <Grid Grid.Row="5" Grid.Column="1">
                                     <Grid.ColumnDefinitions>
@@ -400,7 +401,7 @@
                                     </Grid.ColumnDefinitions>
 
                                     <Label Content="Fecha de Matriculacion" Grid.Column="2"/>
-                                    <DatePicker x:Name="FechaMatriculacion" Grid.Column="2" Grid.Row="1" />
+                                    <wpfExtended:DateTimePicker x:Name="FechaMatriculacion" Grid.Column="2" Grid.Row="1" />
                                 </Grid>
                                 <Grid Grid.Column="1" Grid.Row="4">
                                     <Grid.ColumnDefinitions>
@@ -452,7 +453,7 @@
                                         <ColumnDefinition Width="40*" />
                                     </Grid.ColumnDefinitions>
                                     <Label Content="Fecha de Incorporacion" Grid.Column="0"/>
-                                    <DatePicker x:Name="FechaIncorporacion" Grid.Column="0" Grid.Row="1" />
+                                    <wpfExtended:DateTimePicker x:Name="FechaIncorporacion" Grid.Column="0" Grid.Row="1" />
                                     
                                     <Label Content="Sueldo" Grid.Column="2"/>
                                     <TextBox x:Name="TxtSueldo" Grid.Column="2" Grid.Row="1" />
