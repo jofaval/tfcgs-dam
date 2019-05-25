@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagramEF", "DiagramEF\Diag
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AbastosBDD", "AbastosBDD\AbastosBDD.sqlproj", "{9DE8BB02-467E-408A-9637-DC8E96C82453}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encriptador", "Encriptador\Encriptador.csproj", "{383A7DD8-EA27-4EE4-BBE5-C9FAC3E0DD67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,18 @@ Global
 		{9DE8BB02-467E-408A-9637-DC8E96C82453}.Release|x86.ActiveCfg = Release|Any CPU
 		{9DE8BB02-467E-408A-9637-DC8E96C82453}.Release|x86.Build.0 = Release|Any CPU
 		{9DE8BB02-467E-408A-9637-DC8E96C82453}.Release|x86.Deploy.0 = Release|Any CPU
+		{383A7DD8-EA27-4EE4-BBE5-C9FAC3E0DD67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{383A7DD8-EA27-4EE4-BBE5-C9FAC3E0DD67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{383A7DD8-EA27-4EE4-BBE5-C9FAC3E0DD67}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{383A7DD8-EA27-4EE4-BBE5-C9FAC3E0DD67}.Debug|x64.Build.0 = Debug|Any CPU
+		{383A7DD8-EA27-4EE4-BBE5-C9FAC3E0DD67}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{383A7DD8-EA27-4EE4-BBE5-C9FAC3E0DD67}.Debug|x86.Build.0 = Debug|Any CPU
+		{383A7DD8-EA27-4EE4-BBE5-C9FAC3E0DD67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{383A7DD8-EA27-4EE4-BBE5-C9FAC3E0DD67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{383A7DD8-EA27-4EE4-BBE5-C9FAC3E0DD67}.Release|x64.ActiveCfg = Release|Any CPU
+		{383A7DD8-EA27-4EE4-BBE5-C9FAC3E0DD67}.Release|x64.Build.0 = Release|Any CPU
+		{383A7DD8-EA27-4EE4-BBE5-C9FAC3E0DD67}.Release|x86.ActiveCfg = Release|Any CPU
+		{383A7DD8-EA27-4EE4-BBE5-C9FAC3E0DD67}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
