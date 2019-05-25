@@ -38,8 +38,17 @@ namespace AlgorithmTester
             var profesores = Context.ProfesorDbSet;
             var cod = "INF";
             var name = "Test";
-            var departamento = Context.DepartamentoDbSet.Single(d => d.Cod.ToString().Equals(cod)
-            && d.Nombre.ToString().Equals(name));
+            var departamento = new Departamento
+            {
+                Cod = cod,
+                Nombre = name,
+            };
+            if (!Context.DepartamentoDbSet.Any(d => d.Cod.Equals(departamento.Cod)
+            && d.Nombre.Equals(departamento.Nombre)))
+            {
+                Context.DepartamentoDbSet.Add(departamento);
+                Context.SaveChanges();
+            }
 
             var numProfesores = 150;
 
@@ -65,7 +74,7 @@ namespace AlgorithmTester
                         Trabajador1 = trabjador,
                         FechaIncorporacion = randomDate,
                         Departamento = "INF",
-                        Departamento1 = departamento,
+                        //Departamento1 = departamento,
                     };
                     profesores.Add(profesor);
                     Context.SaveChanges();
