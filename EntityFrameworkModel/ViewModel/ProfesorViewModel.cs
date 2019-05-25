@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model.ViewModel
 {
-    public class ProfesorViewModel : IHasName
+    public class ProfesorViewModel : IIsPersona
     {
         public string Nombre { get; set; }
         public string Apellidos { get; set; }

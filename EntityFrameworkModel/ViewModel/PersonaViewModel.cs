@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model.ViewModel
 {
-    public class PersonaViewModel : IHasName
+    public class PersonaViewModel : IIsPersona
     {
         public string Dni { get; set; }
         public string Nif { get; set; }

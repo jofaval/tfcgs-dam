@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model.ViewModel
 {
-    public interface IHasName
+    public interface IIsPersona
     {
         string Nombre { get; set; }
+        string Apellidos { get; set; }
     }
 }
