@@ -12,6 +12,7 @@ namespace Model
             && Asignatura.Equals(other.Asignatura)
             && HoraFinal.Equals(other.HoraFinal)
             && HoraInicio.Equals(other.HoraInicio)
-            && Dia.Equals(other.Dia);
+            && Dia.Equals(other.Dia)
+            && Anyo.Equals(other.Anyo);
     }
 }
