@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public partial class Horario
+    public partial class Horario : IEquatable<Horario>, IComparable<Horario>
     {
         public bool Equals(Horario other) => Curso.Equals(other.Curso)
             && Asignatura.Equals(other.Asignatura)
@@ -14,5 +14,27 @@ namespace Model
             && HoraInicio.Equals(other.HoraInicio)
             && Dia.Equals(other.Dia)
             && Anyo.Equals(other.Anyo);
+
+        public int CompareTo(Horario other)
+        {
+            var outterDia = other.Dia;
+            var innerHoraInicio = HoraInicio.Hour + HoraInicio.Minute;
+            var outterHoraInicio = other.HoraInicio.Hour + other.HoraInicio.Minute;
+
+            if (Dia.Equals(outterDia)
+                && innerHoraInicio.Equals(outterHoraInicio))
+            {
+                return 0;
+            }
+            else if (Dia > outterDia || (Dia.Equals(outterDia)
+                && innerHoraInicio > outterHoraInicio))
+            {
+                return 1;
+            }
+            else
+            {
+                 return -1;
+            }
+        }
     }
 }
