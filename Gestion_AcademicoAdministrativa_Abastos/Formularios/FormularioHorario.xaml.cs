@@ -31,6 +31,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             ComboBoxAsignatura.ItemsSource = asignaturas;
             var valuesOfWeekEnum = Enum.GetValues(typeof(WeekEnum));
             ComboBoxDia.ItemsSource = valuesOfWeekEnum;
+            ComboBoxProfesores.ItemsSource = StaticReferences.Context.ProfesorDbSet.ToList();
+            ComboBoxAulas.ItemsSource = StaticReferences.Context.AulaDbSet.ToList();
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)
@@ -82,6 +84,21 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 Notification.CreateNotificaion("No se ha encontrado");
                 return;
             }
+        }
+
+        private void CreateImpartimiento_Click(object sender, RoutedEventArgs e)
+        {
+            var impartimiento = new Impartimiento()
+            {
+
+            };
+
+            StaticReferences.Context.ImpartimientoDbSet.AsEnumerable().Contains(impartimiento);
+        }
+
+        private void DeleteImpartimiento_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

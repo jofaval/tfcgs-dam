@@ -129,6 +129,7 @@
     <Compile Include="EntityFramework\Usuario.cs" />
     <Compile Include="Estudio.cs" />
     <Compile Include="Horario.cs" />
+    <Compile Include="Impartimiento.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Profesor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
