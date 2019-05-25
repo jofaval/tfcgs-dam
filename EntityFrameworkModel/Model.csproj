@@ -130,6 +130,7 @@
     <Compile Include="Estudio.cs" />
     <Compile Include="Horario.cs" />
     <Compile Include="Persona.cs" />
+    <Compile Include="Profesor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\AlumnoViewModel.cs" />
     <Compile Include="ViewModel\IIsPersona.cs" />
