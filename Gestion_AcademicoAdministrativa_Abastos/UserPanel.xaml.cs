@@ -1,5 +1,6 @@
 ﻿using Controller;
 using Model;
+using Model.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,14 +31,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             DataGridPermisos.ItemsSource = Permisos;
             ComboBoxPermisos.ItemsSource = Permisos;
             var saved = from p in permisos
-                        select new
+                        select new PermisosUsuarioViewModel()
                         {
-                            p.Nombre,
-                            p.Descripcion,
-                            EsAdmin = p.PermisoAdmin,
-                            EsAdministrativo = p.PermisoAdministrativo,
-                            EsProfesor = p.PermisProfesor,
-                            EsAlumno = p.PermisoAlumno
+                            Nombre = p.Nombre,
+                            Descripcion = p.Descripcion,
+                            PermisoAdmin = p.PermisoAdmin,
+                            PermisoAdministrativo = p.PermisoAdministrativo,
+                            PermisProfesor = p.PermisProfesor,
+                            PermisoAlumno = p.PermisoAlumno
                         };
             foreach (var savedItem in saved)
             {
@@ -75,17 +76,21 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                     };
                     var context = StaticReferences.Context;
                     var permisos = context.PermisosUsuarioDbSet;
+                    if (StaticReferences.Context.PermisosUsuarioDbSet.Any(p => p.Nombre.Equals(nombrePermiso)))
+                    {
+                        Notification.CreateNotificaion("Ya existe");
+                    }
                     permisos.Add(permisoUsuario);
                     context.SaveChanges();
                     Permisos.Add(permisos
-                        .Select(p => new
+                        .Select(p => new PermisosUsuarioViewModel()
                         {
-                            p.Nombre,
-                            p.Descripcion,
-                            EsAdmin = p.PermisoAdmin,
-                            EsAdministrativo = p.PermisoAdministrativo,
-                            EsProfesor = p.PermisProfesor,
-                            EsAlumno = p.PermisoAlumno
+                            Nombre = p.Nombre,
+                            Descripcion = p.Descripcion,
+                            PermisoAdmin = p.PermisoAdmin,
+                            PermisoAdministrativo = p.PermisoAdministrativo,
+                            PermisProfesor = p.PermisProfesor,
+                            PermisoAlumno = p.PermisoAlumno
                         })
                         .Single(n => n.Nombre.Equals(nombrePermiso)));
                 }
@@ -97,6 +102,75 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             {
                 Notification.CreateNotificaion(ex.Message);
             }
+        }
+
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+            var username = TxtUsername.Text;
+            var dni = TxtPersona.Text;
+
+            var persona = StaticReferences.Context.PersonaDbSet
+                .SingleOrDefault(p => p.Dni.Equals(dni));
+
+            var selectedPermisoViewModel = (PermisosUsuarioViewModel)ComboBoxPermisos.SelectedValue;
+
+            if (selectedPermisoViewModel is null)
+            {
+                Notification.CreateNotificaion("Selecciona un grupo de usuarios");
+                return;
+            }
+            var selectedPermiso = StaticReferences.Context.PermisosUsuarioDbSet
+                .SingleOrDefault(p => p.Nombre.Equals(selectedPermisoViewModel.Nombre));
+
+            if (persona is null)
+            {
+                Notification.CreateNotificaion("No se ha encontrado la persona");
+                return;
+            }
+
+            if (StaticReferences.Context.UsuarioDbSet.Any(u => u.Username.Equals(username)))
+            {
+                Notification.CreateNotificaion("Ya existe el usuario");
+                return;
+            }
+
+            if (StaticReferences.Context.UsuarioDbSet.Any(u => u.Persona1.Equals(persona)))
+            {
+                Notification.CreateNotificaion("La persona ya tiene un usuario");
+                return;
+            }
+
+            var password = TxtPassword.Text;
+
+            var usuario = new Usuario()
+            {
+                Username = username,
+                Contrasenya = password,
+                Persona = dni,
+                Persona1 = persona,
+                Nombre = selectedPermiso.Nombre,
+                PermisosUsuario = selectedPermiso,
+            };
+
+            StaticReferences.Context.UsuarioDbSet.Add(usuario);
+            StaticReferences.Context.SaveChanges();
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            var username = TxtUsername.Text;
+
+            var usuario = StaticReferences.Context.UsuarioDbSet
+                .SingleOrDefault(u => u.Username.Equals(username));
+
+            if (usuario is null)
+            {
+                Notification.CreateNotificaion("No se ha encontrado");
+                return;
+            }
+
+            StaticReferences.Context.UsuarioDbSet.Remove(usuario);
+            StaticReferences.Context.SaveChanges();
         }
     }
 }

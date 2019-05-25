@@ -48,6 +48,8 @@
                                     <RowDefinition Height="5*" />
                                     <RowDefinition Height="10*" />
                                     <RowDefinition Height="5*" />
+                                    <RowDefinition Height="10*" />
+                                    <RowDefinition Height="5*" />
                                 </Grid.RowDefinitions>
                                 <Grid Grid.Row="1" Grid.Column="1">
                                     <Grid.RowDefinitions>
@@ -68,6 +70,15 @@
                                 <TextBox x:Name="TxtPersona" Grid.Column="1" Grid.Row="4"/>
                                 <Label Grid.Row="6" Content="Grupo de Usuarios" Grid.Column="1" />
                                 <ComboBox x:Name="ComboBoxPermisos" Grid.Row="7" Grid.Column="1" />
+                                <Grid Grid.Column="1" Grid.Row="9">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40*" />
+                                        <ColumnDefinition Width="10*" />
+                                        <ColumnDefinition Width="40*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button x:Name="Create" Grid.Column="0" Content="Crear Usuario" Click="Create_Click"/>
+                                    <Button x:Name="Delete" Grid.Column="2" Content="Eliminar Usuario" Click="Delete_Click"/>
+                                </Grid>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Permisos de Usuario">
