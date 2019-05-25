@@ -132,6 +132,7 @@ namespace AlgorithmTester
                             {
                                 Persona = person.Dni,
                                 NumExpediente = numExpediente,
+                                NIA = numExpediente,
                                 FechaMatriculacion = fechaMatriculacion,
                             };
                             alumnos.Add(alumno);
