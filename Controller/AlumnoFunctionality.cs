@@ -55,16 +55,18 @@ namespace Controller
             var horarios = StaticReferences.Horarios.AsEnumerable();
             var currentYear = AdministrativoFunctionality.GetAcademicYear(StaticReferences.CurrentDateTime);
 
-            return StaticReferences.Context.HorarioDbSet
-                .Where(h => h.CursoCod.Equals(cursoCod) && h.Anyo.Equals(currentYear))
+            return StaticReferences.Context.ImpartimientoDbSet
+                .Where(i => i.CursoCod.Equals(cursoCod) && i.Anyo.Equals(currentYear))
                 .AsEnumerable()
-                .OrderBy(h => h)
-                .Select(h => new
+                .OrderBy(i => i.Horario)
+                .Select(i => new
                 {
-                    Dia = (WeekEnum)h.Dia,
-                    HoraInicio = ExtractHour(h.HoraInicio),
-                    HoraFinal = ExtractHour(h.HoraFinal),
-                    Asignatura = h.Asignatura.Nombre,
+                    Dia = (WeekEnum)i.Dia,
+                    HoraInicio = ExtractHour(i.HoraInicio),
+                    HoraFinal = ExtractHour(i.HoraFinal),
+                    Aula = i.Aula.Codificate(),
+                    Asignatura = i.Horario.Asignatura.Nombre,
+                    Profesor = i.Profesor1.Trabajador1.NombreCompleto(),
                 });
         }
 
