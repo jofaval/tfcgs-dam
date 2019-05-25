@@ -20,12 +20,17 @@ namespace Encriptador
 
         private void Encriptar(object sender, EventArgs e)
         {
-            richTextBox2.Text = Cryptography.Encrypt(richTextBox1.Text, Constants.EncryptationKey);
+            richTextBox2.Text = Cryptography.Encrypt(richTextBox1.Text, richTextBox3.Text);
         }
 
         private void Desencriptar(object sender, EventArgs e)
         {
-            richTextBox2.Text = Cryptography.Decrypt(richTextBox1.Text, Constants.EncryptationKey);
+            richTextBox2.Text = Cryptography.Decrypt(richTextBox1.Text, richTextBox3.Text);
+        }
+
+        private void richTextBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
