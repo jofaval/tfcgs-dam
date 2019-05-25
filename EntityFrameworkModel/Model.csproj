@@ -107,6 +107,7 @@
     <Compile Include="EntityFramework\Departamento.cs" />
     <Compile Include="EntityFramework\Eso.cs" />
     <Compile Include="EntityFramework\Especial.cs" />
+    <Compile Include="EntityFramework\Estudio.cs" />
     <Compile Include="EntityFramework\Evaluacion.cs" />
     <Compile Include="EntityFramework\Horario.cs" />
     <Compile Include="EntityFramework\Impartimiento.cs" />

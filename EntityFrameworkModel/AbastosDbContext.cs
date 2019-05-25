@@ -48,6 +48,7 @@ namespace Model
         public virtual DbSet<Trabajador> TrabajadorDbSet { get; set; }
         public virtual DbSet<Usuario> UsuarioDbSet { get; set; }
         public virtual DbSet<Tutores> Tutores { get; set; }
+        public virtual DbSet<Estudio> EstudiosDbSet { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -793,6 +794,18 @@ namespace Model
 
             modelBuilder.Entity<Tutores>()
                 .Property(e => e.Profesor)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Estudio>()
+                .Property(e => e.CursoCod)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Estudio>()
+                .Property(e => e.CursoNombre)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Estudio>()
+                .Property(e => e.Alumno)
                 .IsUnicode(false);
         }
     }

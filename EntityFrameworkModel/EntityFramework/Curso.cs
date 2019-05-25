@@ -16,6 +16,7 @@ namespace Model
             Convocatoria = new HashSet<Convocatoria>();
             Horario = new HashSet<Horario>();
             Tutores = new HashSet<Tutores>();
+            Estudios = new HashSet<Estudio>();
         }
 
         [Key]
@@ -49,5 +50,8 @@ namespace Model
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tutores> Tutores { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Estudio> Estudios { get; set; }
     }
 }
