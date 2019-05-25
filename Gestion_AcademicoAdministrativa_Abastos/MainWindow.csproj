@@ -169,6 +169,9 @@
     <Compile Include="CustomElements\Reclamacion.xaml.cs">
       <DependentUpon>Reclamacion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FormularioImpartimiento.xaml.cs">
+      <DependentUpon>FormularioImpartimiento.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Horario.xaml.cs">
       <DependentUpon>Horario.xaml</DependentUpon>
     </Compile>
@@ -249,6 +252,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Formularios\FormularioHorario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formularios\FormularioImpartimiento.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
