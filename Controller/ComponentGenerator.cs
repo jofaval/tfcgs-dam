@@ -24,7 +24,7 @@ namespace Controller
 
             var context = StaticReferences.Context;
             var cursos = context.AlumnoDbSet;
-            if (!context.AlumnoDbSet.Any(a => a.Equals(alumno)))
+            if (!context.AlumnoDbSet.AsEnumerable().Any(a => a.Equals(alumno)))
             {
                 context.AlumnoDbSet.Add(alumno);
                 var estudio = new Estudio()
