@@ -27,18 +27,19 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             InitializeComponent();
         }
 
-        private void TxtNewPassword_TextChanged(object sender, TextChangedEventArgs e)
+        private void TxtNewPassword_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            if (sender is TextBox senderAsTextBox)
+            if (sender is PasswordBox senderAsTextBox)
             {
-                StrengthLevel.Value = DataIntegrityChecker.CheckPasswordStrengthLevel(senderAsTextBox.Text) * DiviedBy;
+                StrengthLevel.Value = DataIntegrityChecker.CheckPasswordStrengthLevel(senderAsTextBox.Password) * DiviedBy;
             }
         }
 
         private void BtnChange_Click(object sender, RoutedEventArgs e)
         {
             var user = XamlBridge.CurrentUser;
-            var oldPassword = Cryptography.Decrypt(user.Contrasenya, Constants.EncryptationKey);
+            var username = user.Username;
+            var oldPassword = Cryptography.Decrypt(user.Contrasenya, username);
 
             if (!oldPassword.Equals(TxtOldPassword.Password))
             {
@@ -56,19 +57,18 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 }
                 else
                 {
-                    if (StrengthLevel.Value/ DiviedBy > 2)
+                    if (StrengthLevel.Value / DiviedBy > 2)
+                    {
+                        user.Contrasenya = Cryptography.Encrypt(newPassword, username);
+                        Notification.CreateNotificaion("La contraseña se ha cambiado correctamente");
+                    }
+                    else
                     {
                         Notification.CreateNotificaion("La contraseña es débil");
                         return;
                     }
-                    else
-                    {
-                        user.Contrasenya = Cryptography.Decrypt(newPassword, user.Username);
-                        Notification.CreateNotificaion("La contraseña se ha cambiado correctamente");
-                    }
                 }
             }
-
         }
     }
 }
