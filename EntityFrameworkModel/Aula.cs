@@ -9,5 +9,7 @@ namespace Model
     public partial class Aula
     {
         public override string ToString() => $"Piso: {Piso}, Num: {Num}";
+
+        public string Codificate() => $"{Piso}{Num}";
     }
 }
