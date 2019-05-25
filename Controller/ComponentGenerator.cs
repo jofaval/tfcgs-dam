@@ -143,12 +143,7 @@ namespace Controller
                 Dia = dia,
             };
 
-            if (!horarios.Any(h => h.Curso.Equals(curso)
-            && h.Asignatura.Equals(asignatura)
-            && h.HoraFinal.Equals(horaFinal)
-            && h.HoraInicio.Equals(horaInicio)
-            && h.Dia.Equals(dia)
-            && h.Anyo.Equals(anyo)))
+            if (!horarios.Contains(horario))
             {
                 context.HorarioDbSet.Add(horario);
                 context.SaveChanges();
