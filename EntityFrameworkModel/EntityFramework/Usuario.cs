@@ -20,7 +20,7 @@ namespace Model
         public string Username { get; set; }
 
         [Required]
-        [StringLength(32)]
+        [StringLength(255)]
         public string Contrasenya { get; set; }
 
         [Key]
