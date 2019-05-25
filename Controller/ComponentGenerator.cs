@@ -10,7 +10,7 @@ namespace Controller
     public class ComponentGenerator
     {
         private static ComponentGenerator Instance { get; set; }
-        public string CreateAlumno(Persona Persona, string NumExpediente, string NIA, DateTime fechaMatriculacion)
+        public string CreateAlumno(Persona Persona, string NumExpediente, string NIA, DateTime fechaMatriculacion, Curso curso)
         {
             var alumno = new Alumno()
             {
@@ -18,6 +18,8 @@ namespace Controller
                 NumExpediente = NumExpediente,
                 FechaMatriculacion = fechaMatriculacion,
                 Persona1 = Persona,
+                CursoCod = curso.Cod,
+                CursoNombre = curso.Nombre,
             };
 
             var context = StaticReferences.Context;

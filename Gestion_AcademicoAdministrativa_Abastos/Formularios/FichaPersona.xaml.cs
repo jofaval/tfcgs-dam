@@ -189,15 +189,19 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             var selectedDate = FechaNacmimiento.Value.Value;
             var numExpediente = TxtNumExpediente.Text;
             var nia = TxtNIA.Text;
+            var curso = (Curso)ComboBoxCurso.SelectedValue;
 
-            Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreateAlumno(SelectedPersona, numExpediente, nia, selectedDate));
+            Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreateAlumno(SelectedPersona, numExpediente, nia, selectedDate, curso));
         }
 
         private void ModifyAlumno_Click(object sender, RoutedEventArgs e)
         {
             var alumno = SelectedPersona.Alumno;
+            var curso = (Curso)ComboBoxCurso.SelectedValue;
             alumno.NumExpediente = TxtNumExpediente.Text;
             alumno.FechaMatriculacion = FechaMatriculacion.Value.Value;
+            alumno.CursoCod = curso.Cod;
+            alumno.CursoNombre = curso.Nombre;
             SelectedPersona.Alumno = alumno;
             StaticReferences.Context.Entry(alumno).State = System.Data.Entity.EntityState.Modified;
             StaticReferences.Context.SaveChanges();

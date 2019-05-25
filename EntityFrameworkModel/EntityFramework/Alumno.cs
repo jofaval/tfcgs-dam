@@ -26,6 +26,10 @@ namespace Model
         [StringLength(9)]
         public string NumExpediente { get; set; }
 
+        [Required]
+        [StringLength(12)]
+        public string NIA { get; set; }
+
         [StringLength(9)]
         public string Tutor { get; set; }
 

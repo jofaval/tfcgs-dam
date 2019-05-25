@@ -397,11 +397,28 @@
                                         <RowDefinition Height="65*" />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="100*" />
+                                        <ColumnDefinition Width="40*" />
+                                        <ColumnDefinition Width="10*" />
+                                        <ColumnDefinition Width="40*" />
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Content="Fecha de Matriculacion" Grid.Column="2"/>
-                                    <wpfExtended:DateTimePicker x:Name="FechaMatriculacion" Grid.Column="2" Grid.Row="1" />
+                                    <Label Content="Fecha de Matriculacion" Grid.Column="0"/>
+                                    <wpfExtended:DateTimePicker x:Name="FechaMatriculacion" Grid.Row="1" Grid.Column="0" />
+
+                                    <Label Content="Curso" Grid.Column="2"/>
+                                    <ComboBox x:Name="ComboBoxCurso" Grid.Row="1" Grid.Column="2" />
+                                    <TextBlock Grid.Column="2" Grid.Row="1" Text="Selecciona un curso" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=ComboBoxCurso}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
                                 </Grid>
                                 <Grid Grid.Column="1" Grid.Row="4">
                                     <Grid.ColumnDefinitions>
@@ -454,7 +471,7 @@
                                     </Grid.ColumnDefinitions>
                                     <Label Content="Fecha de Incorporacion" Grid.Column="0"/>
                                     <wpfExtended:DateTimePicker x:Name="FechaIncorporacion" Grid.Column="0" Grid.Row="1" />
-                                    
+
                                     <Label Content="Sueldo" Grid.Column="2"/>
                                     <TextBox x:Name="TxtSueldo" Grid.Column="2" Grid.Row="1" />
 
