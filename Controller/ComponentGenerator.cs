@@ -118,7 +118,7 @@ namespace Controller
             }
         }
 
-        public string CreateHorario(Curso curso, Asignatura asignatura, DateTime horaInicio, DateTime horaFinal)
+        public string CreateHorario(Curso curso, Asignatura asignatura, DateTime horaInicio, DateTime horaFinal, int day)
         {
             StaticReferences.Initializer();
             var context = StaticReferences.Context;
@@ -139,6 +139,7 @@ namespace Controller
                 Asignatura = asignatura,
                 HoraInicio = horaInicio,
                 HoraFinal = horaFinal,
+                Dia = day,
             };
 
             if (!horarios.Contains(horario))
