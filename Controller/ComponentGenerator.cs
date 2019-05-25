@@ -33,8 +33,13 @@ namespace Controller
                     CursoNombre = curso.Nombre,
                     Alumno = alumno.Persona,
                     Alumno1 = alumno,
+                    Anyo = AdministrativoFunctionality.GetAcademicYear(StaticReferences.CurrentDateTime),
+                    Curso = curso,
                 };
-                StaticReferences.Context.EstudiosDbSet.Add(estudio);
+                if (!StaticReferences.Context.EstudiosDbSet.Any(e => e.Equals(estudio)))
+                {
+                    StaticReferences.Context.EstudiosDbSet.Add(estudio);
+                }
                 context.SaveChanges();
                 return Constants.SuccessCreatingEntity;
             }
