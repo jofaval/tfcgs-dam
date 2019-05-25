@@ -203,6 +203,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
         private void ModifyAlumno_Click(object sender, RoutedEventArgs e)
         {
             var alumno = SelectedPersona.Alumno;
+            var cod = alumno.CursoCod;
+            var nombre = alumno.CursoNombre;
             var curso = (Curso)ComboBoxCurso.SelectedValue;
             alumno.NumExpediente = TxtNumExpediente.Text;
             alumno.FechaMatriculacion = FechaMatriculacion.Value.Value;
@@ -210,6 +212,28 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             alumno.CursoNombre = curso.Nombre;
             SelectedPersona.Alumno = alumno;
             alumno.NIA = TxtNIA.Text;
+            var estudio = StaticReferences.Context.EstudiosDbSet.AsEnumerable()
+                .SingleOrDefault(es => es.Alumno1.Persona.Equals(alumno.Persona)
+                && es.Curso.Equals(curso));
+            if (estudio != null)
+            {
+                estudio.Curso = curso;
+                estudio.CursoCod = curso.Cod;
+                estudio.CursoNombre = curso.Nombre;
+                StaticReferences.Context.Entry(estudio).State = System.Data.Entity.EntityState.Modified;
+            }
+            else
+            {
+                estudio = new Estudio()
+                {
+                    Alumno = alumno.Persona,
+                    Alumno1 = alumno,
+                    Curso = curso,
+                    CursoCod = curso.Cod,
+                    CursoNombre = curso.Nombre,
+                };
+                StaticReferences.Context.EstudiosDbSet.Add(estudio);
+            }
             StaticReferences.Context.Entry(alumno).State = System.Data.Entity.EntityState.Modified;
             StaticReferences.Context.SaveChanges();
         }
