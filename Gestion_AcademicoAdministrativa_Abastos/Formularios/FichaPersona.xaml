@@ -287,7 +287,7 @@
                                             </Style>
                                         </TextBlock.Style>
                                     </TextBlock>
-                                    <Label Content="{DynamicResource FormPersonaPuerta}" Grid.Column="2"/>
+                                    <Label Content="Provincia" Grid.Column="2"/>
                                     <TextBox x:Name="TxtProvincia" Grid.Column="2" Grid.Row="1" />
 
                                     <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormPersonaPuertaExample}" >
@@ -302,7 +302,7 @@
                                             </Style>
                                         </TextBlock.Style>
                                     </TextBlock>
-                                    <Label Content="{DynamicResource FormPersonaPuerta}" Grid.Column="4"/>
+                                    <Label Content="Localidad" Grid.Column="4"/>
                                     <TextBox x:Name="TxtLocalidad" Grid.Column="4" Grid.Row="1" />
 
                                     <TextBlock Grid.Column="4" Grid.Row="1" Text="{DynamicResource FormPersonaPuertaExample}" >
