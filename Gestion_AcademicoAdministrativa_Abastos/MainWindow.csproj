@@ -189,9 +189,6 @@
     <Compile Include="Reclamaciones.xaml.cs">
       <DependentUpon>Reclamaciones.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RoleChooser.xaml.cs">
-      <DependentUpon>RoleChooser.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
@@ -303,10 +300,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Reclamaciones.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="RoleChooser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
