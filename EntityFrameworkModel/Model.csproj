@@ -134,6 +134,7 @@
     <Compile Include="Persona.cs" />
     <Compile Include="Profesor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Trabajador.cs" />
     <Compile Include="ViewModel\AlumnoViewModel.cs" />
     <Compile Include="ViewModel\IIsPersona.cs" />
     <Compile Include="ViewModel\OrdenadorViewModel.cs" />
