@@ -31,12 +31,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
         {
             DataContext = this;
             InitializeComponent();
-            var comboBoxTrabajadorTypeItems = ComboBoxTrabajadorType.Items;
-            var trabajadoresEnumValues = Enum.GetValues(typeof(TrabajadoresEnum)).Cast<TrabajadoresEnum>();
-            foreach (var trabajadorTypeFromEnum in trabajadoresEnumValues)
-            {
-                comboBoxTrabajadorTypeItems.Add(trabajadorTypeFromEnum);
-            }
+            ComboBoxTrabajadorType.ItemsSource = Enum.GetValues(typeof(TrabajadoresEnum)).Cast<TrabajadoresEnum>();
+            ComboBoxCurso.ItemsSource = StaticReferences.Context.CursoDbSet.ToList();
         }
 
         public void FillWithData(Persona persona)
@@ -54,6 +50,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                 TxtPatio.Text = persona.Patio;
                 TxtPiso.Text = persona.Piso;
                 TxtPuerta.Text = persona.Puerta;
+                TxtProvincia.Text = persona.Provincia;
+                TxtLocalidad.Text = persona.Localidad;
                 TxtCodigoPostal.Text = persona.CodigoPostal;
                 FechaNacmimiento.Value = persona.FechaNacimiento;
                 var alumno = persona.Alumno;
@@ -67,8 +65,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
         public void FillAlumnoWithData(Alumno alumno)
         {
             TxtNumExpediente.Text = alumno.NumExpediente;
-            TxtNIA.Text = alumno.NumExpediente;
+            TxtNIA.Text = alumno.NIA;
             FechaMatriculacion.Value = alumno.FechaMatriculacion;
+            ComboBoxCurso.SelectedValue = StaticReferences.Context.CursoDbSet
+                .SingleOrDefault(c => c.Cod.Equals(alumno.CursoCod)
+                && c.Nombre.Equals(alumno.CursoNombre));
         }
 
         public void ClearPersonaData()
@@ -83,6 +84,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             TxtPatio.Text = emptyString;
             TxtPiso.Text = emptyString;
             TxtPuerta.Text = emptyString;
+            TxtProvincia.Text = emptyString;
+            TxtLocalidad.Text = emptyString;
             TxtCodigoPostal.Text = emptyString;
             FechaNacmimiento.Value = new DateTime();
             SelectedPersona = null;
@@ -93,6 +96,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
         {
             TxtNumExpediente.Text = string.Empty;
             TxtNIA.Text = string.Empty;
+            FechaMatriculacion.Value = null;
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
@@ -120,6 +124,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             var piso = TxtPiso.Text;
             var puerta = TxtPuerta.Text;
             var codigoPostal = TxtCodigoPostal.Text;
+            var provincia = TxtProvincia.Text;
+            var localidad = TxtLocalidad.Text;
 
             if (string.IsNullOrWhiteSpace(dni))
             {
@@ -156,7 +162,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                 return;
             }
 
-            Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreatePersona(dni, nif, nombre, apellidos, email, calle, patio, piso, puerta, codigoPostal, FechaNacmimiento.Value.Value));
+            Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreatePersona(dni, nif, nombre, apellidos, email, calle, patio, piso, puerta, codigoPostal, FechaNacmimiento.Value.Value, provincia, localidad));
         }
 
         private void ModifyPersona_Click(object sender, RoutedEventArgs e)
@@ -203,12 +209,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             alumno.CursoCod = curso.Cod;
             alumno.CursoNombre = curso.Nombre;
             SelectedPersona.Alumno = alumno;
+            alumno.NIA = TxtNIA.Text;
             StaticReferences.Context.Entry(alumno).State = System.Data.Entity.EntityState.Modified;
             StaticReferences.Context.SaveChanges();
         }
 
         private void RemoveAlumno_Click(object sender, RoutedEventArgs e)
         {
+            var alumno = SelectedPersona.Alumno;
             SelectedPersona.Alumno = null;
             StaticReferences.Context.Entry(SelectedPersona).State = System.Data.Entity.EntityState.Modified;
             StaticReferences.Context.SaveChanges();
