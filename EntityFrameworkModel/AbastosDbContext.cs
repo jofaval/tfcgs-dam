@@ -807,6 +807,18 @@ namespace Model
             modelBuilder.Entity<Estudio>()
                 .Property(e => e.Alumno)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<ActasEvaluacion>()
+                .Property(e => e.CursoCod)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ActasEvaluacion>()
+                .Property(e => e.CursoNombre)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ActasEvaluacion>()
+                .Property(e => e.Profesor)
+                .IsUnicode(false);
         }
     }
 }
