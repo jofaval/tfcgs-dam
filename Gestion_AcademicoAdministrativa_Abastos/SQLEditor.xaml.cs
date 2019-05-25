@@ -31,20 +31,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 {
                     using (var dataAdapter = new SqlDataAdapter(script, connectionSQL))
                     {
-                        var ds = new DataSet();
-                        dataAdapter.Fill(ds);
-                        var realList = new List<object[]>();
-                        var table = ds.Tables[0];
-                        var row = table.Rows;
-                        foreach (var item in row)
-                        {
-                            if (item is DataRow itemAsDataRow)
-                            {
-                                object[] items = itemAsDataRow.ItemArray;
-                                realList.Add(itemAsDataRow.ItemArray);
-                            }
-                        }
-                        DataGridResult.ItemsSource = realList;
+                        var dataTable = new DataTable();
+                        dataAdapter.Fill(dataTable);
+                        DataGridResult.ItemsSource = dataTable.DefaultView;
+                        Notification.CreateNotificaion("Se ha ejecutado correctamente");
                     }
                 }
             }

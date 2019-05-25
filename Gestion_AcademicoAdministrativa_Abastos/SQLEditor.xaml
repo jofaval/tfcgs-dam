@@ -43,7 +43,10 @@
                                 <ColumnDefinition Width="100*" />
                             </Grid.ColumnDefinitions>
                             <ScrollViewer>
-                                <TextBox x:Name="TxtQuery" Text="Select dni, nombre From persona" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Top" Padding="15,15,0,0"/>
+                                <TextBox x:Name="TxtQuery" Text="Select dni, nombre From persona"
+                                         HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                         VerticalContentAlignment="Top" Padding="15,15,0,0"
+                                         TextWrapping="Wrap" AcceptsReturn="True"/>
                             </ScrollViewer>
                         </Grid>
                         <Grid Grid.Column="1" Grid.Row="2">
@@ -54,7 +57,7 @@
                             </Grid.ColumnDefinitions>
                             <Button x:Name="BtnExecute" Grid.Column="1" Content="Ejecutar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="BtnExecute_Click" Margin="15"/>
                         </Grid>
-                        <DataGrid x:Name="DataGridResult" Grid.Row="6" AutoGenerateColumns="True" ColumnWidth="Auto">
+                        <DataGrid x:Name="DataGridResult" Grid.Row="6" AutoGenerateColumns="True" ColumnWidth="*">
                         </DataGrid>
                     </Grid>
                 </Grid>
