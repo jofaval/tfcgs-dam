@@ -60,6 +60,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                     if (StrengthLevel.Value / DiviedBy > 2)
                     {
                         user.Contrasenya = Cryptography.Encrypt(newPassword, username);
+                        StaticReferences.Context.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                        StaticReferences.Context.SaveChanges();
                         Notification.CreateNotificaion("La contraseña se ha cambiado correctamente");
                     }
                     else
