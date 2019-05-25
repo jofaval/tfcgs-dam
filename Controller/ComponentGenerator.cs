@@ -24,9 +24,17 @@ namespace Controller
 
             var context = StaticReferences.Context;
             var cursos = context.AlumnoDbSet;
-            if (!context.AlumnoDbSet.Contains(alumno))
+            if (!context.AlumnoDbSet.Any(a => a.Equals(alumno)))
             {
                 context.AlumnoDbSet.Add(alumno);
+                var estudio = new Estudio()
+                {
+                    CursoCod = curso.Cod,
+                    CursoNombre = curso.Nombre,
+                    Alumno = alumno.Persona,
+                    Alumno1 = alumno,
+                };
+                StaticReferences.Context.EstudiosDbSet.Add(estudio);
                 context.SaveChanges();
                 return Constants.SuccessCreatingEntity;
             }
@@ -69,7 +77,7 @@ namespace Controller
             }
         }
 
-        public string CreatePersona(string dni, string nif, string nombre, string apellidos, string email, string calle, string patio, string piso, string puerta, string codigoPostal, DateTime fechaNac, string telefono = "")
+        public string CreatePersona(string dni, string nif, string nombre, string apellidos, string email, string calle, string patio, string piso, string puerta, string codigoPostal, DateTime fechaNac, string provincia, string localidad, string telefono = "")
         {
             var persona = new Persona()
             {
@@ -82,6 +90,8 @@ namespace Controller
                 Patio = patio,
                 Piso = piso,
                 Puerta = puerta,
+                Provincia = puerta,
+                Localidad = puerta,
                 CodigoPostal = codigoPostal,
                 FechaNacimiento = fechaNac,
             };
@@ -99,20 +109,13 @@ namespace Controller
             }
 
             var context = StaticReferences.Context;
-            var personas = context.PersonaDbSet.ToList();
+            var personas = context.PersonaDbSet.AsEnumerable();
 
-            if (!personas.Contains(persona))
+            if (!personas.Any(p => p.Equals(persona)))
             {
-                try
-                {
-                    context.PersonaDbSet.Add(persona);
-                    context.SaveChanges();
-                    return Constants.SuccessCreatingEntity;
-                }
-                catch (Exception ex)
-                {
-                    return ex.Message;
-                }
+                context.PersonaDbSet.Add(persona);
+                context.SaveChanges();
+                return Constants.SuccessCreatingEntity;
             }
             else
             {
