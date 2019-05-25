@@ -592,5 +592,97 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             StaticReferences.Context.Entry(trabajador).State = System.Data.Entity.EntityState.Modified;
             context.SaveChanges();
         }
+
+        private void CreateTelefono_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedPersona is null)
+            {
+                Notification.CreateNotificaion("No hay nignuna persona seleccionada");
+                return;
+            }
+
+            var telefonoText = TxtTelefono.Text;
+            var comentario = TxtComentario.Text;
+
+            var telefono = new Telefono()
+            {
+                Telefono1 = telefonoText,
+                Comentario = comentario,
+                Persona = SelectedPersona.Dni,
+                Persona1 = SelectedPersona,
+            };
+
+            if (StaticReferences.Context.TelefonoDbSet
+                .AsEnumerable()
+                .Contains(telefono))
+            {
+                Notification.CreateNotificaion("Ya existe");
+                return;
+            }
+            else
+            {
+                StaticReferences.Context.TelefonoDbSet.Add(telefono);
+                StaticReferences.Context.SaveChanges();
+                Notification.CreateNotificaion("Se ha añadido con exito");
+            }
+        }
+
+        private void ModifyTelefono_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedPersona is null)
+            {
+                Notification.CreateNotificaion("No hay nignuna persona seleccionada");
+                return;
+            }
+
+            var telefonoText = TxtTelefono.Text;
+
+            var telefono = StaticReferences.Context.TelefonoDbSet
+                .AsEnumerable()
+                .SingleOrDefault(t => t.Persona1.Equals(SelectedPersona)
+                && t.Telefono1.Equals(telefonoText));
+
+            if (telefono is null)
+            {
+                Notification.CreateNotificaion("No se ha encontrado");
+                return;
+            }
+            else
+            {
+                var comentario = TxtComentario.Text;
+                telefono.Comentario = comentario;
+                StaticReferences.Context.Entry(telefono).State = System.Data.Entity.EntityState.Modified;
+                StaticReferences.Context.SaveChanges();
+                Notification.CreateNotificaion("Se ha añadido con exito");
+            }
+        }
+
+        private void RemoveTelefono_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedPersona is null)
+            {
+                Notification.CreateNotificaion("No hay nignuna persona seleccionada");
+                return;
+            }
+
+            var telefonoText = TxtTelefono.Text;
+            var comentario = TxtComentario.Text;
+
+            var telefono = StaticReferences.Context.TelefonoDbSet
+                .SingleOrDefault(t => t.Persona1.Equals(SelectedPersona)
+                && t.Telefono1.Equals(telefonoText));
+
+            if (telefono is null)
+            {
+                Notification.CreateNotificaion("No se ha encontrado");
+                return;
+            }
+            else
+            {
+                StaticReferences.Context.TelefonoDbSet.Remove(telefono);
+                StaticReferences.Context.SaveChanges();
+                Notification.CreateNotificaion("Se ha añadido con exito");
+            }
+        }
     }
 }
