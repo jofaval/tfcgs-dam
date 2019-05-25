@@ -43,8 +43,7 @@ namespace AlgorithmTester
                 Cod = cod,
                 Nombre = name,
             };
-            if (!Context.DepartamentoDbSet.Any(d => d.Cod.Equals(departamento.Cod)
-            && d.Nombre.Equals(departamento.Nombre)))
+            if (!Context.DepartamentoDbSet.Any(d => d.Cod.Equals(departamento.Cod)))
             {
                 Context.DepartamentoDbSet.Add(departamento);
                 Context.SaveChanges();
@@ -198,15 +197,16 @@ namespace AlgorithmTester
             {
                 var persona = personas2.ElementAt(RandomGenerator.Next(personasLen));
                 var dni = persona.Dni;
-                if (!usuarios.Any((u) => u.Persona == dni))
+                var personaNombre = persona.Nombre;
+                if (!usuarios.Any((u) => u.Persona == dni && u.Username != personaNombre))
                 {
                     var permiso = permisos2.ElementAt(RandomGenerator.Next(permisosLen));
                     var fullname = persona.Nombre + " " + persona.Apellidos;
                     var usuario = new Usuario()
                     {
                         Nombre = permiso.Nombre,
-                        Username = persona.Nombre,
-                        Contrasenya = Cryptography.Encrypt(Generator.GeneratePassword(), Constants.EncryptationKey),
+                        Username = personaNombre,
+                        Contrasenya = Cryptography.Encrypt(Generator.GeneratePassword(), personaNombre),
                         PermisosUsuario = permiso,
                         Persona = dni,
                         //Persona1 = persona
@@ -284,6 +284,7 @@ namespace AlgorithmTester
             {
                 LoadData();
             }
+            //Console.WriteLine(Constants.EncryptationKey);
 
             //NAVEGAR POR LOS DIRECTORIOS
             /*string solutiondir = Directory.GetParent(
@@ -298,6 +299,7 @@ namespace AlgorithmTester
 
             //DateTime starting index
             //Console.WriteLine(DateTime.Now.Month);
+            Console.WriteLine("Terminado");
             Console.ReadLine();
         }
 

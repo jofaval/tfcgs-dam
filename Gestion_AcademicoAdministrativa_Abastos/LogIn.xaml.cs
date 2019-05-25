@@ -36,7 +36,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         private void LogInButton_Click(object sender, RoutedEventArgs e)
         {
             var username = UsernameField.Text;
-            var password = Cryptography.Encrypt(PasswordeField.Password, Constants.EncryptationKey);
+            var password = PasswordeField.Password;
 
             var user = DataRetriever.GetInstance().GetUser(username, password);
             if (user != null)

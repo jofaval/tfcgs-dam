@@ -17,7 +17,7 @@ namespace Controller
 
         public Usuario GetUser(string username, string password)
         {
-            password = Cryptography.Encrypt(password, Constants.EncryptationKey);
+            password = Cryptography.Encrypt(password, username);
             var usuarios = StaticReferences.Context.UsuarioDbSet;
             var usuario = usuarios
                 .FirstOrDefault((x) => x.Username.Equals(username)
