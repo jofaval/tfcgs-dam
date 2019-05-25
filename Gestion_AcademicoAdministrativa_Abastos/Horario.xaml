@@ -30,7 +30,7 @@
                         <RowDefinition Height="90*" />
                         <RowDefinition Height="5*" />
                     </Grid.RowDefinitions>
-                    <DataGrid Grid.Column="1" Grid.Row="1" x:Name="DataGridResult" AutoGenerateColumns="True" ColumnWidth="Auto">
+                    <DataGrid Grid.Column="1" Grid.Row="1" x:Name="DataGridResult" AutoGenerateColumns="True" ColumnWidth="*">
                         
                     </DataGrid>
                 </Grid>
