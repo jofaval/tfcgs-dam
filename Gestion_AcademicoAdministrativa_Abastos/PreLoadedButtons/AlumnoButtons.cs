@@ -27,6 +27,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             Grid.SetRow(HomeButton, numRow);
             numRow++;
 
+            var ChangePassButton = new Button()
+            {
+                Name = "ChangePassButton",
+                Content = "Cambiar Contraseña",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(ChangePassButton);
+            Grid.SetRow(ChangePassButton, numRow);
+            numRow++;
+
             var FirstButton = new Button()
             {
                 Name = "FirstButton",
@@ -95,6 +105,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                     if (btnSender == FirstButton)
                     {
                         XamlFunctionality.ChangeWindowContent(mainWindowPanel, new BuscadorV2());
+                    }
+                    else if (btnSender == ChangePassButton)
+                    {
+                        var mainPanel = new ChangePassword().MainPanel;
+
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, mainPanel);
+
+                        XamlBridge.MainPanelInstance = mainPanel;
                     }
                     else if (btnSender == SecondButton)
                     {
