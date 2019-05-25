@@ -17,11 +17,14 @@ namespace Controller
 
         public Usuario GetUser(string username, string password)
         {
+            password = Cryptography.Encrypt(password, Constants.EncryptationKey);
             var usuarios = StaticReferences.Context.UsuarioDbSet;
             var usuario = usuarios
-                .Where((x) => x.Username.Equals(username)
-                && x.Contrasenya.Equals(password))
-                .FirstOrDefault();
+                .FirstOrDefault((x) => x.Username.Equals(username)
+                && x.Contrasenya.Equals(password));
+            Console.WriteLine(password);
+            Console.WriteLine(usuarios
+                .FirstOrDefault((x) => x.Username.Equals(username)) is null);
             return usuario;
         }
 

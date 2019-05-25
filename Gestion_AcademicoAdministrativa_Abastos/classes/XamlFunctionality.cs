@@ -139,12 +139,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 logIn.UsernameField.Text =
                         Cryptography.Decrypt(
                             lines[0],
-                            Constants.EncryptationKey
+                            Constants.LocalMachineKey
                         );
                 logIn.PasswordeField.Password =
                         Cryptography.Decrypt(
                             lines[1],
-                            Constants.EncryptationKey
+                            Constants.LocalMachineKey
                         );
             }
         }
@@ -161,14 +161,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 w.WriteLine(
                     Cryptography.Encrypt(
                         logIn.UsernameField.Text,
-                        Constants.EncryptationKey
+                        Constants.LocalMachineKey
                     )
                     );
 
                 w.WriteLine(
                     Cryptography.Encrypt(
                         logIn.PasswordeField.Password.ToString(),
-                        Constants.EncryptationKey
+                        Constants.LocalMachineKey
                     )
                 );
             }

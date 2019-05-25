@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -48,6 +50,7 @@ namespace Controller
         public const double TopBarHeight = 25;
         public const int MainWindowThickness = 5;
 
-        public static readonly string EncryptationKey = ((MachineKeySection)ConfigurationManager.GetSection("system.web/machineKey")).DecryptionKey;
+        public static readonly string EncryptationKey = "F8f3faTqmQSFMAR8RfDNdmEVtymZLA2J";
+        public static readonly string LocalMachineKey = NetworkInterface.GetAllNetworkInterfaces().First().GetPhysicalAddress().ToString();
     }
 }
