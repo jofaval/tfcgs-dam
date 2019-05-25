@@ -172,5 +172,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             StaticReferences.Context.UsuarioDbSet.Remove(usuario);
             StaticReferences.Context.SaveChanges();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedPermiso = (PermisosUsuario)DataGridPermisos.SelectedValue;
+            StaticReferences.Context.PermisosUsuarioDbSet.Remove(selectedPermiso);
+            StaticReferences.Context.SaveChanges();
+        }
     }
 }

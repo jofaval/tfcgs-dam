@@ -143,7 +143,14 @@
                                     </Grid.ColumnDefinitions>
                                     <Button Grid.Column="1" x:Name="CreatePermisoButton" Content="Crear Permiso" Click="CreatePermisoButton_Click"/>
                                 </Grid>
-                                <DataGrid Grid.Row="5" Grid.Column="1" x:Name="DataGridPermisos" AutoGenerateColumns="True" ColumnWidth="*" />
+                                <DataGrid Grid.Row="5" Grid.Column="1" x:Name="DataGridPermisos" AutoGenerateColumns="True" ColumnWidth="*">
+                                    <DataGrid.ContextMenu>
+                                        <ContextMenu x:Name="ContextPermisos">
+                                            <MenuItem x:Name="DeletePermiso" Header="Eliminar Permiso"
+                                                      Click="MenuItem_Click"/>
+                                        </ContextMenu>
+                                    </DataGrid.ContextMenu>
+                                </DataGrid>
                             </Grid>
                         </TabItem>
                     </TabControl>
