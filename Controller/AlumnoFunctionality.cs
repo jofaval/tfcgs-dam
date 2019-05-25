@@ -1,4 +1,5 @@
 ﻿using Model;
+using Model.DataStructure;
 using Model.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -50,20 +51,26 @@ namespace Controller
         public static IEnumerable<object> GetHorarios(Usuario currentUser)
         {
             var alumno = currentUser.Persona1.Alumno;
-            var curso = alumno.CursoCod;
+            var cursoCod = alumno.CursoCod;
             var horarios = StaticReferences.Horarios.AsEnumerable();
-            var currentYear = DateTime.Now.Year;
+            var currentYear = AdministrativoFunctionality.GetAcademicYear(StaticReferences.CurrentDateTime);
 
-            return from horario in horarios
-                   .Where(h => h.CursoCod.Equals(curso) && h.Anyo.Equals(currentYear))
-                   .ToList()
-                   select new
-                   {
-                       horario.Dia,
-                       horario.HoraInicio,
-                       horario.HoraFinal,
-                       horario.Asignatura
-                   };
+            return StaticReferences.Context.HorarioDbSet
+                .Where(h => h.CursoCod.Equals(cursoCod) && h.Anyo.Equals(currentYear))
+                .AsEnumerable()
+                .OrderBy(h => h)
+                .Select(h => new
+                {
+                    Dia = (WeekEnum)h.Dia,
+                    HoraInicio = ExtractHour(h.HoraInicio),
+                    HoraFinal = ExtractHour(h.HoraFinal),
+                    Asignatura = h.Asignatura.Nombre,
+                });
+        }
+
+        public static string ExtractHour(DateTime dateTime)
+        {
+            return string.Concat(dateTime.Hour.ToString("D2"), ':', dateTime.Minute.ToString("D2"));
         }
 
         public static List<Horario> GetHorariosOfAlumno(Alumno alumno, int anyo = 2019)
