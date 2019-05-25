@@ -118,20 +118,21 @@ namespace Controller
             }
         }
 
-        public string CreateHorario(Curso curso, Asignatura asignatura, DateTime horaInicio, DateTime horaFinal, int day)
+        public string CreateHorario(Curso curso, Asignatura asignatura, DateTime horaInicio, DateTime horaFinal, int dia)
         {
             StaticReferences.Initializer();
             var context = StaticReferences.Context;
-            var horarios = context.HorarioDbSet.ToList();
+            var horarios = context.HorarioDbSet.AsEnumerable();
             context.SaveChanges();
             var cursoCodText = curso.Cod;
             var cursoNombreText = curso.Nombre;
 
             var asignaturaCodText = asignatura.Cod;
+            var anyo = AdministrativoFunctionality.GetAcademicYear(StaticReferences.CurrentDateTime);
 
             var horario = new Horario()
             {
-                Anyo = AdministrativoFunctionality.GetAcademicYear(StaticReferences.CurrentDateTime),
+                Anyo = anyo,
                 CursoCod = cursoCodText,
                 CursoNombre = cursoNombreText,
                 Curso = curso,
@@ -139,10 +140,15 @@ namespace Controller
                 Asignatura = asignatura,
                 HoraInicio = horaInicio,
                 HoraFinal = horaFinal,
-                Dia = day,
+                Dia = dia,
             };
 
-            if (!horarios.Contains(horario))
+            if (!horarios.Any(h => h.Curso.Equals(curso)
+            && h.Asignatura.Equals(asignatura)
+            && h.HoraFinal.Equals(horaFinal)
+            && h.HoraInicio.Equals(horaInicio)
+            && h.Dia.Equals(dia)
+            && h.Anyo.Equals(anyo)))
             {
                 context.HorarioDbSet.Add(horario);
                 context.SaveChanges();
