@@ -30,7 +30,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             //Console.WriteLine(collection.Count());
             var collection = StaticReferences.Context.HorarioDbSet
                 .AsEnumerable()
-                .OrderBy(h => new { h.Dia, h.HoraInicio })
+                .OrderBy(h => h)
                 .Select(h => new
                 {
                     Dia = (WeekEnum)h.Dia,
