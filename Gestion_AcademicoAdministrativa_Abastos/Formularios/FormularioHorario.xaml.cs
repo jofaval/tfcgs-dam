@@ -35,27 +35,53 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void Create_Click(object sender, RoutedEventArgs e)
         {
-
             var selectedCurso = (Curso)ComboBoxCurso.SelectedValue;
 
             var selectedAsignatura = (Asignatura)ComboBoxAsignatura.SelectedValue;
             var asignaturaCodText = selectedAsignatura.Cod;
 
-            //var horaInicio = TxtHoraInicio.Value.Value;
-            //horaInicio.Year = 0;
-            //var horaFinal = TxtHoraFinal.Value.Value;
+            var horaInicio = TxtHoraInicio.Value.Value;
+            var horaFinal = TxtHoraFinal.Value.Value;
 
-            //Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreateHorario(selectedCurso, selectedAsignatura, horaInicio, horaFinal));
-        }
+            var day = (byte)((WeekEnum)ComboBoxDia.SelectedValue);
 
-        private void Modify_Click(object sender, RoutedEventArgs e)
-        {
-
+            Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreateHorario(selectedCurso, selectedAsignatura, horaInicio, horaFinal, day));
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
+            var selectedCurso = (Curso)ComboBoxCurso.SelectedValue;
 
+            var selectedAsignatura = (Asignatura)ComboBoxAsignatura.SelectedValue;
+            var asignaturaCodText = selectedAsignatura.Cod;
+
+            var horaInicio = TxtHoraInicio.Value.Value;
+            var horaFinal = TxtHoraFinal.Value.Value;
+
+            var day = (byte)(WeekEnum)ComboBoxDia.SelectedValue;
+
+            var horario = new Model.Horario()
+            {
+                Anyo = AdministrativoFunctionality.GetAcademicYear(StaticReferences.CurrentDateTime),
+                CursoCod = selectedCurso.Cod,
+                CursoNombre = selectedCurso.Nombre,
+                CodAsignatura = asignaturaCodText,
+                HoraInicio = horaInicio,
+                HoraFinal = horaFinal,
+                Dia = day,
+            };
+
+            var context = StaticReferences.Context;
+            if (context.HorarioDbSet.AsEnumerable().Contains(horario))
+            {
+                context.HorarioDbSet.Remove(horario);
+                context.SaveChanges();
+            }
+            else
+            {
+                Notification.CreateNotificaion("No se ha encontrado");
+                return;
+            }
         }
     }
 }

@@ -159,14 +159,11 @@
                         </Grid>
                         <Grid Grid.Row="7" Grid.Column="1">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30*" />
-                                <ColumnDefinition Width="5*" />
-                                <ColumnDefinition Width="30*" />
-                                <ColumnDefinition Width="5*" />
-                                <ColumnDefinition Width="30*" />
+                                <ColumnDefinition Width="40*" />
+                                <ColumnDefinition Width="10*" />
+                                <ColumnDefinition Width="40*" />
                             </Grid.ColumnDefinitions>
                             <Button x:Name="Create" Grid.Column="0" Content="{StaticResource FormHorarioCreationButton}" Click="Create_Click"/>
-                            <Button x:Name="Modify" Grid.Column="2" Content="{StaticResource FormHorarioModifyTabItemHeader}" Click="Modify_Click"/>
                             <Button x:Name="Delete" Grid.Column="4" Content="{StaticResource FormHorarioRemoveButton}" Click="Delete_Click"/>
                         </Grid>
                     </Grid>
