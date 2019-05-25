@@ -85,12 +85,21 @@ namespace Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<Alumno>()
+                .Property(e => e.NIA)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Alumno>()
                 .HasMany(e => e.Certificado)
                 .WithRequired(e => e.Alumno1)
                 .HasForeignKey(e => e.Alumno);
 
             modelBuilder.Entity<Alumno>()
                 .HasMany(e => e.Convocatoria)
+                .WithRequired(e => e.Alumno1)
+                .HasForeignKey(e => e.Alumno);
+
+            modelBuilder.Entity<Alumno>()
+                .HasMany(e => e.Estudio)
                 .WithRequired(e => e.Alumno1)
                 .HasForeignKey(e => e.Alumno);
 
@@ -357,9 +366,19 @@ namespace Model
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Curso>()
+                .HasMany(e => e.ActasEvaluacion)
+                .WithRequired(e => e.Curso)
+                .HasForeignKey(e => new { e.CursoCod, e.CursoNombre });
+
+            modelBuilder.Entity<Curso>()
                 .HasOptional(e => e.Eso)
                 .WithRequired(e => e.Curso)
                 .WillCascadeOnDelete();
+
+            modelBuilder.Entity<Curso>()
+                .HasMany(e => e.Estudio)
+                .WithRequired(e => e.Curso)
+                .HasForeignKey(e => new { e.CursoCod, e.CursoNombre });
 
             modelBuilder.Entity<Curso>()
                 .HasMany(e => e.Horario)
@@ -784,15 +803,23 @@ namespace Model
                 .Property(e => e.Nombre)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Tutores>()
+            modelBuilder.Entity<ActasEvaluacion>()
                 .Property(e => e.CursoCod)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Tutores>()
+            modelBuilder.Entity<ActasEvaluacion>()
                 .Property(e => e.CursoNombre)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Tutores>()
+            modelBuilder.Entity<ActasEvaluacion>()
+                .Property(e => e.Temas)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ActasEvaluacion>()
+                .Property(e => e.Contenido)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ActasEvaluacion>()
                 .Property(e => e.Profesor)
                 .IsUnicode(false);
 
@@ -808,15 +835,15 @@ namespace Model
                 .Property(e => e.Alumno)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<ActasEvaluacion>()
+            modelBuilder.Entity<Tutores>()
                 .Property(e => e.CursoCod)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<ActasEvaluacion>()
+            modelBuilder.Entity<Tutores>()
                 .Property(e => e.CursoNombre)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<ActasEvaluacion>()
+            modelBuilder.Entity<Tutores>()
                 .Property(e => e.Profesor)
                 .IsUnicode(false);
         }

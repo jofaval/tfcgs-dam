@@ -30,10 +30,10 @@
         public DateTime Fecha { get; set; }
 
         [Column(Order = 5)]
-        public DateTime Temas { get; set; }
+        public string Temas { get; set; }
 
         [Column(Order = 6)]
-        public DateTime Contenido { get; set; }
+        public string Contenido { get; set; }
 
         public virtual Curso Curso { get; set; }
 
