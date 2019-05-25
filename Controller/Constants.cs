@@ -48,6 +48,6 @@ namespace Controller
         public const double TopBarHeight = 25;
         public const int MainWindowThickness = 5;
 
-        public static readonly string EncyptationKey = ((MachineKeySection)ConfigurationManager.GetSection("system.web/machineKey")).DecryptionKey;
+        public static readonly string EncryptationKey = ((MachineKeySection)ConfigurationManager.GetSection("system.web/machineKey")).DecryptionKey;
     }
 }

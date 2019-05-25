@@ -206,7 +206,7 @@ namespace AlgorithmTester
                     {
                         Nombre = permiso.Nombre,
                         Username = persona.Nombre,
-                        Contrasenya = Cryptography.Encrypt(Generator.GeneratePassword(), Constants.EncyptationKey),
+                        Contrasenya = Cryptography.Encrypt(Generator.GeneratePassword(), Constants.EncryptationKey),
                         PermisosUsuario = permiso,
                         Persona = dni,
                         //Persona1 = persona
