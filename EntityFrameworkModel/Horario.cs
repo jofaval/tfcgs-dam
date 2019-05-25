@@ -8,12 +8,22 @@ namespace Model
 {
     public partial class Horario : IEquatable<Horario>, IComparable<Horario>
     {
-        public bool Equals(Horario other) => Curso.Equals(other.Curso)
-            && Asignatura.Equals(other.Asignatura)
-            && HoraFinal.Equals(other.HoraFinal)
-            && HoraInicio.Equals(other.HoraInicio)
-            && Dia.Equals(other.Dia)
-            && Anyo.Equals(other.Anyo);
+        public bool Equals(Horario other)
+        {
+            try
+            {
+                return Curso.Equals(other.Curso)
+                && Asignatura.Equals(other.Asignatura)
+                && HoraFinal.Equals(other.HoraFinal)
+                && HoraInicio.Equals(other.HoraInicio)
+                && Dia.Equals(other.Dia)
+                && Anyo.Equals(other.Anyo);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
         public int CompareTo(Horario other)
         {
@@ -33,7 +43,7 @@ namespace Model
             }
             else
             {
-                 return -1;
+                return -1;
             }
         }
     }
