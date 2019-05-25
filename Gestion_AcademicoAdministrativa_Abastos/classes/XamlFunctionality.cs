@@ -161,14 +161,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 w.WriteLine(
                     Cryptography.Encrypt(
                         logIn.UsernameField.Text,
-                        Constants.ApplicationTitle
+                        Constants.EncyptationKey
                     )
                     );
 
                 w.WriteLine(
                     Cryptography.Encrypt(
                         logIn.PasswordeField.Password.ToString(),
-                        Constants.ApplicationTitle
+                        Constants.EncyptationKey
                     )
                 );
             }

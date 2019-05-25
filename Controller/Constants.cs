@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web.Configuration;
 
 namespace Controller
 {
@@ -45,5 +47,7 @@ namespace Controller
         public static readonly Regex RegexAlphaNumeric = new Regex(@"[^\w]+");
         public const double TopBarHeight = 25;
         public const int MainWindowThickness = 5;
+
+        public static readonly string EncyptationKey = ((MachineKeySection)ConfigurationManager.GetSection("system.web/machineKey")).DecryptionKey;
     }
 }
