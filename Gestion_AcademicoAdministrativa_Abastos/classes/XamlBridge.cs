@@ -26,8 +26,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public static ViewsEnum ViewEnum { get; set; }
         public static FichaPersona FichaPersona { get; internal set; }
 
-        public Thread RobotoProfesorGuardia { get; set; }
-        public ProfesorGuardia ProfesorGuardia { get; set; }
+        public static Thread RobotoProfesorGuardia { get; set; }
+        public static ProfesorGuardia ProfesorGuardia { get; set; }
 
         public static void CloseEverything()
         {
