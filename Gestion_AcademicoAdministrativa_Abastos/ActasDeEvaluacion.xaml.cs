@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Controller;
 using Model;
+using Model.ViewModel;
 
 namespace Gestion_AcademicoAdministrativa_Abastos
 {
@@ -23,7 +24,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
     {
         public Curso CurrentCurso { get; set; }
         public Profesor CurrentProfesor { get; set; }
-        public List<Actas> Actas { get; set; }
+        public List<ActaEvaluacionViewModel> Actas { get; set; }
 
         public ActasDeEvaluacion()
         {
@@ -39,12 +40,13 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             CurrentCurso = curso;
             LabelCurso.Content = curso.Nombre;
             Actas = StaticReferences.Context.ActasEvaluacionDbSet
-                .AsEnumerable()
-                .Select(a => new
+                .Select(a => new ActaEvaluacionViewModel()
                 {
-                    a.Fecha,
-                    Profesor = a.Profesor1?.Trabajador1?.NombreCompleto(),
+                    Fecha = a.Fecha,
+                    Temas = a.Temas,
+                    Contenido = a.Contenido,
                 })
+                .AsEnumerable()
                 .ToList();
             DataGridActas.ItemsSource = Actas;
         }
@@ -67,7 +69,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             };
 
             StaticReferences.Context.ActasEvaluacionDbSet.Add(actaEvaluacion);
-            Actas.Add(actaEvaluacion);
+            Actas.Add(new ActaEvaluacionViewModel()
+            {
+                Fecha = actaEvaluacion.Fecha,
+                Temas = actaEvaluacion.Temas,
+                Contenido = actaEvaluacion.Contenido,
+            });
             StaticReferences.Context.SaveChanges();
         }
     }
