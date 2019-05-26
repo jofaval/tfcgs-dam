@@ -56,6 +56,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var contenido = TxtContenido.Text;
             var temas = TxtTemas.Text;
 
+            var date = DateTime.Now;
+            if (date == null)
+            {
+                date = StaticReferences.CurrentDateTime;
+            }
             var actaEvaluacion = new ActasEvaluacion()
             {
                 Curso = CurrentCurso,
@@ -63,7 +68,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 CursoNombre = CurrentCurso.Nombre,
                 Contenido = contenido,
                 Temas = temas,
-                Fecha = DateTime.Now,
+                Fecha = StaticReferences.CurrentDateTime,
                 Profesor = CurrentProfesor.Trabajador,
                 Profesor1 = CurrentProfesor,
             };
