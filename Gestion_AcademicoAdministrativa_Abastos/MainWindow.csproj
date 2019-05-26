@@ -132,6 +132,9 @@
     <Compile Include="Buscador.xaml.cs">
       <DependentUpon>Buscador.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BuscadorAllEntities.xaml.cs">
+      <DependentUpon>BuscadorAllEntities.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BuscadorV2.xaml.cs">
       <DependentUpon>BuscadorV2.xaml</DependentUpon>
     </Compile>
@@ -212,6 +215,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Buscador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BuscadorAllEntities.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

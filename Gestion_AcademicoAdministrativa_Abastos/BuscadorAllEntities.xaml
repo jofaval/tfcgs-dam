@@ -1,0 +1,96 @@
+﻿<Window x:Class="Gestion_AcademicoAdministrativa_Abastos.BuscadorAllEntities"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos"
+        mc:Ignorable="d"
+        Title="BuscadorAllEntities" Height="450" Width="800">
+    <Grid x:Name="Container" Grid.Row="1" Background="{DynamicResource MainColorSolid}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid x:Name="MainGridContent" Grid.Row="1" Background="{DynamicResource MainColorSolid}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid x:Name="MainPanel" Grid.Column="1" Panel.ZIndex="-2" Background="{DynamicResource BackgroundColorfulGradient}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="90*" />
+                    <ColumnDefinition Width="5*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="90*" />
+                    <RowDefinition Height="5*" />
+                </Grid.RowDefinitions>
+                <Grid x:Name="ContentPanel" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{DynamicResource MainColorSolid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*" />
+                        <ColumnDefinition Width="90*" />
+                        <ColumnDefinition Width="5*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*" />
+                        <RowDefinition Height="90*" />
+                        <RowDefinition Height="5*" />
+                    </Grid.RowDefinitions>
+                    <Grid HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Panel.ZIndex="-1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="7*" />
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="7*" />
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="52*" />
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="7*" />
+                            <RowDefinition Height="7*" />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100*" />
+                            </Grid.ColumnDefinitions>
+                            <ComboBox x:Name="ComboBoxEntityTypes" SelectionChanged="ComboBoxEntityTypes_SelectionChanged_1"/>
+                        </Grid>
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="25*" />
+                                <ColumnDefinition Width="25*" />
+                                <ColumnDefinition Width="25*" />
+                                <ColumnDefinition Width="25*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="1" Content="Número de Filas"/>
+                            <TextBox x:Name="TxtStep" Grid.Column="2" Text="{Binding Path=Step}" PreviewTextInput="TxtStep_PreviewTextInput" TextChanged="TxtStep_TextChanged"/>
+                        </Grid>
+                        <DataGrid x:Name="DataGridResult" Grid.Row="5" AutoGenerateColumns="True" ColumnWidth="Auto" />
+                        <Grid Grid.Row="6" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="15*" />
+                                <ColumnDefinition Width="10*" />
+                                <ColumnDefinition Width="15*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="5*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="1" Content="Número de filas: "/>
+                            <Label Grid.Column="2" x:Name="LabelNumRows"/>
+                            <Label Grid.Column="3" Content="Mostrando rango: " />
+                            <Label Grid.Column="4" x:Name="LabelStartIndex" HorizontalAlignment="Center" Padding="0"/>
+                            <Label Grid.Column="5" Content="-"  HorizontalAlignment="Center" Padding="0"/>
+                            <Label Grid.Column="6" x:Name="LabelEndIndex" HorizontalAlignment="Center" Padding="0"/>
+                        </Grid>
+                        <Grid Grid.Row="7">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="35*" />
+                                <ColumnDefinition Width="20*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="20*" />
+                                <ColumnDefinition Width="35*" />
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="ButtonPrevious" Grid.Column="1" Content="Anterior" Click="NextPrevious_Click"/>
+                            <Button x:Name="ButtonNext" Grid.Column="3" Content="Siguiente" Click="NextPrevious_Click"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
