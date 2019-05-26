@@ -1,4 +1,5 @@
-﻿using Gestion_AcademicoAdministrativa_Abastos.Threads;
+﻿using Controller;
+using Gestion_AcademicoAdministrativa_Abastos.Threads;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,15 +69,27 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             Grid.SetRow(GuardiaButton, numRow);
             numRow++;
 
-            var ActasButton = new Button()
+            var academicYear = AdministrativoFunctionality.GetAcademicYear(StaticReferences.CurrentDateTime);
+            if (XamlBridge.CurrentUser.Persona1.Trabajador.Profesor.Tutores.Any(t => t.Anyo.Equals(academicYear)))
             {
-                Name = "ActasButton",
-                Content = "Actas de Evaluación",
-                Style = menuButtonStyle
-            };
-            buttonList.Add(ActasButton);
-            Grid.SetRow(ActasButton, numRow);
-            numRow++;
+                var ActasButton = new Button()
+                {
+                    Name = "ActasButton",
+                    Content = "Actas de Evaluación",
+                    Style = menuButtonStyle
+                };
+                buttonList.Add(ActasButton);
+                Grid.SetRow(ActasButton, numRow);
+                numRow++;
+                ActasButton.Click += (object sender, RoutedEventArgs e) =>
+                {
+                    var mainPanel = new ActasDeEvaluacion().MainPanel;
+
+                    XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, mainPanel);
+
+                    XamlBridge.MainPanelInstance = mainPanel;
+                };
+            }
 
             var LogOutButton = new Button()
             {
@@ -130,13 +143,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                         XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
 
                         XamlBridge.MainPanelInstance = backUpMainPanel;
-                    }
-                    else if (btnSender == ActasButton)
-                    {
-                        var backUpMainPanel = new ActasDeEvaluacion()
-                        {
-                            Visibility = Visibility.Visible,
-                        };
                     }
                     else if (btnSender == LogOutButton)
                     {
