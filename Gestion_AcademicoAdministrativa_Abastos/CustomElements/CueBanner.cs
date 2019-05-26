@@ -59,9 +59,9 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
         {
             if (sender is TextBox senderAsTextBox)
             {
-                Console.WriteLine(senderAsTextBox.Name);
+                //Console.WriteLine(senderAsTextBox.Name);
                     var count = VisualTreeHelper.GetChildrenCount(senderAsTextBox);
-                Console.WriteLine(count);
+                //Console.WriteLine(count);
                 for (int innerChildIterator = 0; innerChildIterator < count; innerChildIterator++)
                 {
                     var children = VisualTreeHelper.GetChild(senderAsTextBox, innerChildIterator);

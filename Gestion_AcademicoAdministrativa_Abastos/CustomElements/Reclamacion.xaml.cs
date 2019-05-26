@@ -35,7 +35,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
         public Reclamacion()
         {
             InitializeComponent();
-            Console.WriteLine(XamlFunctionality.CheckNet() ? "Funciona" : "No hay internet");
+            //Console.WriteLine(XamlFunctionality.CheckNet() ? "Funciona" : "No hay internet");
         }
 
         public static Grid CreateReclamacion(Model.Reclamacion reclamacion)

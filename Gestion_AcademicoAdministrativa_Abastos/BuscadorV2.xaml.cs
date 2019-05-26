@@ -54,7 +54,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
             TxtStep.Text = Step.ToString();
-            Console.WriteLine(Step);
+            //Console.WriteLine(Step);
             var joiner = Constants.StringJoiner;
             var currentUserPerson = XamlBridge.CurrentUser.Persona1;
 
@@ -70,7 +70,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             UserRoleList.Clear();
             foreach (var savedItem in saved)
             {
-                Console.WriteLine(savedItem);
+                //Console.WriteLine(savedItem);
                 UserRoleList.Add(savedItem);
             }
 
