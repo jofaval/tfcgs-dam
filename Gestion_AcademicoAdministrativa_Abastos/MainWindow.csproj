@@ -198,9 +198,6 @@
     <Compile Include="RevisarReclamaciones.xaml.cs">
       <DependentUpon>RevisarReclamaciones.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Solicitudes.xaml.cs">
-      <DependentUpon>Solicitudes.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
@@ -285,10 +282,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RevisarReclamaciones.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Solicitudes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
