@@ -57,16 +57,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             Grid.SetRow(SecondButton, numRow);
             numRow++;
 
-            var ThirdButton = new Button()
-            {
-                Name = "ThirdButton",
-                Content = "Editar Informacion",
-                Style = menuButtonStyle
-            };
-            buttonList.Add(ThirdButton);
-            Grid.SetRow(ThirdButton, numRow);
-            numRow++;
-
             var ForthButton = new Button()
             {
                 Name = "ForthButton",
@@ -117,10 +107,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                     else if (btnSender == SecondButton)
                     {
                         XamlFunctionality.ChangeWindowContent(mainWindowPanel, new Horario());
-                    }
-                    else if (btnSender == ThirdButton)
-                    {
-                        XamlBridge.MainWindowInstance.MakeDataEditable();
                     }
                     else if (btnSender == ForthButton)
                     {
