@@ -43,11 +43,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             Width = screenWidth / 4;
             Height = screenHeight / 2;
 
-            Resources[Constants.BackgroundColorfulGradientStart] = Application.Current.Resources[Constants.BackgroundColorfulGradientStart];
-            Resources[Constants.BackgroundColorfulGradientEnd] = Application.Current.Resources[Constants.BackgroundColorfulGradientEnd];
+            Resources[Constants.ResourceBackgroundColorfulGradientStart] = Application.Current.Resources[Constants.ResourceBackgroundColorfulGradientStart];
+            Resources[Constants.ResourceBackgroundColorfulGradientEnd] = Application.Current.Resources[Constants.ResourceBackgroundColorfulGradientEnd];
 
-            BackGroundFondoFirst.SelectedColor = (Color)ColorConverter.ConvertFromString(Constants.BackgroundColorfulGradientEndCode);
-            BackGroundFondoSecond.SelectedColor = (Color)ColorConverter.ConvertFromString(Constants.BackgroundColorfulGradientStartCode);
+            BackGroundFondoFirst.SelectedColor = (Color)Application.Current.Resources[Constants.ResourceBackgroundColorfulGradientStart];
+            BackGroundFondoSecond.SelectedColor = (Color)Application.Current.Resources[Constants.ResourceBackgroundColorfulGradientEnd];
         }
 
         private void LoadComboBoxWithFontFamilies()
@@ -118,7 +118,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         private void BackGroundFondoFirst_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
         {
             var selectedColor = BackGroundFondoFirst.SelectedColor.Value;
-            this.Resources[Constants.BackgroundColorfulGradientStart] = selectedColor;
+            this.Resources[Constants.ResourceBackgroundColorfulGradientStart] = selectedColor;
 
             ChangeBackgroundColorfulGradient();
         }
@@ -126,16 +126,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         private void BackGroundFondoSecond_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
         {
             var selectedColor = BackGroundFondoSecond.SelectedColor.Value;
-            this.Resources[Constants.BackgroundColorfulGradientEnd] = selectedColor;
+            this.Resources[Constants.ResourceBackgroundColorfulGradientEnd] = selectedColor;
 
             ChangeBackgroundColorfulGradient();
         }
 
         public void ChangeBackgroundColorfulGradient()
         {
-            Application.Current.Resources[Constants.BackgroundColorfulGradient] = new LinearGradientBrush(
-               (Resources[Constants.BackgroundColorfulGradientStart] as Color?).Value,
-               (Resources[Constants.BackgroundColorfulGradientEnd] as Color?).Value,
+            Application.Current.Resources[Constants.ResourceBackgroundColorfulGradient] = new LinearGradientBrush(
+               (Resources[Constants.ResourceBackgroundColorfulGradientEnd] as Color?).Value,
+               (Resources[Constants.ResourceBackgroundColorfulGradientStart] as Color?).Value,
                new Point(0.5, 1),
                new Point(0.5, 0)
             );

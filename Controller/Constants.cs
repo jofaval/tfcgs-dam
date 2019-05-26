@@ -30,11 +30,16 @@ namespace Controller
         public static readonly string ResourceFontSize = "StandardFontSize";
         public static readonly string ResourceWindowWidth = "WindowWidth";
         public static readonly string ResourceWindowHeight = "WindowHeight";
+        public static readonly string ResourceBackgroundColorfulGradientStart = "BackgroundColorfulGradientStart";
+        public static readonly string ResourceBackgroundColorfulGradientEnd = "BackgroundColorfulGradientEnd";
+        public static readonly string ResourceBackgroundColorfulGradient = "BackgroundColorfulGradient";
 
         public static readonly string XmlFontFamily = "fontFamily";
         public static readonly string XmlFontSize = "fontSize";
         public static readonly string XmlWindowWidth = "windowWidth";
         public static readonly string XmlWindowHeight = "windowHeight";
+        public static readonly string XmlBackgroundStart = "backgroundStart";
+        public static readonly string XmlBackgroundEnd = "backgroundEnd";
 
         public static readonly string SuccessCreatingEntity = "Se ha creado con éxito";
         public static readonly string FailureCreatingEntity = "Ya existe en el sistema o no se ha podido añadir";
@@ -52,9 +57,6 @@ namespace Controller
 
         public static readonly string EncryptationKey = "F8f3faTqmQSFMAR8RfDNdmEVtymZLA2J";
         public static readonly string LocalMachineKey = NetworkInterface.GetAllNetworkInterfaces().First().GetPhysicalAddress().ToString();
-        public static readonly string BackgroundColorfulGradientStart = "BackgroundColorfulGradientStart";
-        public static readonly string BackgroundColorfulGradientEnd = "BackgroundColorfulGradientEnd";
-        public static readonly string BackgroundColorfulGradient = "BackgroundColorfulGradient";
         public const int SleepTimeProfesorGuardiaRoboto = 55 * 60 * 1000;
 
         public static readonly string BackgroundColorfulGradientStartCode = "#FF69E655";
