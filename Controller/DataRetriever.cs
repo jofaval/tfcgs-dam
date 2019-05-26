@@ -23,9 +23,9 @@ namespace Controller
                 .AsEnumerable()
                 .FirstOrDefault((x) => x.Username.Equals(username)
                 && Cryptography.Decrypt(x.Contrasenya, username).Equals(password));
-            Console.WriteLine(password);
-            Console.WriteLine(usuarios
-                .FirstOrDefault((x) => x.Username.Equals(username)) is null);
+            //Console.WriteLine(password);
+            //Console.WriteLine(usuarios
+            //    .FirstOrDefault((x) => x.Username.Equals(username)) is null);
             return usuario;
         }
 
