@@ -94,7 +94,9 @@
                                             <RowDefinition Height="65*" />
                                         </Grid.RowDefinitions>
                                         <Label Grid.Row="0" Content="Contenido"/>
-                                        <TextBox Name="TxtContenido" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="True"/>
+                                        <TextBox Name="TxtContenido" Grid.Row="1"
+                                                 VerticalContentAlignment="Top" Padding="15,15,0,0"
+                                                 TextWrapping="Wrap" AcceptsReturn="True"/>
                                     </Grid>
                                     <Button x:Name="Create" Content="Añadir Acta de Evaluación"
                                 Grid.Row="5" Click="Create_Click"/>

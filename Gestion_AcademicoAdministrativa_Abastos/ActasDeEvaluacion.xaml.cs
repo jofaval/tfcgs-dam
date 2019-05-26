@@ -32,11 +32,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var profesor = XamlBridge.CurrentUser.Persona1.Trabajador.Profesor;
             CurrentProfesor = profesor;
             var academicYear = AdministrativoFunctionality.GetAcademicYear(StaticReferences.CurrentDateTime);
-            //var curso = profesor.Tutores
-            //    .AsEnumerable()
-            //    .FirstOrDefault(t => t.Anyo.Equals(academicYear))
-            //    .Curso;
-            var curso = StaticReferences.Context.CursoDbSet.SingleOrDefault(c => c.Cod.Equals("7J"));
+            var curso = profesor.Tutores
+                .AsEnumerable()
+                .FirstOrDefault(t => t.Anyo.Equals(academicYear))
+                .Curso;
             CurrentCurso = curso;
             LabelCurso.Content = curso.Nombre;
             Actas = StaticReferences.Context.ActasEvaluacionDbSet
@@ -74,13 +73,18 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             };
 
             StaticReferences.Context.ActasEvaluacionDbSet.Add(actaEvaluacion);
-            Actas.Add(new ActaEvaluacionViewModel()
-            {
-                Fecha = actaEvaluacion.Fecha,
-                Temas = actaEvaluacion.Temas,
-                Contenido = actaEvaluacion.Contenido,
-            });
             StaticReferences.Context.SaveChanges();
+            Actas = StaticReferences.Context.ActasEvaluacionDbSet
+                .Select(a => new ActaEvaluacionViewModel()
+                {
+                    Fecha = a.Fecha,
+                    Temas = a.Temas,
+                    Contenido = a.Contenido,
+                })
+                .AsEnumerable()
+                .ToList();
+            DataGridActas.ItemsSource = Actas;
+            Notification.CreateNotificaion("Añadido con éxito");
         }
     }
 }
