@@ -29,8 +29,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             InitializeComponent();
             ComboBoxProfesor.ItemsSource = StaticReferences.Context.ProfesorDbSet.ToList();
-            var reclamaciones = StaticReferences.Context.ReclamacionDbSet.ToList();
-            Todas = reclamaciones;
+            var reclamaciones = StaticReferences.Context.ReclamacionDbSet;
+            Todas = reclamaciones.ToList();
+            foreach (var item in Todas)
+            {
+                Console.WriteLine(item.Asunto);
+            }
             DataGridTodas.ItemsSource = Todas;
             EnTramite = reclamaciones
                 .Where(r => r.EnTramite.HasValue)
@@ -39,7 +43,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             Tramitadas = reclamaciones
                 .Where(r => r.FechaRevision.HasValue)
                 .ToList();
-            DataGridTodas.ItemsSource = Tramitadas;
+            DataGridTramitadas.ItemsSource = Tramitadas;
         }
 
         private void CreateReclamacion_Click(object sender, RoutedEventArgs e)

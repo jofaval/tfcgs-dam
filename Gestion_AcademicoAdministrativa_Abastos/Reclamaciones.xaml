@@ -63,15 +63,15 @@
                                     </Grid.RowDefinitions>
                                     <Label Grid.Row="0" Content="Todas"/>
                                     <Grid Grid.Row="1" >
-                                        <DataGrid x:Name="DataGridTodas" ColumnWidth="*"/>
+                                        <DataGrid x:Name="DataGridTodas" ColumnWidth="*" AutoGenerateColumns="True"/>
                                     </Grid>
                                     <Label Grid.Row="2" Content="En trámite"/>
                                     <Grid Grid.Row="3" >
-                                        <DataGrid x:Name="DataGridEnTramite" ColumnWidth="*"/>
+                                        <DataGrid x:Name="DataGridEnTramite" ColumnWidth="*" AutoGenerateColumns="True"/>
                                     </Grid>
                                     <Label Grid.Row="4" Content="Tramitadas"/>
                                     <Grid Grid.Row="5" >
-                                        <DataGrid x:Name="DataGridTramitadas" ColumnWidth="*"/>
+                                        <DataGrid x:Name="DataGridTramitadas" ColumnWidth="*" AutoGenerateColumns="True"/>
                                     </Grid>
                                 </Grid>
                             </Grid>
