@@ -197,6 +197,7 @@
     <Compile Include="SQLEditor.xaml.cs">
       <DependentUpon>SQLEditor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Threads\RobotoProfesorGuardia.cs" />
     <Compile Include="UserPanel.xaml.cs">
       <DependentUpon>UserPanel.xaml</DependentUpon>
     </Compile>
