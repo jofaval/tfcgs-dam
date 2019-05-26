@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Controller;
+using Model;
 
 namespace Gestion_AcademicoAdministrativa_Abastos
 {
@@ -22,6 +24,13 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public ActasDeEvaluacion()
         {
             InitializeComponent();
+            var profesor = XamlBridge.CurrentUser.Persona1.Trabajador.Profesor;
+            var academicYear = AdministrativoFunctionality.GetAcademicYear(StaticReferences.CurrentDateTime);
+            var curso = profesor.Tutores
+                .AsEnumerable()
+                .FirstOrDefault(t => t.Anyo.Equals(academicYear))
+                .Curso;
+            LabelCurso.Content = curso.Nombre;
         }
     }
 }
