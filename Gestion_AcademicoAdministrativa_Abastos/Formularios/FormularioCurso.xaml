@@ -158,6 +158,20 @@
                                     <RowDefinition Height="10*" />
                                     <RowDefinition Height="5*" />
                                 </Grid.RowDefinitions>
+                                <Grid Grid.Column="1" Grid.Row="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="35*" />
+                                        <RowDefinition Height="65*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Content="Tipo de curso"/>
+                                    <ComboBox Grid.Row="1" x:Name="ComboBoxCursoType"/>
+                                </Grid>
+                                <Grid Grid.Column="1" Grid.Row="3" x:Name="SpecificRoleGrid">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="35*" />
+                                        <RowDefinition Height="65*" />
+                                    </Grid.RowDefinitions>
+                                </Grid>
                                 <Grid Grid.Row="5" Grid.Column="1">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="30*" />
