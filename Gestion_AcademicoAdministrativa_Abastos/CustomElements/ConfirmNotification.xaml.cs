@@ -24,6 +24,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
     {
         public const int MARGIN = 25;
 
+        public event RoutedEventHandler WhenDone;
+
         public string NotificationTitle { get; set; }
 
         public ConfirmNotification()
@@ -103,7 +105,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
 
         public void DoWhenFinished()
         {
-
+            WhenDone?.Invoke(this, null);
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)

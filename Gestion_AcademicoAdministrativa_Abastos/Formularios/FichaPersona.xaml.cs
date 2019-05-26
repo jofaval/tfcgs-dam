@@ -168,13 +168,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
         private void ModifyPersona_Click(object sender, RoutedEventArgs e)
         {
             var notification = ConfirmNotification.CreateNotificaion();
-            DynamicMojo.SwapMethodBodies(
-                typeof(ConfirmNotification).GetMethod(nameof(notification.DoWhenFinished)),
-                typeof(FichaPersona).GetMethod(nameof(ModifyContent))
-            );
+            //DynamicMojo.SwapMethodBodies(
+            //    typeof(ConfirmNotification).GetMethod(nameof(notification.DoWhenFinished)),
+            //    typeof(FichaPersona).GetMethod(nameof(ModifyContent))
+            //);
+            notification.WhenDone += ModifyContent;
         }
 
-        public void ModifyContent()
+        public void ModifyContent(object sender, RoutedEventArgs e)
         {
             Notification.CreateNotificaion("Funciona");
             if (SelectedPersona != null)
