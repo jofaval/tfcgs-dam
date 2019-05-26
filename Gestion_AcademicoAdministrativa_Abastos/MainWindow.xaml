@@ -7,7 +7,7 @@
              mc:Ignorable="d" Title="{Binding ApplicationTitle}"
              WindowStartupLocation="CenterScreen"
              WindowStyle="None" AllowsTransparency="True" Background="Transparent"
-             Style="{StaticResource WindowStyle}"
+             Style="{DynamicResource WindowStyle}"
              Topmost="True" Activated="WindowVar_Activated"
              Closing="Window_Closing">
     <Window.Effect>
@@ -69,13 +69,7 @@
                     <ColumnDefinition Width="20*" />
                     <ColumnDefinition Width="80*" />
                 </Grid.ColumnDefinitions>
-                <Grid x:Name="MainPanel" Grid.Column="1" Panel.ZIndex="-2">
-                    <Grid.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FF69E655" Offset="0" />
-                            <GradientStop Color="#FF006CC5" Offset="1" />
-                        </LinearGradientBrush>
-                    </Grid.Background>
+                <Grid x:Name="MainPanel" Grid.Column="1" Panel.ZIndex="-2" Background="{DynamicResource BackgroundColorfulGradient}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="5*" />
                         <ColumnDefinition Width="90*" />

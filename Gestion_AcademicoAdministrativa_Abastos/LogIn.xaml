@@ -13,13 +13,7 @@
                 <RowDefinition Height="60*" />
                 <RowDefinition Height="20*" />
             </Grid.RowDefinitions>
-            <Grid x:Name="LogInContent" Grid.Row="1" Grid.Column="1">
-                <Grid.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF2A2D34" />
-                        <GradientStop Color="#FF15171B" Offset="1" />
-                    </LinearGradientBrush>
-                </Grid.Background>
+            <Grid x:Name="LogInContent" Grid.Row="1" Grid.Column="1" Background="{DynamicResource BackgroundContainerGradient}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="15*" />
                     <ColumnDefinition Width="70*" />
