@@ -1,4 +1,5 @@
 ﻿using Model;
+using Model.DataStructure;
 using Model.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,24 @@ namespace Controller
 {
     public class ProfesorFunctionality
     {
-        public List<Horario> GetHorarios(Profesor profesor)
+        public static IEnumerable<object> GetHorarios(Profesor profesor)
         {
-            var horarios = StaticReferences.Context.HorarioDbSet;
-            var horariosDelProfesor = horarios.Where(h => profesor.Impartimiento.Any(i => i.CodAsignatura.Equals(h.CodAsignatura)));
+            var horarios = StaticReferences.Context.ImpartimientoDbSet;
+            var horariosDelProfesor = horarios
+                .Where(h => profesor.Impartimiento.Any(i => i.CodAsignatura.Equals(h.CodAsignatura)))
+                .AsEnumerable()
+                .OrderBy(i => i.Horario)
+                .Select(i => new
+                {
+                    Dia = (WeekEnum)i.Dia,
+                    HoraInicio = AlumnoFunctionality.ExtractHour(i.HoraInicio),
+                    HoraFinal = AlumnoFunctionality.ExtractHour(i.HoraFinal),
+                    Aula = i.Aula.Codificate(),
+                    Asignatura = i.Horario.Asignatura.Nombre,
+                    Curso = i.CursoNombre,
+                });
 
-            return horariosDelProfesor.ToList();
+            return horariosDelProfesor;
         }
 
         public static IEnumerable<object> GetAlumnos(string name, Profesor profesor, bool? ignoreMayus = true, bool? exactMatch = true)
