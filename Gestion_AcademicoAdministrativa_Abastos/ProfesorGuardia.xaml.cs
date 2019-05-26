@@ -24,6 +24,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             InitializeComponent();
 
+            Reload();
+        }
+
+        internal void Reload()
+        {
             var collection = ProfesorFunctionality.GetHorariosGuardia(DateTime.Now);
             XamlFunctionality.FillDataGrid(DataGridResult, collection);
         }

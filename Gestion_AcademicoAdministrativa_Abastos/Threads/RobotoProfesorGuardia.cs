@@ -15,6 +15,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Threads
             while (true)
             {
                 Thread.Sleep(Constants.SleepTimeProfesorGuardiaRoboto);
+                var profesorGuardiaInstance = XamlBridge.ProfesorGuardia;
+                if (profesorGuardiaInstance != null)
+                {
+                    profesorGuardiaInstance.Reload();
+                }
             }
         }
 
