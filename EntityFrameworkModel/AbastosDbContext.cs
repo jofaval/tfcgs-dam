@@ -648,6 +648,11 @@ namespace Model
                 .HasForeignKey(e => e.Profesor);
 
             modelBuilder.Entity<Profesor>()
+                .HasMany(e => e.ActasEvaluacion)
+                .WithRequired(e => e.Profesor1)
+                .HasForeignKey(e => e.Profesor);
+
+            modelBuilder.Entity<Profesor>()
                 .HasOptional(e => e.ProfesorSustituto)
                 .WithRequired(e => e.Profesor)
                 .WillCascadeOnDelete();
@@ -813,15 +818,15 @@ namespace Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<ActasEvaluacion>()
+                .Property(e => e.Profesor)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ActasEvaluacion>()
                 .Property(e => e.Temas)
                 .IsUnicode(false);
 
             modelBuilder.Entity<ActasEvaluacion>()
                 .Property(e => e.Contenido)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ActasEvaluacion>()
-                .Property(e => e.Profesor)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Estudio>()

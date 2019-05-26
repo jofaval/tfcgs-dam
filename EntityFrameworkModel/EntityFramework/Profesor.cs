@@ -31,6 +31,9 @@ namespace Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Impartimiento> Impartimiento { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ActasEvaluacion> ActasEvaluacion { get; set; }
+
         public virtual Trabajador Trabajador1 { get; set; }
 
         public virtual ProfesorSustituto ProfesorSustituto { get; set; }

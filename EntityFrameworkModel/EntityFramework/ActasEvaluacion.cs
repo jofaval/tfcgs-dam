@@ -20,20 +20,17 @@
         public string CursoNombre { get; set; }
 
         [Key]
-        [Column(Order = 3)]
-        [StringLength(9)]
-        public string Profesor { get; set; }
-
-        [Key]
-        [Column(Order = 4)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Column(Order = 2)]
         public DateTime Fecha { get; set; }
 
-        [Column(Order = 5)]
+        [Column(TypeName = "text")]
         public string Temas { get; set; }
 
-        [Column(Order = 6)]
+        [Column(TypeName = "text")]
         public string Contenido { get; set; }
+
+        [StringLength(9)]
+        public string Profesor { get; set; }
 
         public virtual Curso Curso { get; set; }
 
