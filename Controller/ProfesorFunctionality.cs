@@ -15,7 +15,38 @@ namespace Controller
         {
             var horarios = StaticReferences.Context.ImpartimientoDbSet;
             var horariosDelProfesor = horarios
-                .Where(h => profesor.Impartimiento.Any(i => i.CodAsignatura.Equals(h.CodAsignatura)))
+                .Where(i => i.Profesor1.Equals(profesor))
+                .AsEnumerable()
+                .OrderBy(i => i.Horario)
+                .Select(i => new
+                {
+                    Dia = (WeekEnum)i.Dia,
+                    HoraInicio = AlumnoFunctionality.ExtractHour(i.HoraInicio),
+                    HoraFinal = AlumnoFunctionality.ExtractHour(i.HoraFinal),
+                    Aula = i.Aula.Codificate(),
+                    Asignatura = i.Horario.Asignatura.Nombre,
+                    Curso = i.CursoNombre,
+                });
+
+            return horariosDelProfesor;
+        }
+
+        public static IEnumerable<object> GetHorariosGuardia(DateTime currentDateTime)
+        {
+            var horarios = StaticReferences.Context.ImpartimientoDbSet;
+
+            var currentHour = dateTimeNow.Hour;
+            var currentMinute = dateTimeNow.Minute;
+
+            var currentDay = dateTimeNow.DayOfWeek;
+            currentDay = currentDay > 0 ? currentDay - 1 : currentDay + 6;
+
+            var horariosDelProfesor = horarios
+                .Where(i => i.Horario.Dia.Equals(currentDay)
+                && (currentHour >= i.HoraInicio.Hour
+                && currentHour <= i.HoraFinal.Hour)
+                && (currentMinute >= i.HoraInicio.Minute
+                && currentMinute <= i.HoraFinal.Minute))
                 .AsEnumerable()
                 .OrderBy(i => i.Horario)
                 .Select(i => new
