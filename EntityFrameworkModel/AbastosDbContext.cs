@@ -47,7 +47,7 @@ namespace Model
         public virtual DbSet<Titulo> TituloDbSet { get; set; }
         public virtual DbSet<Trabajador> TrabajadorDbSet { get; set; }
         public virtual DbSet<Usuario> UsuarioDbSet { get; set; }
-        public virtual DbSet<Tutores> Tutores { get; set; }
+        public virtual DbSet<Tutores> TutoresDbSet { get; set; }
         public virtual DbSet<Estudio> EstudiosDbSet { get; set; }
         public virtual DbSet<ActasEvaluacion> ActasEvaluacionDbSet { get; set; }
 
