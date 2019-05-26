@@ -9,8 +9,8 @@
     <Grid>
         <Grid Background="{DynamicResource MainColorSolid}" x:Name="MainGridContent">
             <Grid.RowDefinitions>
-                <RowDefinition Height="20*" />
-                <RowDefinition Height="80*" />
+                <RowDefinition Height="10*" />
+                <RowDefinition Height="90*" />
             </Grid.RowDefinitions>
             <Grid x:Name="TopBar" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Background="{DynamicResource TopBarGradient}">
                 <Grid.RowDefinitions>
@@ -30,10 +30,83 @@
                     <RowDefinition Height="90*" />
                     <RowDefinition Height="5*" />
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="1" Grid.Column="1" x:Name="WindowContent"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Text="{Binding NotificationContent}" Padding="0" Height="Auto"
-                       Style="{StaticResource NotificationContent}"/>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10*" />
+                        <RowDefinition Height="5*" />
+                        <RowDefinition Height="10*" />
+                        <RowDefinition Height="5*" />
+                        <RowDefinition Height="25*" />
+                        <RowDefinition Height="5*" />
+                        <RowDefinition Height="10*" />
+                        <RowDefinition Height="5*" />
+                        <RowDefinition Height="25*" />
+                        <RowDefinition Height="5*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40*" />
+                            <ColumnDefinition Width="5*" />
+                            <ColumnDefinition Width="40*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35*" />
+                            <RowDefinition Height="65*" />
+                        </Grid.RowDefinitions>
+                        <Label Content="Fecha Envio" />
+                        <TextBox Grid.Row="1" IsReadOnly="True" />
+                        <Label Content="Fecha Revision" Grid.Column="2"/>
+                        <TextBox Grid.Row="1" Grid.Column="2" IsReadOnly="True" />
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60*" />
+                            <ColumnDefinition Width="10*" />
+                            <ColumnDefinition Width="40*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35*" />
+                            <RowDefinition Height="65*" />
+                        </Grid.RowDefinitions>
+                        <Label Content="Asunto" />
+                        <TextBox Grid.Row="1" IsReadOnly="True" />
+                        <Label Content="Dirigido A" Grid.Column="2"/>
+                        <TextBox Grid.Row="1" Grid.Column="2" IsReadOnly="True" />
+                    </Grid>
+                    <Grid Grid.Row="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35*" />
+                            <RowDefinition Height="65*" />
+                        </Grid.RowDefinitions>
+                        <Label Content="Contenido" />
+                        <TextBox Grid.Row="1" IsReadOnly="True" />
+                    </Grid>
+                    <Grid Grid.Row="6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35*" />
+                            <RowDefinition Height="65*" />
+                        </Grid.RowDefinitions>
+                        <Label Content="Revisor" />
+                        <TextBox Grid.Row="1" IsReadOnly="True" />
+                    </Grid>
+                    <Grid Grid.Row="8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35*" />
+                            <RowDefinition Height="65*" />
+                        </Grid.RowDefinitions>
+                        <Label Content="Respuesta" />
+                        <TextBox Grid.Row="1" IsReadOnly="True" />
+                    </Grid>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>
