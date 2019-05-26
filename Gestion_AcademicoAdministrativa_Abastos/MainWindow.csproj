@@ -151,6 +151,9 @@
       <DependentUpon>ConfirmNotification.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomElements\CueBanner.cs" />
+    <Compile Include="FormularioNota.xaml.cs">
+      <DependentUpon>FormularioNota.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FichaPersona.xaml.cs">
       <DependentUpon>FichaPersona.xaml</DependentUpon>
     </Compile>
@@ -233,6 +236,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CustomElements\ConfirmNotification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormularioNota.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
