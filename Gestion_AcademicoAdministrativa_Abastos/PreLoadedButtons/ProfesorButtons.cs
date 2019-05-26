@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gestion_AcademicoAdministrativa_Abastos.Threads;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,7 +41,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             var FirstButton = new Button()
             {
                 Name = "FirstButton",
-                Content = "Buscador Profesorado",
+                Content = "Buscador Personal",
                 Style = menuButtonStyle
             };
             buttonList.Add(FirstButton);
@@ -57,14 +58,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             Grid.SetRow(SecondButton, numRow);
             numRow++;
 
-            var ThirdButton = new Button()
+            var GuardiaButton = new Button()
             {
-                Name = "ThirdButton",
-                Content = "Editar Informacion",
+                Name = "GuardiaButton",
+                Content = "De Guardia",
                 Style = menuButtonStyle
             };
-            buttonList.Add(ThirdButton);
-            Grid.SetRow(ThirdButton, numRow);
+            buttonList.Add(GuardiaButton);
+            Grid.SetRow(GuardiaButton, numRow);
             numRow++;
 
             var ActasButton = new Button()
@@ -108,9 +109,17 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                     {
                         XamlFunctionality.ChangeWindowContent(mainWindowPanel, new Horario());
                     }
-                    else if (btnSender == ThirdButton)
+                    else if (btnSender == GuardiaButton)
                     {
-                        XamlBridge.MainWindowInstance.MakeDataEditable();
+                        var backUpMainPanel = new ProfesorGuardia();
+                        XamlBridge.ProfesorGuardia = backUpMainPanel;
+                        XamlBridge.RobotoProfesorGuardia?.Interrupt();
+                        XamlBridge.RobotoProfesorGuardia?.Abort();
+                        XamlBridge.RobotoProfesorGuardia = RobotoProfesorGuardia.CreateThread();
+
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel.MainPanel);
+
+                        XamlBridge.MainPanelInstance = backUpMainPanel.MainPanel;
                     }
                     else if (btnSender == HomeButton)
                     {
