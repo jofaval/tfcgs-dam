@@ -36,7 +36,7 @@
                         <RowDefinition Height="90*" />
                         <RowDefinition Height="5*" />
                     </Grid.RowDefinitions>
-                    <TabControl Grid.Column="1" Grid.Row="1">
+                    <TabControl Grid.Column="1" Grid.Row="1" x:Name="TabPage">
                         <TabItem Header="Reclamaciones">
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -70,7 +70,14 @@
                                         <CheckBox x:Name="ChkTramitadas" Grid.Column="4" Content="Tramitadas" Click="CheckBox_Click"/>
                                     </Grid>
                                     <Grid Grid.Row="1" >
-                                        <DataGrid x:Name="MainDataGrid" ColumnWidth="*" AutoGenerateColumns="True"/>
+                                        <DataGrid x:Name="MainDataGrid" ColumnWidth="*" AutoGenerateColumns="True">
+                                            <DataGrid.ContextMenu>
+                                                <ContextMenu x:Name="ContextReclamacion">
+                                                    <MenuItem Header="Ver Reclamacion" 
+                                                              Click="MenuItem_Click"/>
+                                                </ContextMenu>
+                                            </DataGrid.ContextMenu>
+                                        </DataGrid>
                                     </Grid>
                                 </Grid>
                             </Grid>

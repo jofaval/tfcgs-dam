@@ -96,5 +96,19 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             MainDataGrid.ItemsSource = MainList;
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedReclamacion = (Reclamacion)MainDataGrid.SelectedValue;
+            TabPage.SelectedIndex = 1;
+            TxtAsunto.Text = selectedReclamacion.Asunto;
+            var dirigidoA = selectedReclamacion.DirigidoA;
+            if (dirigidoA != null)
+            {
+                ComboBoxProfesor.SelectedValue = StaticReferences.Context.ProfesorDbSet
+                    .Single(p => p.Trabajador.Equals(dirigidoA));
+            }
+            TxtContenido.Text = selectedReclamacion.Contenido;
+        }
     }
 }
