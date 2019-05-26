@@ -156,7 +156,9 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                 || string.IsNullOrWhiteSpace(patio)
                 || string.IsNullOrWhiteSpace(piso)
                 || string.IsNullOrWhiteSpace(puerta)
-                || string.IsNullOrWhiteSpace(codigoPostal))
+                || string.IsNullOrWhiteSpace(codigoPostal)
+                || string.IsNullOrWhiteSpace(provincia)
+                || string.IsNullOrWhiteSpace(localidad))
             {
                 Notification.CreateNotificaion("Se ha de rellenar la dirección completa.");
                 return;
@@ -180,7 +182,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             Notification.CreateNotificaion("Funciona");
             if (SelectedPersona != null)
             {
-                XamlBridge.FichaPersona.TxtNombre.Text = XamlBridge.FichaPersona.TxtNombre.Text + "Funciona";
+                TxtNombre.Text = TxtNombre.Text + "Funciona";
             }
         }
 
