@@ -133,13 +133,31 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         public void ChangeBackgroundColorfulGradient()
         {
-            Application.Current.Resources["BackgroundColorfulGradient"] = new LinearGradientBrush(
+            Application.Current.Resources[Constants.BackgroundColorfulGradient] = new LinearGradientBrush(
                (Resources[Constants.BackgroundColorfulGradientStart] as Color?).Value,
                (Resources[Constants.BackgroundColorfulGradientEnd] as Color?).Value,
                new Point(0.5, 1),
                new Point(0.5, 0)
             );
-            //MainPanel.Background = (LinearGradientBrush)Resources[Constants.BackgroundColorfulGradient];
+            App.SaveNewSettings();
         }
+
+        //private void MainColor_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
+        //{
+        //    var selectedColor = MainColor.SelectedColor.Value;
+        //    Resources["MainColor"] = selectedColor;
+        //    Application.Current.Resources["MainColor"] = selectedColor;
+        //    Resources["MainColorSolid"] = new SolidColorBrush(selectedColor);
+        //    Application.Current.Resources["MainColorSolid"] = new SolidColorBrush(selectedColor);
+        //}
+
+        //private void StandOutColor_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
+        //{
+        //    var selectedColor = StandOutColor.SelectedColor.Value;
+        //    Resources["StandOutColor"] = selectedColor;
+        //    Application.Current.Resources["StandOutColor"] = selectedColor;
+        //    Resources["StandOutColorSolid"] = new SolidColorBrush(selectedColor);
+        //    Application.Current.Resources["StandOutColorSolid"] = new SolidColorBrush(selectedColor);
+        //}
     }
 }
