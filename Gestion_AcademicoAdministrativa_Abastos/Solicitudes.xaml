@@ -48,7 +48,7 @@
                                 <RowDefinition Height="65*" />
                             </Grid.RowDefinitions>
                             <Label Grid.Row="0" Content="Contraseña Antigua"/>
-                            <PasswordBox x:Name="TxtOldPassword" Grid.Row="1" />
+                            <TextBox x:Name="TxtOldPassword" Grid.Row="1" />
                         </Grid>
                         <Grid Grid.Row="3">
                             <Grid.ColumnDefinitions>
@@ -59,7 +59,7 @@
                                 <RowDefinition Height="65*" />
                             </Grid.RowDefinitions>
                             <Label Grid.Row="0" Content="Contraseña Nueva"/>
-                            <PasswordBox x:Name="TxtNewPassword" Grid.Row="1" PasswordChanged="TxtNewPassword_PasswordChanged"/>
+                            <TextBox x:Name="TxtNewPassword" Grid.Row="1"/>
                         </Grid>
                         <Grid Grid.Row="5">
                             <Grid.RowDefinitions>
@@ -67,10 +67,10 @@
                                 <RowDefinition Height="65*" />
                             </Grid.RowDefinitions>
                             <Label Grid.Row="0" Content="Contraseña Nueva Repetida"/>
-                            <PasswordBox x:Name="TxtNewPasswordRepeated" Grid.Row="1" />
+                            <TextBox x:Name="TxtNewPasswordRepeated" Grid.Row="1" />
                         </Grid>
                         <Button x:Name="BtnChange" Content="Cambiar Contraseña"
-                                Grid.Row="7" Click="BtnChange_Click"/>
+                                Grid.Row="7"/>
                     </Grid>
                 </Grid>
             </Grid>
