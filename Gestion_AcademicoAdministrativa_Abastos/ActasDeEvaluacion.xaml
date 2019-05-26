@@ -67,8 +67,8 @@
                             <Label Grid.Row="0" Content="Contenido"/>
                             <TextBox Name="TxtContenido" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="True"/>
                         </Grid>
-                        <Button x:Name="BtnChange" Content="Añadir Acta de Evaluación"
-                                Grid.Row="5"/>
+                        <Button x:Name="Create" Content="Añadir Acta de Evaluación"
+                                Grid.Row="5" Click="Create_Click"/>
                     </Grid>
                 </Grid>
             </Grid>

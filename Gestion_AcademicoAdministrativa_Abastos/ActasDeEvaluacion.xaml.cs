@@ -32,5 +32,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 .Curso;
             LabelCurso.Content = curso.Nombre;
         }
+
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
