@@ -53,6 +53,6 @@ namespace Controller
         public static readonly string EncryptationKey = "F8f3faTqmQSFMAR8RfDNdmEVtymZLA2J";
         public static readonly string LocalMachineKey = NetworkInterface.GetAllNetworkInterfaces().First().GetPhysicalAddress().ToString();
 
-        public const long SleepTimeProfesorGuardiaRoboto = 55 * 60 * 1000;
+        public const int SleepTimeProfesorGuardiaRoboto = 55 * 60 * 1000;
     }
 }
