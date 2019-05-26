@@ -105,5 +105,22 @@ namespace Controller
                        Email = alumno.Persona1.Email,
                    }).AsEnumerable();
         }
+
+        public IEnumerable<Asignatura> GetAsignaturasImpartidas(Profesor profesor, int year = 0)
+        {
+            if (year is 0)
+            {
+                year = AdministrativoFunctionality.GetAcademicYear(StaticReferences.CurrentDateTime);
+            }
+
+            var impartimiento = StaticReferences.Context.ImpartimientoDbSet
+                .AsEnumerable()
+                .Where(i => i.Profesor1.Equals(profesor))
+                .ToList();
+
+            return StaticReferences.Context.AsignaturaDbSet
+                .AsEnumerable()
+                .Where(a => impartimiento.Any(i => i.Horario.Equals(a.Horario)));
+        }
     }
 }
