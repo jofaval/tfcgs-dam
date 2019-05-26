@@ -11,7 +11,7 @@
         WindowStyle="None"
         mc:Ignorable="d"
         Title="Configuration" Height="800" Width="600">
-    <Grid Background="{DynamicResource ConfigurationGradient}">
+    <Grid x:Name="MainPanel" Background="{DynamicResource ConfigurationGradient}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="90*"/>
@@ -36,32 +36,32 @@
             <RowDefinition Height="5*" />
             <RowDefinition Height="5*" />
         </Grid.RowDefinitions>
-        <Label Content="Tamaño de la fuente" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource MainColorSolid}"/>
+        <Label Content="Tamaño de la fuente" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource MainColorSolid}"/>
         <Slider x:Name="SliderFontSize" Grid.Column="1" Grid.Row="2"
                 Minimum="8" Maximum="32"
                 HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Center"
                 ValueChanged="SliderFontSize_ValueChanged"/>
-        <Label Content="Familia de la fuente" Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource MainColorSolid}"/>
+        <Label Content="Familia de la fuente" Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource MainColorSolid}"/>
         <ComboBox x:Name="ComboBoxFontFamily" Grid.Column="1" Grid.Row="4" SelectionChanged="ComboBoxFontFamily_SelectionChanged"/>
-        <Label Content="Tamaño de la Ventana" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource MainColorSolid}"/>
+        <Label Content="Tamaño de la Ventana" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource MainColorSolid}"/>
         <Slider x:Name="SliderWindowSize" Grid.Column="1" Grid.Row="6"
                 Minimum="0" Maximum="5"
                 TickFrequency="1" IsSnapToTickEnabled="True"
                 HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Center"
                 ValueChanged="ScreenSize_ValueChanged"
                 AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0"/>
-        <Button x:Name="BtnMaximize" Grid.Column="1" Grid.Row="7" Content="Maximizar/Minimizar" Click="BtnMaximize_Click" Foreground="{StaticResource MainColorSolid}"/>
-        <Label Grid.Row="9" Grid.Column="1" Content="Background Fondo" Foreground="{StaticResource MainColorSolid}"/>
+        <Button x:Name="BtnMaximize" Grid.Column="1" Grid.Row="7" Content="Maximizar/Minimizar" Click="BtnMaximize_Click" Foreground="{DynamicResource MainColorSolid}"/>
+        <Label Grid.Row="9" Grid.Column="1" Content="Background Fondo" Foreground="{DynamicResource MainColorSolid}"/>
         <Grid Grid.Row="10" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="45*" />
                 <ColumnDefinition Width="10*" />
                 <ColumnDefinition Width="45*" />
             </Grid.ColumnDefinitions>
-            <wpfExtended:ColorPicker Grid.Column="0"/>
-            <wpfExtended:ColorPicker Grid.Column="2"/>
+            <wpfExtended:ColorPicker x:Name="BackGroundFondoFirst" Grid.Column="0" SelectedColorChanged="BackGroundFondoFirst_SelectedColorChanged"/>
+            <wpfExtended:ColorPicker x:Name="BackGroundFondoSecond" Grid.Column="2" SelectedColorChanged="BackGroundFondoSecond_SelectedColorChanged"/>
         </Grid>
-        <Label Grid.Row="12" Grid.Column="1" Content="Colores Principales" Foreground="{StaticResource MainColorSolid}"/>
+        <Label Grid.Row="12" Grid.Column="1" Content="Colores Principales" Foreground="{DynamicResource MainColorSolid}"/>
         <Grid Grid.Row="13" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="45*" />
@@ -71,6 +71,6 @@
             <wpfExtended:ColorPicker Grid.Column="0"/>
             <wpfExtended:ColorPicker Grid.Column="2"/>
         </Grid>
-        <Button x:Name="BtnClose" Grid.Column="1" Grid.Row="15" Content="Salir" Click="BtnClose_Click" Foreground="{StaticResource MainColorSolid}"/>
+        <Button x:Name="BtnClose" Grid.Column="1" Grid.Row="15" Content="Salir" Click="BtnClose_Click" Foreground="{DynamicResource MainColorSolid}"/>
     </Grid>
 </Window>

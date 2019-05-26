@@ -52,8 +52,12 @@ namespace Controller
 
         public static readonly string EncryptationKey = "F8f3faTqmQSFMAR8RfDNdmEVtymZLA2J";
         public static readonly string LocalMachineKey = NetworkInterface.GetAllNetworkInterfaces().First().GetPhysicalAddress().ToString();
-        public static readonly string BackgroundColorfulStart = "BackgroundColorfulGradientStart";
+        public static readonly string BackgroundColorfulGradientStart = "BackgroundColorfulGradientStart";
         public static readonly string BackgroundColorfulGradientEnd = "BackgroundColorfulGradientEnd";
+        public static readonly string BackgroundColorfulGradient = "BackgroundColorfulGradient";
         public const int SleepTimeProfesorGuardiaRoboto = 55 * 60 * 1000;
+
+        public static readonly string BackgroundColorfulGradientStartCode = "#FF69E655";
+        public static readonly string BackgroundColorfulGradientEndCode = "#FF006CC5";
     }
 }

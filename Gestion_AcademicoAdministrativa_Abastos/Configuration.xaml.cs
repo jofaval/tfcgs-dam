@@ -42,6 +42,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             Width = screenWidth / 4;
             Height = screenHeight / 2;
+
+            Resources[Constants.BackgroundColorfulGradientStart] = Application.Current.Resources[Constants.BackgroundColorfulGradientStart];
+            Resources[Constants.BackgroundColorfulGradientEnd] = Application.Current.Resources[Constants.BackgroundColorfulGradientEnd];
+
+            BackGroundFondoFirst.SelectedColor = (Color)ColorConverter.ConvertFromString(Constants.BackgroundColorfulGradientEndCode);
+            BackGroundFondoSecond.SelectedColor = (Color)ColorConverter.ConvertFromString(Constants.BackgroundColorfulGradientStartCode);
         }
 
         private void LoadComboBoxWithFontFamilies()
@@ -107,6 +113,33 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void BackGroundFondoFirst_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
+        {
+            var selectedColor = BackGroundFondoFirst.SelectedColor.Value;
+            this.Resources[Constants.BackgroundColorfulGradientStart] = selectedColor;
+
+            ChangeBackgroundColorfulGradient();
+        }
+
+        private void BackGroundFondoSecond_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
+        {
+            var selectedColor = BackGroundFondoSecond.SelectedColor.Value;
+            this.Resources[Constants.BackgroundColorfulGradientEnd] = selectedColor;
+
+            ChangeBackgroundColorfulGradient();
+        }
+
+        public void ChangeBackgroundColorfulGradient()
+        {
+            Application.Current.Resources["BackgroundColorfulGradient"] = new LinearGradientBrush(
+               (Resources[Constants.BackgroundColorfulGradientStart] as Color?).Value,
+               (Resources[Constants.BackgroundColorfulGradientEnd] as Color?).Value,
+               new Point(0.5, 1),
+               new Point(0.5, 0)
+            );
+            //MainPanel.Background = (LinearGradientBrush)Resources[Constants.BackgroundColorfulGradient];
         }
     }
 }
