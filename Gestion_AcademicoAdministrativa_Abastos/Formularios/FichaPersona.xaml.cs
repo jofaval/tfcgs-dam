@@ -179,10 +179,79 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
 
         public void ModifyContent(object sender, RoutedEventArgs e)
         {
-            Notification.CreateNotificaion("Funciona");
-            if (SelectedPersona != null)
+            if (SelectedPersona is null)
             {
-                TxtNombre.Text = TxtNombre.Text + "Funciona";
+                Notification.CreateNotificaion("No se ha seleccionado nignuna persona");
+            }
+            else
+            {
+                var dni = TxtDNI.Text;
+                var nif = TxtNIF.Text;
+                var nombre = TxtNombre.Text;
+                var apellidos = TxtApellidos.Text;
+                var email = TxtEmail.Text;
+                var calle = TxtCalle.Text;
+                var patio = TxtPatio.Text;
+                var piso = TxtPiso.Text;
+                var puerta = TxtPuerta.Text;
+                var codigoPostal = TxtCodigoPostal.Text;
+                var provincia = TxtProvincia.Text;
+                var localidad = TxtLocalidad.Text;
+
+                if (string.IsNullOrWhiteSpace(dni))
+                {
+                    Notification.CreateNotificaion("El campo DNI es obligatorio");
+                    return;
+                }
+                else if (string.IsNullOrWhiteSpace(nif))
+                {
+                    Notification.CreateNotificaion("El campo NIF es obligatorio");
+                    return;
+                }
+                else if (string.IsNullOrWhiteSpace(nombre))
+                {
+                    Notification.CreateNotificaion("El campo Nombre es obligatorio");
+                    return;
+                }
+                else if (string.IsNullOrWhiteSpace(apellidos))
+                {
+                    Notification.CreateNotificaion("El campo Apellidos es obligatorio");
+                    return;
+                }
+                else if (string.IsNullOrWhiteSpace(email))
+                {
+                    Notification.CreateNotificaion("El campo Email es obligatorio");
+                    return;
+                }
+                else if (string.IsNullOrWhiteSpace(calle)
+                    || string.IsNullOrWhiteSpace(patio)
+                    || string.IsNullOrWhiteSpace(piso)
+                    || string.IsNullOrWhiteSpace(puerta)
+                    || string.IsNullOrWhiteSpace(codigoPostal)
+                    || string.IsNullOrWhiteSpace(provincia)
+                    || string.IsNullOrWhiteSpace(localidad))
+                {
+                    Notification.CreateNotificaion("Se ha de rellenar la dirección completa.");
+                    return;
+                }
+
+                SelectedPersona.Nombre = nombre;
+                SelectedPersona.Apellidos = apellidos;
+                SelectedPersona.Email = email;
+                SelectedPersona.Calle = calle;
+                SelectedPersona.Patio = patio;
+                SelectedPersona.Piso = piso;
+                SelectedPersona.Puerta = puerta;
+                SelectedPersona.CodigoPostal = codigoPostal;
+                SelectedPersona.Provincia = provincia;
+                SelectedPersona.Localidad = localidad;
+
+                StaticReferences.Context.Entry(SelectedPersona).State = System.Data.Entity.EntityState.Modified;
+                StaticReferences.Context.SaveChanges();
+
+                Notification.CreateNotificaion("Se ha modificado correctamente");
+
+                FillWithData(SelectedPersona);
             }
         }
 
