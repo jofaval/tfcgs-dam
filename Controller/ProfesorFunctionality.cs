@@ -35,10 +35,10 @@ namespace Controller
         {
             var horarios = StaticReferences.Context.ImpartimientoDbSet;
 
-            var currentHour = dateTimeNow.Hour;
-            var currentMinute = dateTimeNow.Minute;
+            var currentHour = currentDateTime.Hour;
+            var currentMinute = currentDateTime.Minute;
 
-            var currentDay = dateTimeNow.DayOfWeek;
+            var currentDay = currentDateTime.DayOfWeek;
             currentDay = currentDay > 0 ? currentDay - 1 : currentDay + 6;
 
             var horariosDelProfesor = horarios
