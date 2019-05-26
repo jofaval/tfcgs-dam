@@ -57,7 +57,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 Alumno1 = alumno,
                 Contenido = contenido,
                 NumParte = numParte,
-                DirigidoA = selectedProfesor.Trabajador,
+                DirigidoA = selectedProfesor?.Trabajador,
                 FechaEnvio = DateTime.Now,
             };
 
