@@ -24,11 +24,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
         public string Contenido { get; set; }
         public string DirigidoA { get; set; }
 
-        public bool EnTramite { get; set; }
-        public DateTime FechaEnvio { get; set; }
-        public DateTime FechaRevision { get; set; }
+        public string EnTramite { get; set; }
+        public string FechaEnvio { get; set; }
+        public string FechaRevision { get; set; }
 
-        public int NumParte { get; set; }
+        public string NumParte { get; set; }
         public string Respuesta { get; set; }
         public string Revisor { get; set; }
 
@@ -45,10 +45,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos.CustomElements
                 Asunto = reclamacion.Asunto,
                 Contenido = reclamacion.Contenido,
                 DirigidoA = reclamacion.DirigidoA,
-                EnTramite = reclamacion.EnTramite ?? false,
-                FechaEnvio = reclamacion.FechaEnvio ?? new DateTime(),
-                FechaRevision = reclamacion.FechaRevision ?? new DateTime(),
-                NumParte = reclamacion.NumParte,
+                EnTramite = reclamacion.EnTramite.Value ? "Sí" : "No disponible",
+                FechaEnvio = reclamacion.FechaEnvio.HasValue ? reclamacion.FechaEnvio.Value.ToString() : "No disponible",
+                FechaRevision = reclamacion.FechaRevision.HasValue ? reclamacion.FechaRevision.Value.ToString() : "No disponible",
+                NumParte = reclamacion.NumParte.ToString("D6"),
                 Respuesta = reclamacion.Respuesta,
                 Revisor = reclamacion.Revisor,
             }.MainGridContent;
