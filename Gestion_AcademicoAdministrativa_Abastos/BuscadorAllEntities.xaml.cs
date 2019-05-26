@@ -22,7 +22,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
     public partial class BuscadorAllEntities : Window
     {
         public List<dynamic> UserRoleList { get; set; }
-        public List<dynamic> ContainerList { get; set; }
+        public IEnumerable<dynamic> ContainerList { get; set; }
         public int SelectedIndex { get; set; }
         public int Step { get; set; }
 
@@ -106,126 +106,127 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var selectedEntityType = (EntitiyTypes)ComboBoxEntityTypes.SelectedValue;
             var context = StaticReferences.Context;
 
+            #region SWITCH OF TYPES
             switch (selectedEntityType)
             {
                 case EntitiyTypes.Administrativo:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.AdministrativoDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Alumno:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.AlumnoDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Asignatura:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.AsignaturaDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.AsistenciaDiaAsignatura:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.AsistenciaDiaAsignaturaDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.AsistenciaSemanaAsignatura:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.AsistenciaSemanaAsignaturaDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Aula:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.AulaDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Bachiller:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.BachillerDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Baja:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.BajaDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Certificado:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.CertificadoDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.CertificadoMatricula:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.CertificadoMatriculaDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.CertificadoNotas:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.CertificadoNotasDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.CertificadoTitulo:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.CertificadoTituloDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Ciclo:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.CicloDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Convocatoria:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.ConvocatoriaDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Curso:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.CursoDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Departamento:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.DepartamentoDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Eso:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.EsoDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Especial:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.EspecialDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Evaluacion:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.EvaluacionDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Horario:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.HorarioDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Impartimiento:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.ImpartimientoDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Mantenimiento:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.MantenimientoDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Nota:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.NotaDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Ordenador:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.OrdenadorDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.PermisosUsuario:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.PermisosUsuarioDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Persona:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.PersonaDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Profesor:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.ProfesorDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.ProfesorSustituto:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.ProfesorSustitutoDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Proyecto:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.ProyectoDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Reclamacion:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.ReclamacionDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Superior:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.SuperiorDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Telefono:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.TelefonoDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Titulo:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.TituloDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Trabajador:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.TrabajadorDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Usuario:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.UsuarioDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Tutores:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.TutoresDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.Estudio:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.EstudiosDbSet.ToList().Cast<dynamic>();
                     break;
                 case EntitiyTypes.ActasEvaluacion:
-                    ContainerList = context.AdministrativoDbSet.Cast<dynamic>().ToList();
+                    ContainerList = context.ActasEvaluacionDbSet.ToList().Cast<dynamic>();
                     break;
                 default:
                     break;
             }
-
+            #endregion
 
             UserRoleList.Clear();
             foreach (var savedItem in ContainerList)
