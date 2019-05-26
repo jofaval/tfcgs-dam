@@ -69,9 +69,9 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             Grid.SetRow(GuardiaButton, numRow);
             numRow++;
 
-            //var academicYear = AdministrativoFunctionality.GetAcademicYear(StaticReferences.CurrentDateTime);
-            //if (XamlBridge.CurrentUser.Persona1.Trabajador.Profesor.Tutores.Any(t => t.Anyo.Equals(academicYear)))
-            //{
+            var academicYear = AdministrativoFunctionality.GetAcademicYear(StaticReferences.CurrentDateTime);
+            if (XamlBridge.CurrentUser.Persona1.Trabajador.Profesor.Tutores.Any(t => t.Anyo.Equals(academicYear)))
+            {
                 var ActasButton = new Button()
                 {
                     Name = "ActasButton",
@@ -89,7 +89,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
 
                     XamlBridge.MainPanelInstance = mainPanel;
                 };
-            //}
+            }
 
             var LogOutButton = new Button()
             {
