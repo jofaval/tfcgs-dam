@@ -80,5 +80,20 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             Notification.CreateNotificaion("Se ha borrado con exito");
         }
+
+        private void DeleteSubTipo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ModifySubTipo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CreateSubTipo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
