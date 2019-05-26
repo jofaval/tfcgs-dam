@@ -59,6 +59,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                 {
                     FillAlumnoWithData(alumno);
                 }
+                var trabajador = persona.Trabajador;
+                if (trabajador != null)
+                {
+                    FillTrabajadorWithData(trabajador);
+                }
             }
         }
 
@@ -70,6 +75,30 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             ComboBoxCurso.SelectedValue = StaticReferences.Context.CursoDbSet
                 .SingleOrDefault(c => c.Cod.Equals(alumno.CursoCod)
                 && c.Nombre.Equals(alumno.CursoNombre));
+        }
+
+        public void FillTrabajadorWithData(Trabajador trabajador)
+        {
+            TxtSueldo.Text = trabajador.Sueldo.ToString();
+            FechaIncorporacion.Value = trabajador.FechaIncorporacion;
+            if (trabajador.Profesor != null)
+            {
+                ComboBoxTrabajadorType.SelectedValue = TrabajadoresEnum.Profesor;
+                return;
+            }
+            else if (trabajador.Administrativo != null)
+            {
+                ComboBoxTrabajadorType.SelectedValue = TrabajadoresEnum.Administrativo;
+            }
+            else if (trabajador.Mantenimiento != null)
+            {
+                ComboBoxTrabajadorType.SelectedValue = TrabajadoresEnum.Mantenimiento;
+            }
+            else if (trabajador.Especial != null)
+            {
+                ComboBoxTrabajadorType.SelectedValue = TrabajadoresEnum.Especial;
+            }
+            ComboBoxTrabajadorType_SelectionChanged(ComboBoxTrabajadorType, null);
         }
 
         public void ClearPersonaData()
@@ -518,7 +547,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             }
             else
             {
-                StaticReferences.Context.TrabajadorDbSet.Remove(trabajador);
+                SelectedPersona.Trabajador = null;
+                StaticReferences.Context.Entry(SelectedPersona).State = System.Data.Entity.EntityState.Modified;
                 StaticReferences.Context.SaveChanges();
             }
         }
