@@ -83,6 +83,7 @@
     <Compile Include="Aula.cs" />
     <Compile Include="Curso.cs" />
     <Compile Include="DataStructure\DNILeterEnum.cs" />
+    <Compile Include="DataStructure\EntitiyTypes.cs" />
     <Compile Include="DataStructure\MonthEnum.cs" />
     <Compile Include="DataStructure\TrabajadoresEnum.cs" />
     <Compile Include="DataStructure\ViewsEnum.cs" />
