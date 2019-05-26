@@ -114,7 +114,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                     }
                     else if (btnSender == FifthButton)
                     {
-                        Notification.CreateNotificaion("No implementado.");
+                        var backUpMainPanel = new Solicitudes().MainPanel;
+
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel);
+
+                        XamlBridge.MainPanelInstance = backUpMainPanel;
                     }
                     else if (btnSender == HomeButton)
                     {
