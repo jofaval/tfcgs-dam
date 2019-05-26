@@ -8,7 +8,17 @@ namespace Model
 {
     public partial class Profesor : IEquatable<Profesor>
     {
-        public bool Equals(Profesor other) => Trabajador1.Persona1.Equals(other.Trabajador1.Persona1);
+        public bool Equals(Profesor other)
+        {
+            try
+            {
+                return Trabajador1.Persona1.Equals(other.Trabajador1.Persona1);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
         public override string ToString()
         {
