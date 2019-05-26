@@ -17,5 +17,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Threads
                 Thread.Sleep(Constants.SleepTimeProfesorGuardiaRoboto);
             }
         }
+
+        public static Thread CreateThread()
+        {
+            return new Thread(Run);
+        }
     }
 }
