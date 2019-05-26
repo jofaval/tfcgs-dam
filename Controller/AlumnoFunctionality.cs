@@ -52,7 +52,6 @@ namespace Controller
         {
             var alumno = currentUser.Persona1.Alumno;
             var cursoCod = alumno.CursoCod;
-            var horarios = StaticReferences.Horarios.AsEnumerable();
             var currentYear = AdministrativoFunctionality.GetAcademicYear(StaticReferences.CurrentDateTime);
 
             return StaticReferences.Context.ImpartimientoDbSet
