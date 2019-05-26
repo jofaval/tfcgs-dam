@@ -114,6 +114,9 @@
                             <Setter TargetName="DropDownBorder" Property="CornerRadius" Value="0"/>
                             <Setter TargetName="DropDownBorder" Property="Margin" Value="0,2,0,0"/>
                         </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
                         <Trigger Property="IsEditable"  Value="true">
                             <Setter Property="IsTabStop" Value="false"/>
                             <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible"/>
