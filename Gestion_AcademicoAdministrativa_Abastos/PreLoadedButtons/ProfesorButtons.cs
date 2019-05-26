@@ -92,6 +92,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             {
                 if (sender is Button btnSender)
                 {
+                    XamlBridge.RobotoProfesorGuardia?.Abort();
+
                     var mainWindowPanel = XamlBridge.MainPanelInstance;
                     if (btnSender == FirstButton)
                     {
@@ -113,9 +115,9 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                     {
                         var backUpMainPanel = new ProfesorGuardia();
                         XamlBridge.ProfesorGuardia = backUpMainPanel;
-                        XamlBridge.RobotoProfesorGuardia?.Interrupt();
-                        XamlBridge.RobotoProfesorGuardia?.Abort();
-                        XamlBridge.RobotoProfesorGuardia = RobotoProfesorGuardia.CreateThread();
+                        var thread = RobotoProfesorGuardia.CreateThread();
+                        XamlBridge.RobotoProfesorGuardia = thread;
+                        thread.Start();
 
                         XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, backUpMainPanel.MainPanel);
 
