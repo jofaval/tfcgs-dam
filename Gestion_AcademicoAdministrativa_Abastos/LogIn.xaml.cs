@@ -25,7 +25,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public LogIn()
         {
             InitializeComponent();
-            XamlFunctionality.ReadSavedUsernamePassword(this);
+            try
+            {
+                XamlFunctionality.ReadSavedUsernamePassword(this);
+            }
+            catch (Exception)
+            {
+                Notification.CreateNotificaion("Lo sentimos, no se ha recuperado la sesión anterior");
+            }
         }
 
         private void UrlLinker_Click(object sender, RoutedEventArgs e)
@@ -57,7 +64,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                     XamlBridge.ViewEnum = possibleViews.ElementAt(0);
                     FinalizeLogIn();
                 }
-                
+
 
             }
             else

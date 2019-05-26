@@ -21,21 +21,54 @@ namespace Gestion_AcademicoAdministrativa_Abastos
     /// </summary>
     public partial class ActasDeEvaluacion : Window
     {
+        public Curso CurrentCurso { get; set; }
+        public Profesor CurrentProfesor { get; set; }
+        public List<Actas> Actas { get; set; }
+
         public ActasDeEvaluacion()
         {
             InitializeComponent();
             var profesor = XamlBridge.CurrentUser.Persona1.Trabajador.Profesor;
+            CurrentProfesor = profesor;
             var academicYear = AdministrativoFunctionality.GetAcademicYear(StaticReferences.CurrentDateTime);
-            var curso = profesor.Tutores
-                .AsEnumerable()
-                .FirstOrDefault(t => t.Anyo.Equals(academicYear))
-                .Curso;
+            //var curso = profesor.Tutores
+            //    .AsEnumerable()
+            //    .FirstOrDefault(t => t.Anyo.Equals(academicYear))
+            //    .Curso;
+            var curso = StaticReferences.Context.CursoDbSet.SingleOrDefault(c => c.Cod.Equals("7J"));
+            CurrentCurso = curso;
             LabelCurso.Content = curso.Nombre;
+            Actas = StaticReferences.Context.ActasEvaluacionDbSet
+                .AsEnumerable()
+                .Select(a => new
+                {
+                    a.Fecha,
+                    Profesor = a.Profesor1?.Trabajador1?.NombreCompleto(),
+                })
+                .ToList();
+            DataGridActas.ItemsSource = Actas;
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)
         {
+            var contenido = TxtContenido.Text;
+            var temas = TxtTemas.Text;
 
+            var actaEvaluacion = new ActasEvaluacion()
+            {
+                Curso = CurrentCurso,
+                CursoCod = CurrentCurso.Cod,
+                CursoNombre = CurrentCurso.Nombre,
+                Contenido = contenido,
+                Temas = temas,
+                Fecha = DateTime.Now,
+                Profesor = CurrentProfesor.Trabajador,
+                Profesor1 = CurrentProfesor,
+            };
+
+            StaticReferences.Context.ActasEvaluacionDbSet.Add(actaEvaluacion);
+            Actas.Add(actaEvaluacion);
+            StaticReferences.Context.SaveChanges();
         }
     }
 }

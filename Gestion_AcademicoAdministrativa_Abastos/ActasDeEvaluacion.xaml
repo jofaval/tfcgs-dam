@@ -30,46 +30,78 @@
                         <RowDefinition Height="90*" />
                         <RowDefinition Height="5*" />
                     </Grid.RowDefinitions>
-                    <Grid HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Panel.ZIndex="-1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="15*" />
-                            <RowDefinition Height="25*" />
-                            <RowDefinition Height="5*" />
-                            <RowDefinition Height="65*" />
-                            <RowDefinition Height="5*" />
-                            <RowDefinition Height="15*" />
-                            <RowDefinition Height="5*" />
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="50*" />
-                                <ColumnDefinition Width="50*" />
-                            </Grid.ColumnDefinitions>
-                            <Label Grid.Column="0" Content="Acta de Evaluación para el curso: " HorizontalAlignment="Right"/>
-                            <Label Grid.Column="2" x:Name="LabelCurso" />
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="35*" />
-                                <RowDefinition Height="65*" />
-                            </Grid.RowDefinitions>
-                            <Label Grid.Row="0" Content="Temas"/>
-                            <TextBox x:Name="TxtTemas" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="True"/>
-                        </Grid>
-                        <Grid Grid.Row="3">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100*" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="35*" />
-                                <RowDefinition Height="65*" />
-                            </Grid.RowDefinitions>
-                            <Label Grid.Row="0" Content="Contenido"/>
-                            <TextBox Name="TxtContenido" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="True"/>
-                        </Grid>
-                        <Button x:Name="Create" Content="Añadir Acta de Evaluación"
+                    <TabControl Grid.Column="1" Grid.Row="1">
+                        <TabItem Header="Actas Registradas">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*" />
+                                    <ColumnDefinition Width="90*" />
+                                    <ColumnDefinition Width="5*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="90*" />
+                                    <RowDefinition Height="5*" />
+                                </Grid.RowDefinitions>
+                                <DataGrid Grid.Column="1" Grid.Row="1" x:Name="DataGridActas"
+                                          AutoGenerateColumns="True" ColumnWidth="*"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Formulario">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*" />
+                                    <ColumnDefinition Width="90*" />
+                                    <ColumnDefinition Width="5*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="90*" />
+                                    <RowDefinition Height="5*" />
+                                </Grid.RowDefinitions>
+                                <Grid HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Panel.ZIndex="-1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="15*" />
+                                        <RowDefinition Height="25*" />
+                                        <RowDefinition Height="5*" />
+                                        <RowDefinition Height="65*" />
+                                        <RowDefinition Height="5*" />
+                                        <RowDefinition Height="15*" />
+                                        <RowDefinition Height="5*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50*" />
+                                            <ColumnDefinition Width="50*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" Content="Acta de Evaluación para el curso: " HorizontalAlignment="Right"/>
+                                        <Label Grid.Column="2" x:Name="LabelCurso" />
+                                    </Grid>
+                                    <Grid Grid.Row="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="35*" />
+                                            <RowDefinition Height="65*" />
+                                        </Grid.RowDefinitions>
+                                        <Label Grid.Row="0" Content="Temas"/>
+                                        <TextBox x:Name="TxtTemas" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="True"/>
+                                    </Grid>
+                                    <Grid Grid.Row="3">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="100*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="35*" />
+                                            <RowDefinition Height="65*" />
+                                        </Grid.RowDefinitions>
+                                        <Label Grid.Row="0" Content="Contenido"/>
+                                        <TextBox Name="TxtContenido" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="True"/>
+                                    </Grid>
+                                    <Button x:Name="Create" Content="Añadir Acta de Evaluación"
                                 Grid.Row="5" Click="Create_Click"/>
-                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
                 </Grid>
             </Grid>
         </Grid>

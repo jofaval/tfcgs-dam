@@ -338,16 +338,30 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             {
                 case TrabajadoresEnum.Profesor:
                     var selectedDepartamentoProfesor = (Departamento)XamlFunctionality.FindChild<ComboBox>(Application.Current.MainWindow, "ComboBoxDepartamento").SelectedValue;
+                    var selectedCursoProfesor = (Curso)XamlFunctionality.FindChild<ComboBox>(Application.Current.MainWindow, "ComboBoxCursoTutor").SelectedValue;
                     if (trabajador.Profesor is null)
                     {
-                        trabajador.Profesor = new Profesor()
+                        var profesor = new Profesor()
                         {
                             Departamento = selectedDepartamentoProfesor.Cod,
                             Departamento1 = selectedDepartamentoProfesor,
                             FechaIncorporacion = FechaIncorporacion.Value.Value,
                         };
+                        trabajador.Profesor = profesor;
+                        var currentYear = AdministrativoFunctionality.GetAcademicYear(StaticReferences.CurrentDateTime);
+                        var currentTutoritation = new Tutores()
+                        {
+                            Anyo = currentYear,
+                            Curso = selectedCursoProfesor,
+                            CursoCod = selectedCursoProfesor.Cod,
+                            CursoNombre = selectedCursoProfesor.Nombre,
+                            Profesor = profesor.Trabajador,
+                            Profesor1 = profesor,
+                        };
+                        StaticReferences.Context.TutoresDbSet.Add(currentTutoritation);
                         StaticReferences.Context.ProfesorDbSet.Add(trabajador.Profesor);
                         StaticReferences.Context.Entry(trabajador).State = System.Data.Entity.EntityState.Modified;
+
                     }
                     break;
                 case TrabajadoresEnum.Administrativo:
@@ -411,15 +425,39 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             {
                 case TrabajadoresEnum.Profesor:
                     var selectedDepartamentoProfesor = (Departamento)XamlFunctionality.FindChild<ComboBox>(Application.Current.MainWindow, "ComboBoxDepartamento").SelectedValue;
-                    if (trabajador.Profesor != null)
+                    var selectedCursoProfesor = (Curso)XamlFunctionality.FindChild<ComboBox>(Application.Current.MainWindow, "ComboBoxCursoTutor").SelectedValue;
+                    if (trabajador.Profesor is null)
                     {
-                        trabajador.Profesor = new Profesor()
+                        var profesor = new Profesor()
                         {
                             Departamento = selectedDepartamentoProfesor.Cod,
                             Departamento1 = selectedDepartamentoProfesor,
                             FechaIncorporacion = FechaIncorporacion.Value.Value,
                         };
-                        StaticReferences.Context.ProfesorDbSet.Add(trabajador.Profesor);
+                        trabajador.Profesor = profesor;
+                        var currentYear = AdministrativoFunctionality.GetAcademicYear(StaticReferences.CurrentDateTime);
+                        var currentTutoritation = trabajador.Profesor.Tutores
+                            .SingleOrDefault(t => t.Anyo.Equals(currentYear));
+                        if (currentTutoritation is null)
+                        {
+                            currentTutoritation = new Tutores()
+                            {
+                                Anyo = currentYear,
+                                Curso = selectedCursoProfesor,
+                                CursoCod = selectedCursoProfesor.Cod,
+                                CursoNombre = selectedCursoProfesor.Nombre,
+                                Profesor = profesor.Trabajador,
+                                Profesor1 = profesor,
+                            };
+                            StaticReferences.Context.TutoresDbSet.Add(currentTutoritation);
+                            profesor.Tutores.Add(currentTutoritation);
+                        }
+                        else
+                        {
+                            currentTutoritation.Curso = selectedCursoProfesor;
+                        }
+                        StaticReferences.Context.Entry(currentTutoritation).State = System.Data.Entity.EntityState.Modified;
+                        StaticReferences.Context.ProfesorDbSet.Add(profesor);
                         StaticReferences.Context.Entry(trabajador).State = System.Data.Entity.EntityState.Modified;
                     }
                     break;
@@ -497,7 +535,6 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                 switch (selectedValue)
                 {
                     case TrabajadoresEnum.Profesor:
-                    case TrabajadoresEnum.Administrativo:
                         var labelDepartamento = new Label()
                         {
                             Content = "Departamento",
@@ -526,21 +563,67 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                             }
                         }
 
-                        var labelFuncionAdministrativo = new Label()
+                        var labelTutor = new Label()
+                        {
+                            Content = "Tutor",
+                        };
+                        childrens.Add(labelTutor);
+                        Grid.SetRow(labelTutor, 0);
+                        Grid.SetColumn(labelTutor, 2);
+
+                        var comboBoxTutor = new ComboBox()
+                        {
+                            Name = "ComboBoxCursoTutor",
+                        };
+                        comboBoxTutor.ItemsSource = ComboBoxCurso.ItemsSource;
+                        childrens.Add(comboBoxTutor);
+                        Grid.SetRow(comboBoxTutor, 1);
+                        Grid.SetColumn(comboBoxTutor, 2);
+                        break;
+                    case TrabajadoresEnum.Administrativo:
+                        var labelDepartamento2 = new Label()
+                        {
+                            Content = "Departamento",
+                        };
+                        childrens.Add(labelDepartamento2);
+                        Grid.SetRow(labelDepartamento2, 0);
+                        Grid.SetColumn(labelDepartamento2, 0);
+
+                        var departamento2 = new ComboBox
+                        {
+                            ItemsSource = StaticReferences.Context.DepartamentoDbSet.ToList(),
+                            Name = "ComboBoxDepartamento",
+                        };
+                        childrens.Add(departamento2);
+                        Grid.SetRow(departamento2, 1);
+                        Grid.SetColumn(departamento2, 0);
+                        if (trabajador != null)
+                        {
+                            if (selectedValue.Equals(TrabajadoresEnum.Profesor))
+                            {
+                                departamento2.SelectedValue = trabajador.Profesor?.Departamento1;
+                            }
+                            else if (selectedValue.Equals(TrabajadoresEnum.Administrativo))
+                            {
+                                departamento2.SelectedValue = trabajador.Administrativo?.Departamento1;
+                            }
+                        }
+
+                        var labelFuncionAdministrativo2 = new Label()
                         {
                             Content = "Funcion",
                         };
-                        childrens.Add(labelFuncionAdministrativo);
-                        Grid.SetRow(labelFuncionAdministrativo, 0);
-                        Grid.SetColumn(labelFuncionAdministrativo, 2);
+                        childrens.Add(labelFuncionAdministrativo2);
+                        Grid.SetRow(labelFuncionAdministrativo2, 0);
+                        Grid.SetColumn(labelFuncionAdministrativo2, 2);
 
-                        var txtFuncionAdministrativo = new TextBox()
+                        var txtFuncionAdministrativo2 = new TextBox()
                         {
                             Name = "TxtFunctionTrabajador",
                         };
-                        childrens.Add(txtFuncionAdministrativo);
-                        Grid.SetRow(txtFuncionAdministrativo, 1);
-                        Grid.SetColumn(txtFuncionAdministrativo, 2);
+                        childrens.Add(txtFuncionAdministrativo2);
+                        Grid.SetRow(txtFuncionAdministrativo2, 1);
+                        Grid.SetColumn(txtFuncionAdministrativo2, 2);
                         break;
                     case TrabajadoresEnum.Mantenimiento:
                         var labelFuncion = new Label()
@@ -631,28 +714,28 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             switch (selecetedValue)
             {
                 case TrabajadoresEnum.Profesor:
-                    if (context.ProfesorDbSet.Contains(trabajador.Profesor))
+                    if (context.ProfesorDbSet.AsEnumerable().Contains(trabajador.Profesor))
                     {
                         context.ProfesorDbSet.Remove(trabajador.Profesor);
                     }
                     trabajador.Profesor = null;
                     break;
                 case TrabajadoresEnum.Administrativo:
-                    if (context.AdministrativoDbSet.Contains(trabajador.Administrativo))
+                    if (context.AdministrativoDbSet.AsEnumerable().Contains(trabajador.Administrativo))
                     {
                         context.AdministrativoDbSet.Remove(trabajador.Administrativo);
                     }
                     trabajador.Administrativo = null;
                     break;
                 case TrabajadoresEnum.Especial:
-                    if (context.EspecialDbSet.Contains(trabajador.Especial))
+                    if (context.EspecialDbSet.AsEnumerable().Contains(trabajador.Especial))
                     {
                         context.EspecialDbSet.Remove(trabajador.Especial);
                     }
                     trabajador.Especial = null;
                     break;
                 case TrabajadoresEnum.Mantenimiento:
-                    if (context.MantenimientoDbSet.Contains(trabajador.Mantenimiento))
+                    if (context.MantenimientoDbSet.AsEnumerable().Contains(trabajador.Mantenimiento))
                     {
                         context.MantenimientoDbSet.Remove(trabajador.Mantenimiento);
                     }
