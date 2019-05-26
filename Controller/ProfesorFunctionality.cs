@@ -36,7 +36,7 @@ namespace Controller
             var currentMinute = currentDateTime.Minute;
 
             var currentDay = currentDateTime.DayOfWeek;
-            var currentDayByte = (byte)(currentDay > 0 ? (byte)currentDay - 1 : 6);
+            var currentDayByte = (byte)(currentDay > 0 ? (byte)currentDay - 1 : 5);
 
             var horariosDelProfesor = horarios
                 .Where(i => i.Horario.Dia.Equals(currentDayByte)

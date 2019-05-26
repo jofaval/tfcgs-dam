@@ -13,5 +13,6 @@ namespace Model.DataStructure
         Miercoles = 2,
         Jueves = 3,
         Viernes = 4,
+        Error = 5,
     }
 }
