@@ -9,7 +9,7 @@ namespace Model.ViewModel
     public class ActaEvaluacionViewModel
     {
         public DateTime Fecha { get; set; }
-        public Profesor Profesor { get; set; }
-        public DateTime Fecha { get; set; }
+        public string Temas { get; set; }
+        public string Contenido { get; set; }
     }
 }
