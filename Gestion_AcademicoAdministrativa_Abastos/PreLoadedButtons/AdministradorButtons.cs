@@ -67,6 +67,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             Grid.SetRow(UserPanelButton, numRow);
             numRow++;
 
+            var EntitiesSearch = new Button()
+            {
+                Name = "EntitiesSearch",
+                Content = "Buscador de Entidades",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(EntitiesSearch);
+            Grid.SetRow(EntitiesSearch, numRow);
+            numRow++;
+
             var LogOutButton = new Button()
             {
                 Name = "LogOutButton",
@@ -116,6 +126,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                     else if (btnSender == BuscadorPersonaButton)
                     {
                         var mainPanel = new BuscadorV2().MainPanel;
+
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, mainPanel);
+
+                        XamlBridge.MainPanelInstance = mainPanel;
+                    }
+                    else if (btnSender == EntitiesSearch)
+                    {
+                        var mainPanel = new BuscadorAllEntities().MainPanel;
 
                         XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, mainPanel);
 
