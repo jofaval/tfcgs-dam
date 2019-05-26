@@ -1,10 +1,12 @@
 ﻿using Gestion_AcademicoAdministrativa_Abastos.Formularios;
+using Gestion_AcademicoAdministrativa_Abastos.Threads;
 using Model;
 using Model.DataStructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
@@ -23,6 +25,9 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public static WindowSizeEnum SizeEnum { get; set; }
         public static ViewsEnum ViewEnum { get; set; }
         public static FichaPersona FichaPersona { get; internal set; }
+
+        public Thread RobotoProfesorGuardia { get; set; }
+        public ProfesorGuardia ProfesorGuardia { get; set; }
 
         public static void CloseEverything()
         {
