@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Model;
 
 namespace Gestion_AcademicoAdministrativa_Abastos
 {
@@ -22,6 +23,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public Reclamaciones()
         {
             InitializeComponent();
+
+        }
+
+        private void CreateReclamacion_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

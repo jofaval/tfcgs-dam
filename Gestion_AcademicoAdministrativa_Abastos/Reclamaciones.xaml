@@ -36,35 +36,115 @@
                         <RowDefinition Height="90*" />
                         <RowDefinition Height="5*" />
                     </Grid.RowDefinitions>
-                    <Grid Grid.Column="1" Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="10*" />
-                            <RowDefinition Height="5*" />
-                            <RowDefinition Height="25*" />
-                            <RowDefinition Height="5*" />
-                            <RowDefinition Height="25*" />
-                            <RowDefinition Height="5*" />
-                            <RowDefinition Height="25*" />
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                            <Button Content="Crear Reclamacion" />
-                        </Grid>
-                        <Label Grid.Row="1" Content="Todas"/>
-                        <Grid Grid.Row="2" >
+                    <TabControl Grid.Column="1" Grid.Row="1">
+                        <TabItem Header="Reclamaciones">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10*" />
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="25*" />
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="25*" />
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="25*" />
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="1" Content="Todas"/>
+                                <Grid Grid.Row="2" >
 
-                        </Grid>
-                        <Label Grid.Row="3" Content="En trámite"/>
-                        <Grid Grid.Row="4" >
+                                </Grid>
+                                <Label Grid.Row="3" Content="En trámite"/>
+                                <Grid Grid.Row="4" >
 
-                        </Grid>
-                        <Label Grid.Row="5" Content="Tramitadas"/>
-                        <Grid Grid.Row="6" >
+                                </Grid>
+                                <Label Grid.Row="5" Content="Tramitadas"/>
+                                <Grid Grid.Row="6" >
 
-                        </Grid>
-                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Formulario">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="15*" />
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="15*" />
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="35*" />
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="10*" />
+                                    <RowDefinition Height="5*" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="3">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="35*" />
+                                        <RowDefinition Height="65*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Dirigido A" />
+                                    <ComboBox x:Name="ComboBoxProfesor" Grid.Row="1" />
+                                    <TextBlock Grid.Row="1" Text="{DynamicResource FormAsignaturaCodExample}" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=ComboBoxProfesor}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                                <Grid Grid.Row="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="35*" />
+                                        <RowDefinition Height="65*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Asunto" />
+                                    <TextBox x:Name="TxtAsunto" Grid.Row="1" />
+                                    <TextBlock Grid.Row="1" Text="{DynamicResource FormAsignaturaCodExample}" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtAsunto}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                                <Grid Grid.Row="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="35*" />
+                                        <RowDefinition Height="65*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Asunto" />
+                                    <TextBox x:Name="TxtContenido" Grid.Row="1" />
+                                    <TextBlock Grid.Row="1" Text="{DynamicResource FormAsignaturaCodExample}" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtContenido}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                                <Button x:Name="CreateReclamacion" Content="Poner Reclamación" Grid.Row="7" Click="CreateReclamacion_Click"/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
                 </Grid>
             </Grid>
         </Grid>
