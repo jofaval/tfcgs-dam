@@ -21,36 +21,26 @@ namespace Gestion_AcademicoAdministrativa_Abastos
     /// </summary>
     public partial class Reclamaciones : Window
     {
-        public List<Reclamacion> Todas { get; set; }
-        public List<Reclamacion> EnTramite { get; set; }
-        public List<Reclamacion> Tramitadas { get; set; }
+        public List<Reclamacion> MainList { get; set; }
+        public List<Reclamacion> BackUpList { get; set; }
 
         public Reclamaciones()
         {
             InitializeComponent();
+
             ComboBoxProfesor.ItemsSource = StaticReferences.Context.ProfesorDbSet.ToList();
-            var reclamaciones = StaticReferences.Context.ReclamacionDbSet;
-            Todas = reclamaciones.ToList();
-            foreach (var item in Todas)
-            {
-                Console.WriteLine(item.Asunto);
-            }
-            DataGridTodas.ItemsSource = Todas;
-            EnTramite = reclamaciones
-                .Where(r => r.EnTramite.HasValue)
-                .ToList();
-            DataGridEnTramite.ItemsSource = EnTramite;
-            Tramitadas = reclamaciones
-                .Where(r => r.FechaRevision.HasValue)
-                .ToList();
-            DataGridTramitadas.ItemsSource = Tramitadas;
+
+            BackUpList = StaticReferences.Context.ReclamacionDbSet.ToList();
+            MainList = BackUpList;
+
+            MainDataGrid.ItemsSource = MainList;
         }
 
         private void CreateReclamacion_Click(object sender, RoutedEventArgs e)
         {
             var asunto = TxtAsunto.Text;
             var selectedProfesor = (Profesor)ComboBoxProfesor.SelectedValue;
-            var contenido = TxtAsunto.Text;
+            var contenido = TxtContenido.Text;
             var alumno = XamlBridge.CurrentUser.Persona1.Alumno;
             var numParte = alumno.Reclamacion.Count;
 
@@ -66,9 +56,45 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             };
 
             StaticReferences.Context.ReclamacionDbSet.Add(reclamacion);
-            //Todas.Add(reclamacion);
             StaticReferences.Context.SaveChanges();
+            BackUpList = StaticReferences.Context.ReclamacionDbSet.ToList();
+            UpdateDataGrid();
             Notification.CreateNotificaion("Se ha creado con exito");
+        }
+
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is CheckBox senderAsCheckBox)
+            {
+                ChkTodas.IsChecked = false;
+                ChkEnTramite.IsChecked = false;
+                ChkTramitadas.IsChecked = false;
+                senderAsCheckBox.IsChecked = true;
+
+                UpdateDataGrid();
+            }
+        }
+
+        private void UpdateDataGrid()
+        {
+            if (ChkTodas.IsChecked.Value)
+            {
+                MainList = BackUpList;
+            }
+            else if (ChkEnTramite.IsChecked.Value)
+            {
+                MainList = BackUpList
+                    .Where(r => r.EnTramite.HasValue)
+                    .ToList();
+            }
+            else if (ChkTramitadas.IsChecked.Value)
+            {
+                MainList = BackUpList
+                    .Where(r => r.FechaRevision.HasValue)
+                    .ToList();
+            }
+
+            MainDataGrid.ItemsSource = MainList;
         }
     }
 }
