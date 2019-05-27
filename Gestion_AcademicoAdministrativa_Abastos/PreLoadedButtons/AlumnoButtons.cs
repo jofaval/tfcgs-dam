@@ -67,6 +67,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             Grid.SetRow(ForthButton, numRow);
             numRow++;
 
+            var NotasButton = new Button()
+            {
+                Name = "NotasButton",
+                Content = "Calificaciones",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(NotasButton);
+            Grid.SetRow(NotasButton, numRow);
+            numRow++;
+
             var FifthButton = new Button()
             {
                 Name = "FifthButton",
@@ -99,6 +109,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                     else if (btnSender == ChangePassButton)
                     {
                         var mainPanel = new ChangePassword().MainPanel;
+
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, mainPanel);
+
+                        XamlBridge.MainPanelInstance = mainPanel;
+                    }
+                    else if (btnSender == NotasButton)
+                    {
+                        var mainPanel = new Notas().MainPanel;
 
                         XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, mainPanel);
 
