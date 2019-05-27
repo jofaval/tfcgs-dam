@@ -6,7 +6,153 @@
         xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos"
         mc:Ignorable="d"
         Title="FormularioNota" Height="450" Width="800">
-    <Grid>
-        
+    <Grid x:Name="Container" Grid.Row="1" Background="#FF15171B" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid x:Name="MainGridContent" Grid.Row="1" Background="{DynamicResource MainColorSolid}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid x:Name="MainPanel" Grid.Column="1" Panel.ZIndex="-2">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF69E655" Offset="0" />
+                        <GradientStop Color="#FF006CC5" Offset="1" />
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="90*" />
+                    <ColumnDefinition Width="5*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="90*" />
+                    <RowDefinition Height="5*" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{StaticResource MainColorSolid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*" />
+                        <ColumnDefinition Width="90*" />
+                        <ColumnDefinition Width="5*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*" />
+                        <RowDefinition Height="90*" />
+                        <RowDefinition Height="5*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="1" Grid.Row="1" x:Name="CreationContentPanel"
+                                  Background="{DynamicResource BackgroundContainerGradient}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*" />
+                            <ColumnDefinition  Width="90*"/>
+                            <ColumnDefinition  Width="5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="15*" />
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="15*" />
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="10*" />
+                            <RowDefinition Height="5*" />
+                        </Grid.RowDefinitions>
+                        <Label />
+                        <Grid Grid.Row="1" Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40*" />
+                                <ColumnDefinition Width="10*" />
+                                <ColumnDefinition Width="40*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50*" />
+                                <RowDefinition Height="50*" />
+                            </Grid.RowDefinitions>
+                            <Label Content="Alumno" Grid.Column="0"/>
+                            <ComboBox x:Name="ComboBoxAlumno" Grid.Column="0" Grid.Row="1" />
+
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="Selecciona un alumno" >
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=ComboBoxAlumno}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+
+                            <Label Content="Asignatura" Grid.Column="2"/>
+                            <ComboBox Grid.Column="2" x:Name="ComboBoxAsignatura" Grid.Row="1" SelectionChanged="ComboBoxAsignatura_SelectionChanged"/>
+
+                            <TextBlock Grid.Column="2" Grid.Row="1" Text="Selecciona una asignatura" >
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=ComboBoxAsignatura}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+
+                        </Grid>
+                        <Grid Grid.Row="3" Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="35*" />
+                                <ColumnDefinition Width="10*" />
+                                <ColumnDefinition Width="55*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50*" />
+                                <RowDefinition Height="50*" />
+                            </Grid.RowDefinitions>
+                            <Label Content="Curso" Grid.Column="0"/>
+                            <TextBox Grid.Row="1" Grid.Column="0" x:Name="TxtNota" />
+
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="8.95" >
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=TxtNota}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                            <Label Content="Observaciones" Grid.Column="2"/>
+                            <TextBox Grid.Row="1" Grid.Column="2" x:Name="TxtObservaciones" />
+
+                            <TextBlock Grid.Column="2" Grid.Row="1" Text="No se ha aplicado mucho" >
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=TxtObservaciones}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                        <Grid Grid.Row="5" Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="30*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="30*" />
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="Create" Grid.Column="0" Content="{StaticResource FormAsignaturaCreationButton}" Click="Create_Click"/>
+                            <Button x:Name="Modify" Grid.Column="2" Content="{StaticResource FormAsignaturaModifyTabItemHeader}" Click="Modify_Click"/>
+                            <Button x:Name="Delete" Grid.Column="4" Content="{StaticResource FormAsignaturaRemovalTabItemHeader}" Click="Delete_Click"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
+
