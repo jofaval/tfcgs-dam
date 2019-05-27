@@ -106,7 +106,7 @@ namespace Controller
                    }).AsEnumerable();
         }
 
-        public List<Asignatura> GetAsignaturasImpartidas(Profesor profesor, int year = 0)
+        public static List<Asignatura> GetAsignaturasImpartidas(Profesor profesor, int year = 0)
         {
             if (year is 0)
             {
@@ -118,13 +118,12 @@ namespace Controller
                 .Where(i => i.Profesor1.Equals(profesor))
                 .ToList();
 
-            return StaticReferences.Context.AsignaturaDbSet
-                .AsEnumerable()
-                .Where(a => impartimiento.Any(i => i.Horario.Equals(a.Horario)))
+            return impartimiento
+                .Select(i => i.Horario.Asignatura as Asignatura)
                 .ToList();
         }
 
-        public IEnumerable<Alumno> GetAlumnosWhereAsignaturasImpartidas(Asignatura asignatura)
+        public static IEnumerable<Alumno> GetAlumnosWhereAsignaturasImpartidas(Asignatura asignatura)
         {
             var impartimiento = StaticReferences.Context.ImpartimientoDbSet
                 .AsEnumerable()
@@ -132,11 +131,11 @@ namespace Controller
 
             var estudios = StaticReferences.Context.EstudiosDbSet
                 .AsEnumerable()
-                .Where(e => impartimiento.Any(i => i.Horario.Curso.Equals(e.Curso)));
+                .Where(e => impartimiento.Any(i => i.Horario.CursoCod.Equals(e.CursoCod)));
 
             return StaticReferences.Context.AlumnoDbSet
                 .AsEnumerable()
-                .Where(a => estudios.Any(e => e.Alumno.Equals(a)));
+                .Where(a => estudios.Any(e => e.Alumno1.Equals(a)));
         }
     }
 }
