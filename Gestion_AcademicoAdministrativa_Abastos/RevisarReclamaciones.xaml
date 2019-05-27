@@ -98,7 +98,7 @@
                                              Padding="15,15,0,0" VerticalContentAlignment="Top"/>
                                 </Grid>
                                 <Button x:Name="BtnSend" Content="Enviar respuesta"
-                                Grid.Row="7"/>
+                                Grid.Row="7" Click="BtnSend_Click"/>
                             </Grid>
                         </TabItem>
                     </TabControl>

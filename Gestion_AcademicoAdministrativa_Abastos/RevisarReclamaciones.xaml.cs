@@ -50,13 +50,24 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var selectedAlumno = selectedReclamacion.Alumno;
             var selectedNumParte = selectedReclamacion.NumParte;
             SelectedReclamacion = StaticReferences.Context.ReclamacionDbSet
+                .AsEnumerable()
                 .Single(r => r.Alumno1.Equals(selectedAlumno)
                 && r.NumParte.Equals(selectedNumParte));
             SelectedReclamacion.EnTramite = true;
             StaticReferences.Context.Entry(SelectedReclamacion).State = System.Data.Entity.EntityState.Modified;
+            StaticReferences.Context.SaveChanges();
             TabPage.SelectedIndex = 1;
             TxtAsunto.Text = selectedReclamacion.Asunto;
             TxtContenido.Text = selectedReclamacion.Contenido;
+        }
+
+        private void BtnSend_Click(object sender, RoutedEventArgs e)
+        {
+            SelectedReclamacion.FechaRevision = DateTime.Now;
+            SelectedReclamacion.Revisor = XamlBridge.CurrentUser.Persona;
+            SelectedReclamacion.Respuesta = TxtRespuesta.Text;
+            StaticReferences.Context.Entry(SelectedReclamacion).State = System.Data.Entity.EntityState.Modified;
+            StaticReferences.Context.SaveChanges();
         }
     }
 }
