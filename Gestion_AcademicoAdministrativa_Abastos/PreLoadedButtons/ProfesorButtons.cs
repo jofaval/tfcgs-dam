@@ -42,11 +42,21 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             var FirstButton = new Button()
             {
                 Name = "FirstButton",
-                Content = "Buscador Personal",
+                Content = "Buscador Alumnado",
                 Style = menuButtonStyle
             };
             buttonList.Add(FirstButton);
             Grid.SetRow(FirstButton, numRow);
+            numRow++;
+
+            var NotasButton = new Button()
+            {
+                Name = "NotasButton",
+                Content = "Calificar",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(NotasButton);
+            Grid.SetRow(NotasButton, numRow);
             numRow++;
 
             var SecondButton = new Button()
@@ -115,6 +125,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                     else if (btnSender == ChangePassButton)
                     {
                         var mainPanel = new ChangePassword().MainPanel;
+
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, mainPanel);
+
+                        XamlBridge.MainPanelInstance = mainPanel;
+                    }
+                    else if (btnSender == NotasButton)
+                    {
+                        var mainPanel = new FormularioNota().MainPanel;
 
                         XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, mainPanel);
 
