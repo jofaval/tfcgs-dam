@@ -77,6 +77,16 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
             Grid.SetRow(EntitiesSearch, numRow);
             numRow++;
 
+            var CheckReclamaciones = new Button()
+            {
+                Name = "CheckReclamaciones",
+                Content = "Revisar Reclamaciones",
+                Style = menuButtonStyle
+            };
+            buttonList.Add(CheckReclamaciones);
+            Grid.SetRow(CheckReclamaciones, numRow);
+            numRow++;
+
             var LogOutButton = new Button()
             {
                 Name = "LogOutButton",
@@ -134,6 +144,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                     else if (btnSender == EntitiesSearch)
                     {
                         var mainPanel = new BuscadorAllEntities().MainPanel;
+
+                        XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, mainPanel);
+
+                        XamlBridge.MainPanelInstance = mainPanel;
+                    }
+                    else if (btnSender == CheckReclamaciones)
+                    {
+                        var mainPanel = new RevisarReclamaciones().MainPanel;
 
                         XamlFunctionality.ReplaceGrids(XamlBridge.MainPanelInstance, mainPanel);
 
