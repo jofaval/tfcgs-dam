@@ -140,6 +140,7 @@
     <Compile Include="ViewModel\ActaEvaluacionViewModel.cs" />
     <Compile Include="ViewModel\AlumnoViewModel.cs" />
     <Compile Include="ViewModel\IIsPersona.cs" />
+    <Compile Include="ViewModel\NotasViewModel.cs" />
     <Compile Include="ViewModel\OrdenadorViewModel.cs" />
     <Compile Include="ViewModel\PermisosUsuarioViewModel.cs" />
     <Compile Include="ViewModel\PersonaViewModel.cs" />
