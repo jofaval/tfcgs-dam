@@ -30,7 +30,7 @@
                         <RowDefinition Height="90*" />
                         <RowDefinition Height="5*" />
                     </Grid.RowDefinitions>
-                    <TabControl Grid.Column="1" Grid.Row="1">
+                    <TabControl Grid.Column="1" Grid.Row="1" x:Name="TabPage">
                         <TabItem Header="Pendientes">
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -84,7 +84,8 @@
                                     </Grid.RowDefinitions>
                                     <Label Grid.Row="0" Content="Contenido"/>
                                     <TextBox x:Name="TxtContenido" Grid.Row="1"
-                                                 TextWrapping="Wrap" AcceptsReturn="True"/>
+                                                 TextWrapping="Wrap" AcceptsReturn="True"
+                                             Padding="15,15,0,0" VerticalContentAlignment="Top"/>
                                 </Grid>
                                 <Grid Grid.Row="5">
                                     <Grid.RowDefinitions>
@@ -93,7 +94,8 @@
                                     </Grid.RowDefinitions>
                                     <Label Grid.Row="0" Content="Respuesta"/>
                                     <TextBox x:Name="TxtRespuesta" Grid.Row="1" 
-                                                 TextWrapping="Wrap" AcceptsReturn="True"/>
+                                                 TextWrapping="Wrap" AcceptsReturn="True"
+                                             Padding="15,15,0,0" VerticalContentAlignment="Top"/>
                                 </Grid>
                                 <Button x:Name="BtnSend" Content="Enviar respuesta"
                                 Grid.Row="7"/>

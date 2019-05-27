@@ -1,4 +1,5 @@
 ﻿using Controller;
+using Model.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,20 +21,42 @@ namespace Gestion_AcademicoAdministrativa_Abastos
     /// </summary>
     public partial class RevisarReclamaciones : Window
     {
-        public List<Model.Reclamacion> PendingRecalmaciones { get; set; }
+        public List<ReclamacionViewModel> PendingRecalmaciones { get; set; }
+        public Model.Reclamacion SelectedReclamacion  { get; set; }
+
         public RevisarReclamaciones()
         {
             InitializeComponent();
+            var trabajador = StaticReferences.Context.TrabajadorDbSet;
             PendingRecalmaciones = StaticReferences.Context.ReclamacionDbSet
                 .Where(r => !r.EnTramite.HasValue)
+                .AsEnumerable()
+                .Select(r => new ReclamacionViewModel
+                {
+                    Alumno = r.Alumno1,
+                    Asunto = r.Asunto,
+                    Contenido = r.Contenido,
+                    DirigidoA = trabajador
+                    .Single(t => t.Persona.Equals(r.DirigidoA)).NombreCompleto(),
+                    NumParte = r.NumParte,
+                })
                 .ToList();
             DataGridReclamacionesPendientes.ItemsSource = PendingRecalmaciones;
-
-    }
+        }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            var selectedReclamacion = (ReclamacionViewModel) DataGridReclamacionesPendientes.SelectedValue;
+            var selectedAlumno = selectedReclamacion.Alumno;
+            var selectedNumParte = selectedReclamacion.NumParte;
+            SelectedReclamacion = StaticReferences.Context.ReclamacionDbSet
+                .Single(r => r.Alumno1.Equals(selectedAlumno)
+                && r.NumParte.Equals(selectedNumParte));
+            SelectedReclamacion.EnTramite = true;
+            StaticReferences.Context.Entry(SelectedReclamacion).State = System.Data.Entity.EntityState.Modified;
+            TabPage.SelectedIndex = 1;
+            TxtAsunto.Text = selectedReclamacion.Asunto;
+            TxtContenido.Text = selectedReclamacion.Contenido;
         }
     }
 }
