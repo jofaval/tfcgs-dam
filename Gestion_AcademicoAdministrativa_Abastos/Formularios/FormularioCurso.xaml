@@ -141,7 +141,7 @@
                                 </Grid>
                             </Grid>
                         </TabItem>
-                        <TabItem Header="Subtipo">
+                        <TabItem Header="Subtipo" Visibility="Hidden">
                             <Grid Grid.Column="1" Grid.Row="1"
                                   Background="{DynamicResource BackgroundContainerGradient}">
                                 <Grid.ColumnDefinitions>
