@@ -11,7 +11,7 @@ namespace Model.ViewModel
         public string Curso { get; set; }
         public string Asignatura { get; set; }
         public double Valoracion { get; set; }
-        public double Observaciones { get; set; }
+        public string Observaciones { get; set; }
         public int Evaluacion { get; set; }
     }
 }
