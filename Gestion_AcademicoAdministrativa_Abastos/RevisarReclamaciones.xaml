@@ -30,50 +30,76 @@
                         <RowDefinition Height="90*" />
                         <RowDefinition Height="5*" />
                     </Grid.RowDefinitions>
-                    <Grid HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Panel.ZIndex="-1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="5*" />
-                            <RowDefinition Height="15*" />
-                            <RowDefinition Height="5*" />
-                            <RowDefinition Height="15*" />
-                            <RowDefinition Height="5*" />
-                            <RowDefinition Height="15*" />
-                            <RowDefinition Height="5*" />
-                            <RowDefinition Height="15*" />
-                            <RowDefinition Height="5*" />
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="35*" />
-                                <RowDefinition Height="65*" />
-                            </Grid.RowDefinitions>
-                            <Label Grid.Row="0" Content="Contraseña Antigua"/>
-                            <PasswordBox x:Name="TxtOldPassword" Grid.Row="1" />
-                        </Grid>
-                        <Grid Grid.Row="3">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="80*" />
-                                <ColumnDefinition Width="20*" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="35*" />
-                                <RowDefinition Height="65*" />
-                            </Grid.RowDefinitions>
-                            <Label Grid.Row="0" Content="Contraseña Nueva"/>
-                            <PasswordBox x:Name="TxtNewPassword" Grid.Row="1" PasswordChanged="TxtNewPassword_PasswordChanged"/>
-                            <ProgressBar x:Name="StrengthLevel" Grid.Column="1" Grid.Row="1"/>
-                        </Grid>
-                        <Grid Grid.Row="5">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="35*" />
-                                <RowDefinition Height="65*" />
-                            </Grid.RowDefinitions>
-                            <Label Grid.Row="0" Content="Contraseña Nueva Repetida"/>
-                            <PasswordBox x:Name="TxtNewPasswordRepeated" Grid.Row="1" />
-                        </Grid>
-                        <Button x:Name="BtnChange" Content="Cambiar Contraseña"
-                                Grid.Row="7" Click="BtnChange_Click"/>
-                    </Grid>
+                    <TabControl Grid.Column="1" Grid.Row="1">
+                        <TabItem Header="Pendientes">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*" />
+                                    <ColumnDefinition Width="90*" />
+                                    <ColumnDefinition Width="5*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="90*" />
+                                    <RowDefinition Height="5*" />
+                                </Grid.RowDefinitions>
+                                <DataGrid Grid.Column="1" Grid.Row="1" x:Name="DataGridReclamacionesPendientes" ColumnWidth="*">
+                                    <DataGrid.ContextMenu>
+                                        <ContextMenu x:Name="ContextCheckInfo">
+                                            <MenuItem Header="Ver detalles"
+                                                      Click="MenuItem_Click"/>
+                                        </ContextMenu>
+                                    </DataGrid.ContextMenu>
+                                </DataGrid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Responder">
+                            <Grid HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Panel.ZIndex="-1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="10*" />
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="35*" />
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="35*" />
+                                    <RowDefinition Height="5*" />
+                                    <RowDefinition Height="10*" />
+                                    <RowDefinition Height="5*" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="35*" />
+                                        <RowDefinition Height="65*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Content="Asunto"/>
+                                    <TextBox x:Name="TxtAsunto" Grid.Row="1" />
+                                </Grid>
+                                <Grid Grid.Row="3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="35*" />
+                                        <RowDefinition Height="65*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Content="Contenido"/>
+                                    <TextBox x:Name="TxtContenido" Grid.Row="1"
+                                                 TextWrapping="Wrap" AcceptsReturn="True"/>
+                                </Grid>
+                                <Grid Grid.Row="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="35*" />
+                                        <RowDefinition Height="65*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Content="Respuesta"/>
+                                    <TextBox x:Name="TxtRespuesta" Grid.Row="1" 
+                                                 TextWrapping="Wrap" AcceptsReturn="True"/>
+                                </Grid>
+                                <Button x:Name="BtnSend" Content="Enviar respuesta"
+                                Grid.Row="7"/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
                 </Grid>
             </Grid>
         </Grid>

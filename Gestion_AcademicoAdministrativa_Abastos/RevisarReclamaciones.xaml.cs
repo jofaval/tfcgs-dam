@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,20 @@ namespace Gestion_AcademicoAdministrativa_Abastos
     /// </summary>
     public partial class RevisarReclamaciones : Window
     {
+        public List<Model.Reclamacion> PendingRecalmaciones { get; set; }
         public RevisarReclamaciones()
         {
             InitializeComponent();
+            PendingRecalmaciones = StaticReferences.Context.ReclamacionDbSet
+                .Where(r => !r.EnTramite.HasValue)
+                .ToList();
+            DataGridReclamacionesPendientes.ItemsSource = PendingRecalmaciones;
+
+    }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
