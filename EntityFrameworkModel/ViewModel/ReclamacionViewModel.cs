@@ -8,6 +8,7 @@ namespace Model.ViewModel
 {
     public class ReclamacionViewModel
     {
+        public Alumno Alumno { get; set; }
         public string Asunto { get; set; }
         public string Contenido { get; set; }
         public int NumParte { get; set; }
