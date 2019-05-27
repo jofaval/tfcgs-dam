@@ -37,35 +37,35 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         private void Create_Click(object sender, RoutedEventArgs e)
         {
-            var selectedAlumno = (Alumno) ComboBoxAlumno.SelectedValue;
+            var selectedAlumno = (Alumno)ComboBoxAlumno.SelectedValue;
             var selectedCurso = selectedAlumno.Estudio.Last().Curso;
 
-            var convocatoria = new Convocatoria()
-            {
-                Alumno = selectedAlumno.Persona,
-                Alumno1 = selectedAlumno,
-                Curso = selectedCurso,
-                CursoCod = selectedCurso.Cod,
-                CursoNombre = selectedCurso.Nombre,
-                Num = 1,
-                CodAsignatura = SelectedAsignatura.Cod,
-                Asignatura = SelectedAsignatura,
-            };
-            StaticReferences.Context.ConvocatoriaDbSet.Add(convocatoria);
-            StaticReferences.Context.SaveChanges();
+            //var convocatoria = new Convocatoria()
+            //{
+            //    Alumno = selectedAlumno.Persona,
+            //    Alumno1 = selectedAlumno,
+            //    Curso = selectedCurso,
+            //    CursoCod = selectedCurso.Cod,
+            //    CursoNombre = selectedCurso.Nombre,
+            //    Num = 1,
+            //    CodAsignatura = SelectedAsignatura.Cod,
+            //    Asignatura = SelectedAsignatura,
+            //};
+            //StaticReferences.Context.ConvocatoriaDbSet.Add(convocatoria);
+            //StaticReferences.Context.SaveChanges();
 
-            var evaluacion = new Evaluacion()
-            {
-                Alumno = selectedAlumno.Persona,
-                CursoCod = selectedCurso.Cod,
-                CursoNombre = selectedCurso.Nombre,
-                EvaluacionNum = 1,
-                ConvocatoriaNum = 1,
-                Convocatoria = convocatoria,
-                CodAsignatura = SelectedAsignatura.Cod,
-            };
-            StaticReferences.Context.EvaluacionDbSet.Add(evaluacion);
-            StaticReferences.Context.SaveChanges();
+            //var evaluacion = new Evaluacion()
+            //{
+            //    Alumno = selectedAlumno.Persona,
+            //    CursoCod = selectedCurso.Cod,
+            //    CursoNombre = selectedCurso.Nombre,
+            //    EvaluacionNum = 1,
+            //    ConvocatoriaNum = 1,
+            //    Convocatoria = convocatoria,
+            //    CodAsignatura = SelectedAsignatura.Cod,
+            //};
+            //StaticReferences.Context.EvaluacionDbSet.Add(evaluacion);
+            //StaticReferences.Context.SaveChanges();
 
             var nota = new Nota()
             {
@@ -78,19 +78,36 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 Valoracion = double.Parse(TxtNota.Text, CultureInfo.InvariantCulture),
             };
 
+            var evaluacion = selectedAlumno.Convocatoria.Last().Evaluacion.Last();
             evaluacion.Nota = nota;
             StaticReferences.Context.Entry(evaluacion).State = System.Data.Entity.EntityState.Modified;
             StaticReferences.Context.SaveChanges();
+            Notification.CreateNotificaion("Se ha creado con exito");
         }
 
         private void Modify_Click(object sender, RoutedEventArgs e)
         {
+            var selectedAlumno = (Alumno)ComboBoxAlumno.SelectedValue;
 
+            var nota = selectedAlumno.Convocatoria.Last().Evaluacion.Last().Nota;
+
+            nota.Observaciones = TxtObservaciones.Text;
+            nota.Valoracion = double.Parse(TxtNota.Text, CultureInfo.InvariantCulture);
+
+            StaticReferences.Context.Entry(nota).State = System.Data.Entity.EntityState.Modified;
+            StaticReferences.Context.SaveChanges();
+            Notification.CreateNotificaion("Se ha modificado con exito");
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
+            var selectedAlumno = (Alumno)ComboBoxAlumno.SelectedValue;
 
+            var nota = selectedAlumno.Convocatoria.Last().Evaluacion.Last().Nota;
+
+            StaticReferences.Context.NotaDbSet.Remove(nota);
+            StaticReferences.Context.SaveChanges();
+            Notification.CreateNotificaion("Se ha borrado con exito");
         }
 
         private void ComboBoxAsignatura_SelectionChanged(object sender, SelectionChangedEventArgs e)
