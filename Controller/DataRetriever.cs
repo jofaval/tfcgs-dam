@@ -13,22 +13,6 @@ namespace Controller
     {
         public static DataRetriever Instance { get; set; }
 
-        public static AbastosDbContext Context { get; set; }
-
-        public Usuario GetUser(string username, string password)
-        {
-            //password = Cryptography.Encrypt(password, username);
-            var usuarios = StaticReferences.Context.UsuarioDbSet;
-            var usuario = usuarios
-                .AsEnumerable()
-                .FirstOrDefault((x) => x.Username.Equals(username)
-                && Cryptography.Decrypt(x.Contrasenya, username).Equals(password));
-            //Console.WriteLine(password);
-            //Console.WriteLine(usuarios
-            //    .FirstOrDefault((x) => x.Username.Equals(username)) is null);
-            return usuario;
-        }
-
         public static DataRetriever GetInstance()
         {
             if (Instance == null)
@@ -38,6 +22,16 @@ namespace Controller
             }
 
             return Instance;
+        }
+
+        public Usuario GetUser(string username, string password)
+        {
+            var usuarios = StaticReferences.Context.UsuarioDbSet;
+            var usuario = usuarios
+                .AsEnumerable()
+                .FirstOrDefault((x) => x.Username.Equals(username)
+                && Cryptography.Decrypt(x.Contrasenya, username).Equals(password));
+            return usuario;
         }
 
         public static List<ViewsEnum> PosibleViews(Usuario user)
