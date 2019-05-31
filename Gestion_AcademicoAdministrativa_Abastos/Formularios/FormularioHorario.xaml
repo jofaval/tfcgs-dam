@@ -170,7 +170,7 @@
                                 </Grid>
                             </Grid>
                         </TabItem>
-                        <TabItem Header="Impartimiento">
+                        <TabItem Header="Impartir">
                             <Grid
                                   Background="{DynamicResource BackgroundContainerGradient}">
                                 <Grid.ColumnDefinitions>
@@ -210,8 +210,8 @@
                                         <ColumnDefinition Width="10*" />
                                         <ColumnDefinition Width="40*" />
                                     </Grid.ColumnDefinitions>
-                                    <Button x:Name="CreateImpartimiento" Grid.Column="0" Content="Registrar Impartimiento" Click="CreateImpartimiento_Click"/>
-                                    <Button x:Name="DeleteImpartimiento" Grid.Column="4" Content="Eliminar Impartimiento" Click="DeleteImpartimiento_Click"/>
+                                    <Button x:Name="CreateImpartimiento" Grid.Column="0" Content="Registrar Impartir" Click="CreateImpartimiento_Click"/>
+                                    <Button x:Name="DeleteImpartimiento" Grid.Column="4" Content="Eliminar Impartir" Click="DeleteImpartimiento_Click"/>
                                 </Grid>
                             </Grid>
                         </TabItem>
