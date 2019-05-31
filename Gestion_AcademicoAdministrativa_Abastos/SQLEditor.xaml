@@ -43,10 +43,24 @@
                                 <ColumnDefinition Width="100*" />
                             </Grid.ColumnDefinitions>
                             <ScrollViewer>
-                                <TextBox x:Name="TxtQuery" Text="Select dni, nombre From persona"
+                                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                    <TextBox x:Name="TxtQuery" Text=""
                                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                                          VerticalContentAlignment="Top" Padding="15,15,0,0"
                                          TextWrapping="Wrap" AcceptsReturn="True"/>
+                                    <TextBlock Grid.Row="1" Text="Select dni, nombre From persona" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtQuery}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
                             </ScrollViewer>
                         </Grid>
                         <Grid Grid.Column="1" Grid.Row="2">

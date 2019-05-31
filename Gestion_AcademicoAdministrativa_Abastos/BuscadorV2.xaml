@@ -50,6 +50,18 @@
                                 <ColumnDefinition Width="20*" />
                             </Grid.ColumnDefinitions>
                             <TextBox x:Name="TxtSearch" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                            <TextBlock Grid.Column="0" Text="Pepe" >
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=TxtSearch}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
                             <Button x:Name="BtnSearch" Grid.Column="1" Content="Buscar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="BtnSearch_Click"/>
                             <CheckBox x:Name="IgnoreMayus" Grid.Column="2" Content="IgnorarMayusculas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" />
                             <CheckBox x:Name="ExactMatch" Grid.Column="3" Content="Coincidencia Exacta" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" />
@@ -63,6 +75,18 @@
                             </Grid.ColumnDefinitions>
                             <Label Grid.Column="1" Content="Número de Filas"/>
                             <TextBox x:Name="TxtStep" Grid.Column="2" Text="{Binding Path=Step}" PreviewTextInput="TxtStep_PreviewTextInput" TextChanged="TxtStep_TextChanged"/>
+                            <TextBlock Grid.Column="2" Text="15" >
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=TxtStep}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
                         </Grid>
                         <DataGrid x:Name="DataGridResult" Grid.Row="5" AutoGenerateColumns="True" ColumnWidth="Auto">
                             <DataGrid.ContextMenu>

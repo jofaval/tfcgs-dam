@@ -105,7 +105,7 @@
                                     </Grid.RowDefinitions>
                                     <Label Content="Dirigido A" />
                                     <ComboBox x:Name="ComboBoxProfesor" Grid.Row="1" />
-                                    <TextBlock Grid.Row="1" Text="{DynamicResource FormAsignaturaCodExample}" >
+                                    <TextBlock Grid.Row="1" Text="Selecciona un profesor" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -125,7 +125,7 @@
                                     </Grid.RowDefinitions>
                                     <Label Content="Asunto" />
                                     <TextBox x:Name="TxtAsunto" Grid.Row="1" />
-                                    <TextBlock Grid.Row="1" Text="{DynamicResource FormAsignaturaCodExample}" >
+                                    <TextBlock Grid.Row="1" Text="Calificacion injusta" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -145,7 +145,7 @@
                                     </Grid.RowDefinitions>
                                     <Label Content="Asunto" />
                                     <TextBox x:Name="TxtContenido" Grid.Row="1" />
-                                    <TextBlock Grid.Row="1" Text="{DynamicResource FormAsignaturaCodExample}" >
+                                    <TextBlock Grid.Row="1" Text="Tan solo había mirado el móvil un momento" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>

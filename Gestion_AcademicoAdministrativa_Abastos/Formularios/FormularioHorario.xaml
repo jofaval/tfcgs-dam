@@ -146,6 +146,18 @@
                                     </Grid.RowDefinitions>
                                     <Label Grid.Column="2" Content="{DynamicResource FormHorarioComboBoxAsignatura}"/>
                                     <ComboBox Grid.Column="2" Grid.Row="1" x:Name="ComboBoxAsignatura"/>
+                            <TextBlock Grid.Column="0" Text="Pepe" >
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=TxtSearch}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
                                     <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormHorarioComboBoxAsignaturaExample}" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
@@ -195,6 +207,18 @@
                                     </Grid.RowDefinitions>
                                     <Label Content="Profesor" />
                                     <ComboBox x:Name="ComboBoxProfesores" Grid.Row="1"/>
+                                    <TextBlock Grid.Row="1" Text="Selecciona un profesor" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=ComboBoxProfesores}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
                                 </Grid>
                                 <Grid Grid.Row="3" Grid.Column="1">
                                     <Grid.RowDefinitions>
@@ -203,6 +227,18 @@
                                     </Grid.RowDefinitions>
                                     <Label Content="Aula" />
                                     <ComboBox x:Name="ComboBoxAulas" Grid.Row="1"/>
+                                    <TextBlock Grid.Row="1" Text="Selecciona un aula" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=ComboBoxAulas}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
                                 </Grid>
                                 <Grid Grid.Row="5" Grid.Column="1">
                                     <Grid.ColumnDefinitions>

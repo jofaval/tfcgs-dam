@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Gestion_AcademicoAdministrativa_Abastos.Formularios"
         xmlns:wpfExtended="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
         mc:Ignorable="d"
-        Title="FichaPersona" Height="450" Width="800">
+        Title="FichaPersona" Width="1920" Height="1080">
     <Grid x:Name="Container" Grid.Row="1" Background="#FF15171B" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid x:Name="MainGridContent" Grid.Row="1" Background="{DynamicResource MainColorSolid}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid x:Name="MainPanel" Grid.Column="1" Panel.ZIndex="-2">
@@ -83,7 +83,7 @@
                                         <RowDefinition Height="50*" />
                                     </Grid.RowDefinitions>
                                     <Label Content="{DynamicResource FormPersonaDNI}" Grid.Column="0"/>
-                                    <TextBox x:Name="TxtDNI" Grid.Column="0" Grid.Row="1" />
+                                    <TextBox x:Name="TxtDNI" Grid.Column="0" Grid.Row="1" MaxLength="9"/>
 
                                     <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormPersonaDNIExample}" >
                                         <TextBlock.Style>
@@ -99,7 +99,7 @@
                                     </TextBlock>
 
                                     <Label Content="{DynamicResource FormPersonaNIF}" Grid.Column="2"/>
-                                    <TextBox Grid.Column="2" x:Name="TxtNIF" Grid.Row="1" />
+                                    <TextBox Grid.Column="2" x:Name="TxtNIF" Grid.Row="1" MaxLength="9"/>
 
                                     <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormPersonaNIFExample}" >
                                         <TextBlock.Style>
@@ -202,7 +202,7 @@
                                     <Label Content="{DynamicResource FormPersonaCalle}" Grid.Column="0" Margin="0,-1,0,1"/>
                                     <TextBox x:Name="TxtCalle" Grid.Column="0" Grid.Row="1" />
 
-                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormPersonaCalleExample}" >
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="Carrer d'Alberic" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -272,10 +272,10 @@
                                         <RowDefinition Height="35*" />
                                         <RowDefinition Height="65*" />
                                     </Grid.RowDefinitions>
-                                    <Label Content="{DynamicResource FormPersonaPuerta}" Grid.Column="0"/>
+                                    <Label Content="Código Postal" Grid.Column="0"/>
                                     <TextBox x:Name="TxtCodigoPostal" Grid.Column="0" Grid.Row="1" />
 
-                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormPersonaPuertaExample}" >
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="46008" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -290,7 +290,7 @@
                                     <Label Content="Provincia" Grid.Column="2"/>
                                     <TextBox x:Name="TxtProvincia" Grid.Column="2" Grid.Row="1" />
 
-                                    <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormPersonaPuertaExample}" >
+                                    <TextBlock Grid.Column="2" Grid.Row="1" Text="Valencia" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -305,7 +305,7 @@
                                     <Label Content="Localidad" Grid.Column="4"/>
                                     <TextBox x:Name="TxtLocalidad" Grid.Column="4" Grid.Row="1" />
 
-                                    <TextBlock Grid.Column="4" Grid.Row="1" Text="{DynamicResource FormPersonaPuertaExample}" >
+                                    <TextBlock Grid.Column="4" Grid.Row="1" Text="Valencia" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -362,7 +362,7 @@
                                     <Label Content="Telefono" Grid.Column="0"/>
                                     <TextBox x:Name="TxtTelefono" Grid.Column="0" Grid.Row="1" />
 
-                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormPersonaPuertaExample}" >
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="961234567" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -386,7 +386,7 @@
                                     <Label Content="Comentario" Grid.Column="0"/>
                                     <TextBox x:Name="TxtComentario" Grid.Column="0" Grid.Row="1" TextWrapping="WrapWithOverflow" AcceptsReturn="True"/>
 
-                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormPersonaPuertaExample}" >
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="Teléfono fijo" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -444,7 +444,7 @@
                                     <Label Content="NumExpediente" Grid.Column="0"/>
                                     <TextBox x:Name="TxtNumExpediente" Grid.Column="0" Grid.Row="1" />
 
-                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormPersonaPuertaExample}" >
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="16235878" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -459,7 +459,7 @@
                                     <Label Content="NIA" Grid.Column="2"/>
                                     <TextBox x:Name="TxtNIA" Grid.Column="2" Grid.Row="1" />
 
-                                    <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormPersonaPuertaExample}" >
+                                    <TextBlock Grid.Column="2" Grid.Row="1" Text="16235878" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -556,7 +556,7 @@
                                     <Label Content="Sueldo" Grid.Column="2"/>
                                     <TextBox x:Name="TxtSueldo" Grid.Column="2" Grid.Row="1" />
 
-                                    <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormPersonaPuertaExample}" >
+                                    <TextBlock Grid.Column="2" Grid.Row="1" Text="2500" >
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>

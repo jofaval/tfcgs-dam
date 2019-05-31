@@ -93,8 +93,7 @@
                             <RowDefinition Height="12*" />
                             <RowDefinition Height="12*" />
                             <RowDefinition Height="12*" />
-                            <RowDefinition Height="12*" />
-                            <RowDefinition Height="12*" />
+                            <RowDefinition Height="8*" />
                         </Grid.RowDefinitions>
                         <Label Grid.Column="1" Grid.Row="0" Content="Identificación"/>
                         <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -148,10 +147,6 @@
                                       ColumnWidth="*" Height="Auto">
                                 <DataGridTextColumn Header="Test" Width="*" Binding="{Binding Telefono}"/>
                             </DataGrid>
-                        </Grid>
-                        <Label Grid.Column="1" Grid.Row="6" Content="Datos especiales del Rol"/>
-                        <Grid Grid.Column="1" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-
                         </Grid>
                     </Grid>
                 </Grid>

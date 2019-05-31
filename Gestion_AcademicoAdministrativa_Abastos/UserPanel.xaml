@@ -63,13 +63,73 @@
                                     </Grid.ColumnDefinitions>
                                     <Label Grid.Column="0" Grid.Row="0" Content="Usuario" />
                                     <TextBox x:Name="TxtUsername" Grid.Column="0" Grid.Row="1"/>
+                                    <TextBlock Grid.Row="1" Text="jfabra" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtUsername}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
                                     <Label Grid.Column="2" Grid.Row="0" Content="Contraseña" />
                                     <TextBox x:Name="TxtPassword" Grid.Column="2" Grid.Row="1" />
+                                    <TextBlock Grid.Column="2" Grid.Row="1" Text="1234aaa" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtUsername}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                    <TextBlock Grid.Column="1" Grid.Row="1" Text="Selecciona una vista" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=ComboBoxViewSelector}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
                                 </Grid>
                                 <Label Grid.Row="3" Content="Persona" Grid.Column="1" />
                                 <TextBox x:Name="TxtPersona" Grid.Column="1" Grid.Row="4"/>
+                                <TextBlock Grid.Column="1" Grid.Row="4" Text="12345678D" >
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Text, ElementName=TxtPersona}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
                                 <Label Grid.Row="6" Content="Grupo de Usuarios" Grid.Column="1" />
                                 <ComboBox x:Name="ComboBoxPermisos" Grid.Row="7" Grid.Column="1" />
+                                <TextBlock Grid.Column="1" Grid.Row="7" Text="Selecciona un grupo de usuarios" >
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Text, ElementName=ComboBoxPermisos}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
                                 <Grid Grid.Column="1" Grid.Row="9">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40*" />
@@ -114,8 +174,32 @@
                                         </Grid.RowDefinitions>
                                         <Label Grid.Row="1" Content="Nombre" />
                                         <TextBox Grid.Row="2" x:Name="TxtNombre" />
+                                        <TextBlock Grid.Row="2" Text="Administrador" >
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Text, ElementName=TxtUsername}" Value="">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
                                         <Label Grid.Row="4" Content="Descripcion" />
                                         <TextBox Grid.Row="5" x:Name="TxtDescripcion" Padding="15,15,0,0" VerticalContentAlignment="Top"/>
+                                        <TextBlock Grid.Row="5" Text="Concede permisos de administrador" >
+                                            <TextBlock.Style>
+                                                <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Text, ElementName=TxtDescripcion}" Value="">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
                                     </Grid>
                                     <Grid Grid.Column="1">
                                         <Grid.RowDefinitions>

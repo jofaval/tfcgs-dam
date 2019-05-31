@@ -73,6 +73,18 @@
                                     </Grid.RowDefinitions>
                                     <Label Grid.Row="0" Content="Asunto"/>
                                     <TextBox x:Name="TxtAsunto" Grid.Row="1" />
+                                    <TextBlock Grid.Row="1" Text="Calificacion injusta" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtAsunto}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
                                 </Grid>
                                 <Grid Grid.Row="3">
                                     <Grid.ColumnDefinitions>
@@ -86,6 +98,18 @@
                                     <TextBox x:Name="TxtContenido" Grid.Row="1"
                                                  TextWrapping="Wrap" AcceptsReturn="True"
                                              Padding="15,15,0,0" VerticalContentAlignment="Top"/>
+                                    <TextBlock Grid.Row="1" Text="Tan solo había mirado el móvil un momento" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtContenido}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
                                 </Grid>
                                 <Grid Grid.Row="5">
                                     <Grid.RowDefinitions>
@@ -96,6 +120,18 @@
                                     <TextBox x:Name="TxtRespuesta" Grid.Row="1" 
                                                  TextWrapping="Wrap" AcceptsReturn="True"
                                              Padding="15,15,0,0" VerticalContentAlignment="Top"/>
+                                    <TextBlock Grid.Row="1" Text="No haberlo mirado" >
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Text, ElementName=TxtRespuesta}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
                                 </Grid>
                                 <Button x:Name="BtnSend" Content="Enviar respuesta"
                                 Grid.Row="7" Click="BtnSend_Click"/>

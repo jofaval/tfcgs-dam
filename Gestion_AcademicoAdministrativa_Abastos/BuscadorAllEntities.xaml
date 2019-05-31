@@ -47,6 +47,18 @@
                                 <ColumnDefinition Width="100*" />
                             </Grid.ColumnDefinitions>
                             <ComboBox x:Name="ComboBoxEntityTypes" SelectionChanged="ComboBoxEntityTypes_SelectionChanged_1"/>
+                            <TextBlock Grid.Column="2" Text="Selecciona un tipo de entidad" >
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=ComboBoxEntityTypes}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
                         </Grid>
                         <Grid Grid.Row="3">
                             <Grid.ColumnDefinitions>
@@ -57,6 +69,19 @@
                             </Grid.ColumnDefinitions>
                             <Label Grid.Column="1" Content="Número de Filas"/>
                             <TextBox x:Name="TxtStep" Grid.Column="2" Text="{Binding Path=Step}" PreviewTextInput="TxtStep_PreviewTextInput" TextChanged="TxtStep_TextChanged"/>
+
+                            <TextBlock Grid.Column="2" Text="15" >
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=TxtStep}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
                         </Grid>
                         <DataGrid x:Name="DataGridResult" Grid.Row="5" AutoGenerateColumns="True" ColumnWidth="Auto" />
                         <Grid Grid.Row="6" >

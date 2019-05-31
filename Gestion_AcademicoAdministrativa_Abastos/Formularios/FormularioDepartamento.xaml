@@ -66,7 +66,7 @@
                             <Label Content="{DynamicResource FormDepartamentoCod}" Grid.Column="0"/>
                             <TextBox x:Name="TxtCod" Grid.Column="0" Grid.Row="1" />
 
-                            <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormDepartamentoCodExample}" >
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="ING" >
                                 <TextBlock.Style>
                                     <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
                                         <Setter Property="Visibility" Value="Collapsed"/>

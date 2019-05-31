@@ -37,6 +37,18 @@
                 <RowDefinition Height="10*" />
             </Grid.RowDefinitions>
             <ComboBox x:Name="ComboBoxViewSelector" Grid.Column="1" Grid.Row="1" SelectionChanged="ComboBoxViewSelector_SelectionChanged"/>
+            <TextBlock Grid.Column="1" Grid.Row="1" Text="Selecciona una vista" >
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=ComboBoxViewSelector}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
         </Grid>
     </Grid>
 </Window>
