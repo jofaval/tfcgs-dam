@@ -89,6 +89,7 @@ namespace Controller
         public static IEnumerable<dynamic> GetAlumnos(Profesor profesor)
         {
             var alumnos = StaticReferences.Alumnos
+                    .AsEnumerable()
                    .Where(a => profesor.Impartimiento
                    .Where(i => i.CursoCod.Equals(a.CursoCod))
                    .Any())
