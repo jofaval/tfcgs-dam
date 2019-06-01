@@ -13,6 +13,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public FormularioDepartamento()
         {
             InitializeComponent();
+            ComboBoxAula.ItemsSource = StaticReferences.Context.AulaDbSet.ToList();
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)
@@ -26,11 +27,13 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 return;
             }
             var nombre = TxtNombre.Text;
+            var aula = (Aula)ComboBoxAula.SelectedValue;
 
             var departamento = new Departamento()
             {
                 Cod = cod,
                 Nombre = nombre,
+                Aula = aula,
             };
 
             context.DepartamentoDbSet.Add(departamento);
@@ -45,6 +48,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var context = StaticReferences.Context;
             var departamento = context.DepartamentoDbSet
                 .SingleOrDefault(d => d.Cod.Equals(cod));
+            var aula = (Aula)ComboBoxAula.SelectedValue;
             if (departamento is null)
             {
                 Notification.CreateNotificaion("No se ha encontrado el registro");
@@ -53,6 +57,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var nombre = TxtNombre.Text;
 
             departamento.Nombre = nombre;
+            departamento.Aula = aula;
 
             context.Entry(departamento).State = System.Data.Entity.EntityState.Modified;
             context.SaveChanges();

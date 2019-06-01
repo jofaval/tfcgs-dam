@@ -47,7 +47,8 @@
                             <RowDefinition Height="5*" />
                             <RowDefinition Height="15*" />
                             <RowDefinition Height="5*" />
-                            <RowDefinition Height="15*" />
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="10*" />
                             <RowDefinition Height="5*" />
                             <RowDefinition Height="10*" />
                             <RowDefinition Height="5*" />
@@ -96,35 +97,29 @@
                             </TextBlock>
 
                         </Grid>
-                        <Label Grid.Row="2" Grid.Column="1" Content="{DynamicResource FormDepartamentoAula}" />
-                        <Grid Grid.Row="3" Grid.Column="1">
+                        <Label Grid.Row="3" Grid.Column="1" Content="{DynamicResource FormDepartamentoAula}" />
+                        <Grid Grid.Row="4" Grid.Column="1">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="45*" />
                                 <ColumnDefinition Width="5*" />
-                                <ColumnDefinition Width="45*" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="50*" />
-                                <RowDefinition Height="50*" />
                             </Grid.RowDefinitions>
-                            <Label Content="{DynamicResource FormAulaPiso}" Grid.Column="0"/>
-                            <TextBox x:Name="TxtPiso" Grid.Column="0" Grid.Row="1" />
 
-                            <TextBlock Grid.Column="0" Grid.Row="1" Text="{DynamicResource FormAulaPisoExample}" >
+                            <ComboBox x:Name="ComboBoxAula" />
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="Selecciona un aula" >
                                 <TextBlock.Style>
                                     <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource PlaceHolderContent}">
                                         <Setter Property="Visibility" Value="Collapsed"/>
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Text, ElementName=TxtPiso}" Value="">
+                                            <DataTrigger Binding="{Binding Text, ElementName=ComboBoxAula}" Value="">
                                                 <Setter Property="Visibility" Value="Visible"/>
                                             </DataTrigger>
                                         </Style.Triggers>
                                     </Style>
                                 </TextBlock.Style>
                             </TextBlock>
-
-                            <Label Content="{DynamicResource FormAulaNum}" Grid.Column="2"/>
-                            <TextBox Grid.Column="2" x:Name="TxtNum" Grid.Row="1" />
 
                             <TextBlock Grid.Column="2" Grid.Row="1" Text="{DynamicResource FormAulaNumExample}" >
                                 <TextBlock.Style>
@@ -140,7 +135,7 @@
                             </TextBlock>
 
                         </Grid>
-                        <Grid Grid.Row="5" Grid.Column="1">
+                        <Grid Grid.Row="6" Grid.Column="1">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="30*" />
                                 <ColumnDefinition Width="5*" />
