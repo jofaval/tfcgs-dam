@@ -216,5 +216,22 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             StaticReferences.Context.SaveChanges();
             Notification.CreateNotificaion("Se ha modificado con exito");
         }
+
+        private void RemovePermiso_Click(object sender, RoutedEventArgs e)
+        {
+            var permiso = TxtNombre.Text;
+            var selectedPermiso = StaticReferences.Context.PermisosUsuarioDbSet
+                .SingleOrDefault(p => p.Nombre.Equals(permiso));
+
+            if (selectedPermiso is null)
+            {
+                Notification.CreateNotificaion("No se ha encontrado");
+                return;
+            }
+
+            StaticReferences.Context.PermisosUsuarioDbSet.Remove(selectedPermiso);
+            StaticReferences.Context.SaveChanges();
+            Notification.CreateNotificaion("Se ha borrado con exito");
+        }
     }
 }
