@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace Gestion_AcademicoAdministrativa_Abastos.Classes
 {
-    public static class Restrictions
+    public class Restrictions
     {
         public static void AlphaNumericText(object sender, TextCompositionEventArgs e)
         {
