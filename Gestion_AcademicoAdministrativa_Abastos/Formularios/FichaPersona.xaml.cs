@@ -50,6 +50,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             TxtNumExpediente.PreviewTextInput += Restrictions.NumericOnlyText;
             TxtNIA.PreviewTextInput += Restrictions.AlphaNumericText;
             TxtSueldo.PreviewTextInput += Restrictions.NumericOnlyText;
+            TxtTelefono.PreviewTextInput += Restrictions.NumericOnlyText;
+            TxtComentario.PreviewTextInput += Restrictions.AlphaNumericText;
         }
 
         public void FillWithData(Persona persona)
@@ -574,7 +576,12 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
         {
             if (sender is ComboBox senderAsComboBox)
             {
-                var selectedValue = (TrabajadoresEnum)senderAsComboBox.SelectedValue;
+                var selectedValueOrigin = senderAsComboBox.SelectedValue;
+                if (selectedValueOrigin is null)
+                {
+                    return;
+                }
+                var selectedValue = (TrabajadoresEnum)selectedValueOrigin;
                 SelectedTrabajadorEnum = selectedValue;
                 var childrens = RolGrid.Children;
                 childrens.Clear();
