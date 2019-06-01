@@ -1,4 +1,5 @@
 ﻿using Controller;
+using Gestion_AcademicoAdministrativa_Abastos.Classes;
 using Gestion_AcademicoAdministrativa_Abastos.CustomElements;
 using Model;
 using Model.DataStructure;
@@ -33,6 +34,22 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             InitializeComponent();
             ComboBoxTrabajadorType.ItemsSource = Enum.GetValues(typeof(TrabajadoresEnum)).Cast<TrabajadoresEnum>();
             ComboBoxCurso.ItemsSource = StaticReferences.Context.CursoDbSet.ToList();
+
+            TxtDNI.PreviewTextInput += Restrictions.AlphaNumericText;
+            TxtNIF.PreviewTextInput += Restrictions.AlphaNumericText;
+            TxtNombre.PreviewTextInput += Restrictions.AlphaNumericText;
+            TxtApellidos.PreviewTextInput += Restrictions.AlphaNumericText;
+            TxtEmail.PreviewTextInput += Restrictions.AlphaNumericText;
+            TxtCalle.PreviewTextInput += Restrictions.AlphaNumericText;
+            TxtPatio.PreviewTextInput += Restrictions.NumericOnlyText;
+            TxtPiso.PreviewTextInput += Restrictions.NumericOnlyText;
+            TxtPuerta.PreviewTextInput += Restrictions.NumericOnlyText;
+            TxtProvincia.PreviewTextInput += Restrictions.AlphabetOnlyText;
+            TxtLocalidad.PreviewTextInput += Restrictions.AlphabetOnlyText;
+            TxtCodigoPostal.PreviewTextInput += Restrictions.NumericOnlyText;
+            TxtNumExpediente.PreviewTextInput += Restrictions.NumericOnlyText;
+            TxtNIA.PreviewTextInput += Restrictions.AlphaNumericText;
+            TxtSueldo.PreviewTextInput += Restrictions.NumericOnlyText;
         }
 
         public void FillWithData(Persona persona)
@@ -651,6 +668,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                         {
                             Name = "TxtFunctionTrabajador",
                         };
+                        txtFuncionAdministrativo2.PreviewTextInput += Restrictions.AlphabetOnlyText;
                         childrens.Add(txtFuncionAdministrativo2);
                         Grid.SetRow(txtFuncionAdministrativo2, 1);
                         Grid.SetColumn(txtFuncionAdministrativo2, 2);
@@ -668,6 +686,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                         {
                             Name = "TxtFunctionTrabajador",
                         };
+                        txtFuncion.PreviewTextInput += Restrictions.AlphabetOnlyText;
                         childrens.Add(txtFuncion);
                         Grid.SetRow(txtFuncion, 1);
                         Grid.SetColumn(txtFuncion, 0);
@@ -684,6 +703,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                         {
                             Name = "TxtHorario",
                         };
+                        txtHorario.PreviewTextInput += Restrictions.AlphabetOnlyText;
                         childrens.Add(txtHorario);
                         Grid.SetRow(txtHorario, 1);
                         Grid.SetColumn(txtHorario, 2);
@@ -707,6 +727,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                         {
                             Name = "TxtFunction",
                         };
+                        txtFuncion2.PreviewTextInput += Restrictions.AlphabetOnlyText;
                         childrens.Add(txtFuncion2);
                         Grid.SetRow(txtFuncion2, 1);
                         Grid.SetColumn(txtFuncion2, 0);

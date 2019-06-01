@@ -1,4 +1,5 @@
 ﻿using Controller;
+using Gestion_AcademicoAdministrativa_Abastos.Classes;
 using Model;
 using Model.ViewModel;
 using System;
@@ -25,6 +26,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public FormularioAula()
         {
             InitializeComponent();
+            TxtNum.PreviewTextInput += Restrictions.NumericOnlyText;
+            TxtPiso.PreviewTextInput += Restrictions.NumericOnlyText;
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)

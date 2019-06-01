@@ -1,4 +1,5 @@
 ﻿using Controller;
+using Gestion_AcademicoAdministrativa_Abastos.Classes;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public FormularioCurso()
         {
             InitializeComponent();
+            TxtCod.PreviewTextInput += Restrictions.AlphaNumericText;
+            TxtNombre.PreviewTextInput += Restrictions.AlphabetOnlyText;
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)

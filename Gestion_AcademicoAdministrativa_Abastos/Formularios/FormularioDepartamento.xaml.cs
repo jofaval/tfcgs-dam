@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Windows;
 using Controller;
+using Gestion_AcademicoAdministrativa_Abastos.Classes;
 using Model;
 
 namespace Gestion_AcademicoAdministrativa_Abastos
@@ -14,6 +15,8 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         {
             InitializeComponent();
             ComboBoxAula.ItemsSource = StaticReferences.Context.AulaDbSet.ToList();
+            TxtCod.PreviewTextInput += Restrictions.AlphabetOnlyText;
+            TxtNombre.PreviewTextInput += Restrictions.AlphabetOnlyText;
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)
