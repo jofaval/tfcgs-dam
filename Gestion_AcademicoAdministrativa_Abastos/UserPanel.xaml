@@ -132,12 +132,15 @@
                                 </TextBlock>
                                 <Grid Grid.Column="1" Grid.Row="9">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="40*" />
-                                        <ColumnDefinition Width="10*" />
-                                        <ColumnDefinition Width="40*" />
+                                        <ColumnDefinition Width="30*" />
+                                        <ColumnDefinition Width="5*" />
+                                        <ColumnDefinition Width="30*" />
+                                        <ColumnDefinition Width="5*" />
+                                        <ColumnDefinition Width="30*" />
                                     </Grid.ColumnDefinitions>
                                     <Button x:Name="Create" Grid.Column="0" Content="Crear Usuario" Click="Create_Click"/>
-                                    <Button x:Name="Delete" Grid.Column="2" Content="Eliminar Usuario" Click="Delete_Click"/>
+                                    <Button x:Name="Modify" Grid.Column="2" Content="Modificar Usuario" Click="Modify_Click"/>
+                                    <Button x:Name="Delete" Grid.Column="4" Content="Eliminar Usuario" Click="Delete_Click"/>
                                 </Grid>
                             </Grid>
                         </TabItem>

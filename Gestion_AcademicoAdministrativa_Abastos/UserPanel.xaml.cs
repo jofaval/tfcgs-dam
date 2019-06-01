@@ -154,6 +154,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             StaticReferences.Context.UsuarioDbSet.Add(usuario);
             StaticReferences.Context.SaveChanges();
+            Notification.CreateNotificaion("Se ha creado con exito");
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -171,6 +172,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             StaticReferences.Context.UsuarioDbSet.Remove(usuario);
             StaticReferences.Context.SaveChanges();
+            Notification.CreateNotificaion("Se ha borrado con exito");
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -178,6 +180,41 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var selectedPermiso = (PermisosUsuario)DataGridPermisos.SelectedValue;
             StaticReferences.Context.PermisosUsuarioDbSet.Remove(selectedPermiso);
             StaticReferences.Context.SaveChanges();
+        }
+
+        private void Modify_Click(object sender, RoutedEventArgs e)
+        {
+            var username = TxtUsername.Text;
+            var usuario = StaticReferences.Context.UsuarioDbSet
+                .SingleOrDefault(u => u.Username.Equals(username));
+            if (usuario is null)
+            {
+                Notification.CreateNotificaion("El usuario no existe");
+                return;
+            }
+            else
+            {
+                var password = TxtPassword.Text;
+
+                var selectedPermisoViewModel = (PermisosUsuarioViewModel)ComboBoxPermisos.SelectedValue;
+
+                if (selectedPermisoViewModel is null)
+                {
+                    Notification.CreateNotificaion("Selecciona un grupo de usuarios");
+                    return;
+                }
+                var selectedPermiso = StaticReferences.Context.PermisosUsuarioDbSet
+                    .SingleOrDefault(p => p.Nombre.Equals(selectedPermisoViewModel.Nombre));
+
+
+                usuario.Contrasenya = password;
+                usuario.Nombre = selectedPermiso.Nombre;
+                usuario.PermisosUsuario = selectedPermiso;
+            }
+
+            StaticReferences.Context.UsuarioDbSet.Remove(usuario);
+            StaticReferences.Context.SaveChanges();
+            Notification.CreateNotificaion("Se ha modificado con exito");
         }
     }
 }
