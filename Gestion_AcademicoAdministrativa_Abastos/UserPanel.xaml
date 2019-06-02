@@ -224,14 +224,17 @@
                                 </Grid>
                                 <Grid Grid.Row="3" Grid.Column="1">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="25*" />
-                                        <ColumnDefinition Width="25*" />
-                                        <ColumnDefinition Width="10*" />
-                                        <ColumnDefinition Width="25*" />
-                                        <ColumnDefinition Width="25*" />
+                                        <ColumnDefinition Width="5*" />
+                                        <ColumnDefinition Width="15*" />
+                                        <ColumnDefinition Width="5*" />
+                                        <ColumnDefinition Width="15*" />
+                                        <ColumnDefinition Width="5*" />
+                                        <ColumnDefinition Width="15*" />
+                                        <ColumnDefinition Width="5*" />
                                     </Grid.ColumnDefinitions>
                                     <Button Grid.Column="1" x:Name="CreatePermisoButton" Content="Crear Permiso" Click="CreatePermisoButton_Click"/>
-                                    <Button Grid.Column="3" x:Name="RemovePermiso" Content="Eliminar Permiso" Click="RemovePermiso_Click"/>
+                                    <Button Grid.Column="3" x:Name="ModifyPermiso" Content="Modificar Permiso" Click="ModifyPermiso_Click"/>
+                                    <Button Grid.Column="5" x:Name="RemovePermiso" Content="Eliminar Permiso" Click="RemovePermiso_Click"/>
                                 </Grid>
                                 <DataGrid Grid.Row="5" Grid.Column="1" x:Name="DataGridPermisos" AutoGenerateColumns="True" ColumnWidth="*">
                                     <DataGrid.ContextMenu>

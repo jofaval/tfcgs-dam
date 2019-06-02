@@ -236,5 +236,35 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             StaticReferences.Context.SaveChanges();
             Notification.CreateNotificaion("Se ha borrado con exito");
         }
+
+        private void ModifyPermiso_Click(object sender, RoutedEventArgs e)
+        {
+            var nombre = TxtNombre.Text;
+            var selectedPermiso = StaticReferences.Context.PermisosUsuarioDbSet
+                .SingleOrDefault(p => p.Nombre.Equals(nombre));
+
+            if (selectedPermiso is null)
+            {
+                Notification.CreateNotificaion("No se ha encontrado");
+                return;
+            }
+
+            var descripcionPermiso = TxtDescripcion.Text;
+
+            var permisoAdministrador = CheckBoxPermisoAdministrador.IsChecked.Value;
+            var permisoAdministrativo = CheckBoxPermisoAdministrador.IsChecked.Value;
+            var permisoProfesor = CheckBoxPermisoAdministrador.IsChecked.Value;
+            var permisoAlumno = CheckBoxPermisoAdministrador.IsChecked.Value;
+
+            selectedPermiso.Descripcion = descripcionPermiso;
+            selectedPermiso.PermisoAdmin = permisoAdministrador;
+            selectedPermiso.PermisoAdministrativo = permisoAdministrativo;
+            selectedPermiso.PermisProfesor = permisoProfesor;
+            selectedPermiso.PermisoAlumno = permisoAlumno;
+
+            StaticReferences.Context.Entry(selectedPermiso).State = System.Data.Entity.EntityState.Modified;
+            StaticReferences.Context.SaveChanges();
+            Notification.CreateNotificaion("Se ha modificado con exito");
+        }
     }
 }
