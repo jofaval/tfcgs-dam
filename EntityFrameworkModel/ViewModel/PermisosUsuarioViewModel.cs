@@ -14,5 +14,7 @@ namespace Model.ViewModel
         public bool PermisoAdministrativo { get; set; }
         public bool PermisProfesor { get; set; }
         public bool PermisoAlumno { get; set; }
+
+        public override string ToString() => $"Nombre: {Nombre}, Administrador: {PermisoAdmin}, Profesor: {PermisProfesor}, Administrativo: {PermisoAdministrativo}, Alumno: {PermisoAlumno}";
     }
 }
