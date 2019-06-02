@@ -134,18 +134,21 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 return;
             }
 
-            if (StaticReferences.Context.UsuarioDbSet.Any(u => u.Persona1.Equals(persona)))
+            if (StaticReferences.Context.UsuarioDbSet
+                .AsEnumerable()
+                .Any(u => u.Persona1.Equals(persona)))
             {
                 Notification.CreateNotificaion("La persona ya tiene un usuario");
                 return;
             }
 
             var password = TxtPassword.Text;
+            var cyphredPassword = Cryptography.Encrypt(password, username);
 
             var usuario = new Usuario()
             {
                 Username = username,
-                Contrasenya = password,
+                Contrasenya = cyphredPassword,
                 Persona = dni,
                 Persona1 = persona,
                 Nombre = selectedPermiso.Nombre,
