@@ -34,13 +34,13 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                         var dataTable = new DataTable();
                         dataAdapter.Fill(dataTable);
                         DataGridResult.ItemsSource = dataTable.DefaultView;
-                        Notification.CreateNotificaion("Se ha ejecutado correctamente");
+                        Notification.CreateNotification("Se ha ejecutado correctamente");
                     }
                 }
             }
             catch (Exception ex)
             {
-                Notification.CreateNotificaion(ex.Message);
+                Notification.CreateNotification(ex.Message);
             }
         }
     }

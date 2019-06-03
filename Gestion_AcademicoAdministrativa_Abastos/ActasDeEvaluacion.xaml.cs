@@ -84,7 +84,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 .AsEnumerable()
                 .ToList();
             DataGridActas.ItemsSource = Actas;
-            Notification.CreateNotificaion("Añadido con éxito");
+            Notification.CreateNotification("Añadido con éxito");
         }
     }
 }

@@ -21,8 +21,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos
         public App()
         {
             LoadSettings();
+            Dispatcher.UnhandledException += OnDispatcherUnhandledException;
         }
 
+        void OnDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            Notification.CreateNotification("");
+            e.Handled = true;
+        }
         public static void LoadSettings()
         {
             if (!File.Exists(Constants.SettingsFile))

@@ -31,7 +31,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             }
             catch (Exception)
             {
-                Notification.CreateNotificaion("Lo sentimos, no se ha recuperado la sesión anterior");
+                Notification.CreateNotification("Lo sentimos, no se ha recuperado la sesión anterior");
             }
         }
 
@@ -69,7 +69,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             }
             else
             {
-                Notification.CreateNotificaion(Constants.UnsuccesfulLogIn);
+                Notification.CreateNotification(Constants.UnsuccesfulLogIn);
             }
         }
 

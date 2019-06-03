@@ -43,7 +43,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             if (!oldPassword.Equals(TxtOldPassword.Password))
             {
-                Notification.CreateNotificaion("La contraseña antigua no es correcta");
+                Notification.CreateNotification("La contraseña antigua no es correcta");
                 return;
             }
             else
@@ -52,7 +52,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
                 if (!newPassword.Equals(TxtNewPasswordRepeated.Password))
                 {
-                    Notification.CreateNotificaion("La contraseñas no coinciden");
+                    Notification.CreateNotification("La contraseñas no coinciden");
                     return;
                 }
                 else
@@ -62,11 +62,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                         user.Contrasenya = Cryptography.Encrypt(newPassword, username);
                         StaticReferences.Context.Entry(user).State = System.Data.Entity.EntityState.Modified;
                         StaticReferences.Context.SaveChanges();
-                        Notification.CreateNotificaion("La contraseña se ha cambiado correctamente");
+                        Notification.CreateNotification("La contraseña se ha cambiado correctamente");
                     }
                     else
                     {
-                        Notification.CreateNotificaion("La contraseña es débil");
+                        Notification.CreateNotification("La contraseña es débil");
                         return;
                     }
                 }

@@ -60,7 +60,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
                 if (nombrePermiso.Equals(string.Empty))
                 {
-                    Notification.CreateNotificaion("No puede existir un permiso sin nombre");
+                    Notification.CreateNotification("No puede existir un permiso sin nombre");
                     return;
                 }
                 else
@@ -78,7 +78,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                     var permisos = context.PermisosUsuarioDbSet;
                     if (StaticReferences.Context.PermisosUsuarioDbSet.Any(p => p.Nombre.Equals(nombrePermiso)))
                     {
-                        Notification.CreateNotificaion("Ya existe");
+                        Notification.CreateNotification("Ya existe");
                     }
                     permisos.Add(permisoUsuario);
                     context.SaveChanges();
@@ -94,13 +94,13 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                         })
                         .Single(n => n.Nombre.Equals(nombrePermiso)));
                 }
-                Notification.CreateNotificaion($"El permiso de nombre {nombrePermiso} se ha creado con éxito");
+                Notification.CreateNotification($"El permiso de nombre {nombrePermiso} se ha creado con éxito");
                 TxtNombre.Text = string.Empty;
                 TxtDescripcion.Text = string.Empty;
             }
             catch (Exception ex)
             {
-                Notification.CreateNotificaion(ex.Message);
+                Notification.CreateNotification(ex.Message);
             }
         }
 
@@ -116,7 +116,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             if (selectedPermisoViewModel is null)
             {
-                Notification.CreateNotificaion("Selecciona un grupo de usuarios");
+                Notification.CreateNotification("Selecciona un grupo de usuarios");
                 return;
             }
             var selectedPermiso = StaticReferences.Context.PermisosUsuarioDbSet
@@ -124,13 +124,13 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             if (persona is null)
             {
-                Notification.CreateNotificaion("No se ha encontrado la persona");
+                Notification.CreateNotification("No se ha encontrado la persona");
                 return;
             }
 
             if (StaticReferences.Context.UsuarioDbSet.Any(u => u.Username.Equals(username)))
             {
-                Notification.CreateNotificaion("Ya existe el usuario");
+                Notification.CreateNotification("Ya existe el usuario");
                 return;
             }
 
@@ -138,7 +138,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 .AsEnumerable()
                 .Any(u => u.Persona1.Equals(persona)))
             {
-                Notification.CreateNotificaion("La persona ya tiene un usuario");
+                Notification.CreateNotification("La persona ya tiene un usuario");
                 return;
             }
 
@@ -157,7 +157,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             StaticReferences.Context.UsuarioDbSet.Add(usuario);
             StaticReferences.Context.SaveChanges();
-            Notification.CreateNotificaion("Se ha creado con exito");
+            Notification.CreateNotification("Se ha creado con exito");
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -169,13 +169,13 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             if (usuario is null)
             {
-                Notification.CreateNotificaion("No se ha encontrado");
+                Notification.CreateNotification("No se ha encontrado");
                 return;
             }
 
             StaticReferences.Context.UsuarioDbSet.Remove(usuario);
             StaticReferences.Context.SaveChanges();
-            Notification.CreateNotificaion("Se ha borrado con exito");
+            Notification.CreateNotification("Se ha borrado con exito");
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -192,7 +192,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 .SingleOrDefault(u => u.Username.Equals(username));
             if (usuario is null)
             {
-                Notification.CreateNotificaion("El usuario no existe");
+                Notification.CreateNotification("El usuario no existe");
                 return;
             }
             else
@@ -203,7 +203,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
                 if (selectedPermisoViewModel is null)
                 {
-                    Notification.CreateNotificaion("Selecciona un grupo de usuarios");
+                    Notification.CreateNotification("Selecciona un grupo de usuarios");
                     return;
                 }
                 var selectedPermiso = StaticReferences.Context.PermisosUsuarioDbSet
@@ -217,7 +217,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             StaticReferences.Context.UsuarioDbSet.Remove(usuario);
             StaticReferences.Context.SaveChanges();
-            Notification.CreateNotificaion("Se ha modificado con exito");
+            Notification.CreateNotification("Se ha modificado con exito");
         }
 
         private void RemovePermiso_Click(object sender, RoutedEventArgs e)
@@ -228,13 +228,13 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             if (selectedPermiso is null)
             {
-                Notification.CreateNotificaion("No se ha encontrado");
+                Notification.CreateNotification("No se ha encontrado");
                 return;
             }
 
             StaticReferences.Context.PermisosUsuarioDbSet.Remove(selectedPermiso);
             StaticReferences.Context.SaveChanges();
-            Notification.CreateNotificaion("Se ha borrado con exito");
+            Notification.CreateNotification("Se ha borrado con exito");
         }
 
         private void ModifyPermiso_Click(object sender, RoutedEventArgs e)
@@ -245,7 +245,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             if (selectedPermiso is null)
             {
-                Notification.CreateNotificaion("No se ha encontrado");
+                Notification.CreateNotification("No se ha encontrado");
                 return;
             }
 
@@ -264,7 +264,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             StaticReferences.Context.Entry(selectedPermiso).State = System.Data.Entity.EntityState.Modified;
             StaticReferences.Context.SaveChanges();
-            Notification.CreateNotificaion("Se ha modificado con exito");
+            Notification.CreateNotification("Se ha modificado con exito");
         }
     }
 }

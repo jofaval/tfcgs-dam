@@ -77,7 +77,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             }
         }
 
-        public static void CreateNotificaion(string msg, string title = "Notificacion", bool dissappear = true, long dissappearAfter = 3000)
+        public static void CreateNotification(string msg, string title = "Notificacion", bool dissappear = true, long dissappearAfter = 3000)
         {
             if (XamlFunctionality.IsWindowOpen<Notification>())
             {

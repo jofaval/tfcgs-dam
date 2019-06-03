@@ -59,7 +59,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             StaticReferences.Context.SaveChanges();
             BackUpList = StaticReferences.Context.ReclamacionDbSet.ToList();
             UpdateDataGrid();
-            Notification.CreateNotificaion("Se ha creado con exito");
+            Notification.CreateNotification("Se ha creado con exito");
         }
 
         private void CheckBox_Click(object sender, RoutedEventArgs e)

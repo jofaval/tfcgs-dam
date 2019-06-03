@@ -79,7 +79,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             LabelNumRows.Content = UserRoleList.Count;
             if (count == 0)
             {
-                Notification.CreateNotificaion(Constants.NoResults);
+                Notification.CreateNotification(Constants.NoResults);
             }
 
             LoadPageData();
@@ -156,7 +156,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var selectedItem = DataGridResult.SelectedItem;
             if (selectedItem is PersonaViewModel selectedItemAsPersonaViewModel)
             {
-                //Notification.CreateNotificaion();
+                //Notification.CreateNotification();
                 var persona = DataRetriever.GetInstance().GetPersona(selectedItemAsPersonaViewModel.Dni);
                 var fichaPersona = new FichaPersona();
                 XamlBridge.FichaPersona = fichaPersona;

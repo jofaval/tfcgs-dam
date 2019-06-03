@@ -38,7 +38,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             string msg = ComponentGenerator.GetInstance().CreateCurso(cod, nombre, fechaMatriculacion, turnoTarde);
 
-            Notification.CreateNotificaion(msg);
+            Notification.CreateNotification(msg);
         }
 
         private void Modify_Click(object sender, RoutedEventArgs e)
@@ -53,7 +53,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             if (curso is null)
             {
-                Notification.CreateNotificaion("No se ha encontrado");
+                Notification.CreateNotification("No se ha encontrado");
                 return;
             }
             
@@ -64,7 +64,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             context.Entry(curso).State = System.Data.Entity.EntityState.Modified;
             context.SaveChanges();
 
-            Notification.CreateNotificaion("Se ha borrado con exito");
+            Notification.CreateNotification("Se ha borrado con exito");
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -74,14 +74,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             if (curso is null)
             {
-                Notification.CreateNotificaion("No se ha encontrado");
+                Notification.CreateNotification("No se ha encontrado");
                 return;
             }
 
             context.CursoDbSet.Remove(curso);
             context.SaveChanges();
 
-            Notification.CreateNotificaion("Se ha borrado con exito");
+            Notification.CreateNotification("Se ha borrado con exito");
         }
 
         private void DeleteSubTipo_Click(object sender, RoutedEventArgs e)

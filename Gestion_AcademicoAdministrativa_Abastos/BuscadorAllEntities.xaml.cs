@@ -239,7 +239,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             LabelNumRows.Content = UserRoleList.Count;
             if (count == 0)
             {
-                Notification.CreateNotificaion(Constants.NoResults);
+                Notification.CreateNotification(Constants.NoResults);
             }
 
             LoadPageData();

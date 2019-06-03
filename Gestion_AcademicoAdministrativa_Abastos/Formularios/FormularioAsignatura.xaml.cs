@@ -37,7 +37,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var rama = TxtBranch.Text;
 
             var msg = ComponentGenerator.GetInstance().CreateAsignatura(cod, nombre, rama);
-            Notification.CreateNotificaion(msg);
+            Notification.CreateNotification(msg);
         }
 
         private void Modify_Click(object sender, RoutedEventArgs e)
@@ -51,7 +51,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 .SingleOrDefault(a => a.Cod.Equals(cod));
             if (asignatura is null)
             {
-                Notification.CreateNotificaion("No se ha podido encontrar");
+                Notification.CreateNotification("No se ha podido encontrar");
             }
             else
             {

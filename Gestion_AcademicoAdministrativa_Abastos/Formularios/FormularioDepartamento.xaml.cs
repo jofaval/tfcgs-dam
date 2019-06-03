@@ -26,7 +26,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             if (context.DepartamentoDbSet
                 .Any(d => d.Cod.Equals(cod)))
             {
-                Notification.CreateNotificaion("Ya existe");
+                Notification.CreateNotification("Ya existe");
                 return;
             }
             var nombre = TxtNombre.Text;
@@ -42,7 +42,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             context.DepartamentoDbSet.Add(departamento);
             context.SaveChanges();
 
-            Notification.CreateNotificaion("Se ha creado con exito");
+            Notification.CreateNotification("Se ha creado con exito");
         }
 
         private void Modify_Click(object sender, RoutedEventArgs e)
@@ -54,7 +54,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var aula = (Aula)ComboBoxAula.SelectedValue;
             if (departamento is null)
             {
-                Notification.CreateNotificaion("No se ha encontrado el registro");
+                Notification.CreateNotification("No se ha encontrado el registro");
                 return;
             }
             var nombre = TxtNombre.Text;
@@ -65,7 +65,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             context.Entry(departamento).State = System.Data.Entity.EntityState.Modified;
             context.SaveChanges();
 
-            Notification.CreateNotificaion("Se ha modificado con exito");
+            Notification.CreateNotification("Se ha modificado con exito");
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -76,14 +76,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 .SingleOrDefault(d => d.Cod.Equals(cod));
             if (departamento is null)
             {
-                Notification.CreateNotificaion("No se ha encontrado el registro");
+                Notification.CreateNotification("No se ha encontrado el registro");
                 return;
             }
 
             context.DepartamentoDbSet.Remove(departamento);
             context.SaveChanges();
 
-            Notification.CreateNotificaion("Se ha modificado con exito");
+            Notification.CreateNotification("Se ha modificado con exito");
         }
     }
 }

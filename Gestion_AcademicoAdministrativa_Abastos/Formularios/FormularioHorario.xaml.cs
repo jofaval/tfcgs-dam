@@ -47,7 +47,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             var day = (byte)((WeekEnum)ComboBoxDia.SelectedValue);
 
-            Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreateHorario(selectedCurso, selectedAsignatura, horaInicio, horaFinal, day));
+            Notification.CreateNotification(ComponentGenerator.GetInstance().CreateHorario(selectedCurso, selectedAsignatura, horaInicio, horaFinal, day));
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -62,7 +62,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             }
             else
             {
-                Notification.CreateNotificaion("No se ha encontrado");
+                Notification.CreateNotification("No se ha encontrado");
                 return;
             }
         }
@@ -72,7 +72,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var horario = GetHorario();
             if (horario is null)
             {
-                Notification.CreateNotificaion("No se ha encontrado el horario");
+                Notification.CreateNotification("No se ha encontrado el horario");
                 return;
             }
 
@@ -98,13 +98,13 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             if (StaticReferences.Context.ImpartimientoDbSet.AsEnumerable().Contains(impartimiento))
             {
-                Notification.CreateNotificaion("Ya existe");
+                Notification.CreateNotification("Ya existe");
             }
             else
             {
                 StaticReferences.Context.ImpartimientoDbSet.Add(impartimiento);
                 StaticReferences.Context.SaveChanges();
-                Notification.CreateNotificaion("Se ha creado con exito");
+                Notification.CreateNotification("Se ha creado con exito");
             }
 
         }
@@ -114,7 +114,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             var horario = GetHorario();
             if (horario is null)
             {
-                Notification.CreateNotificaion("No se ha encontrado el horario");
+                Notification.CreateNotification("No se ha encontrado el horario");
                 return;
             }
 
@@ -131,13 +131,13 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             if (impartimiento is null)
             {
-                Notification.CreateNotificaion("No se ha encontrado registro");
+                Notification.CreateNotification("No se ha encontrado registro");
             }
             else
             {
                 StaticReferences.Context.ImpartimientoDbSet.Remove(impartimiento);
                 StaticReferences.Context.SaveChanges();
-                Notification.CreateNotificaion("Se ha borrado con exito");
+                Notification.CreateNotification("Se ha borrado con exito");
             }
         }
 

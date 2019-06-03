@@ -152,7 +152,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             var persona = DataRetriever.GetInstance().GetPersona(TxtDniSearch.Text);
             if (persona is null)
             {
-                Notification.CreateNotificaion(Constants.NoResults);
+                Notification.CreateNotification(Constants.NoResults);
             }
             else
             {
@@ -177,27 +177,27 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
 
             if (string.IsNullOrWhiteSpace(dni))
             {
-                Notification.CreateNotificaion("El campo DNI es obligatorio");
+                Notification.CreateNotification("El campo DNI es obligatorio");
                 return;
             }
             else if (string.IsNullOrWhiteSpace(nif))
             {
-                Notification.CreateNotificaion("El campo NIF es obligatorio");
+                Notification.CreateNotification("El campo NIF es obligatorio");
                 return;
             }
             else if (string.IsNullOrWhiteSpace(nombre))
             {
-                Notification.CreateNotificaion("El campo Nombre es obligatorio");
+                Notification.CreateNotification("El campo Nombre es obligatorio");
                 return;
             }
             else if (string.IsNullOrWhiteSpace(apellidos))
             {
-                Notification.CreateNotificaion("El campo Apellidos es obligatorio");
+                Notification.CreateNotification("El campo Apellidos es obligatorio");
                 return;
             }
             else if (string.IsNullOrWhiteSpace(email))
             {
-                Notification.CreateNotificaion("El campo Email es obligatorio");
+                Notification.CreateNotification("El campo Email es obligatorio");
                 return;
             }
             else if (string.IsNullOrWhiteSpace(calle)
@@ -208,11 +208,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                 || string.IsNullOrWhiteSpace(provincia)
                 || string.IsNullOrWhiteSpace(localidad))
             {
-                Notification.CreateNotificaion("Se ha de rellenar la dirección completa.");
+                Notification.CreateNotification("Se ha de rellenar la dirección completa.");
                 return;
             }
 
-            Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreatePersona(dni, nif, nombre, apellidos, email, calle, patio, piso, puerta, codigoPostal, FechaNacmimiento.Value.Value, provincia, localidad));
+            Notification.CreateNotification(ComponentGenerator.GetInstance().CreatePersona(dni, nif, nombre, apellidos, email, calle, patio, piso, puerta, codigoPostal, FechaNacmimiento.Value.Value, provincia, localidad));
         }
 
         private void ModifyPersona_Click(object sender, RoutedEventArgs e)
@@ -229,7 +229,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
         {
             if (SelectedPersona is null)
             {
-                Notification.CreateNotificaion("No se ha seleccionado nignuna persona");
+                Notification.CreateNotification("No se ha seleccionado nignuna persona");
             }
             else
             {
@@ -248,27 +248,27 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
 
                 if (string.IsNullOrWhiteSpace(dni))
                 {
-                    Notification.CreateNotificaion("El campo DNI es obligatorio");
+                    Notification.CreateNotification("El campo DNI es obligatorio");
                     return;
                 }
                 else if (string.IsNullOrWhiteSpace(nif))
                 {
-                    Notification.CreateNotificaion("El campo NIF es obligatorio");
+                    Notification.CreateNotification("El campo NIF es obligatorio");
                     return;
                 }
                 else if (string.IsNullOrWhiteSpace(nombre))
                 {
-                    Notification.CreateNotificaion("El campo Nombre es obligatorio");
+                    Notification.CreateNotification("El campo Nombre es obligatorio");
                     return;
                 }
                 else if (string.IsNullOrWhiteSpace(apellidos))
                 {
-                    Notification.CreateNotificaion("El campo Apellidos es obligatorio");
+                    Notification.CreateNotification("El campo Apellidos es obligatorio");
                     return;
                 }
                 else if (string.IsNullOrWhiteSpace(email))
                 {
-                    Notification.CreateNotificaion("El campo Email es obligatorio");
+                    Notification.CreateNotification("El campo Email es obligatorio");
                     return;
                 }
                 else if (string.IsNullOrWhiteSpace(calle)
@@ -279,7 +279,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                     || string.IsNullOrWhiteSpace(provincia)
                     || string.IsNullOrWhiteSpace(localidad))
                 {
-                    Notification.CreateNotificaion("Se ha de rellenar la dirección completa.");
+                    Notification.CreateNotification("Se ha de rellenar la dirección completa.");
                     return;
                 }
 
@@ -297,7 +297,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                 StaticReferences.Context.Entry(SelectedPersona).State = System.Data.Entity.EntityState.Modified;
                 StaticReferences.Context.SaveChanges();
 
-                Notification.CreateNotificaion("Se ha modificado correctamente");
+                Notification.CreateNotification("Se ha modificado correctamente");
 
                 FillWithData(SelectedPersona);
             }
@@ -317,7 +317,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             var nia = TxtNIA.Text;
             var curso = (Curso)ComboBoxCurso.SelectedValue;
 
-            Notification.CreateNotificaion(ComponentGenerator.GetInstance().CreateAlumno(SelectedPersona, numExpediente, nia, selectedDate, curso));
+            Notification.CreateNotification(ComponentGenerator.GetInstance().CreateAlumno(SelectedPersona, numExpediente, nia, selectedDate, curso));
         }
 
         private void ModifyAlumno_Click(object sender, RoutedEventArgs e)
@@ -465,7 +465,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
 
             if (trabajador is null)
             {
-                Notification.CreateNotificaion("No existe ningún trabajador");
+                Notification.CreateNotification("No existe ningún trabajador");
                 return;
             }
 
@@ -562,7 +562,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
             var trabajador = SelectedPersona.Trabajador;
             if (trabajador is null)
             {
-                Notification.CreateNotificaion("Esta persona no es un trabajador registrado");
+                Notification.CreateNotification("Esta persona no es un trabajador registrado");
             }
             else
             {
@@ -756,7 +756,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
 
             if (selecetedValue is null)
             {
-                Notification.CreateNotificaion("No has seleccionado ningún rol");
+                Notification.CreateNotification("No has seleccionado ningún rol");
                 return;
             }
 
@@ -764,7 +764,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
 
             if (trabajador is null)
             {
-                Notification.CreateNotificaion("El trabajador no ha sido creado todavía");
+                Notification.CreateNotification("El trabajador no ha sido creado todavía");
                 return;
             }
 
@@ -810,7 +810,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
         {
             if (SelectedPersona is null)
             {
-                Notification.CreateNotificaion("No hay nignuna persona seleccionada");
+                Notification.CreateNotification("No hay nignuna persona seleccionada");
                 return;
             }
 
@@ -829,14 +829,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                 .AsEnumerable()
                 .Contains(telefono))
             {
-                Notification.CreateNotificaion("Ya existe");
+                Notification.CreateNotification("Ya existe");
                 return;
             }
             else
             {
                 StaticReferences.Context.TelefonoDbSet.Add(telefono);
                 StaticReferences.Context.SaveChanges();
-                Notification.CreateNotificaion("Se ha añadido con exito");
+                Notification.CreateNotification("Se ha añadido con exito");
             }
         }
 
@@ -844,7 +844,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
         {
             if (SelectedPersona is null)
             {
-                Notification.CreateNotificaion("No hay nignuna persona seleccionada");
+                Notification.CreateNotification("No hay nignuna persona seleccionada");
                 return;
             }
 
@@ -857,7 +857,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
 
             if (telefono is null)
             {
-                Notification.CreateNotificaion("No se ha encontrado");
+                Notification.CreateNotification("No se ha encontrado");
                 return;
             }
             else
@@ -866,7 +866,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
                 telefono.Comentario = comentario;
                 StaticReferences.Context.Entry(telefono).State = System.Data.Entity.EntityState.Modified;
                 StaticReferences.Context.SaveChanges();
-                Notification.CreateNotificaion("Se ha añadido con exito");
+                Notification.CreateNotification("Se ha añadido con exito");
             }
         }
 
@@ -874,7 +874,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
         {
             if (SelectedPersona is null)
             {
-                Notification.CreateNotificaion("No hay nignuna persona seleccionada");
+                Notification.CreateNotification("No hay nignuna persona seleccionada");
                 return;
             }
 
@@ -887,14 +887,14 @@ namespace Gestion_AcademicoAdministrativa_Abastos.Formularios
 
             if (telefono is null)
             {
-                Notification.CreateNotificaion("No se ha encontrado");
+                Notification.CreateNotification("No se ha encontrado");
                 return;
             }
             else
             {
                 StaticReferences.Context.TelefonoDbSet.Remove(telefono);
                 StaticReferences.Context.SaveChanges();
-                Notification.CreateNotificaion("Se ha añadido con exito");
+                Notification.CreateNotification("Se ha añadido con exito");
             }
         }
     }

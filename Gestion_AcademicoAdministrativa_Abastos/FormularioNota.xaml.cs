@@ -71,7 +71,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             evaluacion.Nota = nota;
             StaticReferences.Context.Entry(evaluacion).State = System.Data.Entity.EntityState.Modified;
             StaticReferences.Context.SaveChanges();
-            Notification.CreateNotificaion("Se ha creado con exito");
+            Notification.CreateNotification("Se ha creado con exito");
         }
 
         private void Modify_Click(object sender, RoutedEventArgs e)
@@ -85,7 +85,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             StaticReferences.Context.Entry(nota).State = System.Data.Entity.EntityState.Modified;
             StaticReferences.Context.SaveChanges();
-            Notification.CreateNotificaion("Se ha modificado con exito");
+            Notification.CreateNotification("Se ha modificado con exito");
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -96,7 +96,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             StaticReferences.Context.NotaDbSet.Remove(nota);
             StaticReferences.Context.SaveChanges();
-            Notification.CreateNotificaion("Se ha borrado con exito");
+            Notification.CreateNotification("Se ha borrado con exito");
         }
 
         private void ComboBoxAsignatura_SelectionChanged(object sender, SelectionChangedEventArgs e)

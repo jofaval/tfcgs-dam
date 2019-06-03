@@ -43,13 +43,13 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             if (StaticReferences.Context.AulaDbSet.Any(a => a.Num.Equals(num) && a.Piso.Equals(piso)))
             {
-                Notification.CreateNotificaion("Ya existe");
+                Notification.CreateNotification("Ya existe");
                 return;
             }
 
             StaticReferences.Context.AulaDbSet.Add(aula);
             StaticReferences.Context.SaveChanges();
-            Notification.CreateNotificaion("Creado con exito");
+            Notification.CreateNotification("Creado con exito");
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -64,13 +64,13 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             if (aula is null)
             {
-                Notification.CreateNotificaion("No se ha encontrado");
+                Notification.CreateNotification("No se ha encontrado");
             }
             else
             {
                 context.AulaDbSet.Remove(aula);
                 context.SaveChanges();
-                Notification.CreateNotificaion("Borrado con exito");
+                Notification.CreateNotification("Borrado con exito");
             }
         }
 
@@ -87,7 +87,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             if (aula is null)
             {
-                Notification.CreateNotificaion("No se ha encontrado el aula");
+                Notification.CreateNotification("No se ha encontrado el aula");
                 return;
             }
 
@@ -100,7 +100,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
                 && o.Piso.Equals(piso)
                 && o.CodOrdenadorAula.Equals(cod)))
             {
-                Notification.CreateNotificaion("Ya existe");
+                Notification.CreateNotification("Ya existe");
                 return;
             }
             var ordenador = new Ordenador()
@@ -117,7 +117,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             context.SaveChanges();
             BtnQueryOrdenadores_Click(null, null);
 
-            Notification.CreateNotificaion("Se ha creado con exito");
+            Notification.CreateNotification("Se ha creado con exito");
         }
 
         private void ModifyOrdenador_Click(object sender, RoutedEventArgs e)
@@ -133,7 +133,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             if (aula is null)
             {
-                Notification.CreateNotificaion("No se ha encontrado el aula");
+                Notification.CreateNotification("No se ha encontrado el aula");
                 return;
             }
 
@@ -147,7 +147,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
             if (ordenador is null)
             {
-                Notification.CreateNotificaion("No es ha encontrado el ordenador");
+                Notification.CreateNotification("No es ha encontrado el ordenador");
                 return;
             }
 
@@ -159,7 +159,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             context.SaveChanges();
             BtnQueryOrdenadores_Click(null, null);
 
-            Notification.CreateNotificaion("Se ha modificado con exito");
+            Notification.CreateNotification("Se ha modificado con exito");
         }
 
         private void DeleteOrdenador_Click(object sender, RoutedEventArgs e)
@@ -180,11 +180,11 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             {
                 context.OrdenadorDbSet.Remove(ordenador);
                 context.SaveChanges();
-                Notification.CreateNotificaion("Borrado con exito");
+                Notification.CreateNotification("Borrado con exito");
             }
             else
             {
-                Notification.CreateNotificaion("No se ha encontrado");
+                Notification.CreateNotification("No se ha encontrado");
             }
             BtnQueryOrdenadores_Click(null, null);
         }

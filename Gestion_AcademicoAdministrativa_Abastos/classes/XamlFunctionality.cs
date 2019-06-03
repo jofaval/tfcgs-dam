@@ -44,19 +44,19 @@ namespace Gestion_AcademicoAdministrativa_Abastos
             if (RunningProcessPaths.Contains("chrome.exe"))
             {
                 //firefox is running
-                Notification.CreateNotificaion(string.Concat("chrome", workingMsg));
+                Notification.CreateNotification(string.Concat("chrome", workingMsg));
                 process = "chrome.exe";
             }
             else if (RunningProcessPaths.Contains("firefox.exe"))
             {
                 //Google Chrome is running
-                Notification.CreateNotificaion(string.Concat("firefox", workingMsg));
+                Notification.CreateNotification(string.Concat("firefox", workingMsg));
                 process = "firefox.exe";
             }
             else if (RunningProcessPaths.Contains("opera.exe"))
             {
                 //Google Chrome is running
-                Notification.CreateNotificaion(string.Concat("opera", workingMsg));
+                Notification.CreateNotification(string.Concat("opera", workingMsg));
                 process = "opera.exe";
             }
             System.Diagnostics.Process.Start(process, url);

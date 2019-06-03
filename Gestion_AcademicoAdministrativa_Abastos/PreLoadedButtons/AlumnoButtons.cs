@@ -132,7 +132,7 @@ namespace Gestion_AcademicoAdministrativa_Abastos.PreLoadedButtons
                     }
                     else if (btnSender == FifthButton)
                     {
-                        Notification.CreateNotificaion("Todavía no disponible. Lo sentimos");
+                        Notification.CreateNotification("Todavía no disponible. Lo sentimos");
                     }
                     else if (btnSender == HomeButton)
                     {
