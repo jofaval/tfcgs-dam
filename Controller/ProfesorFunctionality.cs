@@ -39,7 +39,7 @@ namespace Controller
             var currentDayByte = (byte)(currentDay > 0 ? (byte)currentDay - 1 : 5);
 
             var horariosDelProfesor = horarios
-                .Where(i => i.Horario.Dia.Equals(currentDayByte)
+                .Where(i => i.Horario.Dia.Equals(currentDayByte + 1)
                 && (currentHour >= i.HoraInicio.Hour
                 && currentHour <= i.HoraFinal.Hour)
                 && (currentMinute >= i.HoraInicio.Minute
