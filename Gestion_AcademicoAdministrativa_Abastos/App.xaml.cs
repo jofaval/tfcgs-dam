@@ -26,9 +26,10 @@ namespace Gestion_AcademicoAdministrativa_Abastos
 
         void OnDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
-            Notification.CreateNotification("");
+            Notification.CreateNotification("Ha ocurrido un error inesperado, lo sentimos");
             e.Handled = true;
         }
+
         public static void LoadSettings()
         {
             if (!File.Exists(Constants.SettingsFile))
