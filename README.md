@@ -1,5 +1,5 @@
 # Gestión Académico-Administrativa Abastos
-#### Trabajo Final de Ciclo Formativo Grado Superior Desarrollo de Aplicaciones Web
+#### Trabajo Final de Ciclo Formativo Grado Superior Desarrollo de Aplicaciones Multiplataforma
 #### Nota 10
 
 ## Módulos del ciclo relacionados con el proyecto
